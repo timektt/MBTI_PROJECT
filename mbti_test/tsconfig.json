@@ -13,14 +13,17 @@
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
+    "baseUrl": ".",
+    "types": ["next-auth"],                            // 👈 เพิ่มให้ paths ใช้งานได้จริง
+    "paths": {
+      "@/*": ["./*"]                           // 👈 ให้ @ ชี้ไปที่รากโปรเจกต์ (ใช้ได้ทั้ง lib, components, etc.)
+    },
     "plugins": [
       {
         "name": "next"
+        
       }
-    ],
-    "paths": {
-      "@/*": ["./src/*"]
-    }
+    ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]

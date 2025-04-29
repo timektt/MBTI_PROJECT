@@ -6,11 +6,12 @@ services:
     container_name: postgres-db
     restart: always
     ports:
-      - "5432:5432"
+      - "5433:5432"
     environment:
-      POSTGRES_USER: yourusername
-      POSTGRES_PASSWORD: yourpassword
-      POSTGRES_DB: yourdbname
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: mbti_project
+      POSTGRES_HOST_AUTH_METHOD: md5   # <<== เพิ่มตรงนี้
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
