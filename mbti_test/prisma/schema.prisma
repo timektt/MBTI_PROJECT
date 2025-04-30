@@ -10,22 +10,40 @@ generator client {
 }
 
 model User {
-  id                String   @id @default(cuid())
-  name              String?
-  email             String   @unique
-  emailVerified     DateTime?
-  image             String?
-  bio               String?
-  mbtiType          String?
-  role              String   @default("user")
-  quizResults       QuizResult[]
-  cards             Card[]
-  comments          Comment[]
-  groupMemberships  GroupMember[]
-  accounts          Account[]      // 👈 ใช้ร่วมกับ NextAuth
-  sessions          Session[]      // 👈 ใช้ร่วมกับ NextAuth
-  createdAt         DateTime @default(now())
-  updatedAt         DateTime @updatedAt
+  id               String        @id @default(cuid())
+  name             String? // ชื่อแสดง (สามารถเว้นว่างได้)
+  email            String        @unique // ต้องไม่ซ้ำ ใช้สำหรับ login
+  emailVerified    DateTime? // สำหรับระบบ verify email (ถ้าเปิดใช้)
+  image            String? // URL รูปโปรไฟล์
+  username         String?       @unique // ชื่อ public profile เช่น /u/username
+  bio              String? // คำแนะนำตัวหรือ bio ส่วนตัว
+  mbtiType         String? // MBTI ล่าสุด (optional)
+  role             String        @default("user") // ใช้สำหรับระบบ admin (role-based access)
+  quizResults      QuizResult[] // ประวัติการทำ MBTI
+  cards            Card[] // การ์ดส่วนตัวที่สร้าง
+  comments         Comment[] // ความคิดเห็นที่โพสต์
+  groupMemberships GroupMember[] // สมาชิกในกลุ่ม
+  accounts         Account[] // OAuth accounts (Google, GitHub, etc.)
+  sessions         Session[] // สำหรับระบบ NextAuth session
+  createdAt        DateTime      @default(now()) // วันที่สมัคร
+  updatedAt        DateTime      @updatedAt // อัปเดตล่าสุด
+}
+
+model Card {
+  id          String    @id @default(cuid())
+  user        User      @relation(fields: [userId], references: [id])
+  userId      String
+  title       String
+  description String
+  imageUrl    String
+  comments    Comment[]
+  likes       Int       @default(0)
+  visibility  String    @default("public")
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  quizResultId String?     @unique
+  quizResult   QuizResult? @relation(fields: [quizResultId], references: [id])
 }
 
 model QuizResult {
@@ -36,20 +54,8 @@ model QuizResult {
   scoreDetail Json
   testVersion String?
   createdAt   DateTime @default(now())
-}
 
-model Card {
-  id          String   @id @default(cuid())
-  user        User     @relation(fields: [userId], references: [id])
-  userId      String
-  title       String
-  description String
-  imageUrl    String
-  comments    Comment[]
-  likes       Int      @default(0)
-  visibility  String   @default("public")
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  card Card? // 🔁 ฝั่งกลับของ relation
 }
 
 model Comment {
@@ -59,42 +65,43 @@ model Comment {
   card      Card     @relation(fields: [cardId], references: [id])
   cardId    String
   content   String
-  parentId  String?
+  parentId  String? // สำหรับ threaded comment (optional)
   createdAt DateTime @default(now())
 }
 
 model Group {
-  id          String   @id @default(cuid())
-  name        String   @unique
+  id          String        @id @default(cuid())
+  name        String        @unique
   description String?
-  imageUrl    String?
+  imageUrl    String? // รูปกลุ่ม
   members     GroupMember[]
-  createdAt   DateTime @default(now())
+  createdAt   DateTime      @default(now())
 }
 
 model GroupMember {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String
-  group     Group    @relation(fields: [groupId], references: [id])
-  groupId   String
-  joinedAt  DateTime @default(now())
+  id       String   @id @default(cuid())
+  user     User     @relation(fields: [userId], references: [id])
+  userId   String
+  group    Group    @relation(fields: [groupId], references: [id])
+  groupId  String
+  joinedAt DateTime @default(now())
 }
 
 model Account {
-  id                 String  @id @default(cuid())
-  userId             String
-  type               String
-  provider           String
-  providerAccountId  String
-  refresh_token      String? 
-  access_token       String? 
-  expires_at         Int?    
-  token_type         String? 
-  scope              String? 
-  id_token           String? 
-  session_state      String? 
-  user               User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -104,7 +111,8 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

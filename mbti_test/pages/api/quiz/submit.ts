@@ -15,7 +15,17 @@ export default async function handler(
 
   const { answers } = req.body
 
-  // Logic แปลงคำตอบเป็น MBTI type อย่างง่าย
+  if (!answers || !answers.q1 || !answers.q2 || !answers.q3 || !answers.q4) {
+    return res.status(400).json({ message: "Invalid answers format" })
+  }
+
+  const count = await prisma.quizResult.count({
+    where: { userId: session.user.id },
+  });
+  if (count > 0) {
+    return res.status(400).json({ message: "You have already completed the quiz." });
+  }
+
   const mbtiType = `${answers.q1[0]}${answers.q2[0]}${answers.q3[0]}${answers.q4[0]}`.toUpperCase()
 
   const result = await prisma.quizResult.create({
@@ -23,8 +33,16 @@ export default async function handler(
       userId: session.user.id,
       mbtiType,
       scoreDetail: answers,
+      card: {
+        create: {
+          userId: session.user.id,
+          title: `My MBTI Card`,
+          description: `Official result: ${mbtiType}`,
+          imageUrl: `https://source.unsplash.com/random/400x300/?mbti`,
+        }
+      }
     },
   })
 
-  res.status(200).json({ resultId: result.id })
+  return res.status(200).json({ resultId: result.id })
 }
