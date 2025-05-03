@@ -1,28 +1,26 @@
-// pages/u/[username].tsx
+import { GetServerSideProps, GetServerSidePropsContext } from "next"
+import { prisma } from "@/lib/prisma"
+import Head from "next/head"
+import Image from "next/image"
+import Link from "next/link"
 
-import { GetServerSideProps, GetServerSidePropsContext } from "next";
-import { prisma } from "@/lib/prisma";
-import Head from "next/head";
-import Image from "next/image";
-import Link from "next/link";
-
-// 🔧 เพิ่ม type ให้ props
+// 🧩 ประกาศ type อย่างชัดเจน
 type PublicProfileProps = {
   profile: {
-    name: string;
-    username: string;
-    image: string | null;
-    mbtiType: string;
-    bio: string;
-    createdAt: string;
-    latestCardId: string | null;
-  };
-};
+    name: string
+    username: string
+    image: string | null
+    mbtiType: string
+    bio: string
+    createdAt: string
+    latestCardId: string | null
+  }
+}
 
 export const getServerSideProps: GetServerSideProps = async (
   context: GetServerSidePropsContext
 ) => {
-  const username = context.params?.username as string;
+  const username = context.params?.username as string
 
   const user = await prisma.user.findFirst({
     where: {
@@ -36,10 +34,14 @@ export const getServerSideProps: GetServerSideProps = async (
         orderBy: { createdAt: "desc" },
         take: 1,
       },
+      cards: {
+        orderBy: { createdAt: "desc" },
+        take: 1,
+      },
     },
-  });
+  })
 
-  if (!user) return { notFound: true };
+  if (!user) return { notFound: true }
 
   return {
     props: {
@@ -50,11 +52,11 @@ export const getServerSideProps: GetServerSideProps = async (
         mbtiType: user.quizResults?.[0]?.mbtiType ?? "Not available",
         bio: user.bio ?? "",
         createdAt: user.createdAt.toISOString(),
-        latestCardId: user.quizResults?.[0]?.id ?? null,
+        latestCardId: user.cards?.[0]?.id ?? null,
       },
     },
-  };
-};
+  }
+}
 
 export default function PublicProfile({ profile }: PublicProfileProps) {
   return (
@@ -68,6 +70,8 @@ export default function PublicProfile({ profile }: PublicProfileProps) {
           content={profile.bio || "MBTI result from our platform"}
         />
         {profile.image && <meta property="og:image" content={profile.image} />}
+        <meta property="og:type" content="profile" />
+        <meta name="twitter:card" content="summary" />
       </Head>
 
       <div className="max-w-xl mx-auto px-4 py-10 text-center">
@@ -85,9 +89,14 @@ export default function PublicProfile({ profile }: PublicProfileProps) {
           <h1 className="text-2xl font-bold text-blue-700 dark:text-white">
             {profile.name}
           </h1>
-          <p className="text-sm text-gray-500">@{profile.username}</p>
+          <p className="text-sm text-gray-500">
+            <Link href={`/u/${profile.username}`} className="underline">
+              @{profile.username}
+            </Link>
+          </p>
+
           <p className="mt-2 text-sm text-gray-600 dark:text-gray-300 italic">
-            {profile.bio}
+            {profile.bio.replace(/</g, "&lt;").replace(/>/g, "&gt;")}
           </p>
 
           <div className="mt-4">
@@ -108,5 +117,5 @@ export default function PublicProfile({ profile }: PublicProfileProps) {
         </div>
       </div>
     </>
-  );
+  )
 }

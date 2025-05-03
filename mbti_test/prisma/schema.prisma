@@ -1,90 +1,146 @@
-// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
 
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
-generator client {
-  provider = "prisma-client-js"
-}
-
 model User {
-  id               String        @id @default(cuid())
-  name             String? // ชื่อแสดง (สามารถเว้นว่างได้)
-  email            String        @unique // ต้องไม่ซ้ำ ใช้สำหรับ login
-  emailVerified    DateTime? // สำหรับระบบ verify email (ถ้าเปิดใช้)
-  image            String? // URL รูปโปรไฟล์
-  username         String?       @unique // ชื่อ public profile เช่น /u/username
-  bio              String? // คำแนะนำตัวหรือ bio ส่วนตัว
-  mbtiType         String? // MBTI ล่าสุด (optional)
-  role             String        @default("user") // ใช้สำหรับระบบ admin (role-based access)
-  quizResults      QuizResult[] // ประวัติการทำ MBTI
-  cards            Card[] // การ์ดส่วนตัวที่สร้าง
-  comments         Comment[] // ความคิดเห็นที่โพสต์
-  groupMemberships GroupMember[] // สมาชิกในกลุ่ม
-  accounts         Account[] // OAuth accounts (Google, GitHub, etc.)
-  sessions         Session[] // สำหรับระบบ NextAuth session
-  createdAt        DateTime      @default(now()) // วันที่สมัคร
-  updatedAt        DateTime      @updatedAt // อัปเดตล่าสุด
+  id               String         @id @default(cuid())
+  name             String?
+  email            String         @unique
+  emailVerified    DateTime?
+  image            String?
+  bio              String?
+  role             String         @default("user")
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  username         String?        @unique
+  accounts         Account[]
+  cards            Card[]
+  cardLikes        CardLike[]
+  comments         Comment[]
+  commentLikes     CommentLike[]
+  groupMemberships GroupMember[]
+  notifications    Notification[]
+  quizResults      QuizResult[]
+  sessions         Session[]
+  activities       Activity[] // 👈 เพิ่มตรงนี้
 }
 
 model Card {
-  id          String    @id @default(cuid())
-  user        User      @relation(fields: [userId], references: [id])
-  userId      String
-  title       String
-  description String
-  imageUrl    String
-  comments    Comment[]
-  likes       Int       @default(0)
-  visibility  String    @default("public")
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
+  id           String      @id @default(cuid())
+  userId       String
+  title        String
+  description  String
+  imageUrl     String
+  visibility   String      @default("public")
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
   quizResultId String?     @unique
   quizResult   QuizResult? @relation(fields: [quizResultId], references: [id])
+  user         User        @relation(fields: [userId], references: [id])
+  likes        CardLike[]
+  comments     Comment[]
+  activities   Activity[] // 👈 เพิ่มตรงนี้
+
+  @@index([userId])
 }
 
 model QuizResult {
   id          String   @id @default(cuid())
-  user        User     @relation(fields: [userId], references: [id])
   userId      String
   mbtiType    String
   scoreDetail Json
   testVersion String?
   createdAt   DateTime @default(now())
+  card        Card?
+  user        User     @relation(fields: [userId], references: [id])
 
-  card Card? // 🔁 ฝั่งกลับของ relation
+  @@index([userId])
 }
 
 model Comment {
-  id        String   @id @default(cuid())
-  user      User     @relation(fields: [userId], references: [id])
+  id        String        @id @default(cuid())
   userId    String
-  card      Card     @relation(fields: [cardId], references: [id])
   cardId    String
   content   String
-  parentId  String? // สำหรับ threaded comment (optional)
+  parentId  String?
+  createdAt DateTime      @default(now())
+  card      Card          @relation(fields: [cardId], references: [id])
+  user      User          @relation(fields: [userId], references: [id])
+  likes     CommentLike[]
+
+  @@index([userId])
+  @@index([cardId])
+}
+
+model CommentLike {
+  id        String   @id @default(cuid())
+  userId    String
+  commentId String
   createdAt DateTime @default(now())
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  User      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, commentId])
+}
+
+model CardLike {
+  id        String   @id @default(cuid())
+  userId    String
+  cardId    String
+  source    String   @default("unknown") // ✅ เพิ่มตรงนี้
+  createdAt DateTime @default(now())
+  card      Card     @relation(fields: [cardId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, cardId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  message   String
+  link      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id        String   @id @default(cuid())
+  type      String // เช่น "like", "comment", "create_card"
+  message   String // ข้อความที่จะแสดง เช่น "John liked your card"
+  userId    String // ผู้ที่ทำ action
+  user      User     @relation(fields: [userId], references: [id])
+  cardId    String? // optional: ใช้ถ้ากิจกรรมเกี่ยวกับการ์ด
+  card      Card?    @relation(fields: [cardId], references: [id])
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+  @@index([cardId])
 }
 
 model Group {
   id          String        @id @default(cuid())
   name        String        @unique
   description String?
-  imageUrl    String? // รูปกลุ่ม
-  members     GroupMember[]
+  imageUrl    String?
   createdAt   DateTime      @default(now())
+  members     GroupMember[]
 }
 
 model GroupMember {
   id       String   @id @default(cuid())
-  user     User     @relation(fields: [userId], references: [id])
   userId   String
-  group    Group    @relation(fields: [groupId], references: [id])
   groupId  String
   joinedAt DateTime @default(now())
+  group    Group    @relation(fields: [groupId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
 }
 
 model Account {
@@ -100,8 +156,7 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@unique([provider, providerAccountId])
 }
@@ -111,8 +166,7 @@ model Session {
   sessionToken String   @unique
   userId       String
   expires      DateTime
-
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 }
 
 model VerificationToken {

@@ -1,30 +1,28 @@
-// Step 1: Create MBTI Card Page at pages/card/[id].tsx
+// pages/card/[id].tsx
 
 import { GetServerSideProps } from "next";
 import { prisma } from "@/lib/prisma";
 import Head from "next/head";
-import Image from "next/image";
 import Link from "next/link";
 import { FaUser, FaBrain, FaCheckCircle, FaDownload, FaCopy } from "react-icons/fa";
 import html2canvas from "html2canvas";
 import { useRef, useState } from "react";
-
-
+import CardComments from "@/components/CardComments";
+import CardLikers from "@/components/CardLikers";
 
 type CardProps = {
-  id: string
-  title: string
-  description: string
-  imageUrl: string
-  mbtiType: string
-  createdAt: string
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+  mbtiType: string;
+  createdAt: string;
   user: {
-    name: string
-    username: string
-    image?: string | null
-  }
+    name: string;
+    username: string;
+    image?: string | null;
+  };
 };
-
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const id = context.params?.id as string;
@@ -35,7 +33,6 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
       quizResult: true,
     },
   });
-
 
   if (!card) return { notFound: true };
 
@@ -107,12 +104,18 @@ export default function CardPage({ card }: { card: CardProps }) {
             <p className="text-4xl font-bold text-purple-700 dark:text-purple-400 tracking-wider">
               {card.mbtiType}
             </p>
+
+            {/* ✅ แสดงรายชื่อผู้ที่ Like การ์ดนี้ */}
+            <CardLikers cardId={card.id} />
+
+            {/* ✅ คอมเมนต์ใต้การ์ด */}
+            <CardComments cardId={card.id} />
           </div>
 
           <p className="text-gray-600 dark:text-gray-300 italic mb-2">{card.description}</p>
 
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-            Created on {new Date(card.createdAt).toLocaleDateString()} by{' '}
+            Created on {new Date(card.createdAt).toLocaleDateString()} by{" "}
             <Link href={`/u/${card.user.username ?? card.user.name ?? "user"}`} className="underline">
               {card.user.name}
             </Link>

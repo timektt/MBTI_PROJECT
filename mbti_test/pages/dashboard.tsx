@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]";
+import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import Link from "next/link";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
+import ActivityFeed from "@/components/ActivityFeed"
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
@@ -24,7 +25,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       },
     },
     include: {
-      card: true, // ✅ เชื่อมกับ Card
+      card: true,
     },
     orderBy: {
       createdAt: "desc",
@@ -37,7 +38,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         id: r.id,
         mbtiType: r.mbtiType,
         createdAt: r.createdAt.toISOString(),
-        cardId: r.card?.id ?? null, // ✅ เพิ่ม cardId
+        cardId: r.card?.id ?? null,
       })),
     },
   };
@@ -59,7 +60,7 @@ export default function DashboardPage({
         <title>Your Dashboard | MBTI</title>
         <meta
           name="description"
-          content="View your MBTI quiz history and manage your personality cards."
+          content="View your MBTI quiz history and your permanent personality card."
         />
       </Head>
 
@@ -67,6 +68,13 @@ export default function DashboardPage({
         <h1 className="text-3xl font-bold mb-6 text-blue-700 dark:text-white">
           Your MBTI Results
         </h1>
+        <div className="mb-8">
+          <ActivityFeed />
+        </div>
+
+        <div className="mb-6 p-4 bg-yellow-100 text-yellow-800 rounded border border-yellow-300">
+          🎴 Your MBTI identity has been permanently assigned and cannot be changed.
+        </div>
 
         {results.length === 0 ? (
           <p className="text-gray-600 dark:text-gray-300">
@@ -96,45 +104,18 @@ export default function DashboardPage({
                     >
                       View Result
                     </Link>
-
+                  
                     {r.cardId ? (
-                      <>
-                        <Link
-                          href={`/card/${r.cardId}`}
-                          className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
-                        >
-                          View Card
-                        </Link>
-                    
-                        <button
-                          onClick={async () => {
-                            const confirmed = confirm("Are you sure you want to delete this card?");
-                            if (confirmed) {
-                              const res = await fetch("/api/card/delete", {
-                                method: "DELETE",
-                                headers: { "Content-Type": "application/json" },
-                                body: JSON.stringify({ cardId: r.cardId }),
-                              });
-                    
-                              if (res.ok) {
-                                window.location.reload();
-                              } else {
-                                alert("Failed to delete card.");
-                              }
-                            }
-                          }}
-                          className="bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm"
-                        >
-                          Delete
-                        </button>
-                      </>
-                    ) : (
                       <Link
-                        href={`/card/create`}
-                        className="bg-yellow-500 hover:bg-yellow-600 text-white px-3 py-1 rounded text-sm"
+                        href={`/card/${r.cardId}`}
+                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
                       >
-                        Create Card
+                        View Card
                       </Link>
+                    ) : (
+                      <span className="text-gray-400 italic text-sm">
+                        Card not found.
+                      </span>
                     )}
                   </div>
                 </div>

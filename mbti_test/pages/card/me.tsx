@@ -2,7 +2,7 @@
 // ดึง card จาก quizResult ที่สร้างไว้ทันทีหลัง submit
 
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]";
+import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { GetServerSidePropsContext } from "next";
 import { redirect } from "next/navigation";

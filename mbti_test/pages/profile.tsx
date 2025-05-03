@@ -1,9 +1,10 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "./api/auth/[...nextauth]";
+import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { GetServerSidePropsContext } from "next";
 import Image from "next/image";
 import { useState } from "react";
+import ActivityFeed from "@/components/ActivityFeed";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
@@ -39,6 +40,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         bio: user.bio || "",
         mbtiType: user.quizResults[0]?.mbtiType || "Not taken yet",
         joinedAt: user.createdAt.toString(),
+        id: user.id, // ✅ ส่ง id ไปให้ ActivityFeed ใช้
       },
     },
   };
@@ -48,6 +50,7 @@ export default function ProfilePage({
   user,
 }: {
   user: {
+    id: string;
     name: string;
     email: string;
     image: string | null;
@@ -155,6 +158,14 @@ export default function ProfilePage({
             )}
           </div>
         </div>
+      </div>
+
+      {/* ✅ Section: Activity Feed */}
+      <div className="mt-10">
+        <h2 className="text-xl font-semibold mb-4 text-blue-700 dark:text-white">
+          Recent Activity
+        </h2>
+        <ActivityFeed userId={user.id} />
       </div>
     </div>
   );
