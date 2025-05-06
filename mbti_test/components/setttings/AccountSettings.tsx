@@ -1,68 +1,140 @@
-import { useState } from "react"
-import Image from "next/image"
+import { useState, useEffect } from "react";
+import Image from "next/image";
+import { UserProfileProps } from "@/types/user"; // ✅ ใช้ type จากกลาง
 
-export default function AccountSettings({ user }: { user: any }) {
-  const [name, setName] = useState(user.name || "")
-  const [username, setUsername] = useState(user.username || "")
-  const [bio, setBio] = useState(user.bio || "")
-  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle")
-  const [message, setMessage] = useState("")
+export default function AccountSettings({ user }: { user: UserProfileProps }) {
+  const [name, setName] = useState(user.name ?? "");
+  const [username, setUsername] = useState(user.username ?? "");
+  const [bio, setBio] = useState(user.bio ?? "");
+  const [image, setImage] = useState(user.image ?? "");
+  const [imagePreview, setImagePreview] = useState(user.image ?? "");
+
+  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    setImagePreview(image);
+  }, [image]);
 
   const handleUpdate = async () => {
-    setStatus("saving")
-    setMessage("")
+    setStatus("saving");
+    setMessage("");
 
-    const res = await fetch("/api/settings/updateProfile", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, username, bio }),
-    })
+    try {
+      const res = await fetch("/api/settings/updateProfile", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, username, bio, image }),
+      });
 
-    const data = await res.json()
-    if (!res.ok) {
-      setStatus("error")
-      setMessage(data.error || "Failed to update profile.")
-    } else {
-      setStatus("saved")
-      setMessage("Profile updated successfully.")
-      setTimeout(() => setStatus("idle"), 2000)
+      const data = await res.json();
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(data.error || "Failed to update profile.");
+      } else {
+        setStatus("saved");
+        setMessage("Profile updated successfully.");
+        setTimeout(() => setStatus("idle"), 2000);
+      }
+    } catch (error) {
+      console.error("Update profile failed:", error);
+      setStatus("error");
+      setMessage("Unexpected error occurred.");
     }
-  }
+  };
+
+  const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    const reader = new FileReader();
+    reader.onloadend = async () => {
+      const base64 = reader.result;
+      try {
+        const res = await fetch("/api/upload-image", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ imageBase64: base64 }),
+        });
+
+        const data = await res.json();
+        if (res.ok) {
+          setImage(data.url);
+          setImagePreview(data.url);
+        } else {
+          console.error("Upload failed:", data.error);
+        }
+      } catch (error) {
+        console.error("Unexpected upload error:", error);
+      }
+    };
+    reader.readAsDataURL(file);
+  };
 
   return (
     <div className="bg-white dark:bg-gray-800 shadow rounded p-6">
       <h2 className="text-xl font-semibold mb-4">Profile Info</h2>
 
-      {user.image && (
+      {imagePreview && (
         <Image
-          src={user.image}
-          alt={user.name}
-          width={64}
-          height={64}
+          src={imagePreview}
+          alt="Profile Preview"
+          width={72}
+          height={72}
           className="rounded-full mb-4 border"
         />
       )}
 
+      <label className="block text-sm font-medium mb-1">Upload Profile Image</label>
+      <input
+        type="file"
+        accept="image/*"
+        onChange={handleFileChange}
+        aria-label="Upload profile image"
+        className="w-full mb-4"
+      />
+
+      <label className="block text-sm font-medium mb-1">Or use an Image URL</label>
+      <input
+        type="url"
+        value={image}
+        placeholder="https://your-image-url.jpg"
+        onChange={(e) => {
+          setImage(e.target.value);
+          setImagePreview(e.target.value);
+        }}
+        aria-label="Profile image URL"
+        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+      />
+
       <label className="block text-sm font-medium mb-1">Name</label>
       <input
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        type="text"
         value={name}
+        placeholder="Your name"
         onChange={(e) => setName(e.target.value)}
+        aria-label="Name"
+        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
       />
 
       <label className="block text-sm font-medium mb-1">Username</label>
       <input
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        type="text"
         value={username}
+        placeholder="your-username"
         onChange={(e) => setUsername(e.target.value)}
+        aria-label="Username"
+        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
       />
 
       <label className="block text-sm font-medium mb-1">Bio</label>
       <textarea
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
         value={bio}
+        placeholder="Tell us about yourself"
         onChange={(e) => setBio(e.target.value)}
         rows={3}
+        aria-label="Bio"
+        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
       />
 
       <button
@@ -74,8 +146,10 @@ export default function AccountSettings({ user }: { user: any }) {
       </button>
 
       {message && (
-        <p className={`mt-2 text-sm ${status === "error" ? "text-red-500" : "text-green-600"}`}>{message}</p>
+        <p className={`mt-2 text-sm ${status === "error" ? "text-red-500" : "text-green-600"}`}>
+          {message}
+        </p>
       )}
     </div>
-  )
+  );
 }

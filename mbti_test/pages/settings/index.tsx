@@ -1,9 +1,17 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
+import { prisma } from "@/lib/prisma";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
-import AccountSettings from "@/components/settings/AccountSettings";
+import AccountSettings from "@/components/setttings/AccountSettings";
+import type { UserProfileProps } from "@/types/user";
 
+type SettingsPageProps = {
+  user: UserProfileProps;
+};
+
+
+// 🔒 Server-Side Props
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
 
@@ -16,18 +24,41 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     };
   }
 
+  const user = await prisma.user.findUnique({
+    where: { email: session.user.email },
+    select: {
+      id: true,
+      name: true,
+      email: true,
+      image: true,
+      username: true,
+      bio: true,
+      createdAt: true,
+    },
+  });
+
+  if (!user) return { notFound: true };
+
   return {
     props: {
       user: {
-        name: session.user.name || "",
-        email: session.user.email,
-        image: session.user.image || null,
+        id: user.id,
+        name: user.name ?? "",
+        email: user.email,
+        image: user.image ?? null,
+        username: user.username ?? "",
+        bio: user.bio ?? "",
+        joinedAt: user.createdAt.toISOString(),
       },
     },
   };
 }
 
-export default function SettingsPage({ user }: { user: any }) {
+// 📦 Type for Props
+
+
+// ✅ Component
+export default function SettingsPage({ user }: SettingsPageProps) {
   return (
     <>
       <Head>

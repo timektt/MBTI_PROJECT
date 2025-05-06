@@ -1,9 +1,10 @@
-// lib/authOptions.ts
 import { PrismaAdapter } from "@auth/prisma-adapter"
 import { prisma } from "./prisma"
 import { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import GitHubProvider from "next-auth/providers/github"
+import CredentialsProvider from "next-auth/providers/credentials"
+import bcrypt from "bcryptjs"
 import type { Session } from "next-auth"
 import type { JWT } from "next-auth/jwt"
 
@@ -18,46 +19,64 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GITHUB_ID!,
       clientSecret: process.env.GITHUB_SECRET!,
     }),
+    CredentialsProvider({
+      name: "Credentials",
+      credentials: {
+        email: { label: "Email", type: "text", placeholder: "example@email.com" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        if (!credentials?.email || !credentials?.password) return null;
+
+        const user = await prisma.user.findUnique({
+          where: { email: credentials.email },
+        });
+
+        if (!user || !user.password) return null;
+
+        const isValid = await bcrypt.compare(credentials.password, user.password);
+        if (!isValid) return null;
+
+        return user;
+      },
+    }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
 
   session: {
-    strategy: "jwt", // ใช้ JWT แทน session DB
-    maxAge: 30 * 24 * 60 * 60, // (optional) อายุ session 30 วัน
+    strategy: "jwt",
+    maxAge: 30 * 24 * 60 * 60,
   },
 
   callbacks: {
     async jwt({ token, user }) {
       if (user) {
-        token.id = user.id // เพิ่ม id ลง token
-        token.email = user.email
+        token.id = user.id;
+        token.email = user.email;
+        // 👇 เพิ่ม role เข้าไปใน token
+        token.role = user.role;
       }
-      return token
+      return token;
     },
-    async session({
-      session,
-      token,
-    }: {
-      session: Session
-      token: JWT
-    }) {
+    async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string
-        session.user.email = token.email as string
+        session.user.id = token.id as string;
+        session.user.email = token.email as string;
+        // 👇 เพิ่ม role เข้าไปใน session
+        session.user.role = token.role as string;
       }
-      return session
+      return session;
     },
   },
+  
 
   pages: {
-    signIn: "/login", // ✅ redirect ไปหน้า Login ของเราเอง
-    error: "/login?error=OAuthError", // ✅ error page custom
+    signIn: "/login",
+    error: "/login?error=OAuthError",
   },
 
   theme: {
     colorScheme: "auto",
-    logo: "/logo.svg", // ✅ โลโก้ถ้ามี
+    logo: "/logo.svg",
   },
-
-  // (optional) เพิ่ม security headers ได้ใน middleware หรือ next.config.js
 }
