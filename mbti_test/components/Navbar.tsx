@@ -1,9 +1,9 @@
-import Link from "next/link"
-import { useSession, signOut } from "next-auth/react"
-import NotificationBell from "@/components/NotificationBell"
+import Link from "next/link";
+import { useSession, signOut } from "next-auth/react";
+import NotificationBell from "@/components/NotificationBell";
 
 export default function Navbar() {
-  const { data: session } = useSession()
+  const { data: session } = useSession();
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 bg-gray-900 text-white">
@@ -11,11 +11,11 @@ export default function Navbar() {
 
       <div className="flex items-center gap-4">
         <Link href="/quiz" className="hover:underline">Quiz</Link>
+        <Link href="/explore" className="hover:underline">Explore</Link>
+        <Link href="/leaderboard" className="hover:underline">Leaderboard</Link>
         <Link href="/dashboard" className="hover:underline">Dashboard</Link>
 
-        {session && (
-          <NotificationBell />
-        )}
+        {session && <NotificationBell />}
 
         {session ? (
           <button
@@ -31,5 +31,5 @@ export default function Navbar() {
         )}
       </div>
     </nav>
-  )
+  );
 }
