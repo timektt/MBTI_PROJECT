@@ -1,4 +1,4 @@
-import { PrismaAdapter } from "@auth/prisma-adapter"
+import { PrismaAdapter } from "@next-auth/prisma-adapter";
 import { prisma } from "./prisma"
 import { NextAuthOptions } from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
@@ -27,18 +27,22 @@ export const authOptions: NextAuthOptions = {
       },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
-
+      
         const user = await prisma.user.findUnique({
           where: { email: credentials.email },
         });
-
+      
         if (!user || !user.password) return null;
-
+      
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
-
-        return user;
-      },
+      
+        return {
+          id: user.id,
+          email: user.email,
+          role: user.role, // ✅ เพิ่มตรงนี้
+        };
+      }      
     }),
   ],
   secret: process.env.NEXTAUTH_SECRET,
@@ -49,25 +53,44 @@ export const authOptions: NextAuthOptions = {
   },
 
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({
+      token,
+      user,
+    }: {
+      token: JWT;
+      user?: {
+        id: string;
+        email: string;
+        role?: string; // 👈 สำคัญ
+      };
+    }) {
       if (user) {
         token.id = user.id;
         token.email = user.email;
-        // 👇 เพิ่ม role เข้าไปใน token
-        token.role = user.role;
+        token.role = user.role ?? "user"; // 👈 default fallback
       }
       return token;
     },
-    async session({ session, token }) {
+    
+   
+    async session({
+      session,
+      token,
+    }: {
+      session: Session;
+      token: JWT;
+    }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
-        // 👇 เพิ่ม role เข้าไปใน session
-        session.user.role = token.role as string;
+        session.user.role = token.role as string; // 👈 ใส่ได้เพราะ jwt ด้านบน
       }
       return session;
     },
+    
+    
   },
+  
   
 
   pages: {
