@@ -13,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   const cards = await prisma.card.findMany({
     orderBy: { createdAt: "desc" },
     include: {
-      author: {
+      user: {
         select: { username: true, image: true },
       },
     },
