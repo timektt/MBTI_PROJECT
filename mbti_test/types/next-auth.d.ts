@@ -1,24 +1,30 @@
 // types/next-auth.d.ts
 
-import  { DefaultSession } from "next-auth"
+import NextAuth, { DefaultSession } from "next-auth";
+import { JWT } from "next-auth/jwt";
 
+// ✅ ขยาย `Session.user`
 declare module "next-auth" {
   interface Session {
     user: {
-      id: string
-      role: string // ✅ เพิ่มตรงนี้
-      email: string
-    } & DefaultSession["user"]
+      id: string;
+      email: string;
+      role: string;
+    } & DefaultSession["user"];
   }
+
   interface User {
-    role: string // ✅ เพิ่มตรงนี้
-}
+    id: string;
+    email: string;
+    role: string;
+  }
 }
 
+// ✅ ขยาย JWT token
 declare module "next-auth/jwt" {
   interface JWT {
-    id: string
-    role: string // ✅ เพิ่มตรงนี้
-    email: string
+    id: string;
+    email: string;
+    role: string;
   }
 }
