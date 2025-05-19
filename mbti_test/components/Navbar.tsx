@@ -1,9 +1,17 @@
+// ✅ components/Navbar.tsx
+
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import NotificationBell from "@/components/NotificationBell";
 import Image from "next/image";
 import { useState } from "react";
-import { UserProfileProps } from "@/types/user";
+
+// ✅ กำหนด type แบบปลอดภัย
+type SafeUser = {
+  name?: string;
+  email?: string;
+  image?: string;
+};
 
 export default function Navbar() {
   const { data: session, status } = useSession();
@@ -11,7 +19,7 @@ export default function Navbar() {
 
   if (status === "loading") return null;
 
-  const user = session?.user as UserProfileProps;
+  const user = (session?.user ?? {}) as SafeUser;
 
   return (
     <nav className="flex justify-between items-center py-4 px-6 bg-gray-900 text-white relative">
@@ -20,6 +28,7 @@ export default function Navbar() {
       <div className="flex items-center gap-4">
         <Link href="/quiz" className="hover:underline">Quiz</Link>
         <Link href="/explore" className="hover:underline">Explore</Link>
+        <Link href="/activity" className="hover:underline">Activity</Link>
         <Link href="/leaderboard" className="hover:underline">Leaderboard</Link>
         <Link href="/dashboard" className="hover:underline">Dashboard</Link>
 
@@ -31,7 +40,7 @@ export default function Navbar() {
               onClick={() => setDropdownOpen(!isDropdownOpen)}
               className="flex items-center gap-2 focus:outline-none"
             >
-              {user?.image && (
+              {user.image && (
                 <Image
                   src={user.image}
                   alt="profile"
@@ -41,7 +50,7 @@ export default function Navbar() {
                 />
               )}
               <span className="text-sm hidden sm:inline">
-                {user?.name ?? user?.email ?? "Account"}
+                {user.name ?? user.email ?? "Account"}
               </span>
             </button>
 

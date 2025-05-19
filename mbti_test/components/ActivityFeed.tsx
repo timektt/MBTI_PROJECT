@@ -1,49 +1,48 @@
-import { useEffect, useState } from "react"
-import Link from "next/link"
+// ✅ components/feed/ActivityFeed.tsx
 
-type Activity = {
-  id: string
-  type: string
-  message: string
-  createdAt: string
-  cardId?: string | null
-}
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
-export default function ActivityFeed({ userId }: { userId: string }) {
-  const [activities, setActivities] = useState<Activity[]>([])
+// ✅ รองรับ Activity ประเภทต่าง ๆ
+export type Activity = {
+  id: string;
+  type: "LIKE_CARD" | "COMMENT_CARD" | "FOLLOW_USER" | string;
+  message?: string;
+  createdAt: string;
+  cardId?: string | null;
+  targetType?: string | null;
+  user: {
+    name: string;
+    image?: string;
+  };
+};
+
+export default function ActivityFeed({ userId }: { userId?: string }) {
+  const [activities, setActivities] = useState<Activity[]>([]);
 
   useEffect(() => {
-    fetch(`/api/activity/user?userId=${userId}`)
+    const url = userId
+      ? `/api/activity/user?userId=${userId}`
+      : `/api/activity/feed`;
+    fetch(url)
       .then((res) => res.json())
       .then((data) => setActivities(data))
-      .catch((err) => console.error("Failed to fetch activity feed", err))
-  }, [userId])
+      .catch((err) => console.error("Failed to load activities", err));
+  }, [userId]);
 
-  if (activities.length === 0) {
-    return <p className="text-gray-500 text-sm">No recent activity.</p>
+  if (!activities.length) {
+    return <p className="text-gray-500 text-sm">No activity yet.</p>;
   }
 
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-4">
       {activities.map((activity) => (
         <li
           key={activity.id}
-          className="bg-white dark:bg-gray-800 p-4 rounded shadow border border-gray-200 dark:border-gray-700"
+          className="bg-white dark:bg-gray-800 border dark:border-gray-700 p-4 rounded shadow-sm"
         >
-          <div className="text-sm text-gray-700 dark:text-gray-200">
-            {activity.message}
-            {activity.cardId && (
-              <>
-                {" "}
-                –{" "}
-                <Link
-                  href={`/card/${activity.cardId}`}
-                  className="text-blue-600 hover:underline"
-                >
-                  View
-                </Link>
-              </>
-            )}
+          <div className="text-sm text-gray-800 dark:text-gray-200">
+            {renderActivityMessage(activity)}
           </div>
           <div className="text-xs text-gray-400 mt-1">
             {new Date(activity.createdAt).toLocaleString()}
@@ -51,5 +50,56 @@ export default function ActivityFeed({ userId }: { userId: string }) {
         </li>
       ))}
     </ul>
-  )
+  );
 }
+
+function renderActivityMessage(activity: Activity) {
+  const name = activity.user?.name ?? "Someone";
+  const message = activity.message ?? "";
+
+  switch (activity.type) {
+    case "LIKE_CARD":
+      return (
+        <>
+          <strong>{name}</strong> liked {renderCardLink(activity)}
+        </>
+      );
+    case "COMMENT_CARD":
+      return (
+        <>
+          <strong>{name}</strong> commented: {renderCommentMessage(activity)} {renderCardLink(activity)}
+        </>
+      );
+    case "FOLLOW_USER":
+      return <><strong>{name}</strong> followed someone.</>;
+    default:
+      return message;
+  }
+}
+
+function renderCardLink(activity: Activity) {
+  if (!activity.cardId) return <>a card</>;
+  return (
+    <Link href={`/card/${activity.cardId}`} className="text-blue-600 hover:underline">
+      this card
+    </Link>
+  );
+}
+
+function renderCommentMessage(activity: Activity) {
+  if (!activity.message) return <>a comment</>;
+
+  const cleaned = extractQuotedText(activity.message) ?? activity.message;
+
+  return (
+    <em className="text-gray-600 dark:text-gray-400">
+      &ldquo;{cleaned}&rdquo;
+    </em>
+  );
+}
+
+function extractQuotedText(text: string): string | undefined {
+  const match = text.match(/"([^"]*)"/);
+  return match?.[1];
+}
+

@@ -1,32 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
     "incremental": true,
     "baseUrl": ".",
     "types": ["next-auth"],
-    "typeRoots": ["./types", "./node_modules/@types"],                            // 👈 เพิ่มให้ paths ใช้งานได้จริง
+    "typeRoots": ["./types", "./node_modules/@types"],
     "paths": {
-      "@/*": ["./*"]                           // 👈 ให้ @ ชี้ไปที่รากโปรเจกต์ (ใช้ได้ทั้ง lib, components, etc.)
+      "@/*": ["./*"]
     },
     "plugins": [
       {
         "name": "next"
-        
       }
     ]
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "types"],
-
   "exclude": ["node_modules"]
 }

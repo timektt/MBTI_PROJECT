@@ -1,9 +1,6 @@
-// types/next-auth.d.ts
+import { DefaultSession } from "next-auth";
 
-import NextAuth, { DefaultSession } from "next-auth";
-import { JWT } from "next-auth/jwt";
-
-// ✅ ขยาย `Session.user`
+// ✅ ขยาย Session ให้มี id, email, role
 declare module "next-auth" {
   interface Session {
     user: {
@@ -20,7 +17,7 @@ declare module "next-auth" {
   }
 }
 
-// ✅ ขยาย JWT token
+// ✅ ขยาย JWT
 declare module "next-auth/jwt" {
   interface JWT {
     id: string;

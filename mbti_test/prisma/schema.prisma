@@ -29,6 +29,8 @@ model User {
   quizResults      QuizResult[]
   sessions         Session[]
   activities       Activity[] // 👈 เพิ่มตรงนี้
+  following        Follow[] @relation("follower")     // ✅ ผู้ที่ฉันกำลังติดตาม
+  followers        Follow[] @relation("following")    // ✅ คนที่ติดตามฉัน
 }
 
 model Card {
@@ -113,14 +115,15 @@ model Notification {
 }
 
 model Activity {
-  id        String   @id @default(cuid())
-  type      String // เช่น "like", "comment", "create_card"
-  message   String // ข้อความที่จะแสดง เช่น "John liked your card"
-  userId    String // ผู้ที่ทำ action
-  user      User     @relation(fields: [userId], references: [id])
-  cardId    String? // optional: ใช้ถ้ากิจกรรมเกี่ยวกับการ์ด
-  card      Card?    @relation(fields: [cardId], references: [id])
-  createdAt DateTime @default(now())
+  id             String   @id @default(cuid())
+  type           String // เช่น "like", "comment", "create_card"
+  message        String // ข้อความที่จะแสดง เช่น "John liked your card"
+  userId         String // ผู้ที่ทำ action
+  user           User     @relation(fields: [userId], references: [id])
+  cardId         String? // optional: ใช้ถ้ากิจกรรมเกี่ยวกับการ์ด
+  card           Card?    @relation(fields: [cardId], references: [id])
+  targetType     String?   
+  createdAt      DateTime @default(now())
 
   @@index([userId])
   @@index([cardId])
@@ -177,3 +180,15 @@ model VerificationToken {
 
   @@unique([identifier, token])
 }
+
+model Follow {
+  id           String   @id @default(cuid())
+  follower     User     @relation("follower", fields: [followerId], references: [id])
+  following    User     @relation("following", fields: [followingId], references: [id])
+  followerId   String
+  followingId  String
+  createdAt    DateTime @default(now())
+
+  @@unique([followerId, followingId])
+}
+

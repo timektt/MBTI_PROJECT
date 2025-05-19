@@ -1,44 +1,89 @@
-// ✅ API: /pages/api/like/card.ts
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/authOptions"
-import { prisma } from "@/lib/prisma"
-import type { NextApiRequest, NextApiResponse } from "next"
+// ✅ /pages/api/like/card.ts
+
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { prisma } from "@/lib/prisma";
+import { createNotification } from "@/lib/notify"; // ✅ เพิ่มการแจ้งเตือน
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  if (req.method !== "POST") return res.status(405).end()
+  if (req.method !== "POST") return res.status(405).end();
 
-  const session = await getServerSession(req, res, authOptions)
-  if (!session?.user?.id) return res.status(401).json({ error: "Unauthorized" })
+  const session = await getServerSession(req, res, authOptions);
+  const userId = session?.user?.id;
+  if (!userId) return res.status(401).json({ error: "Unauthorized" });
 
-  const { cardId } = req.body
-  if (!cardId) return res.status(400).json({ error: "Missing cardId" })
+  const { cardId } = req.body;
+  if (!cardId || typeof cardId !== "string") {
+    return res.status(400).json({ error: "Missing or invalid cardId" });
+  }
 
   const existing = await prisma.cardLike.findUnique({
     where: {
       userId_cardId: {
-        userId: session.user.id,
+        userId,
         cardId,
       },
     },
-  })
+  });
 
   if (existing) {
     await prisma.cardLike.delete({
       where: {
         userId_cardId: {
-          userId: session.user.id,
+          userId,
           cardId,
         },
       },
-    })
-    return res.status(200).json({ liked: false })
-  } else {
-    await prisma.cardLike.create({
-      data: {
-        userId: session.user.id,
-        cardId,
-      },
-    })
-    return res.status(200).json({ liked: true })
+    });
+
+    return res.status(200).json({ liked: false });
   }
+
+  // ✅ สร้าง Like ใหม่
+  await prisma.cardLike.create({
+    data: {
+      userId,
+      cardId,
+    },
+  });
+
+  // ✅ ดึงข้อมูลเพื่อแสดงใน activity และแจ้งเตือน
+  const [card, user, cardOwner] = await Promise.all([
+    prisma.card.findUnique({
+      where: { id: cardId },
+      select: { title: true },
+    }),
+    prisma.user.findUnique({
+      where: { id: userId },
+      select: { name: true },
+    }),
+    prisma.card.findUnique({
+      where: { id: cardId },
+      select: { userId: true },
+    }),
+  ]);
+
+  // ✅ Log Activity อย่างตรง schema
+  await prisma.activity.create({
+    data: {
+      userId,
+      cardId,
+      type: "LIKE_CARD",
+      targetType: "CARD",
+      message: `${user?.name ?? "Someone"} liked the card "${card?.title ?? "Untitled"}"`,
+    },
+  });
+
+  // ✅ สร้าง Notification หากไม่ใช่เจ้าของเอง
+  if (cardOwner && cardOwner.userId !== userId) {
+    await createNotification({
+      userId: cardOwner.userId,
+      type: "LIKE_CARD",
+      message: `${user?.name ?? "Someone"} liked your card "${card?.title ?? "Untitled"}"`,
+      link: `/card/${cardId}`,
+    });
+  }
+
+  return res.status(200).json({ liked: true });
 }
