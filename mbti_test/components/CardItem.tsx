@@ -1,15 +1,15 @@
 // components/CardItem.tsx
 
-import Link from "next/link"
+import Link from "next/link";
 
 type Card = {
-  id: string
-  title: string
-  mbtiType: string
+  id: string;
+  title: string;
+  mbtiType: string;
   user: {
-    username: string
-  }
-}
+    username: string;
+  };
+};
 
 export default function CardItem({ card }: { card: Card }) {
   return (
@@ -17,14 +17,26 @@ export default function CardItem({ card }: { card: Card }) {
       <p className="text-lg font-semibold text-purple-700 dark:text-purple-400">
         {card.mbtiType}
       </p>
-      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">{card.title}</p>
+      <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+        {card.title}
+      </p>
       <Link
         href={`/card/${card.id}`}
         className="text-blue-600 hover:underline text-sm"
       >
         View Card
       </Link>
-      <p className="text-xs text-gray-500 mt-2">by @{card.user.username}</p>
+
+      {/* ✅ เพิ่มลิงก์ไปหน้าโปรไฟล์ */}
+      <p className="text-xs text-gray-500 mt-2">
+        by{" "}
+        <Link
+          href={`/profile/${card.user.username}`}
+          className="text-blue-600 hover:underline"
+        >
+          @{card.user.username}
+        </Link>
+      </p>
     </div>
-  )
+  );
 }

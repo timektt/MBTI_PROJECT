@@ -54,7 +54,17 @@ export default function CardsManager() {
             <div>
               <h3 className="font-semibold">{card.title}</h3>
               <p className="text-sm text-gray-400">
-                MBTI: {card.mbti} · By: {card.author.username || "Unknown"}
+                MBTI: {card.mbti} · By:{" "}
+                {card.author.username ? (
+                  <Link
+                    href={`/profile/${card.author.username}`}
+                    className="text-blue-600 hover:underline"
+                  >
+                    @{card.author.username}
+                  </Link>
+                ) : (
+                  "Unknown"
+                )}
               </p>
               <p className="text-xs text-gray-500">{new Date(card.createdAt).toLocaleString()}</p>
             </div>

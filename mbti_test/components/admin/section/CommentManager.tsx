@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type Comment = {
   id: string;
@@ -59,13 +60,20 @@ export default function CommentsManager() {
             <div>
               <p className="text-sm text-gray-200 mb-1">{comment.content}</p>
               <p className="text-xs text-gray-400">
-                by{" "}
-                <span className="font-medium text-white">
-                  {comment.user.username || "Unknown"}
-                </span>{" "}
-                on card{" "}
+                by {" "}
+                {comment.user.username ? (
+                  <Link
+                    href={`/profile/${comment.user.username}`}
+                    className="font-medium text-blue-400 hover:underline"
+                  >
+                    @{comment.user.username}
+                  </Link>
+                ) : (
+                  <span className="font-medium text-white">Unknown</span>
+                )} {" "}
+                on card {" "}
                 <span className="italic text-blue-400">
-                 <span>{`"${comment.card.title}"`}</span>
+                  <span>{`"${comment.card.title}"`}</span>
                 </span>
               </p>
               <p className="text-xs text-gray-500 mt-1">

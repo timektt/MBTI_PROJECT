@@ -14,6 +14,7 @@ export type Activity = {
   user: {
     name: string;
     image?: string;
+    id?: string; // ✅ เพิ่ม id เพื่อใช้ลิงก์ไปหน้าโปรไฟล์
   };
 };
 
@@ -57,21 +58,29 @@ function renderActivityMessage(activity: Activity) {
   const name = activity.user?.name ?? "Someone";
   const message = activity.message ?? "";
 
+  const userLink = activity.user?.id ? (
+    <Link href={`/profile/${activity.user.id}`} className="font-semibold text-blue-600 hover:underline">
+      {name}
+    </Link>
+  ) : (
+    <strong>{name}</strong>
+  );
+
   switch (activity.type) {
     case "LIKE_CARD":
       return (
         <>
-          <strong>{name}</strong> liked {renderCardLink(activity)}
+          {userLink} liked {renderCardLink(activity)}
         </>
       );
     case "COMMENT_CARD":
       return (
         <>
-          <strong>{name}</strong> commented: {renderCommentMessage(activity)} {renderCardLink(activity)}
+          {userLink} commented: {renderCommentMessage(activity)} {renderCardLink(activity)}
         </>
       );
     case "FOLLOW_USER":
-      return <><strong>{name}</strong> followed someone.</>;
+      return <>{userLink} followed someone.</>;
     default:
       return message;
   }
@@ -102,4 +111,3 @@ function extractQuotedText(text: string): string | undefined {
   const match = text.match(/"([^"]*)"/);
   return match?.[1];
 }
-

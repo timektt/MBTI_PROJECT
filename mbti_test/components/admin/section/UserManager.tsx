@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 type User = {
   id: string;
@@ -54,7 +55,16 @@ export default function UsersManager() {
         >
           <div className="flex justify-between items-center">
             <div>
-              <p className="font-semibold">{user.username || "No username"}</p>
+              {user.username ? (
+                <Link
+                  href={`/profile/${user.username}`}
+                  className="font-semibold text-blue-600 hover:underline"
+                >
+                  @{user.username}
+                </Link>
+              ) : (
+                <p className="font-semibold">No username</p>
+              )}
               <p className="text-sm text-gray-400">{user.email}</p>
               <p className="text-xs text-gray-500">Joined: {new Date(user.createdAt).toLocaleDateString()}</p>
               <p className="text-xs text-yellow-400">Role: {user.role}</p>

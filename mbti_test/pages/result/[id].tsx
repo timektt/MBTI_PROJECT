@@ -1,18 +1,24 @@
 // pages/result/[id].tsx
 
-import { GetServerSideProps } from "next"
-import { prisma } from "@/lib/prisma"
-import Link from "next/link"
-import { FaUser, FaBrain, FaShareAlt, FaRegAddressCard, FaHome } from "react-icons/fa"
+import { GetServerSideProps } from "next";
+import { prisma } from "@/lib/prisma";
+import Link from "next/link";
+import {
+  FaUser,
+  FaBrain,
+  FaShareAlt,
+  FaRegAddressCard,
+  FaHome,
+} from "react-icons/fa";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-  const id = context.params?.id as string
+  const id = context.params?.id as string;
   const result = await prisma.quizResult.findUnique({
     where: { id },
     include: { user: true },
-  })
+  });
 
-  if (!result) return { notFound: true }
+  if (!result) return { notFound: true };
 
   return {
     props: {
@@ -21,22 +27,24 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
         mbtiType: result.mbtiType,
         scoreDetail: result.scoreDetail,
         userName: result.user?.name || "Anonymous",
+        userUsername: result.user?.username || null,
         createdAt: result.createdAt.toString(),
       },
     },
-  }
-}
+  };
+};
 
 export default function ResultPage({
   result,
 }: {
   result: {
-    id: string
-    mbtiType: string
-    scoreDetail: Record<string, string>
-    userName: string
-    createdAt: string
-  }
+    id: string;
+    mbtiType: string;
+    scoreDetail: Record<string, string>;
+    userName: string;
+    userUsername: string | null;
+    createdAt: string;
+  };
 }) {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-black flex justify-center items-start px-4 py-10">
@@ -47,7 +55,17 @@ export default function ResultPage({
 
         <div className="space-y-4 text-gray-700 dark:text-gray-200">
           <p className="flex items-center gap-2 text-lg">
-            <FaUser className="text-gray-500" /> Name: <span className="font-semibold">{result.userName}</span>
+            <FaUser className="text-gray-500" /> Name:{" "}
+            {result.userUsername ? (
+              <Link
+                href={`/profile/${result.userUsername}`}
+                className="font-semibold text-blue-600 hover:underline"
+              >
+                {result.userName}
+              </Link>
+            ) : (
+              <span className="font-semibold">{result.userName}</span>
+            )}
           </p>
 
           <p className="flex items-center gap-2 text-xl font-bold text-purple-600 dark:text-purple-400">
@@ -88,5 +106,5 @@ export default function ResultPage({
         </div>
       </div>
     </div>
-  )
+  );
 }

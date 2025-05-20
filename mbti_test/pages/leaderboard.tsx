@@ -60,26 +60,28 @@ export default function LeaderboardPage({
               className="flex items-center gap-4 p-4 bg-white dark:bg-gray-800 rounded shadow border dark:border-gray-700"
             >
               <span className="text-xl font-bold w-6">{index + 1}</span>
-              {user.image && (
-                <Image
-                  src={user.image}
-                  alt={user.name}
-                  width={40}
-                  height={40}
-                  className="rounded-full"
-                />
-              )}
-              <div className="flex-1">
-                <Link
-                  href={`/u/${user.username}`}
-                  className="text-lg font-semibold hover:underline text-blue-600 dark:text-blue-400"
-                >
-                  {user.name}
-                </Link>
-                <p className="text-sm text-gray-500 dark:text-gray-400">
-                  @{user.username} — {user.totalLikes} likes
-                </p>
-              </div>
+              <Link
+                href={`/profile/${user.username}`}
+                className="flex items-center gap-3"
+              >
+                {user.image && (
+                  <Image
+                    src={user.image}
+                    alt={user.name}
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                )}
+                <div>
+                  <p className="text-lg font-semibold hover:underline text-blue-600 dark:text-blue-400">
+                    {user.name}
+                  </p>
+                  <p className="text-sm text-gray-500 dark:text-gray-400">
+                    @{user.username} — {user.totalLikes} likes
+                  </p>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
