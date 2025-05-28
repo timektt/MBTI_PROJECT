@@ -4,12 +4,13 @@ import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/authOptions"
 import { NextApiRequest, NextApiResponse } from "next"
+import { logActivity } from "@/lib/activity"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "POST") return res.status(405).end()
 
   const session = await getServerSession(req, res, authOptions)
-  if (!session || !session.user?.email) {
+  if (!session || !session.user?.email || !session.user?.id) {
     return res.status(401).json({ message: "Unauthorized" })
   }
 
@@ -28,6 +29,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     where: { email: session.user.email },
     data: { username },
   })
+
+  // Log activity: Set username
+  await logActivity({
+    userId: session.user.id,
+    type: "SET_USERNAME",
+    message: `Set username to "${username}"`,
+  });
 
   res.status(200).json({ message: "Username set" })
 }

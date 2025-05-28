@@ -4,6 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
+import { logActivity } from "@/lib/activity";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -42,15 +43,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }),
   ]);
 
-  // ✅ สร้าง Activity log
-  await prisma.activity.create({
-    data: {
-      userId,
-      cardId,
-      type: "COMMENT_CARD",
-      targetType: "COMMENT",
-      message: `${user?.name ?? "Someone"} commented: "${content}" on card "${card?.title ?? "Untitled"}"`,
-    },
+  // ✅ สร้าง Activity log ด้วย logActivity
+  await logActivity({
+    userId: userId,
+    type: "COMMENT_CARD",
+    cardId: cardId,
+    targetType: "COMMENT",
+    message: `${user?.name ?? "Someone"} commented: "${content}" on card "${card?.title ?? "Untitled"}"`,
   });
 
   // ✅ สร้าง Notification หากไม่ใช่เจ้าของการ์ดเอง

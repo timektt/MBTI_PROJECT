@@ -1,10 +1,15 @@
-// pages/card/[id].tsx
-
 import { GetServerSideProps } from "next";
 import { prisma } from "@/lib/prisma";
 import Head from "next/head";
 import Link from "next/link";
-import { FaUser, FaBrain, FaCheckCircle, FaDownload, FaCopy } from "react-icons/fa";
+import {
+  FaUser,
+  FaBrain,
+  FaCheckCircle,
+  FaDownload,
+  FaCopy,
+  FaShareAlt,
+} from "react-icons/fa";
 import html2canvas from "html2canvas";
 import { useRef, useState } from "react";
 import CardComments from "@/components/CardComments";
@@ -75,6 +80,14 @@ export default function CardPage({ card }: { card: CardProps }) {
     }
   };
 
+  // ใช้ NEXT_PUBLIC_SITE_URL ถ้ามี, fallback เป็น window.location.origin
+  const siteUrl =
+    typeof window !== "undefined"
+      ? window.location.origin
+      : process.env.NEXT_PUBLIC_SITE_URL || "";
+
+  const shareUrl = `${siteUrl}/card/${card.id}`;
+
   return (
     <>
       <Head>
@@ -105,18 +118,23 @@ export default function CardPage({ card }: { card: CardProps }) {
               {card.mbtiType}
             </p>
 
-            {/* ✅ แสดงรายชื่อผู้ที่ Like การ์ดนี้ */}
+            {/* ✅ ผู้กด Like */}
             <CardLikers cardId={card.id} />
 
-            {/* ✅ คอมเมนต์ใต้การ์ด */}
+            {/* ✅ คอมเมนต์ */}
             <CardComments cardId={card.id} />
           </div>
 
-          <p className="text-gray-600 dark:text-gray-300 italic mb-2">{card.description}</p>
+          <p className="text-gray-600 dark:text-gray-300 italic mb-2">
+            {card.description}
+          </p>
 
           <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
             Created on {new Date(card.createdAt).toLocaleDateString()} by{" "}
-            <Link href={`/u/${card.user.username ?? card.user.name ?? "user"}`} className="underline">
+            <Link
+              href={`/profile/${card.user.username}`}
+              className="underline text-blue-600 hover:text-blue-800"
+            >
               {card.user.name}
             </Link>
           </p>
@@ -137,6 +155,17 @@ export default function CardPage({ card }: { card: CardProps }) {
           >
             <FaDownload /> Download
           </button>
+
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+              shareUrl
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex items-center gap-2"
+          >
+            <FaShareAlt /> Share on Facebook
+          </a>
         </div>
       </div>
     </>

@@ -37,28 +37,43 @@ export default function ChangePasswordPage() {
     <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded shadow">
       <h1 className="text-xl font-semibold mb-4">Change Password</h1>
 
-      <label className="block text-sm font-medium mb-1">Current Password</label>
+      <label htmlFor="currentPassword" className="block text-sm font-medium mb-1">
+        Current Password
+      </label>
       <input
+        id="currentPassword"
         type="password"
         value={currentPassword}
         onChange={(e) => setCurrentPassword(e.target.value)}
         className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        placeholder="Enter current password"
+        autoComplete="current-password"
       />
 
-      <label className="block text-sm font-medium mb-1">New Password</label>
+      <label htmlFor="newPassword" className="block text-sm font-medium mb-1">
+        New Password
+      </label>
       <input
+        id="newPassword"
         type="password"
         value={newPassword}
         onChange={(e) => setNewPassword(e.target.value)}
         className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        placeholder="Enter new password"
+        autoComplete="new-password"
       />
 
-      <label className="block text-sm font-medium mb-1">Confirm New Password</label>
+      <label htmlFor="confirmPassword" className="block text-sm font-medium mb-1">
+        Confirm New Password
+      </label>
       <input
+        id="confirmPassword"
         type="password"
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        placeholder="Confirm new password"
+        autoComplete="new-password"
       />
 
       <button

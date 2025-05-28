@@ -3,7 +3,8 @@
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
-import { createNotification } from "@/lib/notify"; // ✅ เพิ่มการแจ้งเตือน
+import { createNotification } from "@/lib/notify";
+import { logActivity } from "@/lib/activity";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -37,6 +38,26 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       },
     });
 
+    // Log activity: Unlike
+    const [card, user] = await Promise.all([
+      prisma.card.findUnique({
+        where: { id: cardId },
+        select: { title: true },
+      }),
+      prisma.user.findUnique({
+        where: { id: userId },
+        select: { name: true },
+      }),
+    ]);
+
+    await logActivity({
+      userId: userId,
+      type: "UNLIKE_CARD",
+      cardId: cardId,
+      targetType: "CARD",
+      message: `${user?.name ?? "Someone"} unliked the card "${card?.title ?? "Untitled"}"`,
+    });
+
     return res.status(200).json({ liked: false });
   }
 
@@ -64,15 +85,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     }),
   ]);
 
-  // ✅ Log Activity อย่างตรง schema
-  await prisma.activity.create({
-    data: {
-      userId,
-      cardId,
-      type: "LIKE_CARD",
-      targetType: "CARD",
-      message: `${user?.name ?? "Someone"} liked the card "${card?.title ?? "Untitled"}"`,
-    },
+  // ✅ Log Activity ด้วย logActivity
+  await logActivity({
+    userId: userId,
+    type: "LIKE_CARD",
+    cardId: cardId,
+    targetType: "CARD",
+    message: `${user?.name ?? "Someone"} liked the card "${card?.title ?? "Untitled"}"`,
   });
 
   // ✅ สร้าง Notification หากไม่ใช่เจ้าของเอง

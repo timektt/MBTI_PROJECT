@@ -4,6 +4,7 @@ import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { validateUsername } from "@/lib/validateUsername";
+import { logActivity } from "@/lib/activity";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -30,6 +31,13 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       username,
       bio,
     },
+  });
+
+  // Log activity: Update profile
+  await logActivity({
+    userId: session.user.id,
+    type: "UPDATE_PROFILE",
+    message: `Updated profile: username "${username}", bio "${bio}"`,
   });
 
   return res.status(200).json({ ok: true, user: updated });

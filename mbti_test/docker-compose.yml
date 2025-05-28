@@ -11,9 +11,25 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
       POSTGRES_DB: mbti_project
-      POSTGRES_HOST_AUTH_METHOD: md5   # <<== เพิ่มตรงนี้
+      POSTGRES_HOST_AUTH_METHOD: md5
     volumes:
       - postgres_data:/var/lib/postgresql/data
+
+  nextjs:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: mbti_test
+    ports:
+      - "3000:3000"
+    environment:
+      NEXT_PUBLIC_SITE_URL: http://localhost:3000
+      DATABASE_URL: postgres://postgres:postgres@postgres-db:5432/mbti_project
+    depends_on:
+      - postgres
+    restart: unless-stopped
+    volumes:
+      - .:/app
 
 volumes:
   postgres_data:

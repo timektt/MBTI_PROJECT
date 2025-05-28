@@ -1,13 +1,14 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
-import { prisma } from "@/lib/prisma";
-import { GetServerSidePropsContext } from "next";
-import Image from "next/image";
-import { useState } from "react";
-import ActivityFeed from "@/components/ActivityFeed";
+import { getServerSession } from "next-auth"
+import { authOptions } from "@/lib/authOptions"
+import { prisma } from "@/lib/prisma"
+import { GetServerSidePropsContext } from "next"
+import Image from "next/image"
+import { useState } from "react"
+import Link from "next/link"
+import ActivityFeed from "@/components/ActivityFeed"
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getServerSession(context.req, context.res, authOptions);
+  const session = await getServerSession(context.req, context.res, authOptions)
 
   if (!session || !session.user?.email) {
     return {
@@ -15,7 +16,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         destination: "/api/auth/signin",
         permanent: false,
       },
-    };
+    }
   }
 
   const user = await prisma.user.findUnique({
@@ -25,14 +26,21 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         orderBy: { createdAt: "desc" },
         take: 1,
       },
+      _count: {
+        select: {
+          followers: true,
+          following: true,
+        },
+      },
     },
-  });
+  })
 
-  if (!user) return { notFound: true };
+  if (!user) return { notFound: true }
 
   return {
     props: {
       user: {
+        id: user.id,
         name: user.name || "Anonymous",
         email: user.email,
         image: user.image || null,
@@ -40,52 +48,55 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         bio: user.bio || "",
         mbtiType: user.quizResults[0]?.mbtiType || "Not taken yet",
         joinedAt: user.createdAt.toString(),
-        id: user.id, // ✅ ส่ง id ไปให้ ActivityFeed ใช้
+        followers: user._count.followers,
+        following: user._count.following,
       },
     },
-  };
+  }
 }
 
 export default function ProfilePage({
   user,
 }: {
   user: {
-    id: string;
-    name: string;
-    email: string;
-    image: string | null;
-    username: string;
-    bio: string;
-    mbtiType: string;
-    joinedAt: string;
-  };
+    id: string
+    name: string
+    email: string
+    image: string | null
+    username: string
+    bio: string
+    mbtiType: string
+    joinedAt: string
+    followers: number
+    following: number
+  }
 }) {
-  const [bio, setBio] = useState(user.bio);
-  const [username, setUsername] = useState(user.username);
-  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
-  const [message, setMessage] = useState("");
+  const [bio, setBio] = useState(user.bio)
+  const [username, setUsername] = useState(user.username)
+  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle")
+  const [message, setMessage] = useState("")
 
   const saveProfile = async () => {
-    setStatus("saving");
-    setMessage("");
+    setStatus("saving")
+    setMessage("")
 
     const res = await fetch("/api/profile/updateBio", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bio, username }),
-    });
+    })
 
-    const result = await res.json();
+    const result = await res.json()
 
     if (!res.ok) {
-      setStatus("error");
-      setMessage(result.error || "Failed to update.");
+      setStatus("error")
+      setMessage(result.error || "Failed to update.")
     } else {
-      setStatus("saved");
-      setMessage("Profile updated!");
-      setTimeout(() => setStatus("idle"), 2000);
+      setStatus("saved")
+      setMessage("Profile updated!")
+      setTimeout(() => setStatus("idle"), 2000)
     }
-  };
+  }
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-6">
@@ -112,6 +123,19 @@ export default function ProfilePage({
             Joined: {new Date(user.joinedAt).toLocaleDateString()}
           </p>
 
+          {/* ✅ ลิงก์ followers / following */}
+          {user.username && (
+            <div className="flex space-x-4 text-sm text-blue-600 mt-2">
+              <Link href={`/profile/${user.username}/followers`} className="hover:underline">
+                {user.followers} Followers
+              </Link>
+              <Link href={`/profile/${user.username}/following`} className="hover:underline">
+                {user.following} Following
+              </Link>
+            </div>
+          )}
+
+          {/* ✅ ฟอร์มแก้ bio + username */}
           <div className="mt-4">
             <label htmlFor="username" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Username (for public profile):
@@ -168,5 +192,5 @@ export default function ProfilePage({
         <ActivityFeed userId={user.id} />
       </div>
     </div>
-  );
+  )
 }

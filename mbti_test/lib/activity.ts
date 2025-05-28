@@ -1,25 +1,25 @@
 import { prisma } from "./prisma";
 
 export const logActivity = async ({
-  actorId,
+  userId,
   type,
-  targetId,
+  cardId,
   targetType,
   message,
 }: {
-  actorId: string;
+  userId: string;
   type: string;
-  targetId?: string;
+  cardId?: string;
   targetType?: string;
   message?: string;
 }) => {
   return prisma.activity.create({
     data: {
-      actorId,
+      userId,
       type,
-      targetId,
-      targetType,
-      message,
+      cardId: cardId ?? null,
+      targetType: targetType ?? null,
+      message: message ?? "",
     },
   });
 };

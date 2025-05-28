@@ -3,6 +3,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
+import { logActivity } from "@/lib/activity";
 
 // 👇 สร้าง type ชัดเจน
 type RegisterPayload = {
@@ -33,12 +34,21 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    await prisma.user.create({
+    const newUser = await prisma.user.create({
       data: {
         email,
         name,
         password: hashedPassword,
       },
+    });
+
+    // Log activity: Register
+    await logActivity({
+      userId: newUser.id, // ✅ ตรงกับ schema
+      type: "REGISTER",
+      cardId: undefined, // หรือไม่ต้องใส่ถ้าไม่เกี่ยวกับการ์ด
+      targetType: "User",
+      message: `User registered with email "${email}"`,
     });
 
     return res.status(200).json({ message: "User registered successfully." });

@@ -1,6 +1,7 @@
 import { prisma } from "@/lib/prisma"
 import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/authOptions"
+import { logActivity } from "@/lib/activity"
 import type { NextApiRequest, NextApiResponse } from "next"
 
 export default async function handler(
@@ -28,6 +29,7 @@ export default async function handler(
 
   const mbtiType = `${answers.q1[0]}${answers.q2[0]}${answers.q3[0]}${answers.q4[0]}`.toUpperCase()
 
+  // สร้าง quizResult และ card พร้อมกัน
   const result = await prisma.quizResult.create({
     data: {
       userId: session.user.id,
@@ -42,7 +44,19 @@ export default async function handler(
         }
       }
     },
+    include: {
+      card: true, // เพื่อให้ result.card?.id มีค่าแน่นอน
+    }
   })
+
+  // Log activity: Submit quiz
+  await logActivity({
+    userId: session.user.id,
+    type: "SUBMIT_QUIZ",
+    cardId: result.card?.id,
+    targetType: "QuizResult",
+    message: `Submitted MBTI quiz. Result: ${mbtiType}`,
+  });
 
   return res.status(200).json({ resultId: result.id })
 }

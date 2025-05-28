@@ -1,6 +1,7 @@
 // components/CardItem.tsx
 
 import Link from "next/link";
+import Image from "next/image";
 
 type Card = {
   id: string;
@@ -8,6 +9,7 @@ type Card = {
   mbtiType: string;
   user: {
     username: string;
+    image?: string | null; // เพิ่ม field image ถ้าต้องการใช้รูป
   };
 };
 
@@ -27,13 +29,20 @@ export default function CardItem({ card }: { card: Card }) {
         View Card
       </Link>
 
-      {/* ✅ เพิ่มลิงก์ไปหน้าโปรไฟล์ */}
-      <p className="text-xs text-gray-500 mt-2">
+      {/* ✅ เพิ่มลิงก์ไปหน้าโปรไฟล์และรูปโปรไฟล์ */}
+      <p className="text-xs text-gray-500 mt-2 flex items-center gap-2">
         by{" "}
         <Link
           href={`/profile/${card.user.username}`}
-          className="text-blue-600 hover:underline"
+          className="text-blue-600 hover:underline flex items-center gap-1"
         >
+          <Image
+            src={card.user.image || "/default-avatar.png"}
+            alt={card.user.username}
+            width={20}
+            height={20}
+            className="rounded-full object-cover"
+          />
           @{card.user.username}
         </Link>
       </p>

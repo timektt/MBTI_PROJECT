@@ -3,7 +3,8 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
-import { pusherServer } from "@/lib/pusher"; // 👇 จะสร้างในขั้นถัดไป
+import { pusherServer } from "@/lib/pusher";
+import { logActivity } from "@/lib/activity";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -22,9 +23,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     where: { followerId_followingId: { followerId, followingId } },
   });
 
+  const user = await prisma.user.findUnique({ where: { id: followerId } });
+
   if (existing) {
     await prisma.follow.delete({
       where: { followerId_followingId: { followerId, followingId } },
+    });
+    // Log activity: Unfollow
+    await logActivity({
+      userId: followerId,
+      type: "UNFOLLOW_USER",
+      cardId: followingId,
+      targetType: "User",
+      message: `${user?.name ?? "Someone"} unfollowed a user`,
     });
     return res.status(200).json({ followed: false });
   }
@@ -33,8 +44,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     data: { followerId, followingId },
   });
 
+  // Log activity: Follow
+  await logActivity({
+    userId: followerId,
+    type: "FOLLOW_USER",
+    cardId: followingId,
+    targetType: "User",
+    message: `${user?.name ?? "Someone"} followed a user`,
+  });
+
   // ✅ Notification
-  const user = await prisma.user.findUnique({ where: { id: followerId } });
   await createNotification({
     userId: followingId,
     type: "FOLLOW_USER",

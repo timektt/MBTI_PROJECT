@@ -20,20 +20,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      user: session.user,
+      // ไม่จำเป็นต้องส่ง user ถ้าไม่ได้ใช้ใน component
     },
   };
 }
 
-type AdminPageProps = {
-  user: {
-    name?: string | null;
-    email?: string | null;
-    image?: string | null;
-  };
-};
-
-export default function AdminDashboard({ user }: AdminPageProps) {
+// ไม่ต้องรับ prop user ถ้าไม่ได้ใช้
+export default function AdminDashboard() {
   return (
     <>
       <Head>

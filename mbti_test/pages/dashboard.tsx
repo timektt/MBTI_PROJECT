@@ -5,6 +5,7 @@ import Link from "next/link"
 import { GetServerSidePropsContext } from "next"
 import Head from "next/head"
 import ActivityFeed from "@/components/ActivityFeed"
+import Image from "next/image"
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions)
@@ -18,11 +19,23 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
 
+  // ✅ ดึง user info พร้อม count followers/following
+  const user = await prisma.user.findUnique({
+    where: { id: session.user.id },
+    select: {
+      id: true,
+      name: true,
+      username: true,
+      image: true,
+      _count: {
+        select: { followers: true, following: true },
+      },
+    },
+  })
+
   const results = await prisma.quizResult.findMany({
     where: {
-      user: {
-        email: session.user.email,
-      },
+      user: { email: session.user.email },
     },
     include: {
       card: true,
@@ -34,7 +47,14 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   return {
     props: {
-      userId: session.user.id, // ✅ เพิ่มตรงนี้
+      userId: user?.id || "",
+      userInfo: {
+        name: user?.name ?? "Anonymous",
+        username: user?.username ?? "unknown",
+        image: user?.image ?? null,
+        followers: user?._count.followers ?? 0,
+        following: user?._count.following ?? 0,
+      },
       results: results.map((r) => ({
         id: r.id,
         mbtiType: r.mbtiType,
@@ -47,9 +67,17 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
 export default function DashboardPage({
   userId,
+  userInfo,
   results,
 }: {
   userId: string
+  userInfo: {
+    name: string
+    username: string
+    image: string | null
+    followers: number
+    following: number
+  }
   results: {
     id: string
     mbtiType: string
@@ -68,19 +96,42 @@ export default function DashboardPage({
       </Head>
 
       <div className="max-w-4xl mx-auto py-12 px-6">
-        <h1 className="text-3xl font-bold mb-6 text-blue-700 dark:text-white">
-          Your MBTI Results
-        </h1>
+        {/* ✅ User Info Section */}
+        <div className="mb-6 flex items-center space-x-4">
+          <Image
+            src={userInfo.image || "/default-avatar.png"}
+            alt="avatar"
+            width={56}
+            height={56}
+            className="w-14 h-14 rounded-full object-cover"
+          />
+          <div>
+            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+              {userInfo.name}
+            </h2>
+            <p className="text-gray-500">@{userInfo.username}</p>
+            <div className="flex space-x-4 text-sm text-blue-600 mt-1">
+              <Link href={`/profile/${userInfo.username}/followers`} className="hover:underline">
+                {userInfo.followers} Followers
+              </Link>
+              <Link href={`/profile/${userInfo.username}/following`} className="hover:underline">
+                {userInfo.following} Following
+              </Link>
+            </div>
+          </div>
+        </div>
 
-        {/* ✅ ส่ง userId เข้าไปใน ActivityFeed */}
+        {/* ✅ Activity Feed */}
         <div className="mb-8">
           <ActivityFeed userId={userId} />
         </div>
 
+        {/* ✅ Notice */}
         <div className="mb-6 p-4 bg-yellow-100 text-yellow-800 rounded border border-yellow-300">
           🎴 Your MBTI identity has been permanently assigned and cannot be changed.
         </div>
 
+        {/* ✅ MBTI Results List */}
         {results.length === 0 ? (
           <p className="text-gray-600 dark:text-gray-300">
             {"You haven't taken any quizzes yet."}
