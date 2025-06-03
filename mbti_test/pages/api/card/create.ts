@@ -2,9 +2,14 @@ import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { logActivity } from "@/lib/activity";
+import { rateLimit } from "@/lib/rateLimit";
+import { CreateCardSchema } from "@/lib/schema"; // ✅ เพิ่ม schema
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
+
   if (req.method !== "POST") return res.status(405).end();
 
   const session = await getServerSession(req, res, authOptions);
@@ -12,12 +17,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  const { title, description, imageUrl, quizResultId } = req.body;
-
-  // ✅ ตรวจว่า field สำคัญไม่ว่าง
-  if (!title || !description || !quizResultId) {
-    return res.status(400).json({ error: "Missing required fields." });
+  const parseResult = CreateCardSchema.safeParse(req.body); // ✅ validate ด้วย schema
+  if (!parseResult.success) {
+    return res.status(400).json({ error: parseResult.error.flatten() });
   }
+
+  const { title, description, imageUrl, quizResultId } = parseResult.data;
 
   // ✅ ตรวจสอบว่า quizResult นี้เป็นของ user คนนี้จริงไหม
   const quizResult = await prisma.quizResult.findUnique({
@@ -51,7 +56,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     data: {
       title,
       description,
-      imageUrl,
+      imageUrl: imageUrl ?? "",
       userId: session.user.id,
       quizResultId,
     },

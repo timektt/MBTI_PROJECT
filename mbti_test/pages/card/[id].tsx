@@ -8,12 +8,13 @@ import {
   FaCheckCircle,
   FaDownload,
   FaCopy,
-  FaShareAlt,
 } from "react-icons/fa";
 import html2canvas from "html2canvas";
 import { useRef, useState } from "react";
 import CardComments from "@/components/CardComments";
 import CardLikers from "@/components/CardLikers";
+import { QRCode } from "react-qrcode-logo";
+import { FacebookShareButton, FacebookIcon } from "react-share";
 
 type CardProps = {
   id: string;
@@ -140,6 +141,7 @@ export default function CardPage({ card }: { card: CardProps }) {
           </p>
         </div>
 
+        {/* ✅ ปุ่มและ QR/Share */}
         <div className="absolute bottom-10 flex flex-col sm:flex-row gap-4 items-center">
           <button
             onClick={handleCopyLink}
@@ -156,16 +158,18 @@ export default function CardPage({ card }: { card: CardProps }) {
             <FaDownload /> Download
           </button>
 
-          <a
-            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-              shareUrl
-            )}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded flex items-center gap-2"
-          >
-            <FaShareAlt /> Share on Facebook
-          </a>
+          {/* Facebook Share Button */}
+          <FacebookShareButton url={shareUrl}>
+            <div className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded">
+              <FacebookIcon size={24} round />
+              Share
+            </div>
+          </FacebookShareButton>
+
+          {/* QR Code */}
+          <div className="bg-white dark:bg-gray-800 p-2 rounded border border-gray-300 dark:border-gray-600">
+            <QRCode value={shareUrl} size={128} />
+          </div>
         </div>
       </div>
     </>

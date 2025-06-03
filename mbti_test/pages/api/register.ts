@@ -1,27 +1,27 @@
-// pages/api/register.ts
+// ✅ /pages/api/register.ts
 
 import type { NextApiRequest, NextApiResponse } from "next";
 import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 import { logActivity } from "@/lib/activity";
-
-// 👇 สร้าง type ชัดเจน
-type RegisterPayload = {
-  email: string;
-  password: string;
-  name: string;
-};
+import { rateLimit } from "@/lib/rateLimit";
+import { RegisterUserSchema } from "@/lib/schema"; // ✅ ใช้ schema
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
+
   if (req.method !== "POST") {
     return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const { email, password, name }: RegisterPayload = req.body;
-
-  if (!email || !password || !name) {
-    return res.status(400).json({ error: "All fields are required." });
+  // ✅ Validate req.body ด้วย schema
+  const parseResult = RegisterUserSchema.safeParse(req.body);
+  if (!parseResult.success) {
+    return res.status(400).json({ error: parseResult.error.flatten() });
   }
+
+  const { email, password, name } = parseResult.data;
 
   try {
     const existingUser = await prisma.user.findUnique({
@@ -44,9 +44,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     // Log activity: Register
     await logActivity({
-      userId: newUser.id, // ✅ ตรงกับ schema
+      userId: newUser.id,
       type: "REGISTER",
-      cardId: undefined, // หรือไม่ต้องใส่ถ้าไม่เกี่ยวกับการ์ด
+      cardId: undefined,
       targetType: "User",
       message: `User registered with email "${email}"`,
     });

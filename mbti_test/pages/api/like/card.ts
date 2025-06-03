@@ -5,9 +5,13 @@ import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
 import { logActivity } from "@/lib/activity";
+import { rateLimit } from "@/lib/rateLimit";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
+
   if (req.method !== "POST") return res.status(405).end();
 
   const session = await getServerSession(req, res, authOptions);

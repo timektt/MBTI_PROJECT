@@ -5,19 +5,27 @@ import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
 import { logActivity } from "@/lib/activity";
+import { rateLimit } from "@/lib/rateLimit";
+import { PostCommentSchema } from "@/lib/schema"; // ✅ เพิ่ม schema validation
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
+
   if (req.method !== "POST") return res.status(405).end();
 
   const session = await getServerSession(req, res, authOptions);
   const userId = session?.user?.id;
   if (!userId) return res.status(401).end();
 
-  const { cardId, content } = req.body;
-  if (!content || !cardId) {
-    return res.status(400).json({ message: "Missing content or cardId" });
+  // ✅ Validate req.body ด้วย schema
+  const parseResult = PostCommentSchema.safeParse(req.body);
+  if (!parseResult.success) {
+    return res.status(400).json({ error: parseResult.error.flatten() });
   }
+
+  const { cardId, content } = parseResult.data;
 
   const comment = await prisma.comment.create({
     data: {

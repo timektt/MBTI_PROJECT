@@ -1,6 +1,9 @@
-// pages/api/upload-image.ts
+// ✅ /pages/api/upload-image.ts
+
 import type { NextApiRequest, NextApiResponse } from "next";
 import cloudinary from "@/lib/cloudinary";
+import { rateLimit } from "@/lib/rateLimit";
+import { UploadImageSchema } from "@/lib/schema"; // ✅ เพิ่ม schema validation
 
 export const config = {
   api: {
@@ -11,10 +14,18 @@ export const config = {
 };
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
+
   if (req.method !== "POST") return res.status(405).end("Method not allowed");
 
-  const { imageBase64 } = req.body;
-  if (!imageBase64) return res.status(400).json({ error: "No image provided." });
+  // ✅ Validate req.body
+  const parseResult = UploadImageSchema.safeParse(req.body);
+  if (!parseResult.success) {
+    return res.status(400).json({ error: parseResult.error.flatten() });
+  }
+
+  const { imageBase64 } = parseResult.data;
 
   try {
     const uploadResponse = await cloudinary.uploader.upload(imageBase64, {

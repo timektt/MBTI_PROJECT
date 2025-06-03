@@ -28,8 +28,7 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
-    volumes:
-      - .:/app
+   
 
 volumes:
   postgres_data:
