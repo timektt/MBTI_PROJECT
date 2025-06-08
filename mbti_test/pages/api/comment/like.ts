@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { logActivity } from "@/lib/activity";
+import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
 import { ToggleCommentLikeSchema } from "@/lib/schema"; // ✅ เพิ่ม
 
@@ -44,7 +44,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
     await logActivity({
       userId: session.user.id,
-      type: "UNLIKE_COMMENT",
+      type: ActivityType.UNLIKE_COMMENT,
       cardId: commentId,
       targetType: "Comment",
       message: "Unliked a comment",
@@ -59,7 +59,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     });
     await logActivity({
       userId: session.user.id,
-      type: "LIKE_COMMENT",
+      type: ActivityType.LIKE_COMMENT,
       cardId: commentId,
       targetType: "Comment",
       message: "Liked a comment",

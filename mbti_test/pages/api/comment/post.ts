@@ -4,7 +4,7 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
-import { logActivity } from "@/lib/activity";
+import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
 import { PostCommentSchema } from "@/lib/schema"; // ✅ เพิ่ม schema validation
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -54,7 +54,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // ✅ สร้าง Activity log ด้วย logActivity
   await logActivity({
     userId: userId,
-    type: "COMMENT_CARD",
+    type: ActivityType.COMMENT_CARD,
     cardId: cardId,
     targetType: "COMMENT",
     message: `${user?.name ?? "Someone"} commented: "${content}" on card "${card?.title ?? "Untitled"}"`,

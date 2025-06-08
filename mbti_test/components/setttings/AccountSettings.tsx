@@ -17,31 +17,47 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
   }, [image]);
 
   const handleUpdate = async () => {
-    setStatus("saving");
-    setMessage("");
+  setStatus("saving");
+  setMessage("");
 
-    try {
-      const res = await fetch("/api/settings/updateProfile", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, username, bio, image }),
-      });
+  try {
+    const res = await fetch("/api/settings/update", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, username, bio, image }),
+    });
 
-      const data = await res.json();
-      if (!res.ok) {
-        setStatus("error");
-        setMessage(data.error || "Failed to update profile.");
-      } else {
-        setStatus("saved");
-        setMessage("Profile updated successfully.");
-        setTimeout(() => setStatus("idle"), 2000);
+    const data = await res.json();
+
+    // 🟢 Safe parse message (แก้จุด error)
+    let errorMsg = "Failed to update profile.";
+    if (typeof data.error === "string") {
+      errorMsg = data.error;
+    } else if (data.fieldErrors?.username?.length > 0) {
+      errorMsg = data.fieldErrors.username[0];
+    } else if (data.fieldErrors) {
+      // Fallback เอา fieldError อื่น (ถ้ามี)
+      const firstField = Object.keys(data.fieldErrors)[0];
+      if (firstField && data.fieldErrors[firstField]?.length > 0) {
+        errorMsg = data.fieldErrors[firstField][0];
       }
-    } catch (error) {
-      console.error("Update profile failed:", error);
-      setStatus("error");
-      setMessage("Unexpected error occurred.");
     }
-  };
+
+    if (!res.ok) {
+      setStatus("error");
+      setMessage(errorMsg);
+    } else {
+      setStatus("saved");
+      setMessage("Profile updated successfully.");
+      setTimeout(() => setStatus("idle"), 2000);
+    }
+  } catch (error) {
+    console.error("Update profile failed:", error);
+    setStatus("error");
+    setMessage("Unexpected error occurred.");
+  }
+};
+
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];

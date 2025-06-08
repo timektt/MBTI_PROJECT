@@ -1,43 +1,54 @@
 // components/NotificationBell.tsx
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { pusherClient } from "@/lib/pusherClient"; // ✅ เพิ่ม client Pusher
+import { pusherClient } from "@/lib/pusherClient";
 import { useSession } from "next-auth/react";
 
-type Notification = {
+interface Notification {
   id?: string;
   message: string;
   link: string;
   read?: boolean;
   createdAt?: string;
-};
+}
 
 export default function NotificationBell() {
   const { data: session } = useSession();
   const [notifications, setNotifications] = useState<Notification[]>([]);
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const fetchNotifications = async () => {
+    setIsLoading(true);
     try {
       const res = await fetch("/api/notifications");
+      if (!res.ok) throw new Error("Failed to fetch notifications");
       const data = await res.json();
       setNotifications(data);
-    } catch (err) {
-      console.error("Failed to load notifications", err);
+    } catch (error) {
+      console.error("Notification fetch error:", error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
-  const markAsRead = async () => {
-    await fetch("/api/notifications/mark-read", {
-      method: "POST",
-    });
+  const markNotificationsAsRead = async () => {
+    try {
+      const res = await fetch("/api/notifications/mark-read", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+      });
+      if (!res.ok) throw new Error("Failed to mark as read");
+    } catch (error) {
+      console.error("Mark as read error:", error);
+    }
   };
 
-  const handleClick = async () => {
-    setOpen(!open);
-    if (!open) {
-      await fetchNotifications();
-      await markAsRead();
+  const toggleNotificationPanel = async () => {
+    const nextState = !isOpen;
+    setIsOpen(nextState);
+    if (nextState) {
+      await Promise.all([fetchNotifications(), markNotificationsAsRead()]);
     }
   };
 
@@ -47,19 +58,24 @@ export default function NotificationBell() {
     if (!session?.user?.id) return;
 
     const channel = pusherClient.subscribe(`private-user-${session.user.id}`);
-    channel.bind("new-notification", (data: Notification) => {
-      setNotifications((prev) => [data, ...prev]);
-    });
+    const handleNewNotification = (data: Notification) => {
+      setNotifications((prev) => {
+        if (prev.some((n) => n.id === data.id)) return prev;
+        return [data, ...prev];
+      });
+    };
+
+    channel.bind("new-notification", handleNewNotification);
 
     return () => {
-      channel.unbind_all();
+      channel.unbind("new-notification", handleNewNotification);
       channel.unsubscribe();
     };
   }, [session?.user?.id]);
 
   return (
     <div className="relative">
-      <button onClick={handleClick} className="relative">
+      <button onClick={toggleNotificationPanel} className="relative">
         🔔
         {unreadCount > 0 && (
           <span className="absolute -top-1 -right-2 text-xs bg-red-600 text-white px-1 rounded-full">
@@ -68,16 +84,18 @@ export default function NotificationBell() {
         )}
       </button>
 
-      {open && (
+      {isOpen && (
         <div className="absolute right-0 mt-2 w-72 bg-white dark:bg-gray-800 shadow-lg rounded p-2 z-50">
-          {notifications.length === 0 ? (
+          {isLoading ? (
+            <p className="text-sm text-gray-500 dark:text-gray-300 text-center">Loading...</p>
+          ) : notifications.length === 0 ? (
             <p className="text-sm text-gray-500 dark:text-gray-300 text-center">
               No notifications
             </p>
           ) : (
-            notifications.map((n, idx) => (
+            notifications.map((n) => (
               <Link
-                key={n.id ?? idx}
+                key={n.id ?? n.message}
                 href={n.link}
                 className={`block px-2 py-1 text-sm rounded ${
                   n.read

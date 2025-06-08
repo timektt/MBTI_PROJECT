@@ -23,8 +23,9 @@ export const SetUsernameSchema = z.object({
 export const UpdateProfileSchema = z.object({
   username: z.string().min(3, "Username must be at least 3 characters"),
   bio: z.string().optional(),
-  image: z.string().url("Invalid image URL").optional(),
+  image: z.string().url("Invalid image URL").optional().or(z.literal("")),
 });
+
 
 // สำหรับเปลี่ยนรหัสผ่าน
 export const ChangePasswordSchema = z.object({

@@ -31,6 +31,7 @@ model User {
   activities       Activity[] // 👈 เพิ่มตรงนี้
   following        Follow[] @relation("follower")     // ✅ ผู้ที่ฉันกำลังติดตาม
   followers        Follow[] @relation("following")    // ✅ คนที่ติดตามฉัน
+  targetActivities Activity[]     @relation("TargetUser") // ✅ เพิ่ม
 }
 
 model Card {
@@ -50,6 +51,7 @@ model Card {
   activities   Activity[] // 👈 เพิ่มตรงนี้
 
   @@index([userId])
+  @@unique([userId]) // ✅ ตรงนี้
 }
 
 model QuizResult {
@@ -122,6 +124,8 @@ model Activity {
   user           User     @relation(fields: [userId], references: [id])
   cardId         String? // optional: ใช้ถ้ากิจกรรมเกี่ยวกับการ์ด
   card           Card?    @relation(fields: [cardId], references: [id])
+  targetUserId   String?  // 👈 เพิ่ม field นี้
+  targetUser     User?    @relation("TargetUser", fields: [targetUserId], references: [id])
   targetType     String?   
   createdAt      DateTime @default(now())
 

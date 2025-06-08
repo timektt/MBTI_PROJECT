@@ -1,102 +1,104 @@
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/authOptions"
-import { prisma } from "@/lib/prisma"
-import { GetServerSidePropsContext } from "next"
-import Image from "next/image"
-import { useState } from "react"
-import Link from "next/link"
-import ActivityFeed from "@/components/ActivityFeed"
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { prisma } from "@/lib/prisma";
+import { GetServerSidePropsContext } from "next";
+import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
+import ActivityFeed from "@/components/ActivityFeed";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getServerSession(context.req, context.res, authOptions)
+  const session = await getServerSession(context.req, context.res, authOptions);
 
-  if (!session || !session.user?.email) {
+  if (!session?.user?.email) {
     return {
-      redirect: {
-        destination: "/api/auth/signin",
-        permanent: false,
-      },
-    }
+      redirect: { destination: "/api/auth/signin", permanent: false },
+    };
   }
 
   const user = await prisma.user.findUnique({
     where: { email: session.user.email },
     include: {
-      quizResults: {
-        orderBy: { createdAt: "desc" },
-        take: 1,
-      },
-      _count: {
-        select: {
-          followers: true,
-          following: true,
-        },
-      },
+      quizResults: { orderBy: { createdAt: "desc" }, take: 1 },
+      _count: { select: { followers: true, following: true } },
     },
-  })
+  });
 
-  if (!user) return { notFound: true }
+  if (!user) return { notFound: true };
 
   return {
     props: {
       user: {
         id: user.id,
-        name: user.name || "Anonymous",
+        name: user.name ?? "Anonymous",
         email: user.email,
-        image: user.image || null,
-        username: user.username || "",
-        bio: user.bio || "",
-        mbtiType: user.quizResults[0]?.mbtiType || "Not taken yet",
+        image: user.image ?? null,
+        username: user.username ?? "",
+        bio: user.bio ?? "",
+        mbtiType: user.quizResults[0]?.mbtiType ?? "Not taken yet",
         joinedAt: user.createdAt.toString(),
         followers: user._count.followers,
         following: user._count.following,
       },
     },
-  }
+  };
 }
 
 export default function ProfilePage({
   user,
 }: {
   user: {
-    id: string
-    name: string
-    email: string
-    image: string | null
-    username: string
-    bio: string
-    mbtiType: string
-    joinedAt: string
-    followers: number
-    following: number
-  }
+    id: string;
+    name: string;
+    email: string;
+    image: string | null;
+    username: string;
+    bio: string;
+    mbtiType: string;
+    joinedAt: string;
+    followers: number;
+    following: number;
+  };
 }) {
-  const [bio, setBio] = useState(user.bio)
-  const [username, setUsername] = useState(user.username)
-  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle")
-  const [message, setMessage] = useState("")
+  const [bio, setBio] = useState(user.bio);
+  const [username, setUsername] = useState(user.username);
+  const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
+  const [message, setMessage] = useState("");
 
   const saveProfile = async () => {
-    setStatus("saving")
-    setMessage("")
+    setStatus("saving");
+    setMessage("");
 
-    const res = await fetch("/api/profile/updateBio", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ bio, username }),
-    })
+    try {
+      const res = await fetch("/api/settings/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ bio, username }),
+      });
 
-    const result = await res.json()
+      const result = await res.json();
 
-    if (!res.ok) {
-      setStatus("error")
-      setMessage(result.error || "Failed to update.")
-    } else {
-      setStatus("saved")
-      setMessage("Profile updated!")
-      setTimeout(() => setStatus("idle"), 2000)
+      if (!res.ok) {
+        setStatus("error");
+        const errorMsg =
+          typeof result.error === "string"
+            ? result.error
+            : result.error?.formErrors?.join(", ") ||
+              Object.values(result.error?.fieldErrors || {})
+                .flat()
+                .join(", ") ||
+              "Unknown error";
+        setMessage(errorMsg);
+      } else {
+        setStatus("saved");
+        setMessage("Profile updated!");
+        setTimeout(() => setStatus("idle"), 2000);
+      }
+    } catch  {
+      setStatus("error");
+      setMessage("Failed to update profile.");
     }
-  }
+  };
 
   return (
     <div className="max-w-3xl mx-auto py-10 px-6">
@@ -123,7 +125,6 @@ export default function ProfilePage({
             Joined: {new Date(user.joinedAt).toLocaleDateString()}
           </p>
 
-          {/* ✅ ลิงก์ followers / following */}
           {user.username && (
             <div className="flex space-x-4 text-sm text-blue-600 mt-2">
               <Link href={`/profile/${user.username}/followers`} className="hover:underline">
@@ -135,7 +136,6 @@ export default function ProfilePage({
             </div>
           )}
 
-          {/* ✅ ฟอร์มแก้ bio + username */}
           <div className="mt-4">
             <label htmlFor="username" className="text-sm font-medium text-gray-700 dark:text-gray-300">
               Username (for public profile):
@@ -161,22 +161,18 @@ export default function ProfilePage({
 
             <button
               onClick={saveProfile}
-              className="mt-4 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
+              className={`mt-4 px-4 py-2 rounded text-sm text-white ${
+                status === "saving"
+                  ? "bg-gray-400 cursor-not-allowed"
+                  : "bg-blue-600 hover:bg-blue-700"
+              }`}
               disabled={status === "saving"}
             >
-              {status === "saving"
-                ? "Saving..."
-                : status === "saved"
-                ? "Saved ✓"
-                : "Save Changes"}
+              {status === "saving" ? "Saving..." : status === "saved" ? "Saved ✓" : "Save Changes"}
             </button>
 
             {message && (
-              <p
-                className={`mt-2 text-sm ${
-                  status === "error" ? "text-red-500" : "text-green-600"
-                }`}
-              >
+              <p className={`mt-2 text-sm ${status === "error" ? "text-red-500" : "text-green-600"}`}>
                 {message}
               </p>
             )}
@@ -184,7 +180,6 @@ export default function ProfilePage({
         </div>
       </div>
 
-      {/* ✅ Section: Activity Feed */}
       <div className="mt-10">
         <h2 className="text-xl font-semibold mb-4 text-blue-700 dark:text-white">
           Recent Activity
@@ -192,5 +187,5 @@ export default function ProfilePage({
         <ActivityFeed userId={user.id} />
       </div>
     </div>
-  )
+  );
 }

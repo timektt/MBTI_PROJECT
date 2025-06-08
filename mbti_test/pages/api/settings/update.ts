@@ -5,52 +5,62 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rateLimit";
-import { UpdateProfileSchema } from "@/lib/schema"; // ✅ เพิ่ม schema validation
+import { UpdateProfileSchema } from "@/lib/schema";
+import { logActivity, ActivityType } from "@/lib/activity";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // ✅ เพิ่ม rate-limit: 10 ครั้ง/นาที ต่อ IP
+  if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
   if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
 
-  if (req.method !== "POST") return res.status(405).end();
-
   const session = await getServerSession(req, res, authOptions);
-  if (!session || !session.user?.email) {
+  const userId = session?.user?.id;
+
+  if (!userId) {
     return res.status(401).json({ error: "Unauthorized" });
   }
 
-  // ✅ Validate req.body ด้วย schema
-  const parseResult = UpdateProfileSchema.safeParse(req.body);
-  if (!parseResult.success) {
-    return res.status(400).json({ error: parseResult.error.flatten() });
+  const parsed = UpdateProfileSchema.safeParse(req.body);
+  if (!parsed.success) {
+    console.warn("Validation failed:", parsed.error.format());
+    return res.status(400).json({ error: parsed.error.flatten() });
   }
 
-  const { bio, username, image } = parseResult.data;
-
-  // ✅ ตรวจสอบว่า username ไม่ซ้ำกับคนอื่น (ยกเว้นตัวเอง)
-  const existing = await prisma.user.findFirst({
-    where: {
-      username: username.toLowerCase(),
-      NOT: { email: session.user.email },
-    },
-  });
-
-  if (existing) {
-    return res.status(409).json({ error: "Username is already taken" });
-  }
+  const { username, bio, image } = parsed.data;
+  const normalizedUsername = username.trim().toLowerCase();
+  const cleanedBio = bio?.trim() || "";
+  const cleanedImage = image?.trim() || null;
 
   try {
-    const updatedUser = await prisma.user.update({
-      where: { email: session.user.email },
-      data: {
-        username: username.toLowerCase(),
-        bio,
-        image,
+    const isTaken = await prisma.user.findFirst({
+      where: {
+        username: normalizedUsername,
+        NOT: { id: userId },
       },
     });
 
-    res.status(200).json({ success: true, user: updatedUser });
+    if (isTaken) {
+      await logActivity({
+        userId,
+        type: ActivityType.UPDATE_PROFILE_REJECTED,
+        message: `Tried using taken username: "${normalizedUsername}"`,
+      });
+      return res.status(409).json({ error: "Username already taken" });
+    }
+
+    const updatedUser = await prisma.user.update({
+      where: { id: userId },
+      data: { username: normalizedUsername, bio: cleanedBio, image: cleanedImage },
+    });
+
+    await logActivity({
+      userId,
+      type: ActivityType.UPDATE_PROFILE,
+      message: `Updated profile: username "${normalizedUsername}"`,
+    });
+
+    return res.status(200).json({ success: true, user: updatedUser });
   } catch (err) {
-    console.error("Failed to update profile:", err);
-    res.status(500).json({ error: "Internal server error" });
+    console.error("Update error:", err);
+    return res.status(500).json({ error: "Internal server error" });
   }
 }

@@ -2,7 +2,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
-import { logActivity } from "@/lib/activity";
+import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -46,7 +46,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Log activity: Unlike
       await logActivity({
         userId: session.user.id,
-        type: "UNLIKE_CARD",
+        type: ActivityType.UNLIKE_CARD,
         cardId: cardId,
         targetType: "Card",
         message: `Unliked card: ${card.title}`,
@@ -62,7 +62,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       // Log activity: Like
       await logActivity({
         userId: session.user.id,
-        type: "LIKE_CARD",
+        type: ActivityType.LIKE_CARD,
         cardId: cardId,
         targetType: "Card",
         message: `Liked card: ${card.title}`,

@@ -1,11 +1,11 @@
-// pages/api/follow/toggle.ts
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
 import { pusherServer } from "@/lib/pusher";
-import { logActivity } from "@/lib/activity";
+import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
+import { ToggleFollowSchema } from "@/lib/schema"; // ✅ เพิ่ม
 import type { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -16,10 +16,19 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const session = await getServerSession(req, res, authOptions);
   const followerId = session?.user?.id;
-  const { followingId } = req.body;
+  if (!followerId) return res.status(401).json({ error: "Unauthorized" });
 
-  if (!followerId || !followingId || followerId === followingId) {
-    return res.status(400).json({ error: "Invalid request" });
+  // ✅ validate body
+  const parseResult = ToggleFollowSchema.safeParse(req.body);
+  if (!parseResult.success) {
+    return res.status(400).json({ error: parseResult.error.flatten() });
+  }
+
+  const { followingId } = parseResult.data;
+
+  // ❌ ห้าม follow ตัวเอง
+  if (followerId === followingId) {
+    return res.status(400).json({ error: "You cannot follow yourself" });
   }
 
   const existing = await prisma.follow.findUnique({
@@ -42,10 +51,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         },
       },
     });
-    // Log activity: Unfollow
     await logActivity({
       userId: followerId,
-      type: "UNFOLLOW_USER",
+      type: ActivityType.UNFOLLOW_USER,
       cardId: followingId,
       targetType: "User",
       message: `${user?.name ?? "Someone"} unfollowed a user`,
@@ -60,10 +68,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     },
   });
 
-  // Log activity: Follow
   await logActivity({
     userId: followerId,
-    type: "FOLLOW_USER",
+    type: ActivityType.FOLLOW_USER,
     cardId: followingId,
     targetType: "User",
     message: `${user?.name ?? "Someone"} followed a user`,

@@ -4,7 +4,7 @@ import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
 import { pusherServer } from "@/lib/pusher";
-import { logActivity } from "@/lib/activity";
+import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
 import type { NextApiRequest, NextApiResponse } from "next";
 
@@ -36,7 +36,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Log activity: Unfollow
     await logActivity({
       userId: followerId,
-      type: "UNFOLLOW_USER",
+      type: ActivityType.UNFOLLOW_USER,
       cardId: followingId,
       targetType: "User",
       message: `${user?.name ?? "Someone"} unfollowed a user`,
@@ -51,7 +51,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Log activity: Follow
   await logActivity({
     userId: followerId,
-    type: "FOLLOW_USER",
+    type: ActivityType.FOLLOW_USER,
     cardId: followingId,
     targetType: "User",
     message: `${user?.name ?? "Someone"} followed a user`,
