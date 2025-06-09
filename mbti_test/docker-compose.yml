@@ -28,5 +28,4 @@ services:
     depends_on:
       - postgres
     restart: unless-stopped
-   
-
+    command: npm run start

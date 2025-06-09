@@ -8,31 +8,34 @@ datasource db {
 }
 
 model User {
-  id               String         @id @default(cuid())
-  name             String?
-  email            String         @unique        
-  password         String?  // 🔑 ต้องมี         @unique
-  emailVerified    DateTime?
-  image            String?
-  bio              String?
-  role             String         @default("user")
-  createdAt        DateTime       @default(now())
-  updatedAt        DateTime       @updatedAt
-  username         String?        @unique
-  accounts         Account[]
-  cards            Card[]
-  cardLikes        CardLike[]
-  comments         Comment[]
-  commentLikes     CommentLike[]
-  groupMemberships GroupMember[]
-  notifications    Notification[]
-  quizResults      QuizResult[]
-  sessions         Session[]
-  activities       Activity[] // 👈 เพิ่มตรงนี้
-  following        Follow[] @relation("follower")     // ✅ ผู้ที่ฉันกำลังติดตาม
-  followers        Follow[] @relation("following")    // ✅ คนที่ติดตามฉัน
-  targetActivities Activity[]     @relation("TargetUser") // ✅ เพิ่ม
+  id                         String         @id @default(cuid())
+  name                       String?
+  email                      String         @unique        
+  password                   String?        // 🔑 ต้องมี 
+  emailVerified              DateTime?
+  emailVerificationToken     String?
+  emailVerificationTokenExpires DateTime?
+  image                      String?
+  bio                        String?
+  role                       String         @default("user")
+  createdAt                  DateTime       @default(now())
+  updatedAt                  DateTime       @updatedAt
+  username                   String?        @unique
+  accounts                   Account[]
+  cards                      Card[]
+  cardLikes                  CardLike[]
+  comments                   Comment[]
+  commentLikes               CommentLike[]
+  groupMemberships           GroupMember[]
+  notifications              Notification[]
+  quizResults                QuizResult[]
+  sessions                   Session[]
+  activities                 Activity[]     // 👈 OK
+  following                  Follow[]       @relation("follower")     // ✅ ผู้ที่ฉันกำลังติดตาม
+  followers                  Follow[]       @relation("following")    // ✅ คนที่ติดตามฉัน
+  targetActivities           Activity[]     @relation("TargetUser")   // ✅ OK
 }
+
 
 model Card {
   id           String      @id @default(cuid())

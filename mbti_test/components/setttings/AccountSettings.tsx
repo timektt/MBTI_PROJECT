@@ -12,52 +12,58 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
   const [status, setStatus] = useState<"idle" | "saving" | "saved" | "error">("idle");
   const [message, setMessage] = useState("");
 
+  const isUsernameValid = username.trim().length >= 3;
+
   useEffect(() => {
     setImagePreview(image);
   }, [image]);
 
   const handleUpdate = async () => {
-  setStatus("saving");
-  setMessage("");
-
-  try {
-    const res = await fetch("/api/settings/update", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, username, bio, image }),
-    });
-
-    const data = await res.json();
-
-    // 🟢 Safe parse message (แก้จุด error)
-    let errorMsg = "Failed to update profile.";
-    if (typeof data.error === "string") {
-      errorMsg = data.error;
-    } else if (data.fieldErrors?.username?.length > 0) {
-      errorMsg = data.fieldErrors.username[0];
-    } else if (data.fieldErrors) {
-      // Fallback เอา fieldError อื่น (ถ้ามี)
-      const firstField = Object.keys(data.fieldErrors)[0];
-      if (firstField && data.fieldErrors[firstField]?.length > 0) {
-        errorMsg = data.fieldErrors[firstField][0];
-      }
-    }
-
-    if (!res.ok) {
+    if (!isUsernameValid) {
       setStatus("error");
-      setMessage(errorMsg);
-    } else {
-      setStatus("saved");
-      setMessage("Profile updated successfully.");
-      setTimeout(() => setStatus("idle"), 2000);
+      setMessage("Username must be at least 3 characters.");
+      return;
     }
-  } catch (error) {
-    console.error("Update profile failed:", error);
-    setStatus("error");
-    setMessage("Unexpected error occurred.");
-  }
-};
 
+    setStatus("saving");
+    setMessage("");
+
+    try {
+      const res = await fetch("/api/settings/update", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, username, bio, image }),
+      });
+
+      const data = await res.json();
+
+      // 🟢 Safe parse message (แก้จุด error)
+      let errorMsg = "Failed to update profile.";
+      if (typeof data.error === "string") {
+        errorMsg = data.error;
+      } else if (data.fieldErrors?.username?.length > 0) {
+        errorMsg = data.fieldErrors.username[0];
+      } else if (data.fieldErrors) {
+        const firstField = Object.keys(data.fieldErrors)[0];
+        if (firstField && data.fieldErrors[firstField]?.length > 0) {
+          errorMsg = data.fieldErrors[firstField][0];
+        }
+      }
+
+      if (!res.ok) {
+        setStatus("error");
+        setMessage(errorMsg);
+      } else {
+        setStatus("saved");
+        setMessage("Profile updated successfully.");
+        setTimeout(() => setStatus("idle"), 2000);
+      }
+    } catch (error) {
+      console.error("Update profile failed:", error);
+      setStatus("error");
+      setMessage("Unexpected error occurred.");
+    }
+  };
 
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -140,8 +146,11 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
         placeholder="your-username"
         onChange={(e) => setUsername(e.target.value)}
         aria-label="Username"
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
+        className="w-full mb-1 p-2 border rounded dark:bg-gray-700 dark:text-white"
       />
+      {!isUsernameValid && (
+        <p className="text-red-500 text-sm mb-4">Username must be at least 3 characters</p>
+      )}
 
       <label className="block text-sm font-medium mb-1">Bio</label>
       <textarea
@@ -155,7 +164,7 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
 
       <button
         onClick={handleUpdate}
-        disabled={status === "saving"}
+        disabled={status === "saving" || !isUsernameValid}
         className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
       >
         {status === "saving" ? "Saving..." : "Save Changes"}

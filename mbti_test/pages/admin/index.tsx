@@ -6,6 +6,7 @@ import { authOptions } from "@/lib/authOptions";
 import Head from "next/head";
 import AdminLayout from "@/components/admin/AdminLayout";
 
+// Server-side guard → allow only admin access
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions);
 
@@ -19,26 +20,29 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   }
 
   return {
-    props: {
-      // ไม่จำเป็นต้องส่ง user ถ้าไม่ได้ใช้ใน component
-    },
+    props: {}, // No need to send user; session can be accessed client-side if needed
   };
 }
 
-// ไม่ต้องรับ prop user ถ้าไม่ได้ใช้
+// Admin Dashboard Page
 export default function AdminDashboard() {
   return (
     <>
       <Head>
         <title>Admin Panel | MBTI.AI</title>
+        <meta name="robots" content="noindex, nofollow" />
       </Head>
+
       <AdminLayout>
-        <div className="p-6">
-          <h1 className="text-2xl font-bold mb-4">Welcome, Admin</h1>
+        <section className="p-6 space-y-4">
+          <h1 className="text-3xl font-bold">Welcome, Admin</h1>
           <p className="text-gray-700 dark:text-gray-300">
             Use the sidebar to manage Cards, Comments, Users, and Site Settings.
           </p>
-        </div>
+
+          {/* Future improvement: Add site metrics / summary cards here */}
+          {/* Example: <AdminMetrics /> */}
+        </section>
       </AdminLayout>
     </>
   );
