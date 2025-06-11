@@ -5,8 +5,6 @@ import GoogleProvider from "next-auth/providers/google";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import type { Session } from "next-auth";
-import type { JWT } from "next-auth/jwt";
 
 export const authOptions: NextAuthOptions = {
   adapter: PrismaAdapter(prisma),
@@ -38,12 +36,13 @@ export const authOptions: NextAuthOptions = {
         const isValid = await bcrypt.compare(credentials.password, user.password);
         if (!isValid) return null;
 
-        // ✅ เพิ่ม emailVerified ให้ด้วย → เพื่อให้ callbacks.signIn ใช้ได้
         return {
           id: user.id,
           email: user.email,
           role: user.role,
           emailVerified: user.emailVerified,
+          name: user.name ?? user.email,
+          image: user.image ?? null,
         };
       },
     }),
@@ -56,52 +55,60 @@ export const authOptions: NextAuthOptions = {
     maxAge: 30 * 24 * 60 * 60, // 30 days
   },
 
-  callbacks: {
- async signIn({ user }) {
-  const emailVerified = (user as { emailVerified?: Date | null }).emailVerified;
+  // ✅ เพิ่ม cookies config → ให้ Secure เป็น false บน Localhost → เพื่อให้ Cookie set ได้
+  cookies: {
+    sessionToken: {
+      name:
+        process.env.NODE_ENV === "production"
+          ? "__Secure-next-auth.session-token"
+          : "next-auth.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production" ? true : false, // ✅ Localhost ต้อง false
+      },
+    },
+  },
 
+  callbacks: {
+    async signIn({ user }) {
+  const emailVerified = (user as { emailVerified?: Date | null }).emailVerified;
   if (!emailVerified) {
-    throw new Error("Please verify your email first.");
+    throw new Error("Please verify your email first."); // ❌ ถ้า throw → No Set-Cookie
   }
   return true;
 },
 
 
-
-    async jwt({
-      token,
-      user,
-    }: {
-      token: JWT;
-      user?: {
-        id: string;
-        email: string;
-        role?: string;
-        emailVerified?: Date | null;
-      };
-    }) {
+    async jwt({ token, user }) {
       if (user) {
-        token.id = user.id;
-        token.email = user.email;
-        token.role = user.role ?? "user";
-        token.emailVerified = user.emailVerified;
+        const u = user as {
+          id: string;
+          email: string;
+          role?: string;
+          emailVerified?: Date | null;
+          name?: string;
+          image?: string | null;
+        };
+
+        token.id = u.id;
+        token.email = u.email;
+        token.role = u.role ?? "user";
+        token.emailVerified = u.emailVerified;
+        token.name = u.name;
+        token.picture = u.image;
       }
       return token;
     },
 
-    async session({
-      session,
-      token,
-    }: {
-      session: Session;
-      token: JWT;
-    }) {
+    async session({ session, token }) {
       if (session.user) {
         session.user.id = token.id as string;
         session.user.email = token.email as string;
         session.user.role = token.role as string;
-        // Optional → ถ้าอยากใช้ใน front → เอามาใช้ต่อได้
-        // session.user.emailVerified = token.emailVerified;
+        session.user.name = token.name as string;
+        session.user.image = token.picture as string;
       }
       return session;
     },

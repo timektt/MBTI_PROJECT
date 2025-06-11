@@ -1,12 +1,9 @@
-// ✅ components/Navbar.tsx
-
 import Link from "next/link";
 import { useSession, signOut } from "next-auth/react";
 import NotificationBell from "@/components/NotificationBell";
 import Image from "next/image";
 import { useState } from "react";
 
-// ✅ กำหนด type แบบปลอดภัย
 type SafeUser = {
   name?: string;
   email?: string;
@@ -17,16 +14,16 @@ export default function Navbar() {
   const { data: session, status } = useSession();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
 
+  // ✅ ถ้า session ยัง loading → ยังไม่ render Navbar
   if (status === "loading") return null;
 
+  // ✅ ใช้ SafeUser → ป้องกัน undefined
   const user = (session?.user ?? {}) as SafeUser;
 
   return (
     <nav className="flex justify-between items-center py-4 px-8 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md shadow-md sticky top-0 z-50">
-      
       {/* Left Section: Logo + Menu */}
       <div className="flex items-center gap-12">
-        {/* Logo */}
         <Link
           href="/"
           className="font-bold text-xl text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition"
@@ -34,7 +31,6 @@ export default function Navbar() {
           MBTI.AI
         </Link>
 
-        {/* Menu */}
         <div className="flex items-center gap-8">
           <Link
             href="/quiz"
@@ -110,7 +106,10 @@ export default function Navbar() {
                   Settings
                 </Link>
                 <button
-                  onClick={() => signOut()}
+                  onClick={() => {
+                    signOut();
+                    setDropdownOpen(false); // ✅ ปิด dropdown ทันทีหลัง logout
+                  }}
                   className="w-full text-left px-5 py-3 text-sm hover:bg-gray-100 dark:hover:bg-gray-700 transition"
                 >
                   Logout

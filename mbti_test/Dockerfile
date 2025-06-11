@@ -16,6 +16,7 @@ COPY . .
 # Prisma generate (จำเป็นสำหรับ next-auth/prisma-adapter)
 RUN npx prisma generate
 
+ENV NODE_ENV=production
 # Build Next.js app
 RUN npm run build
 

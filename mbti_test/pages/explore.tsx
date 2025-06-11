@@ -1,73 +1,116 @@
-import Head from "next/head"
-import { useState, useEffect } from "react"
-import CardPreview from "@/components/CardPreview"
-import FilterSidebar from "@/components/FilterSidebar"
+// /pages/explore.tsx
+import { useEffect, useState, useCallback } from "react";
+import Head from "next/head";
+import CardGrid from "@/components/CardGrid";
+import FilterSidebar from "@/components/FilterSidebar";
 
-type CardData = {
-  id: string
-  title: string
-  mbtiType: string
+type Card = {
+  id: string;
+  title: string;
+  mbtiType: string;
   user: {
-    username: string
-  }
-}
+    username: string;
+  };
+};
 
 export default function ExplorePage() {
-  const [cards, setCards] = useState<CardData[]>([])
-  const [search, setSearch] = useState("")
-  const [mbtiFilter, setMbtiFilter] = useState("")
-  const [loading, setLoading] = useState(true)
+  const [cards, setCards] = useState<Card[]>([]);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(true);
+  const [loading, setLoading] = useState(false);
+  const [mbtiFilter, setMbtiFilter] = useState("");
+  const [search, setSearch] = useState("");
+
+  const fetchCards = async (pageToFetch: number, reset = false) => {
+    try {
+      setLoading(true);
+      const query = new URLSearchParams({
+        page: pageToFetch.toString(),
+        mbti: mbtiFilter,
+        search,
+      });
+
+      const res = await fetch(`/api/cards/list?${query.toString()}`);
+      const data = await res.json();
+
+      // 🔹 ใช้ data.items แทน data.cards
+      if (reset) {
+        setCards(data.items ?? []);
+      } else {
+        setCards((prev) => [...prev, ...(data.items ?? [])]);
+      }
+
+      setHasMore(data.hasMore);
+      setPage(pageToFetch + 1);
+    } catch (err) {
+      console.error("Failed to fetch cards:", err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const loadMore = useCallback(() => {
+    if (loading || !hasMore) return;
+    fetchCards(page);
+  }, [page, hasMore, loading, mbtiFilter, search]);
 
   useEffect(() => {
-    const fetchCards = async () => {
-      setLoading(true)
-      const query = new URLSearchParams()
-      if (search) query.append("search", search)
-      if (mbtiFilter) query.append("mbti", mbtiFilter)
+    // Reset cards when filter or search changes
+    setPage(1);
+    setHasMore(true);
+    fetchCards(1, true);
+  }, [mbtiFilter, search]);
 
-      try {
-        const res = await fetch(`/api/explore?${query.toString()}`)
-        const data = await res.json()
-        setCards(data)
-      } catch (error) {
-        console.error("Failed to fetch cards:", error)
-      } finally {
-        setLoading(false)
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + window.scrollY >=
+        document.body.offsetHeight - 300
+      ) {
+        loadMore();
       }
-    }
+    };
 
-    fetchCards()
-  }, [search, mbtiFilter])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loadMore]);
 
   return (
     <>
       <Head>
-        <title>Explore MBTI Cards</title>
+        <title>Explore MBTI Cards | MBTI.AI</title>
+        <meta
+          name="description"
+          content="Browse personality cards created by the community."
+        />
       </Head>
-      <div className="flex flex-col lg:flex-row max-w-6xl mx-auto px-6 py-10 gap-8">
-        <div className="lg:w-64 w-full">
-          <FilterSidebar
-            mbtiFilter={mbtiFilter}
-            setMbtiFilter={setMbtiFilter}
-            search={search}
-            setSearch={setSearch}
-          />
-        </div>
-        <div className="flex-1">
-          <h1 className="text-2xl font-bold mb-4">Explore Cards</h1>
-          {loading ? (
-            <p className="text-gray-500">Loading...</p>
-          ) : cards.length === 0 ? (
-            <p className="text-gray-500">No cards found.</p>
-          ) : (
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {cards.map((card) => (
-                <CardPreview key={card.id} card={card} />
-              ))}
-            </div>
-          )}
+
+      <div className="max-w-6xl mx-auto px-4 py-8">
+        <h1 className="text-3xl font-bold mb-6 text-center text-blue-700 dark:text-white">
+          Explore MBTI Cards
+        </h1>
+
+        <div className="flex flex-col md:flex-row gap-6">
+          <div className="md:w-1/4">
+            <FilterSidebar
+              mbtiFilter={mbtiFilter}
+              setMbtiFilter={setMbtiFilter}
+              search={search}
+              setSearch={setSearch}
+            />
+          </div>
+
+          <div className="md:w-3/4">
+            <CardGrid cards={cards ?? []} />
+            {loading && (
+              <p className="text-center mt-4 text-gray-500">Loading...</p>
+            )}
+            {!hasMore && !loading && (
+              <p className="text-center mt-6 text-gray-400">No more cards.</p>
+            )}
+          </div>
         </div>
       </div>
     </>
-  )
+  );
 }

@@ -5,11 +5,11 @@ import "@/styles/globals.css"
 
 export default function App({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <SessionProvider session={session}>
-      <Navbar />
-      <main className="max-w-4xl mx-auto p-4">
-        <Component {...pageProps} />
-      </main>
-    </SessionProvider>
+   <SessionProvider session={session} refetchInterval={5} refetchOnWindowFocus={true}>
+  <Navbar key={session?.user?.email || "guest"} />
+  <main className="max-w-4xl mx-auto p-4">
+    <Component {...pageProps} />
+  </main>
+</SessionProvider>
   )
 }
