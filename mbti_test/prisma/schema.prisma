@@ -34,6 +34,8 @@ model User {
   following                  Follow[]       @relation("follower")     // ✅ ผู้ที่ฉันกำลังติดตาม
   followers                  Follow[]       @relation("following")    // ✅ คนที่ติดตามฉัน
   targetActivities           Activity[]     @relation("TargetUser")   // ✅ OK
+  resetToken                 String? // Add this
+  resetTokenExpiry           DateTime? // Add this
 }
 
 

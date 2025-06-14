@@ -52,6 +52,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         password: hashedPassword,
         emailVerificationToken,
         emailVerificationTokenExpires,
+        emailVerified: new Date(),
       },
     });
 

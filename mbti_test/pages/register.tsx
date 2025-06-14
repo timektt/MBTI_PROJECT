@@ -2,20 +2,34 @@
 
 import { useState } from "react";
 import { useRouter } from "next/router";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 export default function RegisterPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault(); // Prevent default form submit
-    if (loading) return; // Prevent double click
+  const validateForm = () => {
+    if (!email.includes("@") || password.length < 6 || name.trim().length === 0) {
+      setError("❌ Please fill in all fields correctly.");
+      return false;
+    }
+    return true;
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (loading) return;
+    if (!validateForm()) return;
+
     setLoading(true);
-    setMessage("");
+    setError("");
+    setSuccess("");
 
     try {
       const res = await fetch("/api/register", {
@@ -27,84 +41,95 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (res.ok) {
-        // Redirect to login page with success message (optional)
-        router.push("/login?registered=true");
+        setSuccess("✅ Registration successful! Redirecting to login...");
+        setTimeout(() => {
+          router.push("/login");
+        }, 1500);
       } else {
-        setMessage(data.error || "Something went wrong.");
+        setError(data.error || "Something went wrong.");
       }
-    } catch (error) {
-      console.error("Register error:", error);
-      setMessage("An unexpected error occurred.");
+    } catch (err) {
+      console.error("Register error:", err);
+      setError("An unexpected error occurred.");
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div className="max-w-md mx-auto p-6 bg-white dark:bg-gray-800 rounded shadow">
-      <h1 className="text-xl font-semibold mb-4">Register</h1>
+    <div className="min-h-screen flex items-center justify-center text-white px-4">
+      <div className="bg-gradient-to-br from-gray-900 to-gray-800 p-6 rounded-2xl shadow-lg w-full max-w-sm text-center">
+        <h1 className="text-2xl font-bold mb-1">MBTI.AI</h1>
+        <p className="text-gray-300 mb-5">Create your account</p>
 
-      <form onSubmit={handleSubmit} className="space-y-4">
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="name">
-            Name
-          </label>
+        {/* Success banner */}
+        {success && (
+          <p className="mb-3 text-green-400 text-sm font-semibold">{success}</p>
+        )}
+
+        {/* Error banner */}
+        {error && (
+          <p className="mb-3 text-red-400 text-sm font-semibold">{error}</p>
+        )}
+
+        <form onSubmit={handleRegister} className="space-y-3">
           <input
-            id="name"
             type="text"
             placeholder="Your name"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
+            className="w-full px-4 py-2 rounded-xl bg-gray-600 text-white placeholder-gray-300 focus:outline-none"
             required
           />
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="email">
-            Email
-          </label>
           <input
-            id="email"
             type="email"
-            placeholder="you@example.com"
+            placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
+            className="w-full px-4 py-2 rounded-xl bg-gray-600 text-white placeholder-gray-300 focus:outline-none"
             required
           />
-        </div>
+          <div className="relative">
+            <input
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="w-full px-4 py-2 rounded-xl bg-gray-600 text-white placeholder-gray-300 focus:outline-none"
+              required
+              minLength={6}
+            />
+            <button
+              type="button"
+              onClick={() => setShowPassword(!showPassword)}
+              className="absolute right-3 top-2 text-lg text-gray-300"
+              aria-label={showPassword ? "Hide password" : "Show password"}
+            >
+              {showPassword ? <AiFillEyeInvisible /> : <AiFillEye />}
+            </button>
+          </div>
 
-        <div>
-          <label className="block text-sm font-medium mb-1" htmlFor="password">
-            Password
-          </label>
-          <input
-            id="password"
-            type="password"
-            placeholder="••••••••"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full p-2 border rounded dark:bg-gray-700 dark:text-white"
-            required
-            minLength={6}
-          />
-        </div>
+          <button
+            type="submit"
+            disabled={loading}
+            className={`w-full bg-purple-600 hover:bg-purple-700 transition rounded-full py-2 font-bold ${
+              loading ? "opacity-50 cursor-not-allowed" : ""
+            }`}
+          >
+            {loading ? "Registering..." : "Register"}
+          </button>
+        </form>
 
-        <button
-          type="submit"
-          disabled={loading}
-          className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
-        >
-          {loading ? "Registering..." : "Register"}
-        </button>
-
-        {message && (
-          <p className="mt-3 text-sm text-red-500" role="alert">
-            {message}
-          </p>
-        )}
-      </form>
+        <p className="mt-4 text-sm text-gray-400">
+          Already have an account?{" "}
+          <span
+            className="text-blue-400 hover:underline cursor-pointer"
+            onClick={() => router.push("/login")}
+          >
+            Login here
+          </span>
+        </p>
+      </div>
     </div>
   );
 }

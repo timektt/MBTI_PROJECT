@@ -81,37 +81,42 @@ export const authOptions: NextAuthOptions = {
 },
 
 
-    async jwt({ token, user }) {
-      if (user) {
-        const u = user as {
-          id: string;
-          email: string;
-          role?: string;
-          emailVerified?: Date | null;
-          name?: string;
-          image?: string | null;
-        };
+async jwt({ token, user }) {
+  if (user) {
+    const u = user as {
+      id: string;
+      email: string;
+      role?: string;
+      emailVerified?: Date | null;
+      name?: string;
+      image?: string | null;
+      username?: string | null; // ✅ เพิ่มตรงนี้
+    };
 
-        token.id = u.id;
-        token.email = u.email;
-        token.role = u.role ?? "user";
-        token.emailVerified = u.emailVerified;
-        token.name = u.name;
-        token.picture = u.image;
-      }
-      return token;
-    },
+    token.id = u.id;
+    token.email = u.email;
+    token.role = u.role ?? "user";
+    token.emailVerified = u.emailVerified;
+    token.name = u.name;
+    token.picture = u.image;
+    token.username = u.username ?? ""; // ✅ เพิ่มตรงนี้
+  }
+  return token;
+},
+
 
     async session({ session, token }) {
-      if (session.user) {
-        session.user.id = token.id as string;
-        session.user.email = token.email as string;
-        session.user.role = token.role as string;
-        session.user.name = token.name as string;
-        session.user.image = token.picture as string;
-      }
-      return session;
-    },
+  if (session.user) {
+    session.user.id = token.id as string;
+    session.user.email = token.email as string;
+    session.user.role = token.role as string;
+    session.user.name = token.name as string;
+    session.user.image = token.picture as string;
+    session.user.username = token.username as string; // ✅ เพิ่มบรรทัดนี้
+  }
+  return session;
+},
+
   },
 
   pages: {
