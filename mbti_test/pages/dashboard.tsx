@@ -1,25 +1,28 @@
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/authOptions"
-import { prisma } from "@/lib/prisma"
-import Link from "next/link"
-import { GetServerSidePropsContext } from "next"
-import Head from "next/head"
-import ActivityFeed from "@/components/ActivityFeed"
-import Image from "next/image"
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/lib/authOptions";
+import { prisma } from "@/lib/prisma";
+import { GetServerSidePropsContext } from "next";
+import DashboardLayout from "@/components/DashboardLayout";
+import ActivityFeed from "@/components/ActivityFeed";
+import Image from "next/image";
+import Link from "next/link";
+import Head from "next/head";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const session = await getServerSession(context.req, context.res, authOptions)
+  const session = await getServerSession(context.req, context.res, authOptions);
 
   if (!session || !session.user?.email || !session.user?.id) {
-    return {
-      redirect: {
-        destination: "/api/auth/signin",
-        permanent: false,
-      },
-    }
+    return { redirect: { destination: "/login", permanent: false } };
   }
 
-  // ✅ ดึง user info พร้อม count followers/following
+  if (!session.user.hasProfile) {
+    return { redirect: { destination: "/setup-profile", permanent: false } };
+  }
+
+  if (!session.user.hasMbtiCard) {
+    return { redirect: { destination: "/quiz", permanent: false } };
+  }
+
   const user = await prisma.user.findUnique({
     where: { id: session.user.id },
     select: {
@@ -31,59 +34,77 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         select: { followers: true, following: true },
       },
     },
-  })
+  });
 
-  const results = await prisma.quizResult.findMany({
-    where: {
-      user: { email: session.user.email },
+  if (!user?.username || !user?.image) {
+    return { redirect: { destination: "/setup-profile", permanent: false } };
+  }
+
+ const cards = await prisma.card.findMany({
+  where: { userId: user.id },
+  orderBy: { createdAt: "desc" },
+  take: 1,
+  select: {
+    id: true,
+    title: true,
+    imageUrl: true,
+    createdAt: true,
+    user: {
+      select: {
+        username: true,
+        image: true,
+      },
     },
-    include: {
-      card: true,
+    quizResult: {
+      select: {
+        mbtiType: true,
+      },
     },
-    orderBy: {
-      createdAt: "desc",
-    },
-  })
+  },
+});
+
 
   return {
     props: {
-      userId: user?.id || "",
       userInfo: {
-        name: user?.name ?? "Anonymous",
-        username: user?.username ?? "unknown",
-        image: user?.image ?? null,
-        followers: user?._count.followers ?? 0,
-        following: user?._count.following ?? 0,
+        id: user.id,
+        name: user.name ?? "Anonymous",
+        username: user.username,
+        image: user.image ?? null,
+        followers: user._count.followers,
+        following: user._count.following,
       },
-      results: results.map((r) => ({
-        id: r.id,
-        mbtiType: r.mbtiType,
-        createdAt: r.createdAt.toISOString(),
-        cardId: r.card?.id ?? null,
-      })),
+      cards,
     },
-  }
+  };
 }
 
 export default function DashboardPage({
-  userId,
   userInfo,
-  results,
+  cards,
 }: {
-  userId: string
   userInfo: {
-    name: string
-    username: string
-    image: string | null
-    followers: number
-    following: number
-  }
-  results: {
-    id: string
-    mbtiType: string
-    createdAt: string
-    cardId?: string | null
-  }[]
+    id: string;
+    name: string;
+    username: string;
+    image: string | null;
+    followers: number;
+    following: number;
+  };
+cards: {
+    id: string;
+    title: string;
+    imageUrl?: string;
+    createdAt: string;
+    user: {
+      username: string;
+      image: string | null;
+    };
+    quizResult?: {
+      mbtiType: string;
+    };
+}[];
+
 }) {
   return (
     <>
@@ -95,91 +116,82 @@ export default function DashboardPage({
         />
       </Head>
 
-      <div className="max-w-4xl mx-auto py-12 px-6">
-        {/* ✅ User Info Section */}
-        <div className="mb-6 flex items-center space-x-4">
-          <Image
-            src={userInfo.image || "/default-avatar.png"}
-            alt="avatar"
-            width={56}
-            height={56}
-            className="w-14 h-14 rounded-full object-cover"
-          />
-          <div>
-            <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
-              {userInfo.name}
-            </h2>
-            <p className="text-gray-500">@{userInfo.username}</p>
-            <div className="flex space-x-4 text-sm text-blue-600 mt-1">
-              <Link href={`/profile/${userInfo.username}/followers`} className="hover:underline">
-                {userInfo.followers} Followers
-              </Link>
-              <Link href={`/profile/${userInfo.username}/following`} className="hover:underline">
-                {userInfo.following} Following
-              </Link>
+      <DashboardLayout>
+        <div className="max-w-4xl mx-auto space-y-8">
+          {/* User Info Section */}
+          <section className="flex items-center space-x-4">
+            <Image
+              src={userInfo.image || "/default-avatar.png"}
+              alt="avatar"
+              width={56}
+              height={56}
+              className="w-14 h-14 rounded-full object-cover"
+            />
+            <div>
+              <h2 className="text-xl font-semibold text-gray-800 dark:text-white">
+                {userInfo.name}
+              </h2>
+              <p className="text-gray-500">@{userInfo.username}</p>
+              <div className="flex space-x-4 text-sm text-blue-600 mt-1">
+                <Link href={`/profile/${userInfo.username}/followers`} className="hover:underline">
+                  {userInfo.followers} Followers
+                </Link>
+                <Link href={`/profile/${userInfo.username}/following`} className="hover:underline">
+                  {userInfo.following} Following
+                </Link>
+              </div>
             </div>
-          </div>
+          </section>
+
+          {/* Activity Feed */}
+          <section>
+            <ActivityFeed userId={userInfo.id} />
+          </section>
+
+          {/* Notice */}
+          <section className="p-4 bg-yellow-100 text-yellow-800 rounded border border-yellow-300">
+            Your MBTI identity has been permanently assigned and cannot be changed.
+          </section>
+
+          {/* Card Section */}
+          <section>
+            {cards.length === 0 ? (
+              <p className="text-gray-600 dark:text-gray-300">
+                {"You haven't created your card yet."}
+              </p>
+            ) : (
+              <ul className="space-y-6">
+                {cards.map((card) => (
+                  <li
+                    key={card.id}
+                    className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm"
+                  >
+                    <div className="flex justify-between items-center flex-wrap gap-2">
+                      <div>
+                        <p className="text-lg font-semibold text-purple-700 dark:text-purple-400">
+                          {card.quizResult?.mbtiType?? "Unknown"}
+                        </p>
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
+                          Created on {new Date(card.createdAt).toLocaleString()}
+                        </p>
+                      </div>
+
+                      <div className="flex gap-3">
+                        <Link
+                          href={`/card/${card.id}`}
+                          className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                        >
+                          View Card
+                        </Link>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            )}
+          </section>
         </div>
-
-        {/* ✅ Activity Feed */}
-        <div className="mb-8">
-          <ActivityFeed userId={userId} />
-        </div>
-
-        {/* ✅ Notice */}
-        <div className="mb-6 p-4 bg-yellow-100 text-yellow-800 rounded border border-yellow-300">
-          🎴 Your MBTI identity has been permanently assigned and cannot be changed.
-        </div>
-
-        {/* ✅ MBTI Results List */}
-        {results.length === 0 ? (
-          <p className="text-gray-600 dark:text-gray-300">
-            {"You haven't taken any quizzes yet."}
-          </p>
-        ) : (
-          <ul className="space-y-6">
-            {results.map((r) => (
-              <li
-                key={r.id}
-                className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-white dark:bg-gray-800 shadow-sm"
-              >
-                <div className="flex justify-between items-center flex-wrap gap-2">
-                  <div>
-                    <p className="text-lg font-semibold text-purple-700 dark:text-purple-400">
-                      {r.mbtiType}
-                    </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      Taken on {new Date(r.createdAt).toLocaleString()}
-                    </p>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <Link
-                      href={`/result/${r.id}`}
-                      className="bg-blue-600 hover:bg-blue-700 text-white px-3 py-1 rounded text-sm"
-                    >
-                      View Result
-                    </Link>
-
-                    {r.cardId ? (
-                      <Link
-                        href={`/card/${r.cardId}`}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
-                      >
-                        View Card
-                      </Link>
-                    ) : (
-                      <span className="text-gray-400 italic text-sm">
-                        Card not found.
-                      </span>
-                    )}
-                  </div>
-                </div>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
+      </DashboardLayout>
     </>
-  )
+  );
 }

@@ -36,6 +36,10 @@ model User {
   targetActivities           Activity[]     @relation("TargetUser")   // ✅ OK
   resetToken                 String? // Add this
   resetTokenExpiry           DateTime? // Add this
+  hasProfile                 Boolean @default(false) // ❗ ต้องมี → ตอนนี้ยังไม่มี
+  hasMbtiCard                Boolean @default(false) // ❗ ต้องมี → ตอนนี้ยังไม่มี
+  mbtiType                   String?                  // ❗ ต้องมี
+
 }
 
 

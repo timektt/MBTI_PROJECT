@@ -27,19 +27,20 @@ export const UpdateProfileSchema = z.object({
     .min(3, "Username must be at least 3 characters")
     .max(30, "Username must be at most 30 characters")
     .regex(/^[a-zA-Z0-9_]+$/, "Username can only contain letters, numbers, and underscores"),
-  
+
   bio: z
     .string()
     .trim()
     .max(160, "Bio must be at most 160 characters")
-    .optional(),
+    .optional()
+    .or(z.literal("")), // รับค่า bio ว่างได้
 
   image: z
     .string()
     .trim()
     .url("Invalid image URL")
     .optional()
-    .or(z.literal("")),
+    .or(z.literal("")), // ✅ รับค่า "" ได้เพื่อให้สอดคล้องกับ Form ที่อาจส่งค่าว่าง
 });
 
 // สำหรับเปลี่ยนรหัสผ่าน

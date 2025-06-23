@@ -1,6 +1,7 @@
 // pages/quiz.tsx
-import { useState } from "react"
-import { useRouter } from "next/router"
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 
 const questions = [
   {
@@ -27,35 +28,86 @@ const questions = [
     text: "คุณชอบวางแผนหรือปรับตามสถานการณ์?",
     options: ["Judging", "Perceiving"],
   },
-]
+];
 
 export default function QuizPage() {
-  const router = useRouter()
-  const [step, setStep] = useState(0)
-  const [answers, setAnswers] = useState<Record<string, string>>({})
+  const { data: session, status } = useSession();
+  const router = useRouter();
+  const [step, setStep] = useState(0);
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  // ✅ ถ้า user มี MBTI card แล้ว → redirect ออกเลย
+ useEffect(() => {
+  const checkRedirect = async () => {
+    if (status === "loading") return;
+    if (!session) {
+      router.push("/login");
+      return;
+    }
+
+    if (session.user?.hasMbtiCard) {
+      router.replace("/dashboard");
+    }
+  };
+
+  checkRedirect();
+}, [session, status, router]);
+
 
   const handleAnswer = (choice: string) => {
-    const updated = { ...answers, [questions[step].id]: choice }
-    setAnswers(updated)
+    if (isSubmitting) return; // 🚫 ไม่ให้กดตอนกำลังส่ง
+
+    const updated = { ...answers, [questions[step].id]: choice };
+    setAnswers(updated);
     if (step + 1 < questions.length) {
-      setStep(step + 1)
+      setStep(step + 1);
     } else {
-      submit(updated)
+      submit(updated);
     }
-  }
+  };
 
   const submit = async (finalAnswers: Record<string, string>) => {
-    const res = await fetch("/api/quiz/submit", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ answers: finalAnswers }),
-    })
+    setIsSubmitting(true);
+    setError("");
 
-    const { resultId } = await res.json()
-    router.push(`/result/${resultId}`)
-  }
+    try {
+     const res = await fetch("/api/quiz/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ answers: finalAnswers }),
+      });
 
-  const current = questions[step]
+      if (res.status === 409) {
+        setError("You have already completed the quiz.");
+        return;
+      }
+
+      if (!res.ok) {
+        throw new Error("Failed to submit quiz.");
+      }
+
+     const result = await res.json();
+     console.log("Quiz submit result:", result);
+
+      // ✅ ไป dashboard หลัง submit สำเร็จ
+      router.replace("/dashboard");
+
+
+    } catch (err: unknown) {
+      console.error(err);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Unexpected error.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const current = questions[step];
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-8 bg-gray-50 dark:bg-black transition-colors">
@@ -67,12 +119,21 @@ export default function QuizPage() {
           {current.text}
         </p>
 
+        {error && (
+          <p className="text-red-500 text-center mb-4 font-semibold">
+            {error}
+          </p>
+        )}
+
         <div className="flex flex-col gap-4">
           {current.options.map((opt) => (
             <button
               key={opt}
               onClick={() => handleAnswer(opt)}
-              className="bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition"
+              disabled={isSubmitting}
+              className={`bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded transition ${
+                isSubmitting ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               {opt}
             </button>
@@ -83,11 +144,12 @@ export default function QuizPage() {
           <button
             className="mt-6 text-sm underline text-gray-500"
             onClick={() => setStep(step - 1)}
+            disabled={isSubmitting}
           >
             ← Back
           </button>
         )}
       </div>
     </div>
-  )
+  );
 }

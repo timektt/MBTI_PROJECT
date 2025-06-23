@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth"
 import { authOptions } from "@/lib/authOptions"
 import { prisma } from "@/lib/prisma"
 import Head from "next/head"
-import AccountSettings from "@/components/setttings/AccountSettings"
+import AccountSettings from "@/components/settings/AccountSettings"
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession(context.req, context.res, authOptions)

@@ -1,32 +1,48 @@
-// middleware.ts
-import { withAuth } from "next-auth/middleware"
-import { NextResponse } from "next/server"
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 
 export default withAuth(
   function middleware(req) {
-    const token = req.nextauth.token
+    const token = req.nextauth.token;
 
-    // 🔐 ถ้าเข้าหน้า /admin แต่ไม่ใช่ admin → redirect
-    if (req.nextUrl.pathname.startsWith("/admin")) {
-      if (token?.role !== "admin") {
-        return NextResponse.redirect(new URL("/", req.url))
-      }
+    const url = req.nextUrl;
+
+    // ✅ Redirect ตาม state
+    if (url.pathname.startsWith("/admin") && token?.role !== "admin") {
+      return NextResponse.redirect(new URL("/", req.url));
     }
+
+      if (!token?.hasProfile) {
+      return NextResponse.redirect(new URL("/setup-profile", req.url));
+    }
+
+    if (token?.hasProfile && !token?.hasMbtiCard) {
+      return NextResponse.redirect(new URL("/quiz", req.url));
+    }
+
+
+    // ✅ Allow ผ่าน
+    return NextResponse.next();
   },
   {
     callbacks: {
-      authorized: ({ token }) => !!token, // อนุญาตเฉพาะคนที่ login เท่านั้น
+      authorized: ({ token }) => !!token?.email, // ✅ ต้องแก้ตรงนี้!
     },
     pages: {
       signIn: "/login",
     },
   }
-)
+);
 
+
+// ✅ ระบุเฉพาะ path ที่ต้องการตรวจสอบ (เพิ่ม "/" root page ด้วย!)
 export const config = {
   matcher: [
+    "/",
     "/dashboard",
+    "/explore",
+    "/activity",
     "/profile/:path*",
-    "/admin/:path*", // ✅ ป้องกันหน้า admin
+    "/admin/:path*",
   ],
-}
+};

@@ -1,20 +1,14 @@
 // /pages/explore.tsx
+"use client";
+
 import { useEffect, useState, useCallback } from "react";
 import Head from "next/head";
 import CardGrid from "@/components/CardGrid";
 import FilterSidebar from "@/components/FilterSidebar";
-
-type Card = {
-  id: string;
-  title: string;
-  mbtiType: string;
-  user: {
-    username: string;
-  };
-};
+import type { CardItem } from "@/types/card"; // ✅ ใช้ type กลาง
 
 export default function ExplorePage() {
-  const [cards, setCards] = useState<Card[]>([]);
+  const [cards, setCards] = useState<CardItem[]>([]);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
@@ -33,7 +27,6 @@ export default function ExplorePage() {
       const res = await fetch(`/api/cards/list?${query.toString()}`);
       const data = await res.json();
 
-      // 🔹 ใช้ data.items แทน data.cards
       if (reset) {
         setCards(data.items ?? []);
       } else {
@@ -55,7 +48,6 @@ export default function ExplorePage() {
   }, [page, hasMore, loading, mbtiFilter, search]);
 
   useEffect(() => {
-    // Reset cards when filter or search changes
     setPage(1);
     setHasMore(true);
     fetchCards(1, true);

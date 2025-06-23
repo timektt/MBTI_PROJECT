@@ -3,7 +3,7 @@ import { authOptions } from "@/lib/authOptions";
 import { prisma } from "@/lib/prisma";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
-import AccountSettings from "@/components/setttings/AccountSettings";
+import AccountSettings from "@/components/settings/AccountSettings";
 import type { UserProfileProps } from "@/types/user";
 
 type SettingsPageProps = {

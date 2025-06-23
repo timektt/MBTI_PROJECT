@@ -8,6 +8,9 @@ declare module "next-auth" {
       email: string;
       role: string;
       username?: string;
+      hasProfile: boolean;
+      hasMbtiCard: boolean;
+      mbtiType: string;
     } & DefaultSession["user"];
   }
 
@@ -15,6 +18,10 @@ declare module "next-auth" {
     id: string;
     email: string;
     role: string;
+    username?: string;
+    hasProfile: boolean;
+    hasMbtiCard: boolean;
+    mbtiType: string;
   }
 }
 
@@ -25,5 +32,8 @@ declare module "next-auth/jwt" {
     email: string;
     role: string;
     username?: string;
+    hasProfile: boolean;
+    hasMbtiCard: boolean;
+    mbtiType: string;
   }
 }

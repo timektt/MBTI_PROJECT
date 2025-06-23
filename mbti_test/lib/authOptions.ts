@@ -24,27 +24,34 @@ export const authOptions: NextAuthOptions = {
         email: { label: "Email", type: "text", placeholder: "example@email.com" },
         password: { label: "Password", type: "password" },
       },
-      async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) return null;
+     async authorize(credentials) {
+  const creds = credentials as { email: string; password: string };
 
-        const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
-        });
+  if (!creds?.email || !creds?.password) return null;
 
-        if (!user || !user.password) return null;
+  const user = await prisma.user.findUnique({
+    where: { email: creds.email },
+  });
 
-        const isValid = await bcrypt.compare(credentials.password, user.password);
-        if (!isValid) return null;
+  if (!user || !user.password) return null;
 
-        return {
-          id: user.id,
-          email: user.email,
-          role: user.role,
-          emailVerified: user.emailVerified,
-          name: user.name ?? user.email,
-          image: user.image ?? null,
-        };
-      },
+  const isValid = await bcrypt.compare(creds.password, user.password);
+  if (!isValid) return null;
+
+  return {
+    id: user.id,
+    email: user.email,
+    role: user.role,
+    emailVerified: user.emailVerified,
+    name: user.name ?? user.email,
+    image: user.image ?? null,
+    username: user.username ?? "",
+    hasProfile: user.hasProfile ?? false,
+    hasMbtiCard: user.hasMbtiCard ?? false,
+    mbtiType: user.mbtiType ?? "",
+  };
+},
+
     }),
   ],
 
@@ -90,7 +97,10 @@ async jwt({ token, user }) {
       emailVerified?: Date | null;
       name?: string;
       image?: string | null;
-      username?: string | null; // ✅ เพิ่มตรงนี้
+      username?: string | null;
+      hasProfile?: boolean;
+      hasMbtiCard?: boolean;
+      mbtiType?: string;
     };
 
     token.id = u.id;
@@ -98,24 +108,32 @@ async jwt({ token, user }) {
     token.role = u.role ?? "user";
     token.emailVerified = u.emailVerified;
     token.name = u.name;
-    token.picture = u.image;
-    token.username = u.username ?? ""; // ✅ เพิ่มตรงนี้
+    token.picture = u.image;   // ✅ ใช้ picture ตัวเดียว → session.image จะถูก
+    token.username = u.username ?? "";
+    token.hasProfile = u.hasProfile ?? false;
+    token.hasMbtiCard = u.hasMbtiCard ?? false;
+    token.mbtiType = u.mbtiType ?? "";
   }
+
   return token;
 },
 
-
-    async session({ session, token }) {
+async session({ session, token }) {
   if (session.user) {
     session.user.id = token.id as string;
     session.user.email = token.email as string;
     session.user.role = token.role as string;
     session.user.name = token.name as string;
-    session.user.image = token.picture as string;
-    session.user.username = token.username as string; // ✅ เพิ่มบรรทัดนี้
+    session.user.image = token.picture as string; // ✅ ใช้ token.picture → ตรงกับ Avatar Navbar
+    session.user.username = token.username as string;
+    session.user.hasProfile = token.hasProfile as boolean;
+    session.user.hasMbtiCard = token.hasMbtiCard as boolean;
+    session.user.mbtiType = token.mbtiType as string;
   }
+
   return session;
 },
+
 
   },
 

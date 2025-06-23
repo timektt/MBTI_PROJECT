@@ -1,17 +1,10 @@
 import CardItem from "./CardItem";
 import Link from "next/link";
 import Image from "next/image";
+import type { CardItem as CardType } from "@/types/card";
 
 type CardGridProps = {
-  cards: {
-    id: string;
-    title: string;
-    mbtiType: string;
-    user: {
-      username: string;
-      image?: string | null; // เพิ่ม image เพื่อใช้กับ <Image />
-    };
-  }[];
+  cards: CardType[];
 };
 
 export default function CardGrid({ cards }: CardGridProps) {
@@ -21,7 +14,7 @@ export default function CardGrid({ cards }: CardGridProps) {
         <div key={card.id}>
           <CardItem card={card} />
 
-          {/* เพิ่มรูปโปรไฟล์และลิงก์ไปหน้าโปรไฟล์ */}
+          {/* Profile + Link */}
           <p className="mt-2 text-sm text-gray-500 flex items-center gap-2">
             by{" "}
             <Link
@@ -30,11 +23,10 @@ export default function CardGrid({ cards }: CardGridProps) {
             >
               <Image
                 src={card.user.image || "/default-avatar.png"}
-                alt={card.user.username}
+                alt={card.user.username || "user"}
                 width={24}
                 height={24}
                 className="rounded-full object-cover"
-                // ถ้าใช้ Next.js 13+ ให้เพิ่ม priority หรือ loading="lazy" ได้
               />
               {card.user.username}
             </Link>
