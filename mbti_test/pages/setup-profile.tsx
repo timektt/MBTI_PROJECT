@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { useSession } from "next-auth/react";
+import { useSession , signIn} from "next-auth/react";
 import { useRouter } from "next/router";
 
+
 export default function SetupProfilePage() {
-  const { data: session, status, update } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   const [username, setUsername] = useState("");
@@ -94,8 +95,14 @@ export default function SetupProfilePage() {
 
       setSuccess("✅ Profile updated successfully!");
 
-      // ✅ Refresh session (soft)
-      await update();
+     if (!session || !session.user?.email) {
+        setError("Session expired or invalid. Please login again.");
+        router.replace("/login");
+        return;
+      }
+
+      await signIn("credentials", { redirect: false, email: session.user.email });
+
 
       // ✅ Redirect to quiz after delay — ให้ user เห็น success ก่อน
       setTimeout(() => {

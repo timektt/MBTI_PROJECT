@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { UserProfileProps } from "@/types/user";
 import { signIn } from "next-auth/react";
+import { Upload, Check, AlertCircle, Loader2 } from "lucide-react";
 
 export default function AccountSettings({ user }: { user: UserProfileProps }) {
   const [name, setName] = useState(user.name ?? "");
@@ -105,7 +106,6 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
         setStatus("saved");
         setMessage("Profile image updated successfully.");
 
-        // ✅ Force refresh session
         await signIn("credentials", {
           redirect: false,
           email: user.email,
@@ -124,95 +124,159 @@ export default function AccountSettings({ user }: { user: UserProfileProps }) {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-800 shadow rounded p-6">
-      <h2 className="text-xl font-semibold mb-4">Profile Info</h2>
-
-      {imagePreview && (
-        <Image
-          src={imagePreview}
-          alt="Profile Preview"
-          width={72}
-          height={72}
-          className="rounded-full mb-4 object-cover"
-        />
-      )}
-
-      <label className="block text-sm font-medium mb-1">Upload Profile Image</label>
-      <input
-        type="file"
-        accept="image/*"
-        onChange={handleFileChange}
-        aria-label="Upload profile image"
-        className="w-full mb-4"
-      />
-
-      <label className="block text-sm font-medium mb-1">Or use an Image URL</label>
-      <input
-        type="url"
-        value={image}
-        placeholder="https://your-image-url.jpg"
-        onChange={(e) => {
-          setImage(e.target.value);
-          setImagePreview(e.target.value);
-        }}
-        aria-label="Profile image URL"
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
-      />
-
-      <label className="block text-sm font-medium mb-1">Name</label>
-      <input
-        type="text"
-        value={name}
-        placeholder="Your name"
-        onChange={(e) => setName(e.target.value)}
-        aria-label="Name"
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
-      />
-
-      <label className="block text-sm font-medium mb-1">Username</label>
-      <input
-        type="text"
-        value={username}
-        placeholder="your-username"
-        onChange={(e) => setUsername(e.target.value)}
-        aria-label="Username"
-        className="w-full mb-1 p-2 border rounded dark:bg-gray-700 dark:text-white"
-      />
-      {!isUsernameValid && (
-        <p className="text-red-500 text-sm mb-4">Username must be at least 3 characters</p>
-      )}
-
-      <label className="block text-sm font-medium mb-1">Bio</label>
-      <textarea
-        value={bio}
-        placeholder="Tell us about yourself"
-        onChange={(e) => setBio(e.target.value)}
-        rows={3}
-        aria-label="Bio"
-        className="w-full mb-4 p-2 border rounded dark:bg-gray-700 dark:text-white"
-      />
-
-      <button
-        onClick={handleUpdate}
-        disabled={status === "saving" || !isUsernameValid}
-        className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded text-sm"
-      >
-        {status === "saving" ? "Saving..." : "Save Changes"}
-      </button>
-
-      {message && (
-        <p
-          className={`mt-2 text-sm transition-opacity ${
-            status === "error"
-              ? "text-red-500"
-              : status === "saved"
-              ? "text-green-600"
-              : ""
-          }`}
-        >
-          {message}
+    <div className="bg-white dark:bg-gray-900 rounded-xl shadow-sm border border-gray-200 dark:border-gray-800">
+      <div className="p-6 border-b border-gray-200 dark:border-gray-800">
+        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">Profile Settings</h2>
+        <p className="text-sm text-gray-600 dark:text-gray-400 mt-1">
+          Update your profile information and preferences
         </p>
-      )}
+      </div>
+
+      <div className="p-6 space-y-6">
+        {/* Profile Image Section */}
+        <div className="space-y-4">
+          <label className="block text-sm font-medium text-gray-900 dark:text-white">
+            Profile Photo
+          </label>
+          
+          <div className="flex items-center space-x-6">
+            <div className="relative">
+              {imagePreview ? (
+                <Image
+                  src={imagePreview}
+                  alt="Profile Preview"
+                  width={80}
+                  height={80}
+                  className="w-20 h-20 rounded-full object-cover ring-4 ring-gray-100 dark:ring-gray-800"
+                />
+              ) : (
+                <div className="w-20 h-20 rounded-full bg-gray-100 dark:bg-gray-800 flex items-center justify-center">
+                  <Upload className="w-8 h-8 text-gray-400" />
+                </div>
+              )}
+            </div>
+            
+            <div className="flex-1">
+              <label className="relative cursor-pointer">
+                <input
+                  type="file"
+                  accept="image/*"
+                  onChange={handleFileChange}
+                  className="sr-only"
+                  aria-label="Upload profile image"
+                />
+                <div className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm font-medium text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-200">
+                  <Upload className="w-4 h-4 mr-2" />
+                  Upload new photo
+                </div>
+              </label>
+              <p className="text-xs text-gray-500 dark:text-gray-400 mt-2">
+                JPG, PNG or WebP. Max size 5MB.
+              </p>
+            </div>
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+              Or use image URL
+            </label>
+            <input
+              type="url"
+              value={image}
+              placeholder="https://your-image-url.jpg"
+              onChange={(e) => {
+                setImage(e.target.value);
+                setImagePreview(e.target.value);
+              }}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            />
+          </div>
+        </div>
+
+        {/* Form Fields */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-900 dark:text-white">
+              Full Name
+            </label>
+            <input
+              type="text"
+              value={name}
+              placeholder="Enter your full name"
+              onChange={(e) => setName(e.target.value)}
+              className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200"
+            />
+          </div>
+
+          <div className="space-y-2">
+            <label className="block text-sm font-medium text-gray-900 dark:text-white">
+              Username
+            </label>
+            <input
+              type="text"
+              value={username}
+              placeholder="your-username"
+              onChange={(e) => setUsername(e.target.value)}
+              className={`w-full px-3 py-2 border rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:border-transparent transition-all duration-200 ${
+                !isUsernameValid && username.length > 0
+                  ? 'border-red-300 dark:border-red-600 focus:ring-red-500'
+                  : 'border-gray-300 dark:border-gray-600 focus:ring-blue-500'
+              }`}
+            />
+            {!isUsernameValid && username.length > 0 && (
+              <p className="flex items-center text-sm text-red-600 dark:text-red-400">
+                <AlertCircle className="w-4 h-4 mr-1" />
+                Username must be at least 3 characters
+              </p>
+            )}
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <label className="block text-sm font-medium text-gray-900 dark:text-white">
+            Bio
+          </label>
+          <textarea
+            value={bio}
+            placeholder="Tell us about yourself..."
+            onChange={(e) => setBio(e.target.value)}
+            rows={4}
+            className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-sm bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 resize-none"
+          />
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            {bio.length}/500 characters
+          </p>
+        </div>
+
+        {/* Status Message */}
+        {message && (
+          <div className={`flex items-center p-4 rounded-lg ${
+            status === "error"
+              ? "bg-red-50 dark:bg-red-900/20 text-red-700 dark:text-red-400"
+              : status === "saved"
+              ? "bg-green-50 dark:bg-green-900/20 text-green-700 dark:text-green-400"
+              : "bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-400"
+          }`}>
+            {status === "error" && <AlertCircle className="w-5 h-5 mr-2" />}
+            {status === "saved" && <Check className="w-5 h-5 mr-2" />}
+            {status === "saving" && <Loader2 className="w-5 h-5 mr-2 animate-spin" />}
+            <span className="text-sm font-medium">{message}</span>
+          </div>
+        )}
+
+        {/* Action Buttons */}
+        <div className="flex justify-end pt-4 border-t border-gray-200 dark:border-gray-800">
+          <button
+            onClick={handleUpdate}
+            disabled={status === "saving" || !isUsernameValid}
+            className="inline-flex items-center px-6 py-2.5 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-300 dark:disabled:bg-gray-700 text-white disabled:text-gray-500 dark:disabled:text-gray-400 text-sm font-medium rounded-lg transition-all duration-200 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-900"
+          >
+            {status === "saving" && <Loader2 className="w-4 h-4 mr-2 animate-spin" />}
+            {status === "saved" && <Check className="w-4 h-4 mr-2" />}
+            {status === "saving" ? "Saving..." : status === "saved" ? "Saved" : "Save Changes"}
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
