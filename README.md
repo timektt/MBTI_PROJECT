@@ -127,4 +127,3 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ---
 
-✅ ระบบนี้พร้อมขยายและรองรับ Production-grade interaction แล้ว
