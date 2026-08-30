@@ -1,0 +1,137 @@
+{
+  "generatedAt": "2026-07-16T17:57:58.267Z",
+  "passed": true,
+  "checkCount": 17,
+  "failures": [],
+  "checks": {
+    "navbar-primary-three": {
+      "ok": true,
+      "detail": [
+        "/",
+        "/quiz",
+        "/types"
+      ]
+    },
+    "navbar-my-results-menu": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "navbar-locale-change": {
+      "ok": true,
+      "detail": "Log in"
+    },
+    "navbar-escape-focus-restore": {
+      "ok": true,
+      "detail": "site-navigation-menu"
+    },
+    "navbar-outside-dismiss": {
+      "ok": true,
+      "detail": "closed"
+    },
+    "navbar-route-change-dismiss": {
+      "ok": true,
+      "detail": "http://127.0.0.1:3030/dashboard"
+    },
+    "atlas-sixteen-unique-routes": {
+      "ok": true,
+      "detail": [
+        "/types/enfj",
+        "/types/enfp",
+        "/types/entj",
+        "/types/entp",
+        "/types/esfj",
+        "/types/esfp",
+        "/types/estj",
+        "/types/estp",
+        "/types/infj",
+        "/types/infp",
+        "/types/intj",
+        "/types/intp",
+        "/types/isfj",
+        "/types/isfp",
+        "/types/istj",
+        "/types/istp"
+      ]
+    },
+    "atlas-keyboard-route": {
+      "ok": true,
+      "detail": "http://127.0.0.1:3030/types/istp?from=blue"
+    },
+    "type-valid-status": {
+      "ok": true,
+      "detail": 200
+    },
+    "type-back-context": {
+      "ok": true,
+      "detail": "/types?house=purple"
+    },
+    "type-localized-title": {
+      "ok": true,
+      "detail": "INTJ Strategic Architect | MBTI Z personality profile"
+    },
+    "type-canonical": {
+      "ok": true,
+      "detail": "http://localhost:3000/types/intj"
+    },
+    "type-invalid-404": {
+      "ok": true,
+      "detail": 404
+    },
+    "type-uppercase-404": {
+      "ok": true,
+      "detail": {
+        "status": 404,
+        "url": "http://127.0.0.1:3030/types/INTJ"
+      }
+    },
+    "home-hover-stable-geometry": {
+      "ok": true,
+      "detail": {
+        "before": {
+          "x": 716.46875,
+          "y": 593.640625,
+          "width": 587.53125,
+          "height": 112
+        },
+        "after": {
+          "x": 716.46875,
+          "y": 593.640625,
+          "width": 587.53125,
+          "height": 112
+        }
+      }
+    },
+    "home-hover-content-change": {
+      "ok": true,
+      "detail": {
+        "before": "INTJ · อีกาออบซิเดียน\n\nนักวางเกมเงียบที่",
+        "after": "ISFJ · หมีผู้พิทักษ์\n\nผู้ดูแลความปลอดภัย"
+      }
+    },
+    "reflow-200-percent-equivalent": {
+      "ok": true,
+      "detail": [
+        {
+          "path": "/",
+          "overflow": false
+        },
+        {
+          "path": "/types",
+          "overflow": false
+        },
+        {
+          "path": "/types/intj",
+          "overflow": false
+        },
+        {
+          "path": "/dashboard",
+          "overflow": false
+        },
+        {
+          "path": "/login",
+          "overflow": false
+        }
+      ]
+    }
+  }
+}

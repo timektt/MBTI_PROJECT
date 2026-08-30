@@ -1,0 +1,48 @@
+{
+  "generatedAt": "2026-07-16T18:01:23.214Z",
+  "passed": true,
+  "checkCount": 10,
+  "failures": [],
+  "checks": {
+    "results-empty-state": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "results-empty-action": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "results-one-latest-link": {
+      "ok": true,
+      "detail": 2
+    },
+    "results-png-download": {
+      "ok": true,
+      "detail": "mbti-z-enfp-2026-07-15.png"
+    },
+    "results-pending-state": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "results-pending-action": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "results-history-eight": {
+      "ok": true,
+      "detail": 9
+    },
+    "results-advanced-open": {
+      "ok": true,
+      "detail": "visible"
+    },
+    "results-reconnect-textarea": {
+      "ok": true,
+      "detail": 1
+    },
+    "results-storage-unavailable": {
+      "ok": true,
+      "detail": "visible"
+    }
+  }
+}
