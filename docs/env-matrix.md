@@ -15,21 +15,23 @@
 | Variable | Group | Required | Used by | Expected source |
 | --- | --- | --- | --- | --- |
 | `NEXT_PUBLIC_SITE_URL` | App URLs | development, preview, production | email links, share links, card/result URLs | local file or Vercel env |
-| `NEXTAUTH_URL` | App URLs | development, preview, production | `next-auth` callback/session URLs | local file or Vercel env |
+| `AUTH_URL` | App URLs | when account runtime is enabled | canonical Auth.js callback/session URL | local file or Vercel env |
+| `NEXTAUTH_URL` | App URLs | compatibility alias when account runtime is enabled | legacy Auth.js callback/session URL | local file or Vercel env |
 | `NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME` | Runtime | optional in development, preview, production | selects assessment runtime adapter (`guest-local` now, `cloud` later) | local file or Vercel env |
-| `NEXTAUTH_SECRET` | Auth | development, preview, production | `next-auth` JWT/session signing | local file or Vercel env |
+| `AUTH_SECRET` | Auth | when account runtime is enabled | canonical Auth.js JWT/session signing secret | local file or Vercel env |
+| `NEXTAUTH_SECRET` | Auth | compatibility alias when account runtime is enabled | legacy Auth.js JWT/session signing secret | local file or Vercel env |
 | `GOOGLE_CLIENT_ID` | Auth | development, preview, production | Google OAuth provider | local file or Vercel env |
 | `GOOGLE_CLIENT_SECRET` | Auth | development, preview, production | Google OAuth provider | local file or Vercel env |
 | `GITHUB_ID` | Auth | development, preview, production | GitHub OAuth provider | local file or Vercel env |
 | `GITHUB_SECRET` | Auth | development, preview, production | GitHub OAuth provider | local file or Vercel env |
 | `DATABASE_URL` | Database | development, preview, production | Prisma runtime connection | local file, Supabase, Vercel env |
 | `DIRECT_URL` | Database | preview, production strongly recommended | Prisma migrations/direct connection | local file, Supabase, Vercel env |
-| `EMAIL_SERVER_HOST` | Email | development, preview, production | verification/reset email transport | local file or Vercel env |
-| `EMAIL_SERVER_PORT` | Email | development, preview, production | verification/reset email transport | local file or Vercel env |
-| `EMAIL_SERVER_SECURE` | Email | development, preview, production | verification/reset email transport | local file or Vercel env |
-| `EMAIL_SERVER_USER` | Email | development, preview, production | verification/reset email transport | local file or Vercel env |
-| `EMAIL_SERVER_PASSWORD` | Email | development, preview, production | verification/reset email transport | local file or Vercel env |
-| `EMAIL_FROM` | Email | development, preview, production | sender identity for transactional email | local file or Vercel env |
+| `EMAIL_SERVER_HOST` | Email | future account runtime only | verification/reset email transport; no active transport is installed | local file or Vercel env |
+| `EMAIL_SERVER_PORT` | Email | future account runtime only | verification/reset email transport | local file or Vercel env |
+| `EMAIL_SERVER_SECURE` | Email | future account runtime only | verification/reset email transport | local file or Vercel env |
+| `EMAIL_SERVER_USER` | Email | future account runtime only | verification/reset email transport | local file or Vercel env |
+| `EMAIL_SERVER_PASSWORD` | Email | future account runtime only | verification/reset email transport | local file or Vercel env |
+| `EMAIL_FROM` | Email | future account runtime only | sender identity for transactional email | local file or Vercel env |
 | `PUSHER_APP_ID` | Realtime | development, preview, production | server-side realtime notifications | local file or Vercel env |
 | `PUSHER_KEY` | Realtime | development, preview, production | server-side realtime notifications | local file or Vercel env |
 | `PUSHER_SECRET` | Realtime | development, preview, production | server-side realtime notifications | local file or Vercel env |
@@ -106,6 +108,7 @@ node scripts/vercel-target-readiness.mjs --target=preview
 
 ```bash
 npm run auth:surface
+npm run auth:runtime
 ```
 
 ใช้คำสั่งนี้เพื่อแยก cloud runtime blocker ออกจาก env/Vercel blocker:

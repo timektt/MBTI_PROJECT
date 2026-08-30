@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-30T17:01:50.425Z",
-  "latestSourceModifiedAt": "2026-08-30T16:52:41.248Z",
-  "sourceFingerprint": "c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a",
-  "sourceHead": "4895b2e",
-  "baseUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app",
+  "generatedAt": "2026-08-30T17:43:23.728Z",
+  "latestSourceModifiedAt": "2026-08-30T17:40:26.913Z",
+  "sourceFingerprint": "ba2d102e86e322468c8dca34be5f31407dea651ffdbb26968aede017536a0113",
+  "sourceHead": "b21e5f6",
+  "baseUrl": "http://127.0.0.1:3130",
   "browser": "Google Chrome (isolated headless)",
   "routePatternCount": 31,
   "concreteTypePathCount": 16,
@@ -21,7 +21,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | อ่านตัวตนให้ลึกกว่า 4 ตัวอักษร",
       "screenshot": "output/ui-redesign-v3/screenshots/home-th-320x800.png",
       "clientWidth": 320,
@@ -46,7 +46,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | อ่านตัวตนให้ลึกกว่า 4 ตัวอักษร",
       "screenshot": "output/ui-redesign-v3/screenshots/home-th-390x844.png",
       "clientWidth": 390,
@@ -71,7 +71,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | อ่านตัวตนให้ลึกกว่า 4 ตัวอักษร",
       "screenshot": "output/ui-redesign-v3/screenshots/home-th-768x1024.png",
       "clientWidth": 768,
@@ -96,7 +96,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | อ่านตัวตนให้ลึกกว่า 4 ตัวอักษร",
       "screenshot": "output/ui-redesign-v3/screenshots/home-th-1024x768.png",
       "clientWidth": 1024,
@@ -121,7 +121,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | อ่านตัวตนให้ลึกกว่า 4 ตัวอักษร",
       "screenshot": "output/ui-redesign-v3/screenshots/home-th-1440x1000.png",
       "clientWidth": 1440,
@@ -147,7 +147,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/quiz?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/quiz?lang=th",
       "title": "แบบทดสอบ MBTI Z | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/quiz-th-320x800.png",
       "clientWidth": 320,
@@ -173,7 +173,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/quiz?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/quiz?lang=th",
       "title": "แบบทดสอบ MBTI Z | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/quiz-th-390x844.png",
       "clientWidth": 390,
@@ -199,7 +199,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/quiz?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/quiz?lang=th",
       "title": "แบบทดสอบ MBTI Z | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/quiz-th-768x1024.png",
       "clientWidth": 768,
@@ -225,7 +225,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/quiz?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/quiz?lang=th",
       "title": "แบบทดสอบ MBTI Z | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/quiz-th-1024x768.png",
       "clientWidth": 1024,
@@ -251,7 +251,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/quiz?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/quiz?lang=th",
       "title": "แบบทดสอบ MBTI Z | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/quiz-th-1440x1000.png",
       "clientWidth": 1440,
@@ -277,7 +277,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/result/guest-fixture-result-house-purple-intj?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/result/guest-fixture-result-house-purple-intj?lang=th",
       "title": "INTJ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/result-guest-fixture-result-house-purple-intj-th-320x800.png",
       "clientWidth": 320,
@@ -303,7 +303,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/result/guest-fixture-result-house-purple-intj?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/result/guest-fixture-result-house-purple-intj?lang=th",
       "title": "INTJ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/result-guest-fixture-result-house-purple-intj-th-390x844.png",
       "clientWidth": 390,
@@ -329,7 +329,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/result/guest-fixture-result-house-purple-intj?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/result/guest-fixture-result-house-purple-intj?lang=th",
       "title": "INTJ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/result-guest-fixture-result-house-purple-intj-th-768x1024.png",
       "clientWidth": 768,
@@ -355,7 +355,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/result/guest-fixture-result-house-purple-intj?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/result/guest-fixture-result-house-purple-intj?lang=th",
       "title": "INTJ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/result-guest-fixture-result-house-purple-intj-th-1024x768.png",
       "clientWidth": 1024,
@@ -381,7 +381,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/result/guest-fixture-result-house-purple-intj?lang=th",
+      "finalUrl": "http://127.0.0.1:3130/result/guest-fixture-result-house-purple-intj?lang=th",
       "title": "INTJ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/result-guest-fixture-result-house-purple-intj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -406,7 +406,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-th-320x800.png",
       "clientWidth": 320,
@@ -431,7 +431,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-th-390x844.png",
       "clientWidth": 390,
@@ -456,7 +456,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-th-768x1024.png",
       "clientWidth": 768,
@@ -481,7 +481,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-th-1024x768.png",
       "clientWidth": 1024,
@@ -506,7 +506,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-th-1440x1000.png",
       "clientWidth": 1440,
@@ -531,7 +531,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ สถาปนิกเชิงกลยุทธ์ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-th-320x800.png",
       "clientWidth": 320,
@@ -556,7 +556,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ สถาปนิกเชิงกลยุทธ์ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-th-390x844.png",
       "clientWidth": 390,
@@ -581,7 +581,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ สถาปนิกเชิงกลยุทธ์ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-th-768x1024.png",
       "clientWidth": 768,
@@ -606,7 +606,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ สถาปนิกเชิงกลยุทธ์ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-th-1024x768.png",
       "clientWidth": 1024,
@@ -631,7 +631,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ สถาปนิกเชิงกลยุทธ์ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -656,7 +656,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intp",
+      "finalUrl": "http://127.0.0.1:3130/types/intp",
       "title": "INTP นักวิเคราะห์เชิงแนวคิด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intp-th-390x844.png",
       "clientWidth": 390,
@@ -681,7 +681,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intp",
+      "finalUrl": "http://127.0.0.1:3130/types/intp",
       "title": "INTP นักวิเคราะห์เชิงแนวคิด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -706,7 +706,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/entj",
+      "finalUrl": "http://127.0.0.1:3130/types/entj",
       "title": "ENTJ ผู้นำเชิงระบบ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-entj-th-390x844.png",
       "clientWidth": 390,
@@ -731,7 +731,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/entj",
+      "finalUrl": "http://127.0.0.1:3130/types/entj",
       "title": "ENTJ ผู้นำเชิงระบบ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-entj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -756,7 +756,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/entp",
+      "finalUrl": "http://127.0.0.1:3130/types/entp",
       "title": "ENTP นักสร้างสรรค์เชิงทดลอง | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-entp-th-390x844.png",
       "clientWidth": 390,
@@ -781,7 +781,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/entp",
+      "finalUrl": "http://127.0.0.1:3130/types/entp",
       "title": "ENTP นักสร้างสรรค์เชิงทดลอง | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-entp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -806,7 +806,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infj?from=green",
+      "finalUrl": "http://127.0.0.1:3130/types/infj?from=green",
       "title": "INFJ นักออกแบบความหมาย | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infj-th-320x800.png",
       "clientWidth": 320,
@@ -831,7 +831,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infj?from=green",
+      "finalUrl": "http://127.0.0.1:3130/types/infj?from=green",
       "title": "INFJ นักออกแบบความหมาย | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infj-th-390x844.png",
       "clientWidth": 390,
@@ -856,7 +856,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infj?from=green",
+      "finalUrl": "http://127.0.0.1:3130/types/infj?from=green",
       "title": "INFJ นักออกแบบความหมาย | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infj-th-768x1024.png",
       "clientWidth": 768,
@@ -881,7 +881,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infj?from=green",
+      "finalUrl": "http://127.0.0.1:3130/types/infj?from=green",
       "title": "INFJ นักออกแบบความหมาย | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infj-th-1024x768.png",
       "clientWidth": 1024,
@@ -906,7 +906,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infj?from=green",
+      "finalUrl": "http://127.0.0.1:3130/types/infj?from=green",
       "title": "INFJ นักออกแบบความหมาย | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -931,7 +931,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infp",
+      "finalUrl": "http://127.0.0.1:3130/types/infp",
       "title": "INFP นักสำรวจโลกภายใน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infp-th-390x844.png",
       "clientWidth": 390,
@@ -956,7 +956,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/infp",
+      "finalUrl": "http://127.0.0.1:3130/types/infp",
       "title": "INFP นักสำรวจโลกภายใน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-infp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -981,7 +981,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/enfj",
+      "finalUrl": "http://127.0.0.1:3130/types/enfj",
       "title": "ENFJ ผู้นำเชิงพัฒนา | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-enfj-th-390x844.png",
       "clientWidth": 390,
@@ -1006,7 +1006,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/enfj",
+      "finalUrl": "http://127.0.0.1:3130/types/enfj",
       "title": "ENFJ ผู้นำเชิงพัฒนา | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-enfj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1031,7 +1031,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/enfp",
+      "finalUrl": "http://127.0.0.1:3130/types/enfp",
       "title": "ENFP ผู้จุดประกายโอกาส | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-enfp-th-390x844.png",
       "clientWidth": 390,
@@ -1056,7 +1056,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/enfp",
+      "finalUrl": "http://127.0.0.1:3130/types/enfp",
       "title": "ENFP ผู้จุดประกายโอกาส | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-enfp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1081,7 +1081,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istj",
+      "finalUrl": "http://127.0.0.1:3130/types/istj",
       "title": "ISTJ ผู้จัดการความมั่นคง | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istj-th-390x844.png",
       "clientWidth": 390,
@@ -1106,7 +1106,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istj",
+      "finalUrl": "http://127.0.0.1:3130/types/istj",
       "title": "ISTJ ผู้จัดการความมั่นคง | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1131,7 +1131,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfj?from=yellow",
+      "finalUrl": "http://127.0.0.1:3130/types/isfj?from=yellow",
       "title": "ISFJ ผู้ดูแลด้วยความละเอียด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfj-th-320x800.png",
       "clientWidth": 320,
@@ -1156,7 +1156,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfj?from=yellow",
+      "finalUrl": "http://127.0.0.1:3130/types/isfj?from=yellow",
       "title": "ISFJ ผู้ดูแลด้วยความละเอียด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfj-th-390x844.png",
       "clientWidth": 390,
@@ -1181,7 +1181,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfj?from=yellow",
+      "finalUrl": "http://127.0.0.1:3130/types/isfj?from=yellow",
       "title": "ISFJ ผู้ดูแลด้วยความละเอียด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfj-th-768x1024.png",
       "clientWidth": 768,
@@ -1206,7 +1206,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfj?from=yellow",
+      "finalUrl": "http://127.0.0.1:3130/types/isfj?from=yellow",
       "title": "ISFJ ผู้ดูแลด้วยความละเอียด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfj-th-1024x768.png",
       "clientWidth": 1024,
@@ -1231,7 +1231,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfj?from=yellow",
+      "finalUrl": "http://127.0.0.1:3130/types/isfj?from=yellow",
       "title": "ISFJ ผู้ดูแลด้วยความละเอียด | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1256,7 +1256,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/estj",
+      "finalUrl": "http://127.0.0.1:3130/types/estj",
       "title": "ESTJ ผู้ขับเคลื่อนการตัดสินใจ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-estj-th-390x844.png",
       "clientWidth": 390,
@@ -1281,7 +1281,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/estj",
+      "finalUrl": "http://127.0.0.1:3130/types/estj",
       "title": "ESTJ ผู้ขับเคลื่อนการตัดสินใจ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-estj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1306,7 +1306,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/esfj",
+      "finalUrl": "http://127.0.0.1:3130/types/esfj",
       "title": "ESFJ ผู้สร้างความกลมกลืน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-esfj-th-390x844.png",
       "clientWidth": 390,
@@ -1331,7 +1331,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/esfj",
+      "finalUrl": "http://127.0.0.1:3130/types/esfj",
       "title": "ESFJ ผู้สร้างความกลมกลืน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-esfj-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1356,7 +1356,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istp?from=blue",
+      "finalUrl": "http://127.0.0.1:3130/types/istp?from=blue",
       "title": "ISTP นักแก้ปัญหาเฉพาะหน้า | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istp-th-320x800.png",
       "clientWidth": 320,
@@ -1381,7 +1381,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istp?from=blue",
+      "finalUrl": "http://127.0.0.1:3130/types/istp?from=blue",
       "title": "ISTP นักแก้ปัญหาเฉพาะหน้า | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istp-th-390x844.png",
       "clientWidth": 390,
@@ -1406,7 +1406,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istp?from=blue",
+      "finalUrl": "http://127.0.0.1:3130/types/istp?from=blue",
       "title": "ISTP นักแก้ปัญหาเฉพาะหน้า | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istp-th-768x1024.png",
       "clientWidth": 768,
@@ -1431,7 +1431,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istp?from=blue",
+      "finalUrl": "http://127.0.0.1:3130/types/istp?from=blue",
       "title": "ISTP นักแก้ปัญหาเฉพาะหน้า | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istp-th-1024x768.png",
       "clientWidth": 1024,
@@ -1456,7 +1456,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/istp?from=blue",
+      "finalUrl": "http://127.0.0.1:3130/types/istp?from=blue",
       "title": "ISTP นักแก้ปัญหาเฉพาะหน้า | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-istp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1481,7 +1481,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfp",
+      "finalUrl": "http://127.0.0.1:3130/types/isfp",
       "title": "ISFP นักสร้างสรรค์อย่างอ่อนโยน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfp-th-390x844.png",
       "clientWidth": 390,
@@ -1506,7 +1506,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/isfp",
+      "finalUrl": "http://127.0.0.1:3130/types/isfp",
       "title": "ISFP นักสร้างสรรค์อย่างอ่อนโยน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-isfp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1531,7 +1531,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/estp",
+      "finalUrl": "http://127.0.0.1:3130/types/estp",
       "title": "ESTP นักลงมือเชิงจังหวะ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-estp-th-390x844.png",
       "clientWidth": 390,
@@ -1556,7 +1556,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/estp",
+      "finalUrl": "http://127.0.0.1:3130/types/estp",
       "title": "ESTP นักลงมือเชิงจังหวะ | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-estp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1581,7 +1581,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/esfp",
+      "finalUrl": "http://127.0.0.1:3130/types/esfp",
       "title": "ESFP ผู้ส่งพลังให้ผู้คน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-esfp-th-390x844.png",
       "clientWidth": 390,
@@ -1606,7 +1606,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/esfp",
+      "finalUrl": "http://127.0.0.1:3130/types/esfp",
       "title": "ESFP ผู้ส่งพลังให้ผู้คน | โปรไฟล์บุคลิก MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-esfp-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1632,7 +1632,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "ผลของฉัน | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-th-320x800.png",
       "clientWidth": 320,
@@ -1658,7 +1658,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "ผลของฉัน | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-th-390x844.png",
       "clientWidth": 390,
@@ -1684,7 +1684,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "ผลของฉัน | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-th-768x1024.png",
       "clientWidth": 768,
@@ -1710,7 +1710,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "ผลของฉัน | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-th-1024x768.png",
       "clientWidth": 1024,
@@ -1736,7 +1736,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "ผลของฉัน | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1761,7 +1761,7 @@
         "height": 800
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/login",
+      "finalUrl": "http://127.0.0.1:3130/login",
       "title": "เข้าสู่ระบบยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/login-th-320x800.png",
       "clientWidth": 320,
@@ -1786,7 +1786,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/login",
+      "finalUrl": "http://127.0.0.1:3130/login",
       "title": "เข้าสู่ระบบยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/login-th-390x844.png",
       "clientWidth": 390,
@@ -1811,7 +1811,7 @@
         "height": 1024
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/login",
+      "finalUrl": "http://127.0.0.1:3130/login",
       "title": "เข้าสู่ระบบยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/login-th-768x1024.png",
       "clientWidth": 768,
@@ -1836,7 +1836,7 @@
         "height": 768
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/login",
+      "finalUrl": "http://127.0.0.1:3130/login",
       "title": "เข้าสู่ระบบยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/login-th-1024x768.png",
       "clientWidth": 1024,
@@ -1861,7 +1861,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/login",
+      "finalUrl": "http://127.0.0.1:3130/login",
       "title": "เข้าสู่ระบบยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/login-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1886,7 +1886,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/register",
+      "finalUrl": "http://127.0.0.1:3130/register",
       "title": "การสมัครสมาชิกยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/register-th-390x844.png",
       "clientWidth": 390,
@@ -1911,7 +1911,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/register",
+      "finalUrl": "http://127.0.0.1:3130/register",
       "title": "การสมัครสมาชิกยังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/register-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1936,7 +1936,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/forgot-password",
+      "finalUrl": "http://127.0.0.1:3130/forgot-password",
       "title": "การกู้คืนบัญชียังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/forgot-password-th-390x844.png",
       "clientWidth": 390,
@@ -1961,7 +1961,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/forgot-password",
+      "finalUrl": "http://127.0.0.1:3130/forgot-password",
       "title": "การกู้คืนบัญชียังไม่เปิด | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/forgot-password-th-1440x1000.png",
       "clientWidth": 1440,
@@ -1986,7 +1986,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile",
+      "finalUrl": "http://127.0.0.1:3130/profile",
       "title": "โปรไฟล์ของคุณยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-th-390x844.png",
       "clientWidth": 390,
@@ -2011,7 +2011,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile",
+      "finalUrl": "http://127.0.0.1:3130/profile",
       "title": "โปรไฟล์ของคุณยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2036,7 +2036,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo",
       "title": "โปรไฟล์สาธารณะยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-th-390x844.png",
       "clientWidth": 390,
@@ -2061,7 +2061,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo",
       "title": "โปรไฟล์สาธารณะยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2086,7 +2086,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/followers",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/followers",
       "title": "รายชื่อผู้ติดตามยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-followers-th-390x844.png",
       "clientWidth": 390,
@@ -2111,7 +2111,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/followers",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/followers",
       "title": "รายชื่อผู้ติดตามยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-followers-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2136,7 +2136,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/following",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/following",
       "title": "รายชื่อที่กำลังติดตามยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-following-th-390x844.png",
       "clientWidth": 390,
@@ -2161,7 +2161,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/following",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/following",
       "title": "รายชื่อที่กำลังติดตามยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-following-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2186,7 +2186,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/u/demo",
+      "finalUrl": "http://127.0.0.1:3130/u/demo",
       "title": "หน้าโปรไฟล์ชื่อผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/u-demo-th-390x844.png",
       "clientWidth": 390,
@@ -2211,7 +2211,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/u/demo",
+      "finalUrl": "http://127.0.0.1:3130/u/demo",
       "title": "หน้าโปรไฟล์ชื่อผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/u-demo-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2236,7 +2236,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/settings",
+      "finalUrl": "http://127.0.0.1:3130/settings",
       "title": "การตั้งค่าบัญชียังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/settings-th-390x844.png",
       "clientWidth": 390,
@@ -2261,7 +2261,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/settings",
+      "finalUrl": "http://127.0.0.1:3130/settings",
       "title": "การตั้งค่าบัญชียังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/settings-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2286,7 +2286,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/settings/password",
+      "finalUrl": "http://127.0.0.1:3130/settings/password",
       "title": "การตั้งค่ารหัสผ่านยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/settings-password-th-390x844.png",
       "clientWidth": 390,
@@ -2311,7 +2311,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/settings/password",
+      "finalUrl": "http://127.0.0.1:3130/settings/password",
       "title": "การตั้งค่ารหัสผ่านยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/settings-password-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2336,7 +2336,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/setup-profile",
+      "finalUrl": "http://127.0.0.1:3130/setup-profile",
       "title": "การตั้งค่าโปรไฟล์ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/setup-profile-th-390x844.png",
       "clientWidth": 390,
@@ -2361,7 +2361,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/setup-profile",
+      "finalUrl": "http://127.0.0.1:3130/setup-profile",
       "title": "การตั้งค่าโปรไฟล์ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/setup-profile-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2386,7 +2386,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/setup-username",
+      "finalUrl": "http://127.0.0.1:3130/setup-username",
       "title": "การตั้งชื่อผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/setup-username-th-390x844.png",
       "clientWidth": 390,
@@ -2411,7 +2411,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/setup-username",
+      "finalUrl": "http://127.0.0.1:3130/setup-username",
       "title": "การตั้งชื่อผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/setup-username-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2436,7 +2436,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/reset-password",
+      "finalUrl": "http://127.0.0.1:3130/reset-password",
       "title": "การรีเซ็ตรหัสผ่านยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/reset-password-th-390x844.png",
       "clientWidth": 390,
@@ -2461,7 +2461,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/reset-password",
+      "finalUrl": "http://127.0.0.1:3130/reset-password",
       "title": "การรีเซ็ตรหัสผ่านยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/reset-password-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2486,7 +2486,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/verify-email",
+      "finalUrl": "http://127.0.0.1:3130/verify-email",
       "title": "การยืนยันอีเมลยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/verify-email-th-390x844.png",
       "clientWidth": 390,
@@ -2511,7 +2511,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/verify-email",
+      "finalUrl": "http://127.0.0.1:3130/verify-email",
       "title": "การยืนยันอีเมลยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/verify-email-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2536,7 +2536,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/explore",
+      "finalUrl": "http://127.0.0.1:3130/explore",
       "title": "พื้นที่สำรวจ Community ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/explore-th-390x844.png",
       "clientWidth": 390,
@@ -2561,7 +2561,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/explore",
+      "finalUrl": "http://127.0.0.1:3130/explore",
       "title": "พื้นที่สำรวจ Community ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/explore-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2586,7 +2586,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/leaderboard",
+      "finalUrl": "http://127.0.0.1:3130/leaderboard",
       "title": "Leaderboard ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/leaderboard-th-390x844.png",
       "clientWidth": 390,
@@ -2611,7 +2611,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/leaderboard",
+      "finalUrl": "http://127.0.0.1:3130/leaderboard",
       "title": "Leaderboard ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/leaderboard-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2636,7 +2636,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/card/demo-card",
+      "finalUrl": "http://127.0.0.1:3130/card/demo-card",
       "title": "Community Card ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/card-demo-card-th-390x844.png",
       "clientWidth": 390,
@@ -2661,7 +2661,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/card/demo-card",
+      "finalUrl": "http://127.0.0.1:3130/card/demo-card",
       "title": "Community Card ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/card-demo-card-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2686,7 +2686,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/card/me",
+      "finalUrl": "http://127.0.0.1:3130/card/me",
       "title": "การ์ดส่วนตัวของคุณยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/card-me-th-390x844.png",
       "clientWidth": 390,
@@ -2711,7 +2711,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/card/me",
+      "finalUrl": "http://127.0.0.1:3130/card/me",
       "title": "การ์ดส่วนตัวของคุณยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/card-me-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2736,7 +2736,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/cards",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/cards",
       "title": "การ์ดบนโปรไฟล์ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-cards-th-390x844.png",
       "clientWidth": 390,
@@ -2761,7 +2761,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/profile/demo/cards",
+      "finalUrl": "http://127.0.0.1:3130/profile/demo/cards",
       "title": "การ์ดบนโปรไฟล์ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/profile-demo-cards-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2786,7 +2786,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/share/demo",
+      "finalUrl": "http://127.0.0.1:3130/share/demo",
       "title": "หน้าผลลัพธ์สาธารณะยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/share-demo-th-390x844.png",
       "clientWidth": 390,
@@ -2811,7 +2811,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/share/demo",
+      "finalUrl": "http://127.0.0.1:3130/share/demo",
       "title": "หน้าผลลัพธ์สาธารณะยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/share-demo-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2836,7 +2836,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin",
+      "finalUrl": "http://127.0.0.1:3130/admin",
       "title": "ภาพรวม Admin ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-th-390x844.png",
       "clientWidth": 390,
@@ -2861,7 +2861,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin",
+      "finalUrl": "http://127.0.0.1:3130/admin",
       "title": "ภาพรวม Admin ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2886,7 +2886,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/cards",
+      "finalUrl": "http://127.0.0.1:3130/admin/cards",
       "title": "การจัดการการ์ดยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-cards-th-390x844.png",
       "clientWidth": 390,
@@ -2911,7 +2911,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/cards",
+      "finalUrl": "http://127.0.0.1:3130/admin/cards",
       "title": "การจัดการการ์ดยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-cards-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2936,7 +2936,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/comments",
+      "finalUrl": "http://127.0.0.1:3130/admin/comments",
       "title": "การจัดการความคิดเห็นยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-comments-th-390x844.png",
       "clientWidth": 390,
@@ -2961,7 +2961,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/comments",
+      "finalUrl": "http://127.0.0.1:3130/admin/comments",
       "title": "การจัดการความคิดเห็นยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-comments-th-1440x1000.png",
       "clientWidth": 1440,
@@ -2986,7 +2986,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/settings",
+      "finalUrl": "http://127.0.0.1:3130/admin/settings",
       "title": "การตั้งค่า Admin ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-settings-th-390x844.png",
       "clientWidth": 390,
@@ -3011,7 +3011,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/settings",
+      "finalUrl": "http://127.0.0.1:3130/admin/settings",
       "title": "การตั้งค่า Admin ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-settings-th-1440x1000.png",
       "clientWidth": 1440,
@@ -3036,7 +3036,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/users",
+      "finalUrl": "http://127.0.0.1:3130/admin/users",
       "title": "การจัดการผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-users-th-390x844.png",
       "clientWidth": 390,
@@ -3061,7 +3061,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/admin/users",
+      "finalUrl": "http://127.0.0.1:3130/admin/users",
       "title": "การจัดการผู้ใช้ยังพักไว้ | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/admin-users-th-1440x1000.png",
       "clientWidth": 1440,
@@ -3086,7 +3086,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | Read beyond four personality letters",
       "screenshot": "output/ui-redesign-v3/screenshots/home-en-390x844.png",
       "clientWidth": 390,
@@ -3111,7 +3111,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/",
+      "finalUrl": "http://127.0.0.1:3130/",
       "title": "MBTI Z | Read beyond four personality letters",
       "screenshot": "output/ui-redesign-v3/screenshots/home-en-1440x1000.png",
       "clientWidth": 1440,
@@ -3136,7 +3136,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-en-390x844.png",
       "clientWidth": 390,
@@ -3161,7 +3161,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types",
+      "finalUrl": "http://127.0.0.1:3130/types",
       "title": "16 Types | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/types-en-1440x1000.png",
       "clientWidth": 1440,
@@ -3186,7 +3186,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ Strategic Architect | MBTI Z personality profile",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-en-390x844.png",
       "clientWidth": 390,
@@ -3211,7 +3211,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/types/intj?from=purple",
+      "finalUrl": "http://127.0.0.1:3130/types/intj?from=purple",
       "title": "INTJ Strategic Architect | MBTI Z personality profile",
       "screenshot": "output/ui-redesign-v3/screenshots/types-intj-en-1440x1000.png",
       "clientWidth": 1440,
@@ -3237,7 +3237,7 @@
         "height": 844
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "My Results | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-en-390x844.png",
       "clientWidth": 390,
@@ -3263,7 +3263,7 @@
         "height": 1000
       },
       "statusCode": 200,
-      "finalUrl": "https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app/dashboard",
+      "finalUrl": "http://127.0.0.1:3130/dashboard",
       "title": "My Results | MBTI Z",
       "screenshot": "output/ui-redesign-v3/screenshots/dashboard-en-1440x1000.png",
       "clientWidth": 1440,

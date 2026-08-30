@@ -71,6 +71,7 @@ Production URL serves the accepted SHA, core guest product passes, rollback rest
 ### Blocker
 
 Production promotion and rollback were not executed. `npm audit --omit=dev`
-reports 2 critical and 12 high production-tree findings, including the legacy
-NextAuth/Auth.js peer path. This new project also has no previous healthy
-Production deployment that can serve as a valid rollback target.
+reports zero production-tree findings on the local dependency-remediation branch.
+The branch still needs protected GitHub checks and a new Vercel Preview acceptance
+from the same source SHA. This new project also has no previous healthy Production
+deployment that can serve as a valid rollback target.

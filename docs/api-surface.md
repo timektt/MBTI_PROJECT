@@ -18,9 +18,14 @@ These routes currently do **not** depend on the APIs below to function for the m
 
 ## Auth and account
 
+- `GET|POST /api/auth/[...nextauth]`
+  - returns `503 account_runtime_held` while neither `AUTH_SECRET` nor `NEXTAUTH_SECRET` is configured
 - `POST /api/register`
 - `POST /api/forgot-password`
 - `POST /api/reset-password`
+- `POST /api/auth/verify-email`
+- `GET /api/check-username`
+  - the five account endpoints above are rate-limited and return `503 account_runtime_held`; they do not touch Prisma or email transport in `guest-local`
 - `POST /api/profile/updateBio`
 - `POST /api/settings/update`
 - `POST /api/settings/changePassword`
@@ -85,6 +90,13 @@ Auth surface isolation audit:
   - verifies high-risk account, admin, upload, social, card, comment, and settings APIs have expected method guards, rate limits, and server-side auth markers where applicable
   - verifies no root Next `middleware.ts` or `middleware.js` has been activated before auth reconnect is deliberate
   - does not enable `NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME=cloud`
+
+Account runtime audit:
+
+- `npm run auth:runtime`
+  - executes the five held account handlers and asserts `503 account_runtime_held`
+  - asserts an authenticated cloud endpoint returns `401` before Prisma access when no session exists
+  - asserts both Auth.js handler methods return `503` while no auth secret is configured
 
 ## User result assets
 

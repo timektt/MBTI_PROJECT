@@ -1,9 +1,9 @@
 # MBTI Z Vercel Delivery Evidence
 
 Updated: 2026-08-31
-Branch: `codex/vercel-delivery`
+Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
+Status: `LOCAL VERIFIED - PREVIEW REVALIDATION PENDING`
 
 ## Bound Target
 
@@ -48,7 +48,7 @@ surfaces remain held and the full-cloud preflight remains blocked.
 | Browser route sweep | 31 patterns, 16 concrete Type routes, 130 samples, 0 failures |
 | UI quality verifier | PASS |
 | `npm run verify` | PASS locally; GitHub rerun follows the evidence commit |
-| Production dependency audit | BLOCKED: 18 findings, including 2 critical and 12 high |
+| Production dependency audit | PASS LOCALLY: 0 findings |
 
 The guest-local profile requires the three active environment names and verifies
 repository hygiene, assets, held auth surfaces, UI evidence, Vercel binding,
@@ -93,16 +93,17 @@ no card, locale-control, image or content overlap in those target surfaces.
 
 ## Production And Rollback
 
-Production was not promoted. `npm audit --omit=dev` reports 18 production-tree
-findings: 2 critical, 12 high, 2 moderate and 2 low. The critical path is the
-legacy `next-auth@4.24.15 -> @auth/core@0.34.3` peer contract. Direct residuals
-also include `@vercel/og@0.11.1`, `nodemailer@7.0.13` and the Next.js 15 line.
-Forcing newer incompatible peers is rejected.
+Production was not promoted. The local remediation branch now reports zero
+production-tree findings from `npm audit --omit=dev`. It replaces direct
+`@vercel/og` use with bundled `next/og`, migrates the session boundary to Auth.js
+v5 beta, removes the inactive Nodemailer/account transport, moves `shadcn` CLI
+ownership to development, removes unused server-only packages, and upgrades to
+Next.js 16.3.3 with React 19.2.8. Account APIs remain explicitly held.
 
 There is no previous healthy Production deployment for this new Vercel project,
 so a real rollback rehearsal has no valid target. Card 28 remains blocked until:
 
-- the legacy NextAuth/Auth.js dependency path is migrated or removed;
-- the result renderer and Nodemailer have supported secure upgrade paths;
-- the production audit has no critical finding and accepted high findings have documented applicability;
-- protected `main` contains the accepted runtime SHA and has a healthy predecessor to roll back to.
+- full verification passes from the committed remediation SHA;
+- GitHub review and a dependency-remediated Vercel Preview pass from that same SHA;
+- protected `main` contains the accepted runtime SHA;
+- the first healthy Production deployment is recorded before a later rollback rehearsal can be truthful.

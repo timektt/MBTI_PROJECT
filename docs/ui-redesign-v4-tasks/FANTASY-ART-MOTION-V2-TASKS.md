@@ -1,6 +1,6 @@
 # Fantasy Art And Motion V2 Stable Tasks
 
-Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
+Status: `LOCAL VERIFIED - PREVIEW REVALIDATION PENDING`
 Total: 136 stable tasks
 Cards: 28
 Parent plan: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
@@ -31,7 +31,7 @@ Parent plan: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 | Integration `001..018` | `DONE` | Home, Quiz, Result, Atlas, 16 detail routes, Dashboard and held routes pass current-source browser evidence |
 | QA `001..014` | `DONE WITH RESIDUAL` | 130 samples pass; Lighthouse observed LCP 145/121ms, CLS 0, TBT 0/3ms; simulated localhost LCP remains above target and must be rechecked on Preview |
 | Delivery `001..025` | `DONE` | protected baseline, PR workflow, Vercel binding and Preview acceptance evidence pass |
-| Delivery `026..028` | `BLOCKED` | production audit has 2 critical/12 high findings and no healthy Production rollback target exists |
+| Delivery `026..028` | `BLOCKED` | local production audit is clean; dependency-remediated Preview acceptance and a healthy Production rollback predecessor are still missing |
 
 Detailed evidence: `docs/ui-redesign-v4-tasks/FANTASY-ART-MOTION-V2-EXECUTION.md`
 

@@ -2,19 +2,25 @@
 
 Updated: 2026-08-31
 Runtime boundary: `guest-local`
-Current source fingerprint: `c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a`
-Current completed slice: protected Vercel Preview acceptance
-Next slice: dependency remediation before Production promotion
+Current source fingerprint: `ba2d102e86e322468c8dca34be5f31407dea651ffdbb26968aede017536a0113`
+Current completed slice: full local dependency remediation verification
+Next slice: protected PR and Vercel Preview revalidation
 
 ## Active Change Request
 
-`Fantasy Art And Motion V2` is now `PREVIEW ACCEPTED - PRODUCTION BLOCKED` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
+`Fantasy Art And Motion V2` is now `LOCAL VERIFIED - PREVIEW REVALIDATION PENDING` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
 
 Local evidence now includes 21 accepted V2 assets, shared motion cleanup, all 16
 type routes, 130 browser samples with zero failures/asset fallbacks, full
 `npm run verify`, a 48-page build and Lighthouse lab reports. GitHub protected
 main governance is active and protected Preview acceptance is complete. Production
 remains a separate security and rollback gate.
+
+The remediation branch now uses the bundled `next/og` renderer, Auth.js v5 beta,
+Next.js 16.3.3, React 19.2.8 and a native ESLint flat config. Unused production
+dependencies were removed or moved to development ownership. `npm audit --omit=dev`
+reports zero findings locally, account runtime contracts pass, and the 49-page
+Webpack production build passes. A new protected Preview is still required before merge.
 
 Execution order before continuing route polish:
 
@@ -56,7 +62,7 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 | 19 Home hover/pruning | `DONE` | House hover/focus is container-safe; interactive Type mosaic and repeated CTA band removed |
 | 20 Home closeout | `DONE` | TH/EN browser matrix passed 10/10 captures |
 | 21-31 Remaining routes | `DONE` | Quiz, Result, Atlas, all Type Detail routes, My Results and held routes pass current-source evidence |
-| 32 Full V4 quality gate | `DONE WITH RESIDUAL` | 31 route patterns, 16 Type routes and 130 Preview samples pass; Production security remains blocked |
+| 32 Full V4 quality gate | `DONE WITH RESIDUAL` | prior Preview passed 31 route patterns, 16 Type routes and 130 samples; dependency-remediated Preview revalidation is pending |
 
 ## Home Verification
 
@@ -73,9 +79,9 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 
 ## Next Execution Order
 
-1. Migrate or retire the legacy NextAuth/Auth.js peer path.
-2. Move the result image renderer to a supported secure runtime package.
-3. Upgrade Nodemailer through a peer-compatible auth boundary.
-4. Re-run production audit, full verify and protected Preview acceptance.
-5. Promote protected `main` only after critical findings are zero.
-6. Record the first healthy Production deployment before rehearsing rollback.
+1. Run the full local verification gate on the dependency-remediation branch.
+2. Commit and push the bounded branch through protected PR review.
+3. Deploy a new Vercel Preview from the reviewed source SHA.
+4. Repeat route, locale, viewport, account-hold and result-image API acceptance.
+5. Merge only after GitHub checks and the new Preview pass from the same SHA.
+6. Create the first healthy Production deployment, then retain it as the rollback predecessor for the next release.

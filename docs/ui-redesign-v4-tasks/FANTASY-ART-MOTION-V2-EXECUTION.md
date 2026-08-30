@@ -27,7 +27,7 @@ Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 | Asset fallback assertion | 0 visible fallbacks across all browser samples |
 | Locale and viewport matrix | TH/EN at 320, 390, 768, 1024 and 1440 where assigned by route family |
 | `npm run verify` | passed from the same source fingerprint |
-| Production build | 48/48 pages generated |
+| Production build | 49/49 pages generated on Next.js 16.3.3 with Webpack |
 | Bundle snapshot | shared 183 kB; Home 197 kB; Quiz 222 kB; Result 229 kB; Types 205 kB; Type Detail 243 kB |
 | Lighthouse Home | performance 81; accessibility/best-practices/SEO 100; observed LCP 145ms; CLS 0; TBT 0ms |
 | Lighthouse Types | performance 82; accessibility/best-practices/SEO 100; observed LCP 121ms; CLS 0; TBT 3ms |
@@ -65,7 +65,7 @@ future all-consumer migration, not justification for a speculative partial one.
 - INP p75 requires field data; local TBT is only a lab responsiveness proxy.
 - Historical interaction, My Results and WebKit PNG reports remain local artifacts;
   the protected Preview route/image/API matrix is current to runtime SHA `4895b2e`.
-- Production is blocked by 2 critical and 12 high production-tree audit findings.
+- The local remediation branch has zero production audit findings; a new protected Preview and GitHub checks are still required before merge or Production.
 - No healthy Production predecessor exists, so rollback rehearsal cannot yet be truthful.
 
 ## Rollback Map
