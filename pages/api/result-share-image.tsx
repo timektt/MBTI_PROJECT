@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { ImageResponse } from "@vercel/og";
 import type { NextApiRequest, NextApiResponse } from "next";
+import { ImageResponse } from "next/og";
 import type { CSSProperties, ReactNode } from "react";
 
 import {
