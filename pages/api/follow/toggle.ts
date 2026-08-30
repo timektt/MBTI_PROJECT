@@ -1,5 +1,4 @@
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
+import { getServerAuthSession } from "@/lib/server-auth";
 import { prisma } from "@/lib/prisma";
 import { createNotification } from "@/lib/notify";
 import { pusherServer } from "@/lib/pusher";
@@ -14,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method !== "POST") return res.status(405).end();
 
-  const session = await getServerSession(req, res, authOptions);
+  const session = await getServerAuthSession(req, res);
   const followerId = session?.user?.id;
   if (!followerId) return res.status(401).json({ error: "Unauthorized" });
 

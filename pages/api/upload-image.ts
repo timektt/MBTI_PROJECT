@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { IncomingForm, type Fields, type Files } from "formidable";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
+import { getServerAuthSession } from "@/lib/server-auth";
 import cloudinary from "@/lib/cloudinary";
 import { rateLimit } from "@/lib/rateLimit";
 
@@ -39,7 +38,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   }
 
   try {
-    const session = await getServerSession(req, res, authOptions);
+    const session = await getServerAuthSession(req, res);
     if (!session?.user?.id) {
       return res.status(401).json({ error: "Unauthorized" });
     }

@@ -1,16 +1,13 @@
-import { NextApiRequest, NextApiResponse } from "next"
-import { prisma } from "@/lib/prisma"
+import type { NextApiRequest, NextApiResponse } from "next";
+
+import { sendAccountRuntimeHeld } from "@/lib/account-runtime";
+import { rateLimit } from "@/lib/rateLimit";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  const username = (req.query.username as string)?.toLowerCase()
-
-  if (!username || username.length < 3) {
-    return res.status(400).json({ available: false })
+  if (req.method !== "GET") {
+    return res.status(405).json({ error: "Method not allowed" });
   }
 
-  const existing = await prisma.user.findFirst({
-    where: { username },
-  })
-
-  res.status(200).json({ available: !existing })
+  if (!rateLimit(req, res, { windowMs: 60_000, max: 20 })) return;
+  return sendAccountRuntimeHeld(res);
 }

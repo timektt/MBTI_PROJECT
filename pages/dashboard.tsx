@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {
   AlertTriangle,
@@ -37,6 +38,7 @@ type LocalizedGuestResult = ReturnType<typeof assessmentRuntime.localizeResult>;
 const dashboardCopy = mbtiZMyResultsCopy;
 
 export default function DashboardPage() {
+  const router = useRouter();
   const { hydrated, locale } = useMbtiZLocale();
   const [latestResult, setLatestResult] = useState<GuestResult | null>(null);
   const [history, setHistory] = useState<GuestResult[]>([]);
@@ -131,7 +133,7 @@ export default function DashboardPage() {
 
     try {
       assessmentRuntime.resetSession(nextLocale);
-      window.location.assign(`/quiz?lang=${nextLocale}`);
+      void router.push(`/quiz?lang=${nextLocale}`);
     } catch (error) {
       console.error("dashboard-session-reset-failed", error);
       setStorageUnavailable(true);
