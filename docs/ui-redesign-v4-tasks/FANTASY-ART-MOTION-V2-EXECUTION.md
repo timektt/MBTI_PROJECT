@@ -3,8 +3,8 @@
 Date: 2026-08-31
 Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Source fingerprint: `84a9199a1732dd68abe418c435fbba1e5e6fd680bbc3c89efa19719c451fa3aa`
-Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
+Source fingerprint: `5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`
+Status: `RATE-LIMIT REMEDIATION LOCAL VERIFIED - PREVIEW PENDING`
 
 ## Implemented
 
@@ -70,9 +70,9 @@ future all-consumer migration, not justification for a speculative partial one.
 - The remediation branch has zero production audit findings; PR `#9`, GitHub CI
   and the dependency-remediated Preview pass. Merge and Production remain explicit
   approval gates.
-- The existing in-memory rate limiter shares an IP bucket across account routes;
-  repeated held-route probes can produce fail-closed `429` before route-specific
-  `503`. Route-scoped keys remain a follow-up before account runtime activation.
+- Route-scoped rate-limit keys, query-bypass regression coverage and same-IP HTTP
+  isolation now pass locally. This source still needs GitHub and Vercel Preview
+  acceptance before replacing the recorded runtime SHA.
 - No healthy Production predecessor exists, so rollback rehearsal cannot yet be truthful.
 
 ## Rollback Map

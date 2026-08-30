@@ -16,6 +16,7 @@
     "repo:hygiene:strict": "node scripts/audit-repo-hygiene.mjs --strict",
     "auth:surface": "node scripts/audit-auth-surface-isolation.mjs",
     "auth:runtime": "npx --yes tsx scripts/verify-account-runtime-hold.ts",
+    "rate-limit:verify": "npx --yes tsx scripts/verify-rate-limit-contract.ts",
     "cloud:readiness": "node scripts/cloud-runtime-readiness.mjs",
     "cloud:readiness:strict": "node scripts/cloud-runtime-readiness.mjs --strict",
     "cloud:contracts": "npx --yes tsx scripts/verify-cloud-api-contract.ts",
@@ -50,7 +51,7 @@
     "preflight:guest:preview": "node scripts/launch-preflight.mjs --target=preview --profile=guest-local",
     "preflight:guest:production": "node scripts/launch-preflight.mjs --target=production --profile=guest-local",
     "launch:handoff": "node scripts/generate-launch-handoff.mjs",
-    "verify": "npm run repo:hygiene:strict && npm run data:validate && npm run types:validate && npm run assets:verify && npm run result-share:security && npm run db:bootstrap:verify && npm run reconnect:verify && npm run reconnect:cloud-import && npm run runtime:guards:all && npm run auth:surface && npm run auth:runtime && npm run ui:v3:contract && npm run ui:route-sweep:verify && npm run ui:v3:quality && npm run ui:completion && npm run cloud:contracts && npm run cloud:server-contracts && npm run cloud:adapter && npm run lint && npm run typecheck && npm run build"
+    "verify": "npm run repo:hygiene:strict && npm run data:validate && npm run types:validate && npm run assets:verify && npm run result-share:security && npm run db:bootstrap:verify && npm run reconnect:verify && npm run reconnect:cloud-import && npm run runtime:guards:all && npm run auth:surface && npm run auth:runtime && npm run rate-limit:verify && npm run ui:v3:contract && npm run ui:route-sweep:verify && npm run ui:v3:quality && npm run ui:completion && npm run cloud:contracts && npm run cloud:server-contracts && npm run cloud:adapter && npm run lint && npm run typecheck && npm run build"
   },
   "dependencies": {
     "@auth/prisma-adapter": "2.11.3",

@@ -2,13 +2,13 @@
 
 Updated: 2026-08-31
 Runtime boundary: `guest-local`
-Current source fingerprint: `84a9199a1732dd68abe418c435fbba1e5e6fd680bbc3c89efa19719c451fa3aa`
-Current completed slice: protected PR checks and dependency-remediated Preview acceptance
-Next slice: explicit Production approval, protected merge and first-release evidence
+Current source fingerprint: `5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`
+Current completed slice: local route-scoped rate-limit remediation and full verification
+Next slice: protected PR checks and Vercel Preview revalidation
 
 ## Active Change Request
 
-`Fantasy Art And Motion V2` is now `DEPENDENCY PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
+`Fantasy Art And Motion V2` is now `RATE-LIMIT REMEDIATION LOCAL VERIFIED - PREVIEW PENDING` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
 
 Local evidence now includes 21 accepted V2 assets, shared motion cleanup, all 16
 type routes, 130 browser samples with zero failures/asset fallbacks, full
@@ -22,7 +22,10 @@ dependencies were removed or moved to development ownership. `npm audit --omit=d
 reports zero findings locally, account runtime contracts pass, and the 49-page
 Webpack production build passes. PR `#9`, GitHub CI and the dependency-remediated
 Vercel Preview pass from runtime SHA `4e50113`; merge and Production remain
-separate approval gates.
+separate approval gates. The follow-up route-scoped rate-limit source now passes
+focused contracts, real local HTTP isolation, the refreshed 130-sample browser
+matrix and full verification; a new Preview is required before it replaces the
+accepted runtime SHA.
 
 Execution order before continuing route polish:
 
@@ -81,9 +84,9 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 
 ## Next Execution Order
 
-1. Review PR `#9` and the accepted Preview evidence.
-2. Obtain explicit approval before merging the protected branch or changing the Production alias.
-3. Confirm the protected `main` SHA equals the approved runtime revision after merge.
-4. Create and smoke the first healthy guest-local Production deployment.
-5. Record that deployment as the rollback predecessor for the next release.
-6. Follow up with route-scoped rate-limit keys before any account runtime activation.
+1. Commit and push the route-scoped rate-limit source plus current browser evidence.
+2. Require GitHub CI and a new Vercel Preview to pass from that runtime SHA.
+3. Review PR `#9` and the accepted Preview evidence.
+4. Obtain explicit approval before merging the protected branch or changing the Production alias.
+5. Confirm the protected `main` SHA equals the approved runtime revision after merge.
+6. Create the first healthy guest-local Production deployment and retain it as the next release's rollback predecessor.

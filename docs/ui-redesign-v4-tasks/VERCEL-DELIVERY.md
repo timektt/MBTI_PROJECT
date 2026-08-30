@@ -3,7 +3,7 @@
 Updated: 2026-08-31
 Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Status: `DEPENDENCY PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED`
+Status: `ROUTE-SCOPED RATE LIMIT LOCAL VERIFIED - PREVIEW PENDING`
 
 ## Bound Target
 
@@ -79,10 +79,17 @@ current-source local browser matrix with direct protected Preview route and API
 requests through the authenticated Vercel CLI. This limitation remains explicit;
 the latest Preview was not represented as a new CDN performance or visual run.
 
-Repeated account-endpoint probes consumed the existing process-wide IP rate-limit
-bucket, so the final verify-email probe returned fail-closed `429`. A clean-bucket
-local contract run returned the intended held `503`; route-scoped limiter keys are
-recorded as a follow-up and do not activate the held account runtime.
+### Route-Scoped Rate-Limit Follow-Up
+
+The shared-IP residual is fixed locally. Rate-limit cache keys now combine the
+normalized request pathname with the client IP, while query strings and trailing
+slashes resolve to the same route bucket. The focused contract proves route
+isolation and query-bypass protection. A local HTTP burst exhausted `/api/register`
+at `429`, then `/api/auth/verify-email` returned its independent held-runtime
+`503` for the same IP. Full verification and the refreshed 130-sample browser
+matrix pass at source fingerprint
+`5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`.
+The new PR/Vercel Preview acceptance remains pending until this source is pushed.
 
 ## Previous Visual Preview Baseline
 
