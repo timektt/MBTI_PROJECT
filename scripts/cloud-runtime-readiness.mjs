@@ -220,7 +220,7 @@ function collectApiContractStatus(route) {
   }
 
   if (route.auth === "authenticated-user") {
-    if (!source.includes("getServerSession") || !source.includes("authOptions")) {
+    if (!source.includes("getServerAuthSession")) {
       failures.push("server_session_auth");
     }
 

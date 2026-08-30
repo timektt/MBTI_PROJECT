@@ -1,8 +1,7 @@
 // ✅ /pages/api/user/set-username.ts
 
 import { prisma } from "@/lib/prisma";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
+import { getServerAuthSession } from "@/lib/server-auth";
 import { logActivity,ActivityType } from "@/lib/activity";
 import { rateLimit } from "@/lib/rateLimit";
 import { SetUsernameSchema } from "@/lib/schema";
@@ -14,7 +13,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   if (req.method !== "POST") return res.status(405).end();
 
-  const session = await getServerSession(req, res, authOptions);
+  const session = await getServerAuthSession(req, res);
   if (!session?.user?.id) {
     return res.status(401).json({ error: "Unauthorized" });
   }

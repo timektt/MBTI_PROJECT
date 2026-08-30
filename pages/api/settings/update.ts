@@ -1,8 +1,7 @@
 // ✅ /pages/api/settings/update.ts
 
 import { NextApiRequest, NextApiResponse } from "next";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/lib/authOptions";
+import { getServerAuthSession } from "@/lib/server-auth";
 import { prisma } from "@/lib/prisma";
 import { rateLimit } from "@/lib/rateLimit";
 import { UpdateProfileSchema } from "@/lib/schema";
@@ -12,7 +11,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== "POST") return res.status(405).json({ error: "Method not allowed" });
   if (!rateLimit(req, res, { windowMs: 60_000, max: 10 })) return;
 
-  const session = await getServerSession(req, res, authOptions);
+  const session = await getServerAuthSession(req, res);
   const userId = session?.user?.id;
 
   if (!userId) {

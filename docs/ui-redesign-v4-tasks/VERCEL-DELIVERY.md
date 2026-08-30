@@ -1,9 +1,9 @@
 # MBTI Z Vercel Delivery Evidence
 
 Updated: 2026-08-31
-Branch: `codex/vercel-delivery`
+Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
+Status: `ROUTE-SCOPED RATE LIMIT PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED`
 
 ## Bound Target
 
@@ -47,15 +47,63 @@ surfaces remain held and the full-cloud preflight remains blocked.
 | Full-cloud Preview preflight | BLOCKED AS DESIGNED |
 | Browser route sweep | 31 patterns, 16 concrete Type routes, 130 samples, 0 failures |
 | UI quality verifier | PASS |
-| `npm run verify` | PASS locally; GitHub rerun follows the evidence commit |
-| Production dependency audit | BLOCKED: 18 findings, including 2 critical and 12 high |
+| `npm run verify` | PASS locally and in GitHub CI for runtime SHA `4e50113` |
+| Production dependency audit | PASS LOCALLY: 0 findings |
 
 The guest-local profile requires the three active environment names and verifies
 repository hygiene, assets, held auth surfaces, UI evidence, Vercel binding,
 cloud manifest guards and guest fallback behavior. It does not authorize any
 held service to become active.
 
-## Preview Evidence
+## Dependency Remediation Preview
+
+| Field | Accepted evidence |
+| --- | --- |
+| PR | `#9` - `fix: remediate production dependency chain` |
+| Deployment id | `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin` |
+| Runtime source SHA | `4e5011364515089608eeacc313b64a8df73803e3` |
+| Source branch | `codex/dependency-remediation` |
+| State | `READY` |
+| Generated URL | `https://mbti-project-8jwln0q2p-superbears-projects-c668412a.vercel.app` |
+| Branch alias | `https://mbti-project-git-codex-depe-526e90-superbears-projects-c668412a.vercel.app` |
+| GitHub CI | `verify` passed for the same runtime SHA |
+| Preview route smoke | Home, Quiz, Types, INTJ Detail, Dashboard and Login returned `200` |
+| Account API boundary | session/register/recovery routes remained held or fail-closed; `/api/me/results` returned `401` rather than loading Auth.js in guest-local |
+| Result image API | valid payload returned `200 image/png`, 602,954 bytes and a valid PNG signature |
+| Result image SSRF guard | absolute metadata URL payload returned `400` |
+| Current-source browser matrix | local production server passed 31 patterns, 16 Type routes and 130 samples with 0 failures |
+
+Vercel Deployment Protection prevented the isolated browser runner from entering
+the latest Preview without a bypass secret. Acceptance therefore combines the
+current-source local browser matrix with direct protected Preview route and API
+requests through the authenticated Vercel CLI. This limitation remains explicit;
+the latest Preview was not represented as a new CDN performance or visual run.
+
+### Route-Scoped Rate-Limit Follow-Up
+
+| Field | Accepted evidence |
+| --- | --- |
+| Runtime source SHA | `148eea2` |
+| Deployment id | `dpl_8coaFQnLKFpTGmw9RDv6V6d5rqwP` |
+| Generated URL | `https://mbti-project-8a5cutoal-superbears-projects-c668412a.vercel.app` |
+| GitHub CI | `verify` passed in 1m32s |
+| Focused contract | route isolation, query-bypass protection, forwarded-IP normalization and empty-array fallback passed |
+| Preview same-client burst | `/api/register` returned ten held `503` responses, then `429`; `/api/auth/verify-email` remained independently held at `503` |
+
+The shared-IP residual is fixed. Rate-limit cache keys now combine the
+normalized request pathname with the client IP, while query strings and trailing
+slashes resolve to the same route bucket. The focused contract proves route
+isolation and query-bypass protection. A local HTTP burst exhausted `/api/register`
+at `429`, then `/api/auth/verify-email` returned its independent held-runtime
+`503` for the same IP. Full verification and the refreshed 130-sample browser
+matrix pass at source fingerprint
+`5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`.
+The same behavior passed on the accepted Preview. This in-memory implementation
+is still per serverless instance and is not represented as a global distributed
+rate limiter; a shared durable limiter remains a prerequisite before account
+runtime activation.
+
+## Previous Visual Preview Baseline
 
 | Field | Accepted evidence |
 | --- | --- |
@@ -90,19 +138,22 @@ no card, locale-control, image or content overlap in those target surfaces.
 | `dpl_SP2DeMs5RYjnn2RseeYnECtzPU74` | Vercel rejected vulnerable Next.js 15.3.1 | Next.js patched to 15.5.24 |
 | `dpl_BNDP32PyP9nZDXQETRAeYnXMiBXj` | `@vercel/og@1` failed at runtime on dynamic `fs` require | renderer reverted to compatible 0.11.1 |
 | `dpl_DanZk9i2P3CmX2bStGD52fayUHBt` | protected self-fetch returned HTML instead of the animal image | bounded same-origin fetch and data URL render added |
+| `dpl_BfpbfnhCmWJXAnoFQZ9sxbRPSyD9` | Vercel install completed without a generated Prisma client | `postinstall` now runs `prisma generate` |
+| `dpl_4uaEsLKinVZyEH33J5QQaZMo2WG4` | build was READY, but guest `/api/me/results` eagerly loaded Auth.js and returned `500` | server auth import moved behind the configured-runtime guard |
+| `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin` | build, route/API smoke and result-image contracts passed | accepted dependency-remediation Preview |
 
 ## Production And Rollback
 
-Production was not promoted. `npm audit --omit=dev` reports 18 production-tree
-findings: 2 critical, 12 high, 2 moderate and 2 low. The critical path is the
-legacy `next-auth@4.24.15 -> @auth/core@0.34.3` peer contract. Direct residuals
-also include `@vercel/og@0.11.1`, `nodemailer@7.0.13` and the Next.js 15 line.
-Forcing newer incompatible peers is rejected.
+Production was not promoted. The local remediation branch now reports zero
+production-tree findings from `npm audit --omit=dev`. It replaces direct
+`@vercel/og` use with bundled `next/og`, migrates the session boundary to Auth.js
+v5 beta, removes the inactive Nodemailer/account transport, moves `shadcn` CLI
+ownership to development, removes unused server-only packages, and upgrades to
+Next.js 16.3.3 with React 19.2.8. Account APIs remain explicitly held.
 
 There is no previous healthy Production deployment for this new Vercel project,
 so a real rollback rehearsal has no valid target. Card 28 remains blocked until:
 
-- the legacy NextAuth/Auth.js dependency path is migrated or removed;
-- the result renderer and Nodemailer have supported secure upgrade paths;
-- the production audit has no critical finding and accepted high findings have documented applicability;
-- protected `main` contains the accepted runtime SHA and has a healthy predecessor to roll back to.
+- PR `#9` is reviewed and explicitly approved for merge/promotion;
+- protected `main` contains the accepted runtime SHA;
+- the first healthy Production deployment is recorded before a later rollback rehearsal can be truthful.

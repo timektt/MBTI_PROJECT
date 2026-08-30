@@ -1,10 +1,10 @@
 # Fantasy Art And Motion V2 Execution Evidence
 
 Date: 2026-08-31
-Branch: `codex/vercel-delivery`
+Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Source fingerprint: `c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a`
-Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
+Source fingerprint: `5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`
+Status: `ROUTE-SCOPED PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 
 ## Implemented
 
@@ -27,7 +27,7 @@ Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 | Asset fallback assertion | 0 visible fallbacks across all browser samples |
 | Locale and viewport matrix | TH/EN at 320, 390, 768, 1024 and 1440 where assigned by route family |
 | `npm run verify` | passed from the same source fingerprint |
-| Production build | 48/48 pages generated |
+| Production build | 49/49 pages generated on Next.js 16.3.3 with Webpack |
 | Bundle snapshot | shared 183 kB; Home 197 kB; Quiz 222 kB; Result 229 kB; Types 205 kB; Type Detail 243 kB |
 | Lighthouse Home | performance 81; accessibility/best-practices/SEO 100; observed LCP 145ms; CLS 0; TBT 0ms |
 | Lighthouse Types | performance 82; accessibility/best-practices/SEO 100; observed LCP 121ms; CLS 0; TBT 3ms |
@@ -41,12 +41,15 @@ Performance reports:
 
 ## Preview Acceptance
 
-- deployment: `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`
-- runtime SHA: `4895b2e9ea89b44bb13732661fd40a5069d96bca`
-- URL: `https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app`
-- direct route smoke: 46/46 returned `200`
-- protected browser matrix: 31 patterns, 16 Type routes, 130 samples, 0 failures
+- visual baseline deployment: `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`
+- dependency-remediation baseline: `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin`
+- route-scoped accepted deployment: `dpl_8coaFQnLKFpTGmw9RDv6V6d5rqwP`
+- runtime SHA: `148eea2`
+- URL: `https://mbti-project-8a5cutoal-superbears-projects-c668412a.vercel.app`
+- direct route smoke: Home, Quiz, Types, INTJ Detail, Dashboard and Login returned `200`
+- current-source local browser matrix: 31 patterns, 16 Type routes, 130 samples, 0 failures
 - result image runtime: valid payload `200 image/png`; SSRF payload `400`
+- protected-browser residual: latest Preview required a bypass secret not available to the isolated browser runner; direct Preview checks used authenticated Vercel CLI access
 
 ## Motion Decision
 
@@ -64,8 +67,13 @@ future all-consumer migration, not justification for a speculative partial one.
   150ms. Preview must be tested over its real CDN before any p75 claim.
 - INP p75 requires field data; local TBT is only a lab responsiveness proxy.
 - Historical interaction, My Results and WebKit PNG reports remain local artifacts;
-  the protected Preview route/image/API matrix is current to runtime SHA `4895b2e`.
-- Production is blocked by 2 critical and 12 high production-tree audit findings.
+  the direct Preview route/image/API matrix is current to runtime SHA `4e50113`.
+- The remediation branch has zero production audit findings; PR `#9`, GitHub CI
+  and the dependency-remediated Preview pass. Merge and Production remain explicit
+  approval gates.
+- Route-scoped rate-limit keys, query-bypass regression coverage and same-client
+  HTTP isolation pass locally and on Preview. The implementation remains
+  per-instance; shared durable state is required before account runtime activation.
 - No healthy Production predecessor exists, so rollback rehearsal cannot yet be truthful.
 
 ## Rollback Map

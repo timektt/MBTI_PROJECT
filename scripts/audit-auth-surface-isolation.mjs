@@ -38,19 +38,18 @@ const API_RULES = [
   {
     file: "pages/api/admin/cards/list.ts",
     method: "GET",
-    required: ["getServerSession", "authOptions", 'role !== "admin"', "res.status(403)", "rateLimit("],
+    required: ["getServerAuthSession", 'role !== "admin"', "res.status(403)", "rateLimit("],
   },
   {
     file: "pages/api/admin/cards/delete.ts",
     method: "DELETE",
-    required: ["getServerSession", "authOptions", 'role !== "admin"', "res.status(403)", "rateLimit("],
+    required: ["getServerAuthSession", 'role !== "admin"', "res.status(403)", "rateLimit("],
   },
   {
     file: "pages/api/upload-image.ts",
     method: "POST",
     required: [
-      "getServerSession",
-      "authOptions",
+      "getServerAuthSession",
       "session?.user?.id",
       "res.status(401)",
       "rateLimit(",
@@ -61,77 +60,87 @@ const API_RULES = [
   {
     file: "pages/api/register.ts",
     method: "POST",
-    required: ["rateLimit(", "RegisterUserSchema.safeParse"],
+    required: ["rateLimit(", "sendAccountRuntimeHeld"],
   },
   {
     file: "pages/api/forgot-password.ts",
     method: "POST",
-    required: ["rateLimit("],
+    required: ["rateLimit(", "sendAccountRuntimeHeld"],
   },
   {
     file: "pages/api/reset-password.ts",
     method: "POST",
-    required: ["rateLimit(", "bcrypt.hash"],
+    required: ["rateLimit(", "sendAccountRuntimeHeld"],
+  },
+  {
+    file: "pages/api/auth/verify-email.ts",
+    method: "POST",
+    required: ["rateLimit(", "sendAccountRuntimeHeld"],
+  },
+  {
+    file: "pages/api/check-username.ts",
+    method: "GET",
+    required: ["rateLimit(", "sendAccountRuntimeHeld"],
   },
   {
     file: "pages/api/activity/post.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/cards/create.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/cards/toggle-like.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/comment/post.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/comment/like.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/follow.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/follow/toggle.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/like/card.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/profile/updateBio.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.email", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.email", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/settings/update.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/settings/changePassword.tsx",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session.user?.email", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session.user?.email", "res.status(401)", "rateLimit("],
   },
   {
     file: "pages/api/user/set-username.ts",
     method: "POST",
-    required: ["getServerSession", "authOptions", "session?.user?.id", "res.status(401)", "rateLimit("],
+    required: ["getServerAuthSession", "session?.user?.id", "res.status(401)", "rateLimit("],
   },
 ];
 

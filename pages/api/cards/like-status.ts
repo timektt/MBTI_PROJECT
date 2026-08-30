@@ -1,14 +1,13 @@
 // /pages/api/card/like-status.ts
 
 import { NextApiRequest, NextApiResponse } from "next"
-import { getServerSession } from "next-auth"
-import { authOptions } from "@/lib/authOptions"
+import { getServerAuthSession } from "@/lib/server-auth";
 import { prisma } from "@/lib/prisma"
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== "GET") return res.status(405).end()
 
-  const session = await getServerSession(req, res, authOptions)
+  const session = await getServerAuthSession(req, res)
   const userId = session?.user?.id || null
   const { cardId } = req.query
 
