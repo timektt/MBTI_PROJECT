@@ -24,6 +24,12 @@ const cardSize = {
   width: 1080,
   height: 1350,
 } as const;
+const maxAnimalAssetBytes = 2 * 1024 * 1024;
+const supportedAnimalAssetTypes = new Set(["image/jpeg", "image/png", "image/webp"]);
+
+function readRequestHeader(value: string | string[] | undefined) {
+  return Array.isArray(value) ? value[0] : value;
+}
 
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method !== "POST") {
@@ -71,6 +77,52 @@ export default async function handler(request: NextApiRequest, response: NextApi
     new Date(parsedBody.createdAt)
   );
   const animalUrl = new URL(renderableAnimalPath, assetOrigin).toString();
+  const assetRequestHeaders: Record<string, string> = {
+    "x-vercel-skip-toolbar": "1",
+  };
+  const protectionBypass = readRequestHeader(
+    request.headers["x-vercel-protection-bypass"]
+  );
+
+  if (protectionBypass) {
+    assetRequestHeaders["x-vercel-protection-bypass"] = protectionBypass;
+  }
+
+  if (request.headers.cookie) {
+    assetRequestHeaders.cookie = request.headers.cookie;
+  }
+
+  let animalDataUrl: string;
+
+  try {
+    const assetResponse = await fetch(animalUrl, { headers: assetRequestHeaders });
+    const contentType = assetResponse.headers
+      .get("content-type")
+      ?.split(";")[0]
+      .trim()
+      .toLowerCase();
+    const declaredLength = Number(assetResponse.headers.get("content-length") ?? 0);
+
+    if (
+      !assetResponse.ok ||
+      !contentType ||
+      !supportedAnimalAssetTypes.has(contentType) ||
+      (Number.isFinite(declaredLength) && declaredLength > maxAnimalAssetBytes)
+    ) {
+      throw new Error("Animal asset response rejected");
+    }
+
+    const assetBytes = Buffer.from(await assetResponse.arrayBuffer());
+
+    if (assetBytes.byteLength > maxAnimalAssetBytes) {
+      throw new Error("Animal asset exceeds the byte limit");
+    }
+
+    animalDataUrl = `data:${contentType};base64,${assetBytes.toString("base64")}`;
+  } catch {
+    response.status(502).send("Result animal asset unavailable");
+    return;
+  }
   const summaryBody = parsedBody.summaryBody;
   const summaryBodyStyle = {
     ...bodyStyle,
@@ -223,7 +275,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
               >
                 <img
                   alt={`${parsedBody.mbtiType} ${parsedBody.animal.name}`}
-                  src={animalUrl}
+                  src={animalDataUrl}
                   style={{
                     width: "100%",
                     height: "100%",
