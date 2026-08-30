@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-08-30T17:43:23.728Z",
-  "latestSourceModifiedAt": "2026-08-30T17:40:26.913Z",
-  "sourceFingerprint": "ba2d102e86e322468c8dca34be5f31407dea651ffdbb26968aede017536a0113",
-  "sourceHead": "b21e5f6",
+  "generatedAt": "2026-08-30T17:57:37.731Z",
+  "latestSourceModifiedAt": "2026-08-30T17:54:13.711Z",
+  "sourceFingerprint": "84a9199a1732dd68abe418c435fbba1e5e6fd680bbc3c89efa19719c451fa3aa",
+  "sourceHead": "daed4f0",
   "baseUrl": "http://127.0.0.1:3130",
   "browser": "Google Chrome (isolated headless)",
   "routePatternCount": 31,

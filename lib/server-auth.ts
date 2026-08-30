@@ -1,7 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { auth } from "@/auth";
-
 export function isAuthRuntimeConfigured() {
   return Boolean(process.env.AUTH_SECRET ?? process.env.NEXTAUTH_SECRET);
 }
@@ -11,5 +9,7 @@ export async function getServerAuthSession(
   response: NextApiResponse
 ) {
   if (!isAuthRuntimeConfigured()) return null;
+
+  const { auth } = await import("@/auth");
   return auth(request, response);
 }

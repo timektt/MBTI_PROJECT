@@ -1,3 +1,4 @@
+import fs from "node:fs";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { NextRequest } from "next/server";
 
@@ -61,6 +62,12 @@ async function verifyHeldPagesApi(
 async function main() {
   delete process.env.AUTH_SECRET;
   delete process.env.NEXTAUTH_SECRET;
+
+  const serverAuthSource = fs.readFileSync("lib/server-auth.ts", "utf8");
+  assert(
+    !serverAuthSource.includes('import { auth } from "@/auth"'),
+    "server auth must not load Auth.js before the guest-local runtime guard"
+  );
 
   const [
     { default: register },

@@ -2,7 +2,7 @@
 
 Updated: 2026-08-31
 Runtime boundary: `guest-local`
-Current source fingerprint: `ba2d102e86e322468c8dca34be5f31407dea651ffdbb26968aede017536a0113`
+Current source fingerprint: `84a9199a1732dd68abe418c435fbba1e5e6fd680bbc3c89efa19719c451fa3aa`
 Current completed slice: full local dependency remediation verification
 Next slice: protected PR and Vercel Preview revalidation
 
