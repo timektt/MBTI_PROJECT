@@ -1,19 +1,20 @@
 # MBTI Z UI V4 Execution Status
 
-Updated: 2026-08-30
+Updated: 2026-08-31
 Runtime boundary: `guest-local`
-Current source fingerprint: `b88194bef675c27c9316a7eb83848b21ec7acf75df280db5c0e7cc160276b2af`
-Current completed slice: Fantasy Art And Motion V2 local product gates
-Next slice: Delivery Cards 23-28 for GitHub PR governance and Vercel delivery
+Current source fingerprint: `c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a`
+Current completed slice: protected Vercel Preview acceptance
+Next slice: dependency remediation before Production promotion
 
 ## Active Change Request
 
-`Fantasy Art And Motion V2` is now `LOCAL PRODUCT GATES PASSED - REMOTE DELIVERY IN PROGRESS` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
+`Fantasy Art And Motion V2` is now `PREVIEW ACCEPTED - PRODUCTION BLOCKED` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
 
 Local evidence now includes 21 accepted V2 assets, shared motion cleanup, all 16
 type routes, 130 browser samples with zero failures/asset fallbacks, full
 `npm run verify`, a 48-page build and Lighthouse lab reports. GitHub protected
-main and Vercel deployment are still separate gates.
+main governance is active and protected Preview acceptance is complete. Production
+remains a separate security and rollback gate.
 
 Execution order before continuing route polish:
 
@@ -54,8 +55,8 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 | 18 Home bands | `DONE` | six sections reduced to four bands and Result Anatomy reduced to three layers |
 | 19 Home hover/pruning | `DONE` | House hover/focus is container-safe; interactive Type mosaic and repeated CTA band removed |
 | 20 Home closeout | `DONE` | TH/EN browser matrix passed 10/10 captures |
-| 21-31 Remaining routes | `PENDING` | execute sequentially by dependency: Quiz -> Result -> Atlas -> Type Detail -> My Results/Held |
-| 32 Full V4 quality gate | `PENDING` | run only after all route closeouts |
+| 21-31 Remaining routes | `DONE` | Quiz, Result, Atlas, all Type Detail routes, My Results and held routes pass current-source evidence |
+| 32 Full V4 quality gate | `DONE WITH RESIDUAL` | 31 route patterns, 16 Type routes and 130 Preview samples pass; Production security remains blocked |
 
 ## Home Verification
 
@@ -72,9 +73,9 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 
 ## Next Execution Order
 
-1. Lock program-contract evidence.
-2. Capture Quiz states and implement hierarchy without a generated masthead.
-3. Close Result and export states without changing scoring/runtime behavior.
-4. Rebuild Type Atlas scan/routing, then verify all 16 dedicated Type routes.
-5. Reframe My Results and consolidate held routes.
-6. Run the full V4 route/state/locale/viewport quality gate.
+1. Migrate or retire the legacy NextAuth/Auth.js peer path.
+2. Move the result image renderer to a supported secure runtime package.
+3. Upgrade Nodemailer through a peer-compatible auth boundary.
+4. Re-run production audit, full verify and protected Preview acceptance.
+5. Promote protected `main` only after critical findings are zero.
+6. Record the first healthy Production deployment before rehearsing rollback.
