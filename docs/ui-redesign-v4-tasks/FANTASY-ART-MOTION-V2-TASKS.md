@@ -1,6 +1,6 @@
 # Fantasy Art And Motion V2 Stable Tasks
 
-Status: `LOCAL PRODUCT GATES PASSED - DELIVERY TASKS ACTIVE`
+Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 Total: 136 stable tasks
 Cards: 28
 Parent plan: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
@@ -30,8 +30,8 @@ Parent plan: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 | Motion `001..016` | `DONE WITH DECISION` | ambient loops removed, shared `ProgressScale` added, reduced motion passes; partial `LazyMotion` migration rejected because it does not remove the shared `MotionConfig` cost |
 | Integration `001..018` | `DONE` | Home, Quiz, Result, Atlas, 16 detail routes, Dashboard and held routes pass current-source browser evidence |
 | QA `001..014` | `DONE WITH RESIDUAL` | 130 samples pass; Lighthouse observed LCP 145/121ms, CLS 0, TBT 0/3ms; simulated localhost LCP remains above target and must be rechecked on Preview |
-| Delivery `001..010` | `IN PROGRESS` | repository baseline branch exists and local `npm run verify` passes |
-| Delivery `011..028` | `PENDING` | push, PR/CI/AI review, protected main, Vercel Preview/Production and rollback proof |
+| Delivery `001..025` | `DONE` | protected baseline, PR workflow, Vercel binding and Preview acceptance evidence pass |
+| Delivery `026..028` | `BLOCKED` | production audit has 2 critical/12 high findings and no healthy Production rollback target exists |
 
 Detailed evidence: `docs/ui-redesign-v4-tasks/FANTASY-ART-MOTION-V2-EXECUTION.md`
 

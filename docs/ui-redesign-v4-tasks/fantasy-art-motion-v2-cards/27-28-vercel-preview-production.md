@@ -4,7 +4,7 @@
 
 Owner: A11 Release Operations Agent
 QA owner: A8
-Status: `PENDING`
+Status: `DONE`
 Tasks: `FAM-DEL-023..025`
 Depends on: Card 26 and accepted source revision
 
@@ -30,12 +30,19 @@ Vercel Preview deployment and evidence only. No Production alias change.
 
 Preview is READY and reproducible from the accepted SHA; browser/network/console smoke passes and no statement calls it production-ready.
 
+### Result
+
+Accepted at `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6` from runtime SHA `4895b2e`.
+HTTP smoke passed 46/46 routes, browser acceptance passed 31 route patterns,
+16 concrete Type routes and 130 samples, and the result image API passed valid
+PNG plus SSRF rejection checks. Evidence: `../VERCEL-DELIVERY.md`.
+
 ## Card 28 - Production Promotion And Rollback Proof
 
 Owner: A11 Release Operations Agent
 Approver: A0 Lead Integrator
 QA owner: A8
-Status: `PENDING`
+Status: `BLOCKED`
 Tasks: `FAM-DEL-026..028`
 Depends on: FAM-GATE-01..09 PASS and Card 27 PASS
 
@@ -60,3 +67,10 @@ Vercel Production deployment/alias, logs and delivery evidence. No cloud/auth/Su
 ### Acceptance
 
 Production URL serves the accepted SHA, core guest product passes, rollback restores the prior healthy deployment when rehearsed, and final evidence records both forward and rollback paths.
+
+### Blocker
+
+Production promotion and rollback were not executed. `npm audit --omit=dev`
+reports 2 critical and 12 high production-tree findings, including the legacy
+NextAuth/Auth.js peer path. This new project also has no previous healthy
+Production deployment that can serve as a valid rollback target.

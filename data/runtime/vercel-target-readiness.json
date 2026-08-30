@@ -1,6 +1,6 @@
 {
-  "version": 1,
-  "status": "blocked",
+  "version": 2,
+  "status": "bound",
   "team": {
     "id": "team_B5Pm6p3bUokzVLTwf29XJO1q",
     "label": "SuperBear's projects"
@@ -25,38 +25,58 @@
       "build",
       "start",
       "verify",
-      "preflight:preview"
+      "preflight:preview",
+      "preflight:guest:preview",
+      "preflight:guest:production"
     ]
   },
   "requiredPreDeployCommands": [
     "npm run verify",
-    "npm run preflight:preview -- --file=.env.example --json"
+    "npm run vercel:target -- --target=preview --json",
+    "npm run preflight:guest:preview -- --file=<preview-env-file> --json"
   ],
+  "requiredPromotionCommands": [
+    "npm run vercel:target -- --target=production --json",
+    "npm run preflight:guest:production -- --file=<production-env-file> --json"
+  ],
+  "bindingEvidence": {
+    "verifiedAt": "2026-08-30",
+    "projectId": "prj_y9MToCdY2J2QLiyr1lQdVyQBaE3y",
+    "orgId": "team_B5Pm6p3bUokzVLTwf29XJO1q",
+    "gitRepository": "timektt/MBTI_PROJECT",
+    "activeGuestRuntimeEnvironment": {
+      "targets": [
+        "preview",
+        "production"
+      ],
+      "requiredNames": [
+        "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME",
+        "NEXT_PUBLIC_SITE_URL",
+        "NEXTAUTH_URL"
+      ]
+    }
+  },
   "targets": {
     "preview": {
-      "expectedProjectId": null,
+      "expectedProjectId": "prj_y9MToCdY2J2QLiyr1lQdVyQBaE3y",
       "expectedOrgId": "team_B5Pm6p3bUokzVLTwf29XJO1q",
       "expectedProjectName": "mbti-project",
       "required": true
     },
     "production": {
-      "expectedProjectId": null,
+      "expectedProjectId": "prj_y9MToCdY2J2QLiyr1lQdVyQBaE3y",
       "expectedOrgId": "team_B5Pm6p3bUokzVLTwf29XJO1q",
       "expectedProjectName": "mbti-project",
       "required": true
     }
   },
   "knownBlockedProjectIds": [],
-  "blockers": [
+  "launchGates": [
     {
-      "id": "dedicated_vercel_project_not_bound",
-      "label": "Dedicated Vercel project",
-      "detail": "No approved MBTI Z Vercel project id has been created and bound for preview or production."
-    },
-    {
-      "id": "vercel_env_not_bound",
-      "label": "Vercel env binding",
-      "detail": "Preview and production environment variables are not yet verified against the approved Vercel project."
+      "id": "production_legacy_services_unprovisioned",
+      "label": "Legacy cloud services remain held",
+      "detail": "Auth, database, email, realtime, upload, and cloud reconnect variables must remain unset until each service boundary is implemented and verified. Do not use placeholder secrets to satisfy production preflight."
     }
-  ]
+  ],
+  "blockers": []
 }

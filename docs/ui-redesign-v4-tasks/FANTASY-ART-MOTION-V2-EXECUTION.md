@@ -1,10 +1,10 @@
 # Fantasy Art And Motion V2 Execution Evidence
 
-Date: 2026-08-30
-Branch: `codex/repo-stabilization`
+Date: 2026-08-31
+Branch: `codex/vercel-delivery`
 Runtime: `guest-local`
-Source fingerprint: `b88194bef675c27c9316a7eb83848b21ec7acf75df280db5c0e7cc160276b2af`
-Status: `LOCAL PRODUCT GATES PASSED - REMOTE DELIVERY IN PROGRESS`
+Source fingerprint: `c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a`
+Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 
 ## Implemented
 
@@ -28,7 +28,7 @@ Status: `LOCAL PRODUCT GATES PASSED - REMOTE DELIVERY IN PROGRESS`
 | Locale and viewport matrix | TH/EN at 320, 390, 768, 1024 and 1440 where assigned by route family |
 | `npm run verify` | passed from the same source fingerprint |
 | Production build | 48/48 pages generated |
-| Bundle snapshot | shared 180 kB; Home 194 kB; Quiz 218 kB; Result 225 kB; Types 201 kB; Type Detail 240 kB |
+| Bundle snapshot | shared 183 kB; Home 197 kB; Quiz 222 kB; Result 229 kB; Types 205 kB; Type Detail 243 kB |
 | Lighthouse Home | performance 81; accessibility/best-practices/SEO 100; observed LCP 145ms; CLS 0; TBT 0ms |
 | Lighthouse Types | performance 82; accessibility/best-practices/SEO 100; observed LCP 121ms; CLS 0; TBT 3ms |
 
@@ -38,6 +38,15 @@ Performance reports:
 
 - `output/ui-redesign-v4/2026-08-30/fantasy-v2/performance/home-lighthouse.json`
 - `output/ui-redesign-v4/2026-08-30/fantasy-v2/performance/types-lighthouse.json`
+
+## Preview Acceptance
+
+- deployment: `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`
+- runtime SHA: `4895b2e9ea89b44bb13732661fd40a5069d96bca`
+- URL: `https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app`
+- direct route smoke: 46/46 returned `200`
+- protected browser matrix: 31 patterns, 16 Type routes, 130 samples, 0 failures
+- result image runtime: valid payload `200 image/png`; SSRF payload `400`
 
 ## Motion Decision
 
@@ -54,13 +63,14 @@ future all-consumer migration, not justification for a speculative partial one.
   under its Lantern model even though observed local production LCP is below
   150ms. Preview must be tested over its real CDN before any p75 claim.
 - INP p75 requires field data; local TBT is only a lab responsiveness proxy.
-- Historical interaction, My Results and WebKit PNG reports pass but predate the
-  V2 image set; Preview smoke must repeat the critical export and interaction paths.
-- Vercel Preview/Production, canonical metadata and rollback are not complete yet.
+- Historical interaction, My Results and WebKit PNG reports remain local artifacts;
+  the protected Preview route/image/API matrix is current to runtime SHA `4895b2e`.
+- Production is blocked by 2 critical and 12 high production-tree audit findings.
+- No healthy Production predecessor exists, so rollback rehearsal cannot yet be truthful.
 
 ## Rollback Map
 
 - runtime V2 namespace: `public/mbti-z/v4/fantasy-v2/`
 - canonical path mapping: `lib/mbti-z-visuals.ts` and `data/mbti/mbti-z-data.mjs`
 - manifest: `data/ui/fantasy-art-v2-assets.json`
-- rollback approach: restore the previous path mapping and redeploy the previous healthy Vercel deployment; do not delete V2 assets during rollback
+- rollback approach after first safe Production release: restore the previous path mapping and redeploy the recorded healthy Vercel deployment; do not delete V2 assets during rollback
