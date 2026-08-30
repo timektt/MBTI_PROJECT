@@ -4,7 +4,7 @@
 
 Owner: A11 Release Operations Agent
 Reviewer: A0 Lead Integrator
-Status: `PENDING`
+Status: `DONE`
 Tasks: `FAM-DEL-011..018`
 Depends on: Card 24 PASS
 
@@ -31,11 +31,17 @@ Depends on: Card 24 PASS
 
 Remote `main` is current and protected, Actions is green, no direct push is required, and AI review evidence is attached without becoming the sole merge authority.
 
+Evidence:
+
+- PR `#7` passed CI and AI review, then squash-merged to protected `main`
+- accepted source commit: `b4f2a710091fda036881c2e91ab2388ffb1a20ce`
+- required `verify`, conversation resolution, linear history and admin enforcement are active
+
 ## Card 26 - Dedicated Vercel Project And Guest Deploy Gate
 
 Owner: A11 Release Operations Agent
 Reviewers: A0, A8
-Status: `PENDING`
+Status: `DONE`
 Tasks: `FAM-DEL-019..022`
 Depends on: Card 25 PASS
 
@@ -60,3 +66,11 @@ Vercel project settings, `.vercel/project.json`, target-readiness manifest, depl
 ### Acceptance
 
 `npm run vercel:target` passes for the observed project binding, guest-local deploy preflight is explicit, and unavailable account/cloud surfaces remain held.
+
+Evidence:
+
+- Vercel project `mbti-project` is linked to `timektt/MBTI_PROJECT` on production branch `main`
+- observed project id: `prj_y9MToCdY2J2QLiyr1lQdVyQBaE3y`
+- observed organization id: `team_B5Pm6p3bUokzVLTwf29XJO1q`
+- `vercel:target` passes for Preview and Production bindings
+- guest-local preflight passes with three active environment names while full-cloud preflight remains blocked

@@ -45,6 +45,8 @@
     "ui:completion": "node scripts/verify-ui-completion.mjs",
     "preflight": "node scripts/launch-preflight.mjs --target=development --file=.env.local",
     "preflight:preview": "node scripts/launch-preflight.mjs --target=preview",
+    "preflight:guest:preview": "node scripts/launch-preflight.mjs --target=preview --profile=guest-local",
+    "preflight:guest:production": "node scripts/launch-preflight.mjs --target=production --profile=guest-local",
     "launch:handoff": "node scripts/generate-launch-handoff.mjs",
     "verify": "npm run repo:hygiene:strict && npm run data:validate && npm run types:validate && npm run assets:verify && npm run result-share:security && npm run db:bootstrap:verify && npm run reconnect:verify && npm run reconnect:cloud-import && npm run runtime:guards:all && npm run auth:surface && npm run ui:v3:contract && npm run ui:route-sweep:verify && npm run ui:v3:quality && npm run ui:completion && npm run cloud:contracts && npm run cloud:server-contracts && npm run cloud:adapter && npm run lint && npm run typecheck && npm run build"
   },

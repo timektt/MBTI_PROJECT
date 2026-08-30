@@ -4,7 +4,7 @@
 
 Owner: A11 Release Operations Agent
 QA owner: A8
-Status: `PENDING`
+Status: `IN PROGRESS`
 Tasks: `FAM-DEL-023..025`
 Depends on: Card 26 and accepted source revision
 

@@ -19,6 +19,7 @@ function parseArgs(argv) {
     target: "preview",
     file: null,
     json: false,
+    profile: "full",
   };
 
   for (const arg of argv) {
@@ -29,6 +30,11 @@ function parseArgs(argv) {
 
     if (arg.startsWith("--file=")) {
       parsed.file = arg.split("=")[1] || null;
+      continue;
+    }
+
+    if (arg.startsWith("--profile=")) {
+      parsed.profile = arg.split("=")[1] || parsed.profile;
       continue;
     }
 
@@ -58,9 +64,12 @@ function migrationDirs() {
 }
 
 export function collectPreflightStatus(options) {
+  const profile = options.profile ?? "full";
+  const guestLocalProfile = profile === "guest-local";
   const envStatus = collectEnvStatus({
     file: options.file,
     target: options.target,
+    profile,
   });
   const hygieneStatus = collectHygieneStatus();
   const hygieneOk = hygieneStatus.blockers.length === 0;
@@ -74,7 +83,8 @@ export function collectPreflightStatus(options) {
     file: options.file,
     target: options.target,
   });
-  const supabaseTargetOk = supabaseTargetStatus.blockers.length === 0;
+  const supabaseTargetOk =
+    guestLocalProfile || supabaseTargetStatus.blockers.length === 0;
   const vercelTargetStatus = collectVercelTargetReadiness({
     target: options.target,
   });
@@ -83,6 +93,18 @@ export function collectPreflightStatus(options) {
     file: options.file,
     target: options.target,
   });
+  const guestCloudHoldCheckIds = new Set([
+    "cloud_adapter_manifest_linked",
+    "cloud_service_adapter_manifest_guarded",
+    "cloud_manifest_blockers_declared",
+    "guest_fallback_present",
+    "runtime_not_cloud_until_adapter_ready",
+  ]);
+  const cloudStatusOk = guestLocalProfile
+    ? cloudStatus.checks
+        .filter((check) => guestCloudHoldCheckIds.has(check.id))
+        .every((check) => check.ok)
+    : cloudStatus.ok;
 
   const checks = [
     {
@@ -97,9 +119,11 @@ export function collectPreflightStatus(options) {
     {
       label: "Cloud runtime readiness",
       path: "scripts/cloud-runtime-readiness.mjs",
-      ok: cloudStatus.ok,
-      detail: cloudStatus.ok
-        ? "cloud runtime gate has no blockers"
+      ok: cloudStatusOk,
+      detail: cloudStatusOk
+        ? guestLocalProfile
+          ? "cloud runtime is held behind manifest and guest fallback guards"
+          : "cloud runtime gate has no blockers"
         : cloudStatus.blockers.map((item) => item.id).join(", "),
     },
     {
@@ -131,7 +155,9 @@ export function collectPreflightStatus(options) {
       path: "scripts/supabase-target-readiness.mjs",
       ok: supabaseTargetOk,
       detail: supabaseTargetOk
-        ? "database URLs resolve to the approved target policy"
+        ? guestLocalProfile
+          ? "Supabase is not required while the verified runtime remains guest-local"
+          : "database URLs resolve to the approved target policy"
         : supabaseTargetStatus.blockers.map((item) => item.id).join(", "),
     },
     {
@@ -216,8 +242,14 @@ export function collectPreflightStatus(options) {
     warnings.push("Vercel target readiness has blocking issues.");
   }
 
-  if (!cloudStatus.ok) {
+  if (!cloudStatusOk) {
     warnings.push("Cloud runtime readiness has blocking issues.");
+  }
+
+  if (guestLocalProfile) {
+    warnings.push(
+      "Guest-local preflight does not authorize auth, database, email, realtime, media, or cloud runtime activation."
+    );
   }
 
   return {
@@ -229,7 +261,8 @@ export function collectPreflightStatus(options) {
       uiRouteSweepOk &&
       supabaseTargetOk &&
       vercelTargetOk &&
-      cloudStatus.ok,
+      cloudStatusOk,
+    profile,
     target: options.target,
     checks,
     env: envStatus,
@@ -261,7 +294,8 @@ export function collectPreflightStatus(options) {
       deploymentContract: vercelTargetStatus.deploymentContract,
     },
     cloudRuntime: {
-      ok: cloudStatus.ok,
+      ok: cloudStatusOk,
+      held: guestLocalProfile,
       summary: cloudStatus.summary,
       blockers: cloudStatus.blockers,
     },
@@ -271,6 +305,7 @@ export function collectPreflightStatus(options) {
 
 function printHuman(status) {
   console.log(`MBTI launch preflight target: ${status.target}`);
+  console.log(`Deployment profile: ${status.profile}`);
   console.log("");
   console.log("Repo checks:");
 

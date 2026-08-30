@@ -61,6 +61,12 @@ const GROUPS = [
 ];
 
 const TARGETS = new Set(["development", "preview", "production"]);
+const PROFILES = new Set(["full", "guest-local"]);
+const GUEST_LOCAL_REQUIRED_KEYS = new Set([
+  "NEXT_PUBLIC_SITE_URL",
+  "NEXTAUTH_URL",
+  "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME",
+]);
 const OPTIONAL_BY_TARGET = {
   development: new Set(["DIRECT_URL", "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME"]),
   preview: new Set(["NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME"]),
@@ -72,6 +78,7 @@ function parseArgs(argv) {
     target: "development",
     file: null,
     json: false,
+    profile: "full",
   };
 
   for (const arg of argv) {
@@ -85,6 +92,11 @@ function parseArgs(argv) {
       continue;
     }
 
+    if (arg.startsWith("--profile=")) {
+      parsed.profile = arg.split("=")[1] || parsed.profile;
+      continue;
+    }
+
     if (arg === "--json") {
       parsed.json = true;
     }
@@ -93,6 +105,12 @@ function parseArgs(argv) {
   if (!TARGETS.has(parsed.target)) {
     throw new Error(
       `Unsupported target "${parsed.target}". Use development, preview, or production.`
+    );
+  }
+
+  if (!PROFILES.has(parsed.profile)) {
+    throw new Error(
+      `Unsupported profile "${parsed.profile}". Use full or guest-local.`
     );
   }
 
@@ -222,11 +240,18 @@ function looksLikeEmailAddress(value) {
   return /^[^\s@<>]+@[^\s@<>]+\.[^\s@<>]+$/.test(address);
 }
 
-function buildChecks(values, target) {
+function buildChecks(values, target, profile) {
   const missing = [];
   const warnings = [];
   const blockingWarnings = [];
-  const optionalKeys = OPTIONAL_BY_TARGET[target] ?? new Set();
+  const optionalKeys =
+    profile === "guest-local"
+      ? new Set(
+          GROUPS.flatMap((group) => group.keys).filter(
+            (key) => !GUEST_LOCAL_REQUIRED_KEYS.has(key)
+          )
+        )
+      : OPTIONAL_BY_TARGET[target] ?? new Set();
   const blockDeployWarnings = target !== "development";
 
   function addWarning(message, { blocking = false } = {}) {
@@ -450,10 +475,21 @@ function buildChecks(values, target) {
   return { missing, warnings, blockingWarnings };
 }
 
-export function collectEnvStatus({ file, target }) {
+export function collectEnvStatus({ file, target, profile = "full" }) {
   const { source, values } = buildEnvMap(file);
-  const { missing, warnings, blockingWarnings } = buildChecks(values, target);
-  const optionalKeys = OPTIONAL_BY_TARGET[target] ?? new Set();
+  const { missing, warnings, blockingWarnings } = buildChecks(
+    values,
+    target,
+    profile
+  );
+  const optionalKeys =
+    profile === "guest-local"
+      ? new Set(
+          GROUPS.flatMap((group) => group.keys).filter(
+            (key) => !GUEST_LOCAL_REQUIRED_KEYS.has(key)
+          )
+        )
+      : OPTIONAL_BY_TARGET[target] ?? new Set();
 
   const groups = GROUPS.map((group) => ({
     name: group.name,
@@ -469,6 +505,7 @@ export function collectEnvStatus({ file, target }) {
     ok: missing.length === 0 && blockingWarnings.length === 0,
     source,
     target,
+    profile,
     missing,
     warnings,
     blockingWarnings,
@@ -480,6 +517,7 @@ function printHuman(status) {
   const sourceLabel = status.source ? status.source : "process.env";
 
   console.log(`MBTI env check target: ${status.target}`);
+  console.log(`Environment profile: ${status.profile}`);
   console.log(`Env source: ${sourceLabel}`);
   console.log("");
 
