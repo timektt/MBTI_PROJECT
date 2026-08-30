@@ -1,0 +1,467 @@
+{
+  "schemaVersion": "mbti-z-fantasy-art-v2",
+  "systemPromptVersion": "FANTASY-ART-SYS-2.0",
+  "decisionDate": "2026-08-30",
+  "generationMode": "built-in image_gen",
+  "rightsReview": "Original project prompts with no third-party image references; deployment use remains subject to the account and platform terms.",
+  "budgets": {
+    "animal": 550000,
+    "animalTotal": 7000000,
+    "hero": 450000,
+    "house": 450000,
+    "houseTotal": 1700000
+  },
+  "summary": {
+    "animalCount": 16,
+    "houseCount": 4,
+    "heroCount": 1,
+    "animalBytes": 2928728,
+    "houseBytes": 885384,
+    "heroBytes": 125146,
+    "totalBytes": 3939258
+  },
+  "hero": {
+    "id": "FAM-V2-HOME-HERO",
+    "kind": "hero",
+    "objectPosition": {
+      "mobile": "68% 50%",
+      "tablet": "62% 50%",
+      "desktop": "50% 50%"
+    },
+    "source": {
+      "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/home-hero-v2.png",
+      "width": 1672,
+      "height": 941,
+      "bytes": 2078189,
+      "sha256": "5c46fc1ccc75d6b29d952bc087a67941d2bf5b60de950cc853295886d87d227c"
+    },
+    "runtime": {
+      "path": "public/mbti-z/v4/fantasy-v2/home/living-archive-hero-v2.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 125146,
+      "sha256": "8ebdb416667da1603cb1b7bab7cf3b5490da4387261ef21a351cc986fc4a2297"
+    }
+  },
+  "houses": [
+    {
+      "id": "FAM-V2-HOUSE-PURPLE",
+      "kind": "house",
+      "houseKey": "purple",
+      "objectPosition": "50% 50%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/houses/purple-v2.png",
+        "width": 1619,
+        "height": 971,
+        "bytes": 2255080,
+        "sha256": "db6f52d318f9c7ce266c122ec1e3342d68e18acdec1dd6e66fe6461c6a74b436"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/houses/purple.webp",
+        "width": 1600,
+        "height": 960,
+        "bytes": 150222,
+        "sha256": "395089b02cfe43d3918efd9b8394202a724504e488c5470d140cca3ec31638c1"
+      }
+    },
+    {
+      "id": "FAM-V2-HOUSE-GREEN",
+      "kind": "house",
+      "houseKey": "green",
+      "objectPosition": "50% 50%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/houses/green-v2.png",
+        "width": 1619,
+        "height": 971,
+        "bytes": 2884533,
+        "sha256": "0f78f5a1d339d09aa16910401ae2a39552ac8918191d836446cc505d7c9700b5"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/houses/green.webp",
+        "width": 1600,
+        "height": 960,
+        "bytes": 301802,
+        "sha256": "3f4a8e228c7a9138680e692ff8c953b936f0279bef30258f70a8e6f74fce4127"
+      }
+    },
+    {
+      "id": "FAM-V2-HOUSE-YELLOW",
+      "kind": "house",
+      "houseKey": "yellow",
+      "objectPosition": "50% 50%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/houses/yellow-v2.png",
+        "width": 1619,
+        "height": 971,
+        "bytes": 2644982,
+        "sha256": "242a112b29bdf3e390fa677c41aba08ed95ef900174d12c264c7bca79cde5d5c"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/houses/yellow.webp",
+        "width": 1600,
+        "height": 960,
+        "bytes": 227952,
+        "sha256": "75ea91aa595cdbe14e2d397bea3577f8ef6576b850c4e3d373fe1e505dfd6c2c"
+      }
+    },
+    {
+      "id": "FAM-V2-HOUSE-BLUE",
+      "kind": "house",
+      "houseKey": "blue",
+      "objectPosition": "50% 50%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/houses/blue-v2.png",
+        "width": 1619,
+        "height": 971,
+        "bytes": 2527605,
+        "sha256": "990f4d7c57bc50a4acaad9680bfbcdf75b1b9231172b45ca9d7916ceadc44f79"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/houses/blue.webp",
+        "width": 1600,
+        "height": 960,
+        "bytes": 205408,
+        "sha256": "ec6f3dc52102ffedd7e4aef5fd3cedfaeabda1e62830fb548b5c64f82426900f"
+      }
+    }
+  ],
+  "animals": [
+    {
+      "id": "FAM-V2-INTJ",
+      "kind": "animal",
+      "code": "INTJ",
+      "animalKey": "obsidian-raven",
+      "objectPosition": "50% 42%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/intj-obsidian-raven-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2291400,
+        "sha256": "4e12adb18f85ea5849f75980350d581db256463ffce5e6a6c217bff3e056106d"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/intj-obsidian-raven.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 158546,
+        "sha256": "2bb998f88266ed2197135a4bfcc804221703e6fdde385f47f66791cef62c1e54"
+      }
+    },
+    {
+      "id": "FAM-V2-INTP",
+      "kind": "animal",
+      "code": "INTP",
+      "animalKey": "arcane-owl",
+      "objectPosition": "50% 42%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/intp-arcane-owl-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2345540,
+        "sha256": "a31164d9ae5a5756d8551217808854f0819d651a1d57c7b37418da008cc8d663"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/intp-arcane-owl.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 174242,
+        "sha256": "b1492df1fbf6857b1fcfe4d41212d0f73ceafc3111e316190550a2eae89293ee"
+      }
+    },
+    {
+      "id": "FAM-V2-ENTJ",
+      "kind": "animal",
+      "code": "ENTJ",
+      "animalKey": "crowned-lion",
+      "objectPosition": "50% 40%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/entj-crowned-lion-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2407294,
+        "sha256": "d21557ac66b3c6fc9c96c1e6040e8a1766fe09a38ce26bb57ca7a1f4bc8c63d3"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/entj-crowned-lion.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 184292,
+        "sha256": "9a876c060c9737bbd61917c0c9017990c5171e2012cd032932bc849120186ae8"
+      }
+    },
+    {
+      "id": "FAM-V2-ENTP",
+      "kind": "animal",
+      "code": "ENTP",
+      "animalKey": "storm-fox",
+      "objectPosition": "50% 43%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/entp-storm-fox-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2352790,
+        "sha256": "291db11fbb265d002dfb5844caada2b92d5a388cc800980aa1118cfce4ddd07d"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/entp-storm-fox.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 159464,
+        "sha256": "88bf669b80d7efaf2dbcd530f4257ed3143f9934c7562463d8b7414b1f9a5416"
+      }
+    },
+    {
+      "id": "FAM-V2-INFJ",
+      "kind": "animal",
+      "code": "INFJ",
+      "animalKey": "moon-deer",
+      "objectPosition": "50% 38%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/infj-moon-deer-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2841054,
+        "sha256": "2fb168af1400684df12de093129991a2c8f73bb2e7406642aeefec2eecae1d73"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/infj-moon-deer.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 245058,
+        "sha256": "04cbf88e8fba79a5b9b43cc61ea43cbc815781840547d1ef70e4a102917c98a5"
+      }
+    },
+    {
+      "id": "FAM-V2-INFP",
+      "kind": "animal",
+      "code": "INFP",
+      "animalKey": "dream-swan",
+      "objectPosition": "52% 45%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/infp-dream-swan-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2687612,
+        "sha256": "f11b55b913f30ed6022483578cd9c4b97b118619bb3ebbde835d54aa110c8bb8"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/infp-dream-swan.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 232100,
+        "sha256": "8cd4c0e89de104e6e37e99e06d9402cf52905ec6e4f27eda5d38e2b572f924c3"
+      }
+    },
+    {
+      "id": "FAM-V2-ENFJ",
+      "kind": "animal",
+      "code": "ENFJ",
+      "animalKey": "solar-phoenix",
+      "objectPosition": "50% 42%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/enfj-solar-phoenix-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2504525,
+        "sha256": "99c1665f57d95ff6daf4222fbeee16faef4ded1b3a4210b68f8a06b029a23c63"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/enfj-solar-phoenix.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 213628,
+        "sha256": "6c573809362a14c0a14dbcac23274167f2dd1b6f1e177980ce102880e06dccc3"
+      }
+    },
+    {
+      "id": "FAM-V2-ENFP",
+      "kind": "animal",
+      "code": "ENFP",
+      "animalKey": "aurora-rabbit",
+      "objectPosition": "50% 42%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/enfp-aurora-rabbit-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2307998,
+        "sha256": "3c3eee407b1da45d564ce89c6b3c339cd4be4510be45264b2b1582933d2bedd9"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/enfp-aurora-rabbit.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 156566,
+        "sha256": "c3e16746535524360c803761b4e781c489f44d959b22e58c0963eb92f4f92683"
+      }
+    },
+    {
+      "id": "FAM-V2-ISTJ",
+      "kind": "animal",
+      "code": "ISTJ",
+      "animalKey": "iron-wolf",
+      "objectPosition": "50% 40%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/istj-iron-wolf-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2186480,
+        "sha256": "776cc24755b1df4e19d20bc92a003374a47b64cf4ea5c31b36e799efb4a08261"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/istj-iron-wolf.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 136066,
+        "sha256": "659ba07177c035391b1ff0df1684b39dbccfd81c182de6ba13ce4649dd3b1fe1"
+      }
+    },
+    {
+      "id": "FAM-V2-ISFJ",
+      "kind": "animal",
+      "code": "ISFJ",
+      "animalKey": "guardian-bear",
+      "objectPosition": "50% 42%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/isfj-guardian-bear-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2321678,
+        "sha256": "090c328a993a553058a0d2be6b4aa73892f238a335be6780eeda464eb916f0cc"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/isfj-guardian-bear.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 144186,
+        "sha256": "07a1049e70b1929fd424070d427ec08f7656a78668eacd530c7f3e837562abb5"
+      }
+    },
+    {
+      "id": "FAM-V2-ESTJ",
+      "kind": "animal",
+      "code": "ESTJ",
+      "animalKey": "golden-eagle",
+      "objectPosition": "50% 40%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/estj-golden-eagle-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2236021,
+        "sha256": "ee2fa33619ad238a2f19dbe66fb2022bb2d1dae28ca99e26d52c35a42d71f2b2"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/estj-golden-eagle.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 146296,
+        "sha256": "c40d6f4d46bbdc8f33974c6224c8e927cc2206f85f4e0b02636a3fb55a2bdb86"
+      }
+    },
+    {
+      "id": "FAM-V2-ESFJ",
+      "kind": "animal",
+      "code": "ESFJ",
+      "animalKey": "hearth-stag",
+      "objectPosition": "50% 36%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/esfj-hearth-stag-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2273535,
+        "sha256": "64af0ba2781d70830223e6f7de2b6782eff507a1b6082b93c94e1e48ebfe8cde"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/esfj-hearth-stag.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 156550,
+        "sha256": "811fe5ccc1fe528364bf267ccb2caf3f074dee2afccc8dbb768a9a09a8957757"
+      }
+    },
+    {
+      "id": "FAM-V2-ISTP",
+      "kind": "animal",
+      "code": "ISTP",
+      "animalKey": "steel-panther",
+      "objectPosition": "50% 46%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/istp-steel-panther-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2450171,
+        "sha256": "c58724f40b91370dbaf6cf6058620fd8bcc1e346a1a0cc48cdb741b2c5e2a729"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/istp-steel-panther.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 187374,
+        "sha256": "a191efe655ee90950a36a3d1f8405552fbc7e04281ea5aaafce762c4851566a4"
+      }
+    },
+    {
+      "id": "FAM-V2-ISFP",
+      "kind": "animal",
+      "code": "ISFP",
+      "animalKey": "crystal-lynx",
+      "objectPosition": "50% 40%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/isfp-crystal-lynx-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2371178,
+        "sha256": "676bb58b5c20ec0c8c68cf43551f80de6d2db14f65c71c438dd2276a90e489c1"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/isfp-crystal-lynx.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 153454,
+        "sha256": "b84a9bc5d015157b1dad31bf7aa25d2a936139633232144574106113e652c009"
+      }
+    },
+    {
+      "id": "FAM-V2-ESTP",
+      "kind": "animal",
+      "code": "ESTP",
+      "animalKey": "thunder-tiger",
+      "objectPosition": "50% 44%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/estp-thunder-tiger-v2.png",
+        "width": 1122,
+        "height": 1402,
+        "bytes": 2409874,
+        "sha256": "0f3570976ebcf2ca232855671e562c370f5dcab97257d02f3d3da53c724fc429"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/estp-thunder-tiger.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 180654,
+        "sha256": "2822f21c9fe7d54669dbaf339a2aad70dc9586e8f2bc354ad18e11b619407c25"
+      }
+    },
+    {
+      "id": "FAM-V2-ESFP",
+      "kind": "animal",
+      "code": "ESFP",
+      "animalKey": "neon-peacock",
+      "objectPosition": "44% 40%",
+      "source": {
+        "path": "output/ui-redesign-v4/2026-08-30/fantasy-v2/production/animals/esfp-neon-peacock-v2.png",
+        "width": 1003,
+        "height": 1568,
+        "bytes": 2839761,
+        "sha256": "59ef5eefb4b42b1c1dda90cbb126680f96ff58fd70ad7f292d7d77bd2c6638a7"
+      },
+      "runtime": {
+        "path": "public/mbti-z/v4/fantasy-v2/animals/esfp-neon-peacock.webp",
+        "width": 1080,
+        "height": 1350,
+        "bytes": 300252,
+        "sha256": "247ad3e36075d075a7a859bee85504ec6432470bd2d788835944a30c4f2ac687"
+      }
+    }
+  ],
+  "failures": []
+}

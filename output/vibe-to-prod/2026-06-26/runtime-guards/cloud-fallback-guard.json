@@ -1,0 +1,11 @@
+{
+  "configuredEnv": "cloud",
+  "readinessImplemented": false,
+  "manifestStatus": "blocked",
+  "status": {
+    "configuredMode": "cloud",
+    "activeMode": "guest-local",
+    "cloudReady": false,
+    "fallbackReason": "Cloud runtime is configured but no live Supabase-backed assessment adapter is wired yet, so the app is falling back to guest-local mode."
+  }
+}

@@ -1,0 +1,331 @@
+{
+  "ok": false,
+  "target": "preview",
+  "checks": [
+    {
+      "label": "Repository hygiene",
+      "path": "scripts/audit-repo-hygiene.mjs",
+      "ok": true,
+      "detail": "repo hygiene strict gate has no blockers"
+    },
+    {
+      "label": "Cloud runtime readiness",
+      "path": "scripts/cloud-runtime-readiness.mjs",
+      "ok": false,
+      "detail": "cloud_adapter_implemented, env_deploy_ready"
+    },
+    {
+      "label": "Environment example file",
+      "path": ".env.example",
+      "ok": true
+    },
+    {
+      "label": "GitHub Actions CI workflow",
+      "path": ".github/workflows/ci.yml",
+      "ok": true
+    },
+    {
+      "label": "Architecture overview",
+      "path": "docs/architecture-overview.md",
+      "ok": true
+    },
+    {
+      "label": "Platform runbook",
+      "path": "docs/platform-setup-runbook.md",
+      "ok": true
+    },
+    {
+      "label": "Execution status",
+      "path": "docs/execution-status.md",
+      "ok": true
+    },
+    {
+      "label": "Environment matrix",
+      "path": "docs/env-matrix.md",
+      "ok": true
+    },
+    {
+      "label": "Prisma migration scaffold",
+      "path": "prisma/migrations",
+      "ok": true
+    },
+    {
+      "label": "Vercel project binding",
+      "path": ".vercel/project.json",
+      "ok": false,
+      "blocking": false
+    }
+  ],
+  "env": {
+    "ok": false,
+    "source": "/Users/time/Desktop/Projects/MBTI_PROJECT/.env.example",
+    "target": "preview",
+    "missing": [],
+    "warnings": [
+      "NEXT_PUBLIC_SITE_URL still points to localhost.",
+      "NEXTAUTH_URL still points to localhost.",
+      "DATABASE_URL still points to a local database.",
+      "DIRECT_URL still points to a local database.",
+      "Placeholder values detected for: NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_ID, GITHUB_SECRET, EMAIL_SERVER_USER, EMAIL_SERVER_PASSWORD, EMAIL_FROM, PUSHER_APP_ID, PUSHER_KEY, PUSHER_SECRET, NEXT_PUBLIC_PUSHER_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET"
+    ],
+    "blockingWarnings": [
+      "NEXT_PUBLIC_SITE_URL still points to localhost.",
+      "NEXTAUTH_URL still points to localhost.",
+      "DATABASE_URL still points to a local database.",
+      "DIRECT_URL still points to a local database.",
+      "Placeholder values detected for: NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_ID, GITHUB_SECRET, EMAIL_SERVER_USER, EMAIL_SERVER_PASSWORD, EMAIL_FROM, PUSHER_APP_ID, PUSHER_KEY, PUSHER_SECRET, NEXT_PUBLIC_PUSHER_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET"
+    ],
+    "groups": [
+      {
+        "name": "App URLs",
+        "keys": [
+          {
+            "key": "NEXT_PUBLIC_SITE_URL",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "NEXTAUTH_URL",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          }
+        ]
+      },
+      {
+        "name": "Runtime",
+        "keys": [
+          {
+            "key": "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME",
+            "present": true,
+            "optional": true,
+            "placeholder": false
+          }
+        ]
+      },
+      {
+        "name": "Auth",
+        "keys": [
+          {
+            "key": "NEXTAUTH_SECRET",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "GOOGLE_CLIENT_ID",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "GOOGLE_CLIENT_SECRET",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "GITHUB_ID",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "GITHUB_SECRET",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          }
+        ]
+      },
+      {
+        "name": "Database",
+        "keys": [
+          {
+            "key": "DATABASE_URL",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "DIRECT_URL",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          }
+        ]
+      },
+      {
+        "name": "Email",
+        "keys": [
+          {
+            "key": "EMAIL_SERVER_HOST",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "EMAIL_SERVER_PORT",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "EMAIL_SERVER_SECURE",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "EMAIL_SERVER_USER",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "EMAIL_SERVER_PASSWORD",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "EMAIL_FROM",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          }
+        ]
+      },
+      {
+        "name": "Realtime",
+        "keys": [
+          {
+            "key": "PUSHER_APP_ID",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "PUSHER_KEY",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "PUSHER_SECRET",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "PUSHER_CLUSTER",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          },
+          {
+            "key": "NEXT_PUBLIC_PUSHER_KEY",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "NEXT_PUBLIC_PUSHER_CLUSTER",
+            "present": true,
+            "optional": false,
+            "placeholder": false
+          }
+        ]
+      },
+      {
+        "name": "Media",
+        "keys": [
+          {
+            "key": "CLOUDINARY_CLOUD_NAME",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "CLOUDINARY_API_KEY",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          },
+          {
+            "key": "CLOUDINARY_API_SECRET",
+            "present": true,
+            "optional": false,
+            "placeholder": true
+          }
+        ]
+      }
+    ]
+  },
+  "repoHygiene": {
+    "ok": true,
+    "summary": {
+      "trackedCount": 289,
+      "untrackedCount": 427,
+      "deletedCount": 0,
+      "stagedDeletedCount": 1385,
+      "modifiedCount": 13,
+      "trackedOldRootCount": 0,
+      "trackedOldSourceCount": 0,
+      "trackedDbDataCount": 0,
+      "stagedDeletedOldRootCount": 1385,
+      "stagedDeletedOldSourceCount": 40,
+      "rootAppUntrackedCount": 0,
+      "blockerCount": 0,
+      "warningCount": 0
+    },
+    "blockers": [],
+    "warnings": [
+      {
+        "id": "old_root_source_counterparts",
+        "ok": true,
+        "detail": "all missing non-db_data old-root counterparts are reviewed retirements"
+      }
+    ]
+  },
+  "cloudRuntime": {
+    "ok": false,
+    "summary": {
+      "cloudAdapterImplemented": false,
+      "manifestStatus": "blocked",
+      "manifestBlockerIds": [
+        "supabase_target",
+        "cloud_adapter_implementation",
+        "deploy_env_ready"
+      ],
+      "requiredApiRouteCount": 5,
+      "apiContractCount": 5,
+      "apiContractFailureCount": 0,
+      "requiredDataModelCount": 6,
+      "migrationCount": 15,
+      "envOk": false,
+      "runtimeMode": "guest-local",
+      "missingEnvCount": 0,
+      "blockingEnvWarningCount": 5,
+      "blockerCount": 2
+    },
+    "blockers": [
+      {
+        "id": "cloud_adapter_implemented",
+        "ok": false,
+        "detail": "readiness manifest marks the cloud adapter as blocked"
+      },
+      {
+        "id": "env_deploy_ready",
+        "ok": false,
+        "detail": "0 missing keys, 5 blocking warnings"
+      }
+    ]
+  },
+  "warnings": [
+    "Vercel project binding is still missing (.vercel/project.json).",
+    "Environment has deploy-blocking warnings.",
+    "Cloud runtime readiness has blocking issues."
+  ]
+}

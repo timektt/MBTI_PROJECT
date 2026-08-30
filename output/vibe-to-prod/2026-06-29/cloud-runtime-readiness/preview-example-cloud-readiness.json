@@ -1,0 +1,215 @@
+{
+  "generatedAt": "2026-06-29T05:37:10.279Z",
+  "appRoot": "/Users/time/Desktop/Projects/MBTI_PROJECT",
+  "target": "preview",
+  "envSource": "/Users/time/Desktop/Projects/MBTI_PROJECT/.env.example",
+  "ok": false,
+  "summary": {
+    "cloudAdapterImplemented": false,
+    "manifestStatus": "blocked",
+    "manifestBlockerIds": [
+      "supabase_target",
+      "cloud_adapter_implementation",
+      "deploy_env_ready"
+    ],
+    "requiredApiRouteCount": 6,
+    "apiContractCount": 6,
+    "apiContractFailureCount": 0,
+    "apiShapeCheckCount": 9,
+    "apiShapeCheckFailureCount": 0,
+    "requiredDataModelCount": 6,
+    "migrationCount": 16,
+    "envOk": false,
+    "runtimeMode": "guest-local",
+    "missingEnvCount": 0,
+    "blockingEnvWarningCount": 5,
+    "blockerCount": 2
+  },
+  "checks": [
+    {
+      "id": "cloud_readiness_manifest_present",
+      "ok": true,
+      "detail": "data/runtime/cloud-runtime-readiness.json"
+    },
+    {
+      "id": "cloud_adapter_file_present",
+      "ok": true,
+      "detail": "lib/assessment-runtime-cloud.ts"
+    },
+    {
+      "id": "cloud_adapter_manifest_linked",
+      "ok": true,
+      "detail": "cloud adapter should read the manifest before enabling cloud mode"
+    },
+    {
+      "id": "cloud_service_adapter_factory_present",
+      "ok": true,
+      "detail": "cloud service adapter should bind the future cloud adapter to the API client contract"
+    },
+    {
+      "id": "cloud_service_adapter_manifest_guarded",
+      "ok": true,
+      "detail": "cloud service adapter should not instantiate while the manifest is blocked"
+    },
+    {
+      "id": "cloud_adapter_implemented",
+      "ok": false,
+      "detail": "readiness manifest marks the cloud adapter as blocked"
+    },
+    {
+      "id": "cloud_manifest_blockers_declared",
+      "ok": true,
+      "detail": "3 manifest blockers"
+    },
+    {
+      "id": "guest_fallback_present",
+      "ok": true,
+      "detail": "cloud mode should fall back to guest-local until the adapter is real"
+    },
+    {
+      "id": "prisma_schema_present",
+      "ok": true,
+      "detail": "prisma/schema.prisma"
+    },
+    {
+      "id": "prisma_migrations_present",
+      "ok": true,
+      "detail": "16 migration directories"
+    },
+    {
+      "id": "required_cloud_api_routes_present",
+      "ok": true,
+      "detail": "6 required API routes present"
+    },
+    {
+      "id": "required_cloud_api_contracts_present",
+      "ok": true,
+      "detail": "6 required API route contracts pass static checks"
+    },
+    {
+      "id": "required_cloud_api_shape_checks_present",
+      "ok": true,
+      "detail": "9 nested UI-facing API shape checks pass"
+    },
+    {
+      "id": "required_cloud_data_models_present",
+      "ok": true,
+      "detail": "6 required Prisma models present"
+    },
+    {
+      "id": "env_deploy_ready",
+      "ok": false,
+      "detail": "0 missing keys, 5 blocking warnings"
+    },
+    {
+      "id": "runtime_not_cloud_until_adapter_ready",
+      "ok": true,
+      "detail": "do not enable cloud runtime before the adapter is implemented"
+    }
+  ],
+  "apiContracts": [
+    {
+      "path": "/api/health/db",
+      "file": "pages/api/health/db.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": []
+    },
+    {
+      "path": "/api/quiz/start",
+      "file": "pages/api/quiz/start.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": [
+        {
+          "id": "quiz_start_localizes_mbti_z_question_metadata",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "localize_question_returns_ui_metadata",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/quiz/answer",
+      "file": "pages/api/quiz/answer.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": []
+    },
+    {
+      "path": "/api/quiz/submit",
+      "file": "pages/api/quiz/submit.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": [
+        {
+          "id": "quiz_submit_persists_and_returns_score_detail",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "result_artifact_supports_movie_profile",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/me/results",
+      "file": "pages/api/me/results.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": [
+        {
+          "id": "results_replay_artifact_from_persisted_score_detail",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "result_artifact_relocalizes_movie_profile",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/me/reconnect-bundle/import",
+      "file": "pages/api/me/reconnect-bundle/import.ts",
+      "ok": true,
+      "failures": [],
+      "shapeChecks": [
+        {
+          "id": "reconnect_import_validates_guest_handoff_bundle",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "reconnect_import_persists_with_conflict_guard",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "reconnect_import_persists_guest_result_artifacts",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    }
+  ],
+  "blockers": [
+    {
+      "id": "cloud_adapter_implemented",
+      "ok": false,
+      "detail": "readiness manifest marks the cloud adapter as blocked"
+    },
+    {
+      "id": "env_deploy_ready",
+      "ok": false,
+      "detail": "0 missing keys, 5 blocking warnings"
+    }
+  ]
+}

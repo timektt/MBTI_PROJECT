@@ -1,0 +1,821 @@
+{
+  "generatedAt": "2026-06-29T05:37:17.118Z",
+  "target": "preview",
+  "envSource": ".env.example",
+  "ok": false,
+  "summary": {
+    "repoHygieneOk": true,
+    "assetsOk": true,
+    "authSurfaceOk": true,
+    "uiRouteSweepOk": true,
+    "supabaseTargetOk": false,
+    "vercelTargetOk": false,
+    "cloudRuntimeOk": false,
+    "envOk": false
+  },
+  "status": {
+    "ok": false,
+    "target": "preview",
+    "checks": [
+      {
+        "label": "Repository hygiene",
+        "path": "scripts/audit-repo-hygiene.mjs",
+        "ok": true,
+        "detail": "repo hygiene strict gate has no blockers"
+      },
+      {
+        "label": "Cloud runtime readiness",
+        "path": "scripts/cloud-runtime-readiness.mjs",
+        "ok": false,
+        "detail": "cloud_adapter_implemented, env_deploy_ready"
+      },
+      {
+        "label": "MBTI Z visual assets",
+        "path": "scripts/verify-mbti-z-assets.mjs",
+        "ok": true,
+        "detail": "4 houses / 16 animal posters"
+      },
+      {
+        "label": "Auth surface isolation",
+        "path": "scripts/audit-auth-surface-isolation.mjs",
+        "ok": true,
+        "detail": "legacy UI surfaces are held and high-risk APIs have static guards"
+      },
+      {
+        "label": "UI route sweep evidence",
+        "path": "scripts/verify-ui-route-sweep.mjs",
+        "ok": true,
+        "detail": "30 routes / 66 samples / 0 issues"
+      },
+      {
+        "label": "Supabase target readiness",
+        "path": "scripts/supabase-target-readiness.mjs",
+        "ok": false,
+        "detail": "local_database_connection, non_supabase_database_connection, local_database_connection, non_supabase_database_connection, approved_supabase_project_ref_missing"
+      },
+      {
+        "label": "Vercel target readiness",
+        "path": "scripts/vercel-target-readiness.mjs",
+        "ok": false,
+        "detail": "missing_vercel_project_binding, approved_vercel_project_id_missing"
+      },
+      {
+        "label": "Environment example file",
+        "path": ".env.example",
+        "ok": true
+      },
+      {
+        "label": "GitHub Actions CI workflow",
+        "path": ".github/workflows/ci.yml",
+        "ok": true
+      },
+      {
+        "label": "Architecture overview",
+        "path": "docs/architecture-overview.md",
+        "ok": true
+      },
+      {
+        "label": "Platform runbook",
+        "path": "docs/platform-setup-runbook.md",
+        "ok": true
+      },
+      {
+        "label": "Execution status",
+        "path": "docs/execution-status.md",
+        "ok": true
+      },
+      {
+        "label": "Environment matrix",
+        "path": "docs/env-matrix.md",
+        "ok": true
+      },
+      {
+        "label": "Prisma migration scaffold",
+        "path": "prisma/migrations",
+        "ok": true
+      }
+    ],
+    "env": {
+      "ok": false,
+      "source": "/Users/time/Desktop/Projects/MBTI_PROJECT/.env.example",
+      "target": "preview",
+      "missing": [],
+      "warnings": [
+        "NEXT_PUBLIC_SITE_URL still points to localhost.",
+        "NEXTAUTH_URL still points to localhost.",
+        "DATABASE_URL still points to a local database.",
+        "DIRECT_URL still points to a local database.",
+        "Placeholder values detected for: NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_ID, GITHUB_SECRET, EMAIL_SERVER_USER, EMAIL_SERVER_PASSWORD, EMAIL_FROM, PUSHER_APP_ID, PUSHER_KEY, PUSHER_SECRET, NEXT_PUBLIC_PUSHER_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET"
+      ],
+      "blockingWarnings": [
+        "NEXT_PUBLIC_SITE_URL still points to localhost.",
+        "NEXTAUTH_URL still points to localhost.",
+        "DATABASE_URL still points to a local database.",
+        "DIRECT_URL still points to a local database.",
+        "Placeholder values detected for: NEXTAUTH_SECRET, GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GITHUB_ID, GITHUB_SECRET, EMAIL_SERVER_USER, EMAIL_SERVER_PASSWORD, EMAIL_FROM, PUSHER_APP_ID, PUSHER_KEY, PUSHER_SECRET, NEXT_PUBLIC_PUSHER_KEY, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET"
+      ],
+      "groups": [
+        {
+          "name": "App URLs",
+          "keys": [
+            {
+              "key": "NEXT_PUBLIC_SITE_URL",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "NEXTAUTH_URL",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            }
+          ]
+        },
+        {
+          "name": "Runtime",
+          "keys": [
+            {
+              "key": "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME",
+              "present": true,
+              "optional": true,
+              "placeholder": false
+            }
+          ]
+        },
+        {
+          "name": "Auth",
+          "keys": [
+            {
+              "key": "NEXTAUTH_SECRET",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "GOOGLE_CLIENT_ID",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "GOOGLE_CLIENT_SECRET",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "GITHUB_ID",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "GITHUB_SECRET",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            }
+          ]
+        },
+        {
+          "name": "Database",
+          "keys": [
+            {
+              "key": "DATABASE_URL",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "DIRECT_URL",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            }
+          ]
+        },
+        {
+          "name": "Email",
+          "keys": [
+            {
+              "key": "EMAIL_SERVER_HOST",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "EMAIL_SERVER_PORT",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "EMAIL_SERVER_SECURE",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "EMAIL_SERVER_USER",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "EMAIL_SERVER_PASSWORD",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "EMAIL_FROM",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            }
+          ]
+        },
+        {
+          "name": "Realtime",
+          "keys": [
+            {
+              "key": "PUSHER_APP_ID",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "PUSHER_KEY",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "PUSHER_SECRET",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "PUSHER_CLUSTER",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            },
+            {
+              "key": "NEXT_PUBLIC_PUSHER_KEY",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "NEXT_PUBLIC_PUSHER_CLUSTER",
+              "present": true,
+              "optional": false,
+              "placeholder": false
+            }
+          ]
+        },
+        {
+          "name": "Media",
+          "keys": [
+            {
+              "key": "CLOUDINARY_CLOUD_NAME",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "CLOUDINARY_API_KEY",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            },
+            {
+              "key": "CLOUDINARY_API_SECRET",
+              "present": true,
+              "optional": false,
+              "placeholder": true
+            }
+          ]
+        }
+      ]
+    },
+    "repoHygiene": {
+      "ok": true,
+      "summary": {
+        "trackedCount": 316,
+        "untrackedCount": 493,
+        "deletedCount": 0,
+        "stagedDeletedCount": 1385,
+        "modifiedCount": 9,
+        "trackedOldRootCount": 0,
+        "trackedOldSourceCount": 0,
+        "trackedDbDataCount": 0,
+        "stagedDeletedOldRootCount": 1385,
+        "stagedDeletedOldSourceCount": 40,
+        "rootAppUntrackedCount": 0,
+        "blockerCount": 0,
+        "warningCount": 0
+      },
+      "blockers": [],
+      "warnings": [
+        {
+          "id": "old_root_source_counterparts",
+          "ok": true,
+          "detail": "all missing non-db_data old-root counterparts are reviewed retirements"
+        }
+      ]
+    },
+    "assets": {
+      "ok": true,
+      "expected": {
+        "houseCount": 4,
+        "animalPosterCount": 16,
+        "houseSize": {
+          "width": 1600,
+          "height": 960
+        },
+        "animalPosterSize": {
+          "width": 1080,
+          "height": 1350
+        }
+      },
+      "summary": {
+        "houseCount": 4,
+        "animalPosterCount": 16,
+        "profileCount": 16,
+        "uniqueProfileCount": 16,
+        "uniqueAnimalKeyCount": 16,
+        "failureCount": 0
+      },
+      "houseAssets": [
+        {
+          "path": "public/mbti-z/houses/blue.png",
+          "ok": true,
+          "failure": null,
+          "width": 1600,
+          "height": 960
+        },
+        {
+          "path": "public/mbti-z/houses/green.png",
+          "ok": true,
+          "failure": null,
+          "width": 1600,
+          "height": 960
+        },
+        {
+          "path": "public/mbti-z/houses/purple.png",
+          "ok": true,
+          "failure": null,
+          "width": 1600,
+          "height": 960
+        },
+        {
+          "path": "public/mbti-z/houses/yellow.png",
+          "ok": true,
+          "failure": null,
+          "width": 1600,
+          "height": 960
+        }
+      ],
+      "animalAssets": [
+        {
+          "code": "ENFJ",
+          "animalKey": "solar-phoenix",
+          "animalNameTh": "ฟีนิกซ์สุริยะ",
+          "animalNameEn": "Solar Phoenix",
+          "path": "public/mbti-z/animals/enfj-solar-phoenix.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ENFP",
+          "animalKey": "aurora-rabbit",
+          "animalNameTh": "กระต่ายออโรรา",
+          "animalNameEn": "Aurora Rabbit",
+          "path": "public/mbti-z/animals/enfp-aurora-rabbit.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ENTJ",
+          "animalKey": "crowned-lion",
+          "animalNameTh": "สิงโตมงกุฎ",
+          "animalNameEn": "Crowned Lion",
+          "path": "public/mbti-z/animals/entj-crowned-lion.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ENTP",
+          "animalKey": "storm-fox",
+          "animalNameTh": "จิ้งจอกพายุ",
+          "animalNameEn": "Storm Fox",
+          "path": "public/mbti-z/animals/entp-storm-fox.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ESFJ",
+          "animalKey": "hearth-stag",
+          "animalNameTh": "กวางเขาแสง",
+          "animalNameEn": "Hearth Stag",
+          "path": "public/mbti-z/animals/esfj-hearth-stag.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ESFP",
+          "animalKey": "neon-peacock",
+          "animalNameTh": "นกยูงนีออน",
+          "animalNameEn": "Neon Peacock",
+          "path": "public/mbti-z/animals/esfp-neon-peacock.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ESTJ",
+          "animalKey": "golden-eagle",
+          "animalNameTh": "อินทรีทอง",
+          "animalNameEn": "Golden Eagle",
+          "path": "public/mbti-z/animals/estj-golden-eagle.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ESTP",
+          "animalKey": "thunder-tiger",
+          "animalNameTh": "เสือพายุ",
+          "animalNameEn": "Thunder Tiger",
+          "path": "public/mbti-z/animals/estp-thunder-tiger.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "INFJ",
+          "animalKey": "moon-deer",
+          "animalNameTh": "กวางจันทร์",
+          "animalNameEn": "Moon Deer",
+          "path": "public/mbti-z/animals/infj-moon-deer.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "INFP",
+          "animalKey": "dream-swan",
+          "animalNameTh": "หงส์ความฝัน",
+          "animalNameEn": "Dream Swan",
+          "path": "public/mbti-z/animals/infp-dream-swan.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "INTJ",
+          "animalKey": "obsidian-raven",
+          "animalNameTh": "อีกาออบซิเดียน",
+          "animalNameEn": "Obsidian Raven",
+          "path": "public/mbti-z/animals/intj-obsidian-raven.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "INTP",
+          "animalKey": "arcane-owl",
+          "animalNameTh": "นกฮูกอาร์เคน",
+          "animalNameEn": "Arcane Owl",
+          "path": "public/mbti-z/animals/intp-arcane-owl.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ISFJ",
+          "animalKey": "guardian-bear",
+          "animalNameTh": "หมีผู้พิทักษ์",
+          "animalNameEn": "Guardian Bear",
+          "path": "public/mbti-z/animals/isfj-guardian-bear.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ISFP",
+          "animalKey": "crystal-lynx",
+          "animalNameTh": "ลิงซ์คริสตัล",
+          "animalNameEn": "Crystal Lynx",
+          "path": "public/mbti-z/animals/isfp-crystal-lynx.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ISTJ",
+          "animalKey": "iron-wolf",
+          "animalNameTh": "หมาป่าเหล็ก",
+          "animalNameEn": "Iron Wolf",
+          "path": "public/mbti-z/animals/istj-iron-wolf.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        },
+        {
+          "code": "ISTP",
+          "animalKey": "steel-panther",
+          "animalNameTh": "เสือดำเหล็ก",
+          "animalNameEn": "Steel Panther",
+          "path": "public/mbti-z/animals/istp-steel-panther.png",
+          "ok": true,
+          "failure": null,
+          "width": 1080,
+          "height": 1350
+        }
+      ],
+      "failures": []
+    },
+    "authSurface": {
+      "ok": true,
+      "summary": {
+        "holdPageCount": 25,
+        "holdPageFailureCount": 0,
+        "apiRouteCount": 18,
+        "apiRouteFailureCount": 0,
+        "middlewareCount": 0,
+        "blockerCount": 0
+      },
+      "blockers": []
+    },
+    "uiRouteSweep": {
+      "ok": true,
+      "auditPath": "output/ui-skills-router/2026-06-29/current-route-sweep/audit-report.json",
+      "issuePath": "output/ui-skills-router/2026-06-29/current-route-sweep/issues.json",
+      "expectedRouteCount": 30,
+      "auditedRouteCount": 30,
+      "expectedSampleCount": 66,
+      "auditedSampleCount": 66,
+      "issueCount": 0,
+      "failures": []
+    },
+    "supabaseTarget": {
+      "ok": false,
+      "summary": {
+        "connectionCount": 2,
+        "validConnectionCount": 2,
+        "supabaseConnectionCount": 0,
+        "projectRefs": [],
+        "requiredMigrationCount": 2,
+        "missingRequiredMigrationCount": 0,
+        "blockerCount": 5,
+        "warningCount": 0
+      },
+      "blockers": [
+        {
+          "id": "local_database_connection",
+          "key": "DATABASE_URL",
+          "detail": "DATABASE_URL still points to a local database."
+        },
+        {
+          "id": "non_supabase_database_connection",
+          "key": "DATABASE_URL",
+          "detail": "DATABASE_URL is not a Supabase Postgres or Supabase pooler host."
+        },
+        {
+          "id": "local_database_connection",
+          "key": "DIRECT_URL",
+          "detail": "DIRECT_URL still points to a local database."
+        },
+        {
+          "id": "non_supabase_database_connection",
+          "key": "DIRECT_URL",
+          "detail": "DIRECT_URL is not a Supabase Postgres or Supabase pooler host."
+        },
+        {
+          "id": "approved_supabase_project_ref_missing",
+          "detail": "No approved preview Supabase project ref is declared in data/runtime/supabase-target-readiness.json."
+        }
+      ],
+      "connections": [
+        {
+          "key": "DATABASE_URL",
+          "present": true,
+          "valid": true,
+          "host": "localhost",
+          "database": "mbti_project",
+          "projectRef": null,
+          "isSupabase": false,
+          "isLocal": true,
+          "placeholder": false,
+          "failure": null
+        },
+        {
+          "key": "DIRECT_URL",
+          "present": true,
+          "valid": true,
+          "host": "localhost",
+          "database": "mbti_project",
+          "projectRef": null,
+          "isSupabase": false,
+          "isLocal": true,
+          "placeholder": false,
+          "failure": null
+        }
+      ],
+      "migrations": {
+        "presentCount": 16,
+        "required": [
+          {
+            "name": "20260604190000_add_premium_mbti_foundation",
+            "label": "Premium MBTI foundation schema"
+          },
+          {
+            "name": "20260629040000_add_mbti_z_question_metadata",
+            "label": "MBTI Z question metadata and Movie Profile schema"
+          }
+        ],
+        "missing": []
+      }
+    },
+    "vercelTarget": {
+      "ok": false,
+      "summary": {
+        "bindingPresent": false,
+        "bindingValid": false,
+        "requiredFileCount": 4,
+        "missingRequiredFileCount": 0,
+        "requiredScriptCount": 4,
+        "missingRequiredScriptCount": 0,
+        "blockerCount": 2,
+        "warningCount": 0
+      },
+      "blockers": [
+        {
+          "id": "missing_vercel_project_binding",
+          "path": "/Users/time/Desktop/Projects/MBTI_PROJECT/.vercel/project.json",
+          "detail": "/Users/time/Desktop/Projects/MBTI_PROJECT/.vercel/project.json is required before preview Vercel target verification."
+        },
+        {
+          "id": "approved_vercel_project_id_missing",
+          "detail": "No approved preview Vercel project id is declared in data/runtime/vercel-target-readiness.json."
+        }
+      ],
+      "binding": {
+        "path": "/Users/time/Desktop/Projects/MBTI_PROJECT/.vercel/project.json",
+        "present": false,
+        "valid": false,
+        "projectId": null,
+        "orgId": null,
+        "failure": "missing"
+      },
+      "deploymentContract": {
+        "expected": {
+          "framework": "nextjs",
+          "packageManager": "npm",
+          "lockfile": "package-lock.json",
+          "rootDirectory": ".",
+          "buildCommand": "npm run build",
+          "requiredFiles": [
+            "package.json",
+            "package-lock.json",
+            "next.config.ts",
+            "pages/_app.tsx"
+          ],
+          "requiredScripts": [
+            "build",
+            "start",
+            "verify",
+            "preflight:preview"
+          ]
+        },
+        "packageJsonPresent": true,
+        "packageName": "mbti-project",
+        "detectedPackageManagers": [
+          {
+            "manager": "npm",
+            "lockfile": "package-lock.json"
+          }
+        ],
+        "detectedPackageManager": "npm",
+        "buildCommand": "npm run build",
+        "frameworkFilePresent": true,
+        "pagesRouterPresent": true,
+        "requiredFiles": [
+          {
+            "file": "package.json",
+            "present": true
+          },
+          {
+            "file": "package-lock.json",
+            "present": true
+          },
+          {
+            "file": "next.config.ts",
+            "present": true
+          },
+          {
+            "file": "pages/_app.tsx",
+            "present": true
+          }
+        ],
+        "requiredScripts": [
+          {
+            "script": "build",
+            "present": true
+          },
+          {
+            "script": "start",
+            "present": true
+          },
+          {
+            "script": "verify",
+            "present": true
+          },
+          {
+            "script": "preflight:preview",
+            "present": true
+          }
+        ],
+        "missingRequiredFiles": [],
+        "missingRequiredScripts": []
+      }
+    },
+    "cloudRuntime": {
+      "ok": false,
+      "summary": {
+        "cloudAdapterImplemented": false,
+        "manifestStatus": "blocked",
+        "manifestBlockerIds": [
+          "supabase_target",
+          "cloud_adapter_implementation",
+          "deploy_env_ready"
+        ],
+        "requiredApiRouteCount": 6,
+        "apiContractCount": 6,
+        "apiContractFailureCount": 0,
+        "apiShapeCheckCount": 9,
+        "apiShapeCheckFailureCount": 0,
+        "requiredDataModelCount": 6,
+        "migrationCount": 16,
+        "envOk": false,
+        "runtimeMode": "guest-local",
+        "missingEnvCount": 0,
+        "blockingEnvWarningCount": 5,
+        "blockerCount": 2
+      },
+      "blockers": [
+        {
+          "id": "cloud_adapter_implemented",
+          "ok": false,
+          "detail": "readiness manifest marks the cloud adapter as blocked"
+        },
+        {
+          "id": "env_deploy_ready",
+          "ok": false,
+          "detail": "0 missing keys, 5 blocking warnings"
+        }
+      ]
+    },
+    "warnings": [
+      "Environment has deploy-blocking warnings.",
+      "Supabase target readiness has blocking issues.",
+      "Vercel target readiness has blocking issues.",
+      "Cloud runtime readiness has blocking issues."
+    ]
+  },
+  "actionPlan": [
+    "Create or select a fresh MBTI Z Supabase project in the approved organization.",
+    "Update `data/runtime/supabase-target-readiness.json` with the approved preview/production project refs.",
+    "Bind deploy-safe `DATABASE_URL` and `DIRECT_URL` values from that Supabase target without committing secrets.",
+    "Create and bind a dedicated Vercel project for `timektt/MBTI_PROJECT`.",
+    "Update `data/runtime/vercel-target-readiness.json` with the approved Vercel project id.",
+    "Configure preview/production Vercel env values from `.env.example` after Supabase target refs are approved.",
+    "Replace preview/production placeholder and localhost env values in the deployment environment; keep `.env.example` placeholder-only.",
+    "Keep `NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME=guest-local` until Supabase/Vercel/env gates are ready and the cloud adapter is implemented."
+  ]
+}

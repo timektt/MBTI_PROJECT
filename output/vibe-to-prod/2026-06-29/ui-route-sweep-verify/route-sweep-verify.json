@@ -1,0 +1,11 @@
+{
+  "ok": true,
+  "auditPath": "output/ui-skills-router/2026-06-29/current-route-sweep/audit-report.json",
+  "issuePath": "output/ui-skills-router/2026-06-29/current-route-sweep/issues.json",
+  "expectedRouteCount": 30,
+  "auditedRouteCount": 30,
+  "expectedSampleCount": 66,
+  "auditedSampleCount": 66,
+  "issueCount": 0,
+  "failures": []
+}

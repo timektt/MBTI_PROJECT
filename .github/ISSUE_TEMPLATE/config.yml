@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: MBTI Product Backlog
+    url: https://github.com/timektt/MBTI_PROJECT
+    about: Use the repository backlog and docs before opening a new issue.

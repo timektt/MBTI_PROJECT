@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "status": "blocked",
+  "organization": {
+    "id": "bvtouqsabldotwjbpejw",
+    "label": "timektt's Org"
+  },
+  "targets": {
+    "preview": {
+      "expectedProjectRef": null,
+      "required": true
+    },
+    "production": {
+      "expectedProjectRef": null,
+      "required": true
+    }
+  },
+  "knownBlockedProjectRefs": [
+    {
+      "ref": "pjsahbngizfwiatgnwby",
+      "label": "MBTI Social Platform",
+      "reason": "Legacy project is not the approved MBTI Z relaunch runtime target."
+    }
+  ],
+  "requiredMigrationDirs": [
+    {
+      "name": "20260604190000_add_premium_mbti_foundation",
+      "label": "Premium MBTI foundation schema"
+    },
+    {
+      "name": "20260629040000_add_mbti_z_question_metadata",
+      "label": "MBTI Z question metadata and Movie Profile schema"
+    }
+  ],
+  "requiredPreApplyCommands": [
+    "npm run data:validate",
+    "npm run db:bootstrap:verify",
+    "npm run cloud:readiness -- --target=preview --file=.env.example --json"
+  ],
+  "blockers": [
+    {
+      "id": "fresh_supabase_project_not_selected",
+      "label": "Fresh Supabase project",
+      "detail": "No approved MBTI Z Supabase project ref has been selected for preview or production."
+    },
+    {
+      "id": "supabase_env_not_bound",
+      "label": "Supabase env binding",
+      "detail": "DATABASE_URL and DIRECT_URL are not yet verified against the approved project ref."
+    }
+  ]
+}

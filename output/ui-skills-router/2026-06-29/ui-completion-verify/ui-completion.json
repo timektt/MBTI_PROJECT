@@ -1,0 +1,48 @@
+{
+  "ok": true,
+  "generatedAt": "2026-06-29T08:34:29.877Z",
+  "uiSkillsRouter": {
+    "scope": "project-wide",
+    "commands": [
+      "npx ui-skills start",
+      "npx ui-skills categories",
+      "npx ui-skills list --category testing",
+      "npx ui-skills list --category frontend",
+      "npx ui-skills list --category craft",
+      "npx ui-skills get pbakaus/audit",
+      "npx ui-skills get pbakaus/harden"
+    ],
+    "selected": [
+      "pbakaus/audit",
+      "pbakaus/harden"
+    ],
+    "usedFor": "completion guard and hardening validation checklist"
+  },
+  "routeSweep": {
+    "ok": true,
+    "auditPath": "output/ui-skills-router/2026-06-29/current-route-sweep/audit-report.json",
+    "issuePath": "output/ui-skills-router/2026-06-29/current-route-sweep/issues.json",
+    "expectedRouteCount": 30,
+    "auditedRouteCount": 30,
+    "expectedSampleCount": 66,
+    "auditedSampleCount": 66,
+    "issueCount": 0,
+    "failures": []
+  },
+  "reconnectControls": {
+    "ok": true,
+    "auditPath": "output/ui-skills-router/2026-06-29/reconnect-controls-compact/audit-report.json",
+    "routeCount": 2,
+    "sampleCount": 4,
+    "issueCount": 0,
+    "failures": []
+  },
+  "docs": {
+    "ok": true,
+    "checkedFileCount": 5,
+    "requiredFragmentCount": 11,
+    "forbiddenCurrentBoardFragmentCount": 8,
+    "failures": []
+  },
+  "failures": []
+}

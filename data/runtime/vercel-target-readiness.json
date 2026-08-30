@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "status": "blocked",
+  "team": {
+    "id": "team_B5Pm6p3bUokzVLTwf29XJO1q",
+    "label": "SuperBear's projects"
+  },
+  "repository": {
+    "provider": "github",
+    "slug": "timektt/MBTI_PROJECT"
+  },
+  "requiredDeploymentContract": {
+    "framework": "nextjs",
+    "packageManager": "npm",
+    "lockfile": "package-lock.json",
+    "rootDirectory": ".",
+    "buildCommand": "npm run build",
+    "requiredFiles": [
+      "package.json",
+      "package-lock.json",
+      "next.config.ts",
+      "pages/_app.tsx"
+    ],
+    "requiredScripts": [
+      "build",
+      "start",
+      "verify",
+      "preflight:preview"
+    ]
+  },
+  "requiredPreDeployCommands": [
+    "npm run verify",
+    "npm run preflight:preview -- --file=.env.example --json"
+  ],
+  "targets": {
+    "preview": {
+      "expectedProjectId": null,
+      "expectedOrgId": "team_B5Pm6p3bUokzVLTwf29XJO1q",
+      "expectedProjectName": "mbti-project",
+      "required": true
+    },
+    "production": {
+      "expectedProjectId": null,
+      "expectedOrgId": "team_B5Pm6p3bUokzVLTwf29XJO1q",
+      "expectedProjectName": "mbti-project",
+      "required": true
+    }
+  },
+  "knownBlockedProjectIds": [],
+  "blockers": [
+    {
+      "id": "dedicated_vercel_project_not_bound",
+      "label": "Dedicated Vercel project",
+      "detail": "No approved MBTI Z Vercel project id has been created and bound for preview or production."
+    },
+    {
+      "id": "vercel_env_not_bound",
+      "label": "Vercel env binding",
+      "detail": "Preview and production environment variables are not yet verified against the approved Vercel project."
+    }
+  ]
+}

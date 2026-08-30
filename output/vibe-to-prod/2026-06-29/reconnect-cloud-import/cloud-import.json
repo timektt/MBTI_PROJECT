@@ -1,0 +1,17 @@
+{
+  "ok": true,
+  "importedResultId": "handoff_result_8626f3c1c4470cd4b5251076",
+  "reimportResultId": "handoff_result_8626f3c1c4470cd4b5251076",
+  "resultCount": 1,
+  "importedAnswerCount": 1,
+  "skippedAnswerCount": 1,
+  "persistedCounts": {
+    "quizResults": 1,
+    "premiumReports": 1,
+    "shareCards": 1,
+    "cards": 1,
+    "assessmentSessions": 1,
+    "assessmentAnswers": 1,
+    "eventLogs": 2
+  }
+}

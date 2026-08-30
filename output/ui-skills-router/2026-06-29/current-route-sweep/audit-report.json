@@ -1,0 +1,3595 @@
+{
+  "capturedAt": "2026-06-29T04:31:26.099Z",
+  "browser": "Google Chrome via Playwright channel=chrome",
+  "baseUrl": "http://127.0.0.1:3001",
+  "seed": {
+    "resultId": "guest-mqtpomkf-estj",
+    "questionCount": 60
+  },
+  "routeCount": 30,
+  "viewports": [
+    {
+      "name": "mobile-390x844",
+      "width": 390,
+      "height": 844,
+      "isMobile": true
+    },
+    {
+      "name": "tablet-768x1024",
+      "width": 768,
+      "height": 1024,
+      "isMobile": false
+    },
+    {
+      "name": "desktop-1440x1000",
+      "width": 1440,
+      "height": 1000,
+      "isMobile": false
+    }
+  ],
+  "routeResults": [
+    {
+      "route": {
+        "group": "core",
+        "name": "home",
+        "path": "/"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/home-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/",
+        "title": "MBTI Z | ห้องทดลองบุคลิกแฟนตาซี",
+        "h1": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว"
+          },
+          {
+            "tag": "h2",
+            "text": "หนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย"
+          },
+          {
+            "tag": "h2",
+            "text": "สิ่งที่ผู้ใช้จะได้จาก flow ใหม่"
+          },
+          {
+            "tag": "h3",
+            "text": "คำตอบแบบมีน้ำหนัก"
+          },
+          {
+            "tag": "h3",
+            "text": "เอกลักษณ์ประจำ house"
+          },
+          {
+            "tag": "h3",
+            "text": "Movie Profile"
+          },
+          {
+            "tag": "h3",
+            "text": "ดาวน์โหลด Result"
+          },
+          {
+            "tag": "h2",
+            "text": "4 houses ที่ขับบุคลิกทั้งระบบ"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านเขียว"
+          }
+        ],
+        "bodyScrollHeight": 5335,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nMBTI Z\nเริ่มแบบ GUEST · TH เป็นค่าเริ่มต้น · 16 TYPES\nอ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว\n\nMBTI Z อ่านพลังงาน วิธีรับข้อมูล การตัดสินใจ และรสนิยมการดูหนังของคุณในลำดับเดียว แล้วสรุปออกมาเป็น Artifact ที่พร้อมเก็บต่อหรือแชร์ต่อได้ทันที\n\nเริ่มแบบทดสอบ MBTI Z\nเปิด DASHBOARD\nสำรวจ 16 TYPES\nคำตอบแบบ 5 ระดับ\nMOVIE PROFILE\nRESULT ARTIFACT\nดาวน์โหลด PNG 1080X1350\n\n16\n\nTYPES + สัตว์\n\n4\n\nHOUSES\n\n12\n\nMOVIE PROMPTS\n\n1080x1350\n\nไฟล์ PNG\n\nตัวอย่าง ARTIFACT\n\nหนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย\nMBTI Z\n\nส่วน hero ไม่ได้ผูกอยู่กับ INTJ ตัวเดียวอีกต่อไป แต่แสดงภาพรวมของระบบทั้งหมดว่าผลลัพธ์สุดท้ายจะมีอะไรบ้างและใช้งานต่อยังไง\n\nMBTI Z\n\nENFJ\n\nผู้นำเชิงพัฒนา\n\nRESULT ARTIFACT\nHOUSE · บ้านเขียว\nสัตว์ · ฟีนิกซ์สุริยะ\n\nผู้นำที่จุดไฟให้คนอื่นเติบโตและทำให้ความหวังกลายเป็นแรงเคลื่อนจริง\n\nสัตว์\n\nฟีนิกซ์สุริยะ\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nMOVIE PROFILE: ผู้ชมผ่านอารมณ์\n\nMOVIE PROFILE\n\nMovie Profile: ผู้ชมผ่านอารมณ์\n\nคุณจำหนังจากความรู้สึก ความสัมพันธ์ และฉากที่กระทบใจมากกว่าพล็อตที่วิ่งไวอย่างเดียว.\n\nความสัมพันธ์\nอารมณ์\nฉากจำฝังใจ\n\nสรุปภาษาไทย\n\nENFJ เห"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "home",
+        "path": "/"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/home-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/",
+        "title": "MBTI Z | ห้องทดลองบุคลิกแฟนตาซี",
+        "h1": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว"
+          },
+          {
+            "tag": "h2",
+            "text": "หนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย"
+          },
+          {
+            "tag": "h2",
+            "text": "สิ่งที่ผู้ใช้จะได้จาก flow ใหม่"
+          },
+          {
+            "tag": "h3",
+            "text": "คำตอบแบบมีน้ำหนัก"
+          },
+          {
+            "tag": "h3",
+            "text": "เอกลักษณ์ประจำ house"
+          },
+          {
+            "tag": "h3",
+            "text": "Movie Profile"
+          },
+          {
+            "tag": "h3",
+            "text": "ดาวน์โหลด Result"
+          },
+          {
+            "tag": "h2",
+            "text": "4 houses ที่ขับบุคลิกทั้งระบบ"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านเขียว"
+          }
+        ],
+        "bodyScrollHeight": 4742,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 14,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nMBTI Z\nเริ่มแบบ GUEST · TH เป็นค่าเริ่มต้น · 16 TYPES\nอ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว\n\nMBTI Z อ่านพลังงาน วิธีรับข้อมูล การตัดสินใจ และรสนิยมการดูหนังของคุณในลำดับเดียว แล้วสรุปออกมาเป็น Artifact ที่พร้อมเก็บต่อหรือแชร์ต่อได้ทันที\n\nเริ่มแบบทดสอบ MBTI Z\nเปิด DASHBOARD\nสำรวจ 16 TYPES\nคำตอบแบบ 5 ระดับ\nMOVIE PROFILE\nRESULT ARTIFACT\nดาวน์โหลด PNG 1080X1350\n\n16\n\nTYPES + สัตว์\n\n4\n\nHOUSES\n\n12\n\nMOVIE PROMPTS\n\n1080x1350\n\nไฟล์ PNG\n\nตัวอย่าง ARTIFACT\n\nหนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย\nMBTI Z\n\nส่วน hero ไม่ได้ผูกอยู่กับ INTJ ตัวเดียวอีกต่อไป แต่แสดงภาพรวมของระบบทั้งหมดว่าผลลัพธ์สุดท้ายจะมีอะไรบ้างและใช้งานต่อยังไง\n\nMBTI Z\n\nENFJ\n\nผู้นำเชิงพัฒนา\n\nRESULT ARTIFACT\nHOUSE · บ้านเขียว\nสัตว์ · ฟีนิกซ์สุริยะ\n\nผู้นำที่จุดไฟให้คนอื่นเติบโตและทำให้ความหวังกลายเป็นแรงเคลื่อนจริง\n\nสัตว์\n\nฟีนิกซ์สุริยะ\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nMOVIE PROFILE: ผู้ชมผ่านอารมณ์\n\nMOVIE PROFILE\n\nMovie Profile: ผู้ชมผ่านอารมณ์\n\nคุณจำหนังจากความรู้สึก ความสัมพันธ์ และฉากที่กระทบใจมากกว่าพล็อตที่วิ่งไวอย่างเด"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "home",
+        "path": "/"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/home-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/",
+        "title": "MBTI Z | ห้องทดลองบุคลิกแฟนตาซี",
+        "h1": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "อ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว"
+          },
+          {
+            "tag": "h2",
+            "text": "หนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย"
+          },
+          {
+            "tag": "h2",
+            "text": "สิ่งที่ผู้ใช้จะได้จาก flow ใหม่"
+          },
+          {
+            "tag": "h3",
+            "text": "คำตอบแบบมีน้ำหนัก"
+          },
+          {
+            "tag": "h3",
+            "text": "เอกลักษณ์ประจำ house"
+          },
+          {
+            "tag": "h3",
+            "text": "Movie Profile"
+          },
+          {
+            "tag": "h3",
+            "text": "ดาวน์โหลด Result"
+          },
+          {
+            "tag": "h2",
+            "text": "4 houses ที่ขับบุคลิกทั้งระบบ"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "บ้านเขียว"
+          }
+        ],
+        "bodyScrollHeight": 3268,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 14,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nMBTI Z\nเริ่มแบบ GUEST · TH เป็นค่าเริ่มต้น · 16 TYPES\nอ่านตัวตนผ่าน 4 Houses, สัตว์ประจำ Type และ Movie Profile ใน Result Artifact เดียว\n\nMBTI Z อ่านพลังงาน วิธีรับข้อมูล การตัดสินใจ และรสนิยมการดูหนังของคุณในลำดับเดียว แล้วสรุปออกมาเป็น Artifact ที่พร้อมเก็บต่อหรือแชร์ต่อได้ทันที\n\nเริ่มแบบทดสอบ MBTI Z\nเปิด DASHBOARD\nสำรวจ 16 TYPES\nคำตอบแบบ 5 ระดับ\nMOVIE PROFILE\nRESULT ARTIFACT\nดาวน์โหลด PNG 1080X1350\n\n16\n\nTYPES + สัตว์\n\n4\n\nHOUSES\n\n12\n\nMOVIE PROMPTS\n\n1080x1350\n\nไฟล์ PNG\n\nตัวอย่าง ARTIFACT\n\nหนึ่งผลลัพธ์จะเปิดทั้ง type, house, animal, Movie Profile และสรุปภาษาไทย\nMBTI Z\n\nส่วน hero ไม่ได้ผูกอยู่กับ INTJ ตัวเดียวอีกต่อไป แต่แสดงภาพรวมของระบบทั้งหมดว่าผลลัพธ์สุดท้ายจะมีอะไรบ้างและใช้งานต่อยังไง\n\nMBTI Z\n\nENFJ\n\nผู้นำเชิงพัฒนา\n\nRESULT ARTIFACT\nHOUSE · บ้านเขียว\nสัตว์ · ฟีนิกซ์สุริยะ\n\nผู้นำที่จุดไฟให้คนอื่นเติบโตและทำให้ความหวังกลายเป็นแรงเคลื่อนจริง\n\nสัตว์\n\nฟีนิกซ์สุริยะ\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nMOVIE PROFILE: ผู้ชมผ่านอารมณ์\n\nMOVIE PROFILE\n\nMovie Profile: ผู้ชมผ่านอารมณ์\n\nคุณจำหนังจากความรู้สึก ความสัมพันธ์ และฉากที่กระทบใจมากกว่าพล็อตที่วิ่งไวอย่างเด"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "quiz",
+        "path": "/quiz"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/quiz-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/quiz",
+        "title": "แบบทดสอบ MBTI Z | MBTI Z",
+        "h1": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?"
+          }
+        ],
+        "bodyScrollHeight": 2829,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 11,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "คำถาม 4 / 60\n\nTH\nEN\nพลังงาน\nการรับข้อมูล\nการตัดสินใจ\nMOVIE PROFILE\n\nแกนปัจจุบัน · E/I\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\n\nเลือกจากน้ำหนักที่ใกล้ตัวคุณที่สุด ไม่ต้องรีบพุ่งไปสุดทุกข้อ\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\nE · ชวนคนไปทำอะไรด้วยกัน\n5 ระดับการเลือก\nI · เก็บไว้เป็นเวลาส่วนตัว\nE · ชัดเจน\n\nSTRONG E\n\nชัดเจนว่า ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nE · เอนมา\n\nLEAN E\n\nค่อนมาทาง ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nสมดุล · กึ่งกลาง\n\nBALANCED\n\nอยู่กึ่งกลาง ขึ้นกับบริบท\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · เอนมา\n\nLEAN I\n\nค่อนมาทาง เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · ชัดเจน\n\nSTRONG I\n\nชัดเจนว่า เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nย้อนกลับ\nเริ่มใหม่\nถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "quiz",
+        "path": "/quiz"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/quiz-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/quiz",
+        "title": "แบบทดสอบ MBTI Z | MBTI Z",
+        "h1": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?"
+          }
+        ],
+        "bodyScrollHeight": 2320,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 11,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "คำถาม 4 / 60\n\nTH\nEN\nพลังงาน\nการรับข้อมูล\nการตัดสินใจ\nMOVIE PROFILE\n\nแกนปัจจุบัน · E/I\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\n\nเลือกจากน้ำหนักที่ใกล้ตัวคุณที่สุด ไม่ต้องรีบพุ่งไปสุดทุกข้อ\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\nE · ชวนคนไปทำอะไรด้วยกัน\n5 ระดับการเลือก\nI · เก็บไว้เป็นเวลาส่วนตัว\nE · ชัดเจน\n\nSTRONG E\n\nชัดเจนว่า ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nE · เอนมา\n\nLEAN E\n\nค่อนมาทาง ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nสมดุล · กึ่งกลาง\n\nBALANCED\n\nอยู่กึ่งกลาง ขึ้นกับบริบท\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · เอนมา\n\nLEAN I\n\nค่อนมาทาง เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · ชัดเจน\n\nSTRONG I\n\nชัดเจนว่า เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nย้อนกลับ\nเริ่มใหม่\nถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "quiz",
+        "path": "/quiz"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/quiz-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/quiz",
+        "title": "แบบทดสอบ MBTI Z | MBTI Z",
+        "h1": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?"
+          }
+        ],
+        "bodyScrollHeight": 1224,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 11,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "คำถาม 4 / 60\n\nTH\nEN\nพลังงาน\nการรับข้อมูล\nการตัดสินใจ\nMOVIE PROFILE\n\nแกนปัจจุบัน · E/I\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\n\nเลือกจากน้ำหนักที่ใกล้ตัวคุณที่สุด ไม่ต้องรีบพุ่งไปสุดทุกข้อ\n\nถ้ามีช่วงว่างแบบไม่ได้นัด คุณมักชวนใครสักคนทำอะไรหรือมีความสุขกับเวลาส่วนตัวมากกว่า?\nE · ชวนคนไปทำอะไรด้วยกัน\n5 ระดับการเลือก\nI · เก็บไว้เป็นเวลาส่วนตัว\nE · ชัดเจน\n\nSTRONG E\n\nชัดเจนว่า ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nE · เอนมา\n\nLEAN E\n\nค่อนมาทาง ชวนคนไปทำอะไรด้วยกัน\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nสมดุล · กึ่งกลาง\n\nBALANCED\n\nอยู่กึ่งกลาง ขึ้นกับบริบท\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · เอนมา\n\nLEAN I\n\nค่อนมาทาง เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nI · ชัดเจน\n\nSTRONG I\n\nชัดเจนว่า เก็บไว้เป็นเวลาส่วนตัว\n\nคลิกเพื่อเลือก\nพร้อมตอบ\nย้อนกลับ\nGUEST RUNTIME ทำงานอยู่\nGUEST LOCAL\nบันทึกอัตโนมัติใน BROWSER นี้\n\nเก็บความคืบหน้าในเครื่องเท่านั้น ส่วน cloud save จะกลับมาในเฟสถัดไป\n\nเริ่มใหม่\nถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "types",
+        "path": "/types"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/types-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/types",
+        "title": "16 Types | MBTI Z",
+        "h1": "คลัง 16 Types ของ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "คลัง 16 Types ของ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "INTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "INTP"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTP"
+          }
+        ],
+        "bodyScrollHeight": 3266,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 11,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nกลับหน้าแรก\nเข้า QUIZ\nคลัง 16 TYPES\n4 HOUSES · 16 TYPES · ระบบสัตว์แฟนตาซี\nคลัง 16 Types ของ MBTI Z\n\nคลัง 16 types ของ MBTI Z ถูกจัดใหม่ให้เริ่มจาก 4 houses ก่อน แล้วค่อยเจาะลงไปที่สัตว์ประจำ type, สรุปแกนหลัก, และพื้นที่ที่แต่ละแบบมักปล่อยของได้ดีที่สุด\n\nอ่าน ATLAS แบบไล่จาก HOUSE ก่อนแล้วค่อยลงถึง TYPE\n\nแต่ละ house ทำหน้าที่เป็นแกนสี อารมณ์ และรสนิยมหนัง ส่วน type card จะบอกสัตว์ประจำตัว ความหมายหลัก และพื้นที่ที่เหมาะกับการใช้งานจริง\n\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES · 4\nINTJ · INTP · ENTJ · ENTP\nบ้านเขียว\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nTYPES · 4\nINFJ · INFP · ENFJ · ENFP\nบ้านเหลือง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nTYPES · 4\nISTJ · ISFJ · ESTJ · ESFJ\nบ้านฟ้า\n\nกลุ่มนักลงมือที่อ่านจังหวะจริงของโลกผ่านประสาทสัมผัส ทักษะ และปฏิกิริยา\n\nTYPES · 4\nISTP · ISFP · ESTP · ESFP\nบ้านม่วง\nบ้านเขียว\nบ้านเหลือง\nบ้านฟ้า\nบ้านม่วง\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES\n\nTypes · 4\n\nมุมดูหนัง\n\nปริศนา, pattern, โลกสมมติที่มีระบบ\n\nINTJ\nINTP\nENTJ\nENTP\n\nคลัง TYPE\n\nแต่ละ card ตั้งใจให้หยิบไปอ่านต่อใน mobile ได้ง่าย โดยไม่ต้องกวาดสายตากลั"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "types",
+        "path": "/types"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/types-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/types",
+        "title": "16 Types | MBTI Z",
+        "h1": "คลัง 16 Types ของ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "คลัง 16 Types ของ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "INTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "INTP"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTP"
+          }
+        ],
+        "bodyScrollHeight": 2307,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 15,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nกลับหน้าแรก\nเข้า QUIZ\nคลัง 16 TYPES\n4 HOUSES · 16 TYPES · ระบบสัตว์แฟนตาซี\nคลัง 16 Types ของ MBTI Z\n\nคลัง 16 types ของ MBTI Z ถูกจัดใหม่ให้เริ่มจาก 4 houses ก่อน แล้วค่อยเจาะลงไปที่สัตว์ประจำ type, สรุปแกนหลัก, และพื้นที่ที่แต่ละแบบมักปล่อยของได้ดีที่สุด\n\nอ่าน ATLAS แบบไล่จาก HOUSE ก่อนแล้วค่อยลงถึง TYPE\n\nแต่ละ house ทำหน้าที่เป็นแกนสี อารมณ์ และรสนิยมหนัง ส่วน type card จะบอกสัตว์ประจำตัว ความหมายหลัก และพื้นที่ที่เหมาะกับการใช้งานจริง\n\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES · 4\nINTJ · INTP · ENTJ · ENTP\nบ้านเขียว\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nTYPES · 4\nINFJ · INFP · ENFJ · ENFP\nบ้านเหลือง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nTYPES · 4\nISTJ · ISFJ · ESTJ · ESFJ\nบ้านฟ้า\n\nกลุ่มนักลงมือที่อ่านจังหวะจริงของโลกผ่านประสาทสัมผัส ทักษะ และปฏิกิริยา\n\nTYPES · 4\nISTP · ISFP · ESTP · ESFP\nบ้านม่วง\nบ้านเขียว\nบ้านเหลือง\nบ้านฟ้า\nบ้านม่วง\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES\n\nTypes · 4\n\nมุมดูหนัง\n\nปริศนา, pattern, โลกสมมติที่มีระบบ\n\nINTJ\nINTP\nENTJ\nENTP\n\nคลัง TYPE\n\nแต่ละ card ตั้ง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "types",
+        "path": "/types"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/types-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/types",
+        "title": "16 Types | MBTI Z",
+        "h1": "คลัง 16 Types ของ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "คลัง 16 Types ของ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "บ้านม่วง"
+          },
+          {
+            "tag": "h3",
+            "text": "INTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "INTP"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "ENTP"
+          }
+        ],
+        "bodyScrollHeight": 1721,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 15,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nกลับหน้าแรก\nเข้า QUIZ\nคลัง 16 TYPES\n4 HOUSES · 16 TYPES · ระบบสัตว์แฟนตาซี\nคลัง 16 Types ของ MBTI Z\n\nคลัง 16 types ของ MBTI Z ถูกจัดใหม่ให้เริ่มจาก 4 houses ก่อน แล้วค่อยเจาะลงไปที่สัตว์ประจำ type, สรุปแกนหลัก, และพื้นที่ที่แต่ละแบบมักปล่อยของได้ดีที่สุด\n\nอ่าน ATLAS แบบไล่จาก HOUSE ก่อนแล้วค่อยลงถึง TYPE\n\nแต่ละ house ทำหน้าที่เป็นแกนสี อารมณ์ และรสนิยมหนัง ส่วน type card จะบอกสัตว์ประจำตัว ความหมายหลัก และพื้นที่ที่เหมาะกับการใช้งานจริง\n\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES · 4\nINTJ · INTP · ENTJ · ENTP\nบ้านเขียว\n\nกลุ่มนักอ่านความหมายที่เชื่อมอารมณ์ จินตนาการ และคุณค่าเข้าด้วยกัน\n\nTYPES · 4\nINFJ · INFP · ENFJ · ENFP\nบ้านเหลือง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nTYPES · 4\nISTJ · ISFJ · ESTJ · ESFJ\nบ้านฟ้า\n\nกลุ่มนักลงมือที่อ่านจังหวะจริงของโลกผ่านประสาทสัมผัส ทักษะ และปฏิกิริยา\n\nTYPES · 4\nISTP · ISFP · ESTP · ESFP\nบ้านม่วง\nบ้านเขียว\nบ้านเหลือง\nบ้านฟ้า\nบ้านม่วง\nบ้านม่วง\n\nกลุ่มนักคิดเชิงระบบ มองไกล ชอบตั้งสมการกับอนาคต\n\nTYPES\n\nTypes · 4\n\nมุมดูหนัง\n\nปริศนา, pattern, โลกสมมติที่มีระบบ\n\nINTJ\nINTP\nENTJ\nENTP\n\nคลัง TYPE\n\nแต่ละ card ตั้ง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "login",
+        "path": "/login"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/login-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/login",
+        "title": "พัก Account ชั่วคราว | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 2830,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 12,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดลอก package จาก browser นี้ไว้ก่อนได้ เพื่อใช้เป็น recovery artifact ตอน cloud reconnect กลับมา"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "login",
+        "path": "/login"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/login-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/login",
+        "title": "พัก Account ชั่วคราว | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 2426,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nภาพรวม BUNDLE · พร้อม\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเข้าแบบทดสอบ\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดล"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "login",
+        "path": "/login"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/login-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/login",
+        "title": "พัก Account ชั่วคราว | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 1522,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nภาพรวม BUNDLE · พร้อม\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเข้าแบบทดสอบ\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดล"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "dashboard",
+        "path": "/dashboard"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/dashboard-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/dashboard",
+        "title": "Dashboard | MBTI Z",
+        "h1": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้"
+          },
+          {
+            "tag": "h2",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ร่องรอย archive ส่วนตัว"
+          }
+        ],
+        "bodyScrollHeight": 4354,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 12,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nทำแบบทดสอบอีกครั้ง\nคลังความจำแบบ GUEST\nพร้อม\nแดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้\n\nที่นี่คือห้องเก็บ Result ล่าสุด ประวัติในเครื่อง local PNG export และสถานะของ account/cloud features ที่กำลังถูกสร้างกลับมาใหม่\n\nดาวน์โหลด PNG\nเปิดผลลัพธ์\n\nARTIFACT ล่าสุด\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nHOUSE · บ้านเหลือง\nANIMAL · อินทรีทอง\nวันที่ · 25/6/2569\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nCONFIDENCE\n\n100%\n\nMOVIE PROFILE\n\nปริศนา\n\nเปิดผลลัพธ์\nเปิดคลัง 16 TYPES\n\nสถานะ RUNTIME\n\nguest\n\nช่องประวัติ\n\n1/8\n\nภาษา\n\nTH/EN\n\nBUNDLE สำหรับ RECONNECT\n\nพร้อม\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับม"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "dashboard",
+        "path": "/dashboard"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/dashboard-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/dashboard",
+        "title": "Dashboard | MBTI Z",
+        "h1": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้"
+          },
+          {
+            "tag": "h2",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ร่องรอย archive ส่วนตัว"
+          }
+        ],
+        "bodyScrollHeight": 3415,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nทำแบบทดสอบอีกครั้ง\nคลังความจำแบบ GUEST\nพร้อม\nแดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้\n\nที่นี่คือห้องเก็บ Result ล่าสุด ประวัติในเครื่อง local PNG export และสถานะของ account/cloud features ที่กำลังถูกสร้างกลับมาใหม่\n\nดาวน์โหลด PNG\nเปิดผลลัพธ์\n\nARTIFACT ล่าสุด\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nHOUSE · บ้านเหลือง\nANIMAL · อินทรีทอง\nวันที่ · 25/6/2569\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nCONFIDENCE\n\n100%\n\nMOVIE PROFILE\n\nปริศนา\n\nเปิดผลลัพธ์\nเปิดคลัง 16 TYPES\n\nสถานะ RUNTIME\n\nguest\n\nช่องประวัติ\n\n1/8\n\nภาษา\n\nTH/EN\n\nBUNDLE สำหรับ RECONNECT\n\nพร้อม\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "dashboard",
+        "path": "/dashboard"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/dashboard-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/dashboard",
+        "title": "Dashboard | MBTI Z",
+        "h1": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "แดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้"
+          },
+          {
+            "tag": "h2",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ร่องรอย archive ส่วนตัว"
+          }
+        ],
+        "bodyScrollHeight": 2057,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nทำแบบทดสอบอีกครั้ง\nคลังความจำแบบ GUEST\nพร้อม\nแดชบอร์ดเวอร์ชัน guest ที่ยังเก็บ narrative ของคุณไว้เป็น vault ได้\n\nที่นี่คือห้องเก็บ Result ล่าสุด ประวัติในเครื่อง local PNG export และสถานะของ account/cloud features ที่กำลังถูกสร้างกลับมาใหม่\n\nดาวน์โหลด PNG\nเปิดผลลัพธ์\n\nARTIFACT ล่าสุด\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nHOUSE · บ้านเหลือง\nANIMAL · อินทรีทอง\nวันที่ · 25/6/2569\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nCONFIDENCE\n\n100%\n\nMOVIE PROFILE\n\nปริศนา\n\nเปิดผลลัพธ์\nเปิดคลัง 16 TYPES\n\nสถานะ RUNTIME\n\nguest\n\nช่องประวัติ\n\n1/8\n\nภาษา\n\nTH/EN\n\nBUNDLE สำหรับ RECONNECT\n\nพร้อม\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "result",
+        "path": "/result/guest-mqtpomkf-estj"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/result-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/result/guest-mqtpomkf-estj",
+        "title": "ESTJ | MBTI Z",
+        "h1": "ESTJ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ผลลัพธ์นี้ไม่ได้จบที่ตัวอักษร 4 ตัว แต่ถูกเปิดเป็นชั้นเพื่อให้คุณอ่านตัวเองได้อย่างเป็นระบบและนำกลับไปใช้ต่อได้"
+          },
+          {
+            "tag": "h3",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "สมดุลของแต่ละแกน"
+          },
+          {
+            "tag": "h3",
+            "text": "ชั้นที่รอปลดล็อก"
+          },
+          {
+            "tag": "h3",
+            "text": "ร่องรอยคำตอบล่าสุด"
+          },
+          {
+            "tag": "h2",
+            "text": "สัญญาณของคุณกำลังนิ่งเข้าหาแกนหลัก"
+          },
+          {
+            "tag": "h2",
+            "text": "ชั้นลึกที่รอปลดล็อก"
+          }
+        ],
+        "bodyScrollHeight": 6193,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 13,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nไปที่แดชบอร์ด\nMBTI Z RESULT ARTIFACT\nARTIFACT แบบ GUEST ทำงานอยู่\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nดาวน์โหลด PNG\nไปที่แดชบอร์ด\nทำแบบทดสอบอีกครั้ง\nเปิดคลัง 16 TYPES\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\nMOVIE PROFILE · MOVIE PROFILE: นักตามรอยปริศนา\n\nแกนหลักของ ESTJ\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nปริศนา\nจิ๊กซอว์เรื่องเล่า\nดูจบแล้วยังคิดต่อ\n\nCONFIDENCE\n\n100%\n\nตอบแล้ว\n\n60\n\nRUNTIME\n\nเก็บในเครื่องเท่านั้น\n\nวันที่\n\n25/6/2569\n\nสัตว์ · อินทรีทอง\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำ"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "result",
+        "path": "/result/guest-mqtpomkf-estj"
+      },
+      "viewport": {
+        "name": "tablet-768x1024",
+        "width": 768,
+        "height": 1024,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/result-tablet-768x1024.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/result/guest-mqtpomkf-estj",
+        "title": "ESTJ | MBTI Z",
+        "h1": "ESTJ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ผลลัพธ์นี้ไม่ได้จบที่ตัวอักษร 4 ตัว แต่ถูกเปิดเป็นชั้นเพื่อให้คุณอ่านตัวเองได้อย่างเป็นระบบและนำกลับไปใช้ต่อได้"
+          },
+          {
+            "tag": "h3",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "สมดุลของแต่ละแกน"
+          },
+          {
+            "tag": "h3",
+            "text": "ชั้นที่รอปลดล็อก"
+          },
+          {
+            "tag": "h3",
+            "text": "ร่องรอยคำตอบล่าสุด"
+          },
+          {
+            "tag": "h2",
+            "text": "สัญญาณของคุณกำลังนิ่งเข้าหาแกนหลัก"
+          },
+          {
+            "tag": "h2",
+            "text": "ชั้นลึกที่รอปลดล็อก"
+          }
+        ],
+        "bodyScrollHeight": 5173,
+        "bodyScrollWidth": 768,
+        "clientWidth": 768,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 17,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nไปที่แดชบอร์ด\nMBTI Z RESULT ARTIFACT\nARTIFACT แบบ GUEST ทำงานอยู่\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nดาวน์โหลด PNG\nไปที่แดชบอร์ด\nทำแบบทดสอบอีกครั้ง\nเปิดคลัง 16 TYPES\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\nMOVIE PROFILE · MOVIE PROFILE: นักตามรอยปริศนา\n\nแกนหลักของ ESTJ\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nปริศนา\nจิ๊กซอว์เรื่องเล่า\nดูจบแล้วยังคิดต่อ\n\nCONFIDENCE\n\n100%\n\nตอบแล้ว\n\n60\n\nRUNTIME\n\nเก็บในเครื่องเท่านั้น\n\nวันที่\n\n25/6/2569\n\nสัตว์ · อินทรีทอง\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "core",
+        "name": "result",
+        "path": "/result/guest-mqtpomkf-estj"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/result-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/result/guest-mqtpomkf-estj",
+        "title": "ESTJ | MBTI Z",
+        "h1": "ESTJ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h2",
+            "text": "ผลลัพธ์นี้ไม่ได้จบที่ตัวอักษร 4 ตัว แต่ถูกเปิดเป็นชั้นเพื่อให้คุณอ่านตัวเองได้อย่างเป็นระบบและนำกลับไปใช้ต่อได้"
+          },
+          {
+            "tag": "h3",
+            "text": "ESTJ"
+          },
+          {
+            "tag": "h3",
+            "text": "สมดุลของแต่ละแกน"
+          },
+          {
+            "tag": "h3",
+            "text": "ชั้นที่รอปลดล็อก"
+          },
+          {
+            "tag": "h3",
+            "text": "ร่องรอยคำตอบล่าสุด"
+          },
+          {
+            "tag": "h2",
+            "text": "สัญญาณของคุณกำลังนิ่งเข้าหาแกนหลัก"
+          },
+          {
+            "tag": "h2",
+            "text": "ชั้นลึกที่รอปลดล็อก"
+          }
+        ],
+        "bodyScrollHeight": 2721,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 17,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nไปที่แดชบอร์ด\nMBTI Z RESULT ARTIFACT\nARTIFACT แบบ GUEST ทำงานอยู่\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nดาวน์โหลด PNG\nไปที่แดชบอร์ด\nทำแบบทดสอบอีกครั้ง\nเปิดคลัง 16 TYPES\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\nMOVIE PROFILE · MOVIE PROFILE: นักตามรอยปริศนา\n\nแกนหลักของ ESTJ\n\nESTJ เป็นคนที่ทำให้เรื่องซับซ้อนกลายเป็นแผนที่เดินได้จริง พวกเขาตัดสินใจชัด คุมมาตรฐาน และคาดหวังให้ทุกคนรับผิดชอบตามบทบาท.\n\nMOVIE PROFILE\n\nMovie Profile: นักตามรอยปริศนา\n\nคุณชอบหนังที่ทิ้งคำถาม เก็บเบาะแส และทำให้ต้องกลับมาคิดต่อหลังดูจบมากกว่าความตรงไปตรงมา.\n\nปริศนา\nจิ๊กซอว์เรื่องเล่า\nดูจบแล้วยังคิดต่อ\n\nCONFIDENCE\n\n100%\n\nตอบแล้ว\n\n60\n\nRUNTIME\n\nเก็บในเครื่องเท่านั้น\n\nวันที่\n\n25/6/2569\n\nสัตว์ · อินทรีทอง\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMBTI Z\n\nESTJ\n\nผู้ขับเคลื่อนการตัดสินใจ\n\nRESULT ARTIFACT\nHOUSE · บ้านเหลือง\nสัตว์ · อินทรีทอง\n\nผู้จัดระเบียบสนามให้ทุกอย่างชัด เร็ว และพร้อมรับผิดชอบ\n\nสัตว์\n\nอินทรีทอง\n\nกลุ่มผู้ดูแลโครงสร้าง ความไว้วางใจ และความต่อเนื่องของผู้คนกับระบบ\n\nMOVIE PROFILE: นักตามรอยปริศนา\n\nMOVIE PROFILE\n\nMovie Profile"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile",
+        "path": "/profile"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 2200,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile",
+        "path": "/profile"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "settings",
+        "path": "/settings"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/settings-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/settings",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 2241,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "settings",
+        "path": "/settings"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/settings-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/settings",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "settings-password",
+        "path": "/settings/password"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/settings-password-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/settings/password",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 2241,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "settings-password",
+        "path": "/settings/password"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/settings-password-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/settings/password",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "explore",
+        "path": "/explore"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/explore-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/explore",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 2301,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "explore",
+        "path": "/explore"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/explore-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/explore",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "leaderboard",
+        "path": "/leaderboard"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/leaderboard-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/leaderboard",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 2301,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "leaderboard",
+        "path": "/leaderboard"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/leaderboard-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/leaderboard",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "share-slug",
+        "path": "/share/demo"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/share-slug-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/share/demo",
+        "title": "Share Hold | MBTI Z",
+        "h1": "ระบบ share card และ public result preview กำลังรอ cloud relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบ share card และ public result preview กำลังรอ cloud relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No fake sharing"
+          },
+          {
+            "tag": "h3",
+            "text": "Premium preview later"
+          },
+          {
+            "tag": "h3",
+            "text": "Login returns with purpose"
+          }
+        ],
+        "bodyScrollHeight": 2172,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nSHARE PIPELINE ON HOLD\nระบบ share card และ public result preview กำลังรอ cloud relaunch\n\nหน้าแชร์ผลลัพธ์จะกลับมาเมื่อ persistence, public slug และ premium/share artifacts ถูกเชื่อมเข้ากับ runtime ใหม่แบบครบเส้นทาง\n\nSEE YOUR DASHBOARD\nBACK TO ASSESSMENT\n\nWHAT STILL WORKS\n\nRelaunch status\n\nคุณยังทำแบบทดสอบ, ดูผลลัพธ์ฟรี และเก็บ history ใน browser นี้ได้ตามปกติ ส่วน share จริงยังถูกพักไว้\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SHARE/[SLUG]\nPUBLIC SHARE CARDS\nRESULT PREVIEW ARTIFACTS\nNo fake sharing\n\nเรายังไม่เปิด public share จนกว่าจะมั่นใจว่า slug, access, และ metadata เสถียรจริง\n\nPremium preview later\n\nshare page รอบใหม่จะเล่า MBTI artifact แบบ cinematic และเชื่อมกับ premium tease อย่างเป็นระบบ\n\nLogin returns with purpose\n\nเมื่อ account กลับมา การแชร์จะผูกกับ save history และ identity จริง ไม่ใช่แค่ลิงก์ชั่วคราว\n\nShare Hold | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "share-slug",
+        "path": "/share/demo"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/share-slug-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/share/demo",
+        "title": "Share Hold | MBTI Z",
+        "h1": "ระบบ share card และ public result preview กำลังรอ cloud relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบ share card และ public result preview กำลังรอ cloud relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No fake sharing"
+          },
+          {
+            "tag": "h3",
+            "text": "Premium preview later"
+          },
+          {
+            "tag": "h3",
+            "text": "Login returns with purpose"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nSHARE PIPELINE ON HOLD\nระบบ share card และ public result preview กำลังรอ cloud relaunch\n\nหน้าแชร์ผลลัพธ์จะกลับมาเมื่อ persistence, public slug และ premium/share artifacts ถูกเชื่อมเข้ากับ runtime ใหม่แบบครบเส้นทาง\n\nSEE YOUR DASHBOARD\nBACK TO ASSESSMENT\n\nWHAT STILL WORKS\n\nRelaunch status\n\nคุณยังทำแบบทดสอบ, ดูผลลัพธ์ฟรี และเก็บ history ใน browser นี้ได้ตามปกติ ส่วน share จริงยังถูกพักไว้\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SHARE/[SLUG]\nPUBLIC SHARE CARDS\nRESULT PREVIEW ARTIFACTS\nNo fake sharing\n\nเรายังไม่เปิด public share จนกว่าจะมั่นใจว่า slug, access, และ metadata เสถียรจริง\n\nPremium preview later\n\nshare page รอบใหม่จะเล่า MBTI artifact แบบ cinematic และเชื่อมกับ premium tease อย่างเป็นระบบ\n\nLogin returns with purpose\n\nเมื่อ account กลับมา การแชร์จะผูกกับ save history และ identity จริง ไม่ใช่แค่ลิงก์ชั่วคราว\n\nShare Hold | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "card-id",
+        "path": "/card/demo-card"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/card-id-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/card/demo-card",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 2301,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร\n\nCommunity Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "card-id",
+        "path": "/card/demo-card"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/card-id-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/card/demo-card",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร\n\nCommunity Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "card-me",
+        "path": "/card/me"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/card-me-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/card/me",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 2301,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "card-me",
+        "path": "/card/me"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/card-me-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/card/me",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-username",
+        "path": "/profile/demo"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-username-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 2200,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-username",
+        "path": "/profile/demo"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-username-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-cards",
+        "path": "/profile/demo/cards"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-cards-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/cards",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 2301,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร\n\nCommunity Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-cards",
+        "path": "/profile/demo/cards"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-cards-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/cards",
+        "title": "Community Relaunch Queue | MBTI Z",
+        "h1": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "หน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Discovery later"
+          },
+          {
+            "tag": "h3",
+            "text": "Stronger social layer"
+          },
+          {
+            "tag": "h3",
+            "text": "Reduced dead ends"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nCOMMUNITY SURFACES IN RELAUNCH\nหน้า community, creator cards และ social discovery กำลังถูก refactor ใหม่\n\nexplore, leaderboard, public cards และ creator surfaces เดิมยังผูกกับ data model เก่าเกินไป เราจึงพาออกจากเส้นทางหลักชั่วคราวแล้วจะคืนกลับมาแบบ cyber social layer ที่สะอาดกว่าเดิม\n\nOPEN DASHBOARD\nRETAKE ASSESSMENT\n\nWHY THIS IS PAUSED\n\nRelaunch status\n\ncommunity layer ต้องรอ cloud-backed persistence, public profiles และ share pipeline ก่อนถึงจะกลับมาได้แบบคุณภาพจริง\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/EXPLORE\n/LEADERBOARD\n/CARD/[ID]\n/CARD/ME\n/PROFILE/[USERNAME]/CARDS\nDiscovery later\n\nตอนนี้ user ควรโฟกัสที่การทำแบบทดสอบและดูผลลัพธ์ใน runtime ใหม่ก่อน\n\nStronger social layer\n\nเมื่อกลับมา explore และ leaderboard จะอิงกับ identity, result artifacts และ moderation ที่ชัดกว่าเดิม\n\nReduced dead ends\n\nการพักหน้าเก่าลงช่วยไม่ให้ user หลุดไปเจอ query DB หรือ social actions ที่ยังไม่เสถียร\n\nCommunity Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-followers",
+        "path": "/profile/demo/followers"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-followers-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/followers",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 2200,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-followers",
+        "path": "/profile/demo/followers"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-followers-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/followers",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-following",
+        "path": "/profile/demo/following"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-following-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/following",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 2200,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "profile-following",
+        "path": "/profile/demo/following"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/profile-following-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/profile/demo/following",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "u-username",
+        "path": "/u/demo"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/u-username-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/u/demo",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 2200,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "hold",
+        "name": "u-username",
+        "path": "/u/demo"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/u-username-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/u/demo",
+        "title": "Profile Relaunch Queue | MBTI Z",
+        "h1": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Public persona"
+          },
+          {
+            "tag": "h3",
+            "text": "Identity first"
+          },
+          {
+            "tag": "h3",
+            "text": "No broken forms"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nPROFILE RELAUNCH QUEUE\nพื้นที่โปรไฟล์และ public identity กำลังถูกย้ายเข้าสู่ MBTI Z\n\nเราเก็บ flow หลักให้ทดสอบได้ก่อน แล้วค่อยยก profile, public pages, follower graph และ creator identity กลับมาในชั้น cloud ที่เสถียรกว่าเดิม\n\nOPEN DASHBOARD\nRETURN TO ASSESSMENT\n\nGUEST-SAFE NOW\n\nRelaunch status\n\nผลลัพธ์ล่าสุดและประวัติของคุณยังเข้าได้จาก dashboard โดยไม่ต้องพึ่ง account runtime\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/PROFILE\n/PROFILE/[USERNAME]\n/PROFILE/[USERNAME]/FOLLOWERS\n/PROFILE/[USERNAME]/FOLLOWING\n/U/[USERNAME]\nPublic persona\n\nโปรไฟล์สาธารณะ, username routing และ social edges จะกลับมาพร้อม visual language ใหม่ทั้งชุด\n\nIdentity first\n\nเมื่อระบบ account กลับมา ข้อมูลโปรไฟล์จะถูกผูกกับ result, share card และ premium narrative อย่างเป็นระบบกว่าเดิม\n\nNo broken forms\n\nรอบนี้เราไม่ปล่อยหน้า profile แบบครึ่งใช้ได้ครึ่งพังอีกแล้ว ทุกอย่างที่ยังไม่พร้อมจะถูกประกาศตรง ๆ\n\nProfile Relaunch Queue | MBTI Z"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "register",
+        "path": "/register"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/register-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/register",
+        "title": "Register Hold | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 2830,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 12,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดลอก package จาก browser นี้ไว้ก่อนได้ เพื่อใช้เป็น recovery artifact ตอน cloud reconnect กลับมา"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "register",
+        "path": "/register"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/register-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/register",
+        "title": "Register Hold | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 1522,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nภาพรวม BUNDLE · พร้อม\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเข้าแบบทดสอบ\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดล"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "forgot-password",
+        "path": "/forgot-password"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/forgot-password-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/forgot-password",
+        "title": "Reset Hold | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 2830,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 12,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดลอก package จาก browser นี้ไว้ก่อนได้ เพื่อใช้เป็น recovery artifact ตอน cloud reconnect กลับมา"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "forgot-password",
+        "path": "/forgot-password"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/forgot-password-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/forgot-password",
+        "title": "Reset Hold | MBTI Z",
+        "h1": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "Account ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว"
+          }
+        ],
+        "bodyScrollHeight": 1522,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 16,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nพัก ACCOUNT ชั่วคราว\nGUEST-FIRST\nภาพรวม BUNDLE · พร้อม\nAccount ยังพักไว้ แต่ MBTI Z ใช้งานได้แล้ว\n\nตอนนี้ใช้ guest runtime ได้ทันที: เข้า Quiz ดู Result เปิด Dashboard และเก็บ reconnect bundle โดยไม่ต้องรอ auth หรือ database\n\nเข้าแบบทดสอบ\nกลับหน้าแรก\n\nเส้นทางใช้งานตอนนี้\n\nเดิน flow หลักแบบ guest ได้ครบ แล้วค่อยใช้ bundle นี้เชื่อมข้อมูลกลับเมื่อ account runtime พร้อม\n\nเข้าแบบทดสอบ\n\nเริ่ม Quiz ได้ทันทีโดยไม่ต้อง login\n\nดู Result Artifact และประวัติล่าสุดใน browser นี้ได้\n\nใช้ reconnect bundle เป็นสะพานสำหรับย้ายข้อมูลในภายหลังได้\n\nส่วนที่ยังพักไว้\n\nauth, cloud save และ social/community ยังพักไว้ เพื่อให้ flow หลัก, Result และ export เสถียรก่อน\n\nCLOUD SAVE\nSOCIAL SHARE SURFACES\nACCOUNT SYNC และพื้นที่ PROFILE/COMMUNITY\n\nภาพรวม RUNTIME\n\nสถานะนี้แยกสิ่งที่พร้อมใช้จริงออกจากชั้น account/cloud ที่ยังรอ reconnect\n\nGUEST-FIRST\n\nตอนนี้ใช้อะไรได้แล้ว\n\n3\n\nประวัติ\n\n1\n\nค้างอยู่\n\n3\n\nภาพรวม BUNDLE พร้อม\nประวัติ 1\nค้างอยู่ 3\n\nภาพรวม BUNDLE\n\nbrowser นี้มี handoff package พร้อมแล้ว เมื่อ account runtime กลับมา ข้อมูลจะมีฐานสำหรับ reconnect ต่อได้ทันที\n\nARTIFACT สำหรับย้ายข้อมูลในเครื่อง\n\nดาวน์โหลดหรือคัดล"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "reset-password",
+        "path": "/reset-password"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/reset-password-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/reset-password",
+        "title": "Account Verification Hold | MBTI Z",
+        "h1": "email verification และ account recovery กำลังรอ auth relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "email verification และ account recovery กำลังรอ auth relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "One clean rebuild"
+          },
+          {
+            "tag": "h3",
+            "text": "No token dead ends"
+          },
+          {
+            "tag": "h3",
+            "text": "Assessment first"
+          }
+        ],
+        "bodyScrollHeight": 2217,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nVERIFICATION AND RECOVERY HOLD\nemail verification และ account recovery กำลังรอ auth relaunch\n\nระบบ verify email, password recovery และ onboarding ที่พึ่ง token-based account flow ถูกพักไว้ก่อน เพื่อให้เราแก้ auth stack แบบครบวงจรครั้งเดียว\n\nGO TO ASSESSMENT\nBACK TO HOME\n\nGUEST MODE ACTIVE\n\nRelaunch status\n\nถ้าจุดประสงค์ของคุณคือทำแบบทดสอบหรือดูผลลัพธ์ ตอนนี้ไม่ต้องรอ account flow แล้ว สามารถใช้ guest runtime ได้ทันที\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/VERIFY-EMAIL\nEMAIL VERIFICATION\nTOKEN-BASED RECOVERY\nOne clean rebuild\n\nแทนที่จะ patch flow เก่าเป็นชิ้น ๆ เรากำลังรอ reconnect auth, persistence และ email flow แบบเป็นระบบเดียว\n\nNo token dead ends\n\nผู้ใช้จะไม่ถูกพาไปหน้า verify/reset ที่สุดท้ายจบลงด้วย state ที่เชื่อถือไม่ได้\n\nAssessment first\n\nเป้าหมายตอนนี้คือให้ product core ใช้งานได้ก่อน แล้วค่อยคืน account security surfaces อย่างถูกต้อง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "reset-password",
+        "path": "/reset-password"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/reset-password-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/reset-password",
+        "title": "Account Verification Hold | MBTI Z",
+        "h1": "email verification และ account recovery กำลังรอ auth relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "email verification และ account recovery กำลังรอ auth relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "One clean rebuild"
+          },
+          {
+            "tag": "h3",
+            "text": "No token dead ends"
+          },
+          {
+            "tag": "h3",
+            "text": "Assessment first"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nVERIFICATION AND RECOVERY HOLD\nemail verification และ account recovery กำลังรอ auth relaunch\n\nระบบ verify email, password recovery และ onboarding ที่พึ่ง token-based account flow ถูกพักไว้ก่อน เพื่อให้เราแก้ auth stack แบบครบวงจรครั้งเดียว\n\nGO TO ASSESSMENT\nBACK TO HOME\n\nGUEST MODE ACTIVE\n\nRelaunch status\n\nถ้าจุดประสงค์ของคุณคือทำแบบทดสอบหรือดูผลลัพธ์ ตอนนี้ไม่ต้องรอ account flow แล้ว สามารถใช้ guest runtime ได้ทันที\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/VERIFY-EMAIL\nEMAIL VERIFICATION\nTOKEN-BASED RECOVERY\nOne clean rebuild\n\nแทนที่จะ patch flow เก่าเป็นชิ้น ๆ เรากำลังรอ reconnect auth, persistence และ email flow แบบเป็นระบบเดียว\n\nNo token dead ends\n\nผู้ใช้จะไม่ถูกพาไปหน้า verify/reset ที่สุดท้ายจบลงด้วย state ที่เชื่อถือไม่ได้\n\nAssessment first\n\nเป้าหมายตอนนี้คือให้ product core ใช้งานได้ก่อน แล้วค่อยคืน account security surfaces อย่างถูกต้อง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "verify-email",
+        "path": "/verify-email"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/verify-email-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/verify-email",
+        "title": "Account Verification Hold | MBTI Z",
+        "h1": "email verification และ account recovery กำลังรอ auth relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "email verification และ account recovery กำลังรอ auth relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "One clean rebuild"
+          },
+          {
+            "tag": "h3",
+            "text": "No token dead ends"
+          },
+          {
+            "tag": "h3",
+            "text": "Assessment first"
+          }
+        ],
+        "bodyScrollHeight": 2217,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nVERIFICATION AND RECOVERY HOLD\nemail verification และ account recovery กำลังรอ auth relaunch\n\nระบบ verify email, password recovery และ onboarding ที่พึ่ง token-based account flow ถูกพักไว้ก่อน เพื่อให้เราแก้ auth stack แบบครบวงจรครั้งเดียว\n\nGO TO ASSESSMENT\nBACK TO HOME\n\nGUEST MODE ACTIVE\n\nRelaunch status\n\nถ้าจุดประสงค์ของคุณคือทำแบบทดสอบหรือดูผลลัพธ์ ตอนนี้ไม่ต้องรอ account flow แล้ว สามารถใช้ guest runtime ได้ทันที\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/VERIFY-EMAIL\nEMAIL VERIFICATION\nTOKEN-BASED RECOVERY\nOne clean rebuild\n\nแทนที่จะ patch flow เก่าเป็นชิ้น ๆ เรากำลังรอ reconnect auth, persistence และ email flow แบบเป็นระบบเดียว\n\nNo token dead ends\n\nผู้ใช้จะไม่ถูกพาไปหน้า verify/reset ที่สุดท้ายจบลงด้วย state ที่เชื่อถือไม่ได้\n\nAssessment first\n\nเป้าหมายตอนนี้คือให้ product core ใช้งานได้ก่อน แล้วค่อยคืน account security surfaces อย่างถูกต้อง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "verify-email",
+        "path": "/verify-email"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/verify-email-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/verify-email",
+        "title": "Account Verification Hold | MBTI Z",
+        "h1": "email verification และ account recovery กำลังรอ auth relaunch",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "email verification และ account recovery กำลังรอ auth relaunch"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "One clean rebuild"
+          },
+          {
+            "tag": "h3",
+            "text": "No token dead ends"
+          },
+          {
+            "tag": "h3",
+            "text": "Assessment first"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nVERIFICATION AND RECOVERY HOLD\nemail verification และ account recovery กำลังรอ auth relaunch\n\nระบบ verify email, password recovery และ onboarding ที่พึ่ง token-based account flow ถูกพักไว้ก่อน เพื่อให้เราแก้ auth stack แบบครบวงจรครั้งเดียว\n\nGO TO ASSESSMENT\nBACK TO HOME\n\nGUEST MODE ACTIVE\n\nRelaunch status\n\nถ้าจุดประสงค์ของคุณคือทำแบบทดสอบหรือดูผลลัพธ์ ตอนนี้ไม่ต้องรอ account flow แล้ว สามารถใช้ guest runtime ได้ทันที\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/VERIFY-EMAIL\nEMAIL VERIFICATION\nTOKEN-BASED RECOVERY\nOne clean rebuild\n\nแทนที่จะ patch flow เก่าเป็นชิ้น ๆ เรากำลังรอ reconnect auth, persistence และ email flow แบบเป็นระบบเดียว\n\nNo token dead ends\n\nผู้ใช้จะไม่ถูกพาไปหน้า verify/reset ที่สุดท้ายจบลงด้วย state ที่เชื่อถือไม่ได้\n\nAssessment first\n\nเป้าหมายตอนนี้คือให้ product core ใช้งานได้ก่อน แล้วค่อยคืน account security surfaces อย่างถูกต้อง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "setup-profile",
+        "path": "/setup-profile"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/setup-profile-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/setup-profile",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 2241,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "setup-profile",
+        "path": "/setup-profile"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/setup-profile-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/setup-profile",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "setup-username",
+        "path": "/setup-username"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/setup-username-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/setup-username",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 2241,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "account",
+        "name": "setup-username",
+        "path": "/setup-username"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/setup-username-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/setup-username",
+        "title": "Account Settings Hold | MBTI Z",
+        "h1": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "ระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "Safer rollout"
+          },
+          {
+            "tag": "h3",
+            "text": "Single visual system"
+          },
+          {
+            "tag": "h3",
+            "text": "Cloud-first return"
+          }
+        ],
+        "bodyScrollHeight": 1094,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nACCOUNT SETTINGS RELAUNCH\nระบบตั้งค่า account กำลังถูกสร้างใหม่บน guest-first foundation\n\nsettings, password, onboarding profile และ username setup จะกลับมาหลังจาก cloud persistence และ auth layer ถูกเชื่อมกลับเข้ามาแบบไม่พัง flow หลัก\n\nSTART ASSESSMENT\nBACK TO HOME\n\nCURRENT RUNTIME\n\nRelaunch status\n\nตอนนี้ path ที่ใช้งานได้จริงคือ guest assessment, result และ dashboard ส่วน account module ถูกพักไว้แบบตั้งใจ\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/SETTINGS\n/SETTINGS/PASSWORD\n/SETUP-PROFILE\n/SETUP-USERNAME\nSafer rollout\n\nเราไม่บังคับผู้ใช้ผ่าน onboarding หรือ password forms ที่ยังผูกกับ infra เก่า\n\nSingle visual system\n\nเมื่อ settings กลับมา ทุกหน้า account จะถูกยกเข้าภาษา MBTI Z เดียวกับ quiz และ result\n\nCloud-first return\n\nขั้นถัดไปคือ reconnect auth + persistence ก่อน แล้วค่อยเปิดให้แก้ข้อมูลถาวรจริง"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin",
+        "path": "/admin"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 2389,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin",
+        "path": "/admin"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 1121,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-cards",
+        "path": "/admin/cards"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-cards-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/cards",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 2389,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-cards",
+        "path": "/admin/cards"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-cards-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/cards",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 1121,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-comments",
+        "path": "/admin/comments"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-comments-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/comments",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 2389,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-comments",
+        "path": "/admin/comments"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-comments-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/comments",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 1121,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-settings",
+        "path": "/admin/settings"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-settings-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/settings",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 2389,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-settings",
+        "path": "/admin/settings"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-settings-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/settings",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 1121,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-users",
+        "path": "/admin/users"
+      },
+      "viewport": {
+        "name": "mobile-390x844",
+        "width": 390,
+        "height": 844,
+        "isMobile": true
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-users-mobile-390x844.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/users",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 2389,
+        "bodyScrollWidth": 390,
+        "clientWidth": 390,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 6,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    },
+    {
+      "route": {
+        "group": "admin",
+        "name": "admin-users",
+        "path": "/admin/users"
+      },
+      "viewport": {
+        "name": "desktop-1440x1000",
+        "width": 1440,
+        "height": 1000,
+        "isMobile": false
+      },
+      "gotoStatus": 200,
+      "screenshot": "output/ui-skills-router/2026-06-29/current-route-sweep/admin-users-desktop-1440x1000.png",
+      "metrics": {
+        "finalUrl": "http://127.0.0.1:3001/admin/users",
+        "title": "Operations Console Hold | MBTI Z",
+        "h1": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ",
+        "headings": [
+          {
+            "tag": "h1",
+            "text": "พื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ"
+          },
+          {
+            "tag": "h2",
+            "text": "Relaunch status"
+          },
+          {
+            "tag": "h3",
+            "text": "No legacy backdoor"
+          },
+          {
+            "tag": "h3",
+            "text": "Operations on real data"
+          },
+          {
+            "tag": "h3",
+            "text": "Primary flow first"
+          }
+        ],
+        "bodyScrollHeight": 1121,
+        "bodyScrollWidth": 1440,
+        "clientWidth": 1440,
+        "hasHorizontalOverflow": false,
+        "visibleInteractiveCount": 10,
+        "unnamedInteractive": [],
+        "smallTouchTargets": [],
+        "unlabeledInputs": [],
+        "containsNocturne": false,
+        "firstViewportText": "MBTI Z\n\nห้องทดลองบุคลิกแฟนตาซี\n\nหน้าแรก\nแบบทดสอบ\nDASHBOARD\nบัญชี\nโหมด GUEST\nเริ่มแบบทดสอบ\nTH\nEN\nGUEST MODE ACTIVE\nOPERATIONS CONSOLE RELAUNCH\nพื้นที่ admin และ moderation กำลังรอ auth + cloud relaunch อย่างเป็นระบบ\n\nรอบนี้เราไม่เปิด admin console ทับบน auth stack เดิมที่ยังไม่เสถียร เพราะเป้าหมายหลักคือให้ product flow ใช้งานได้ก่อน แล้วค่อยคืน operations surface บนระบบที่เชื่อถือได้จริง\n\nOPEN DASHBOARD\nBACK TO HOME\n\nWHY THIS IS HELD\n\nRelaunch status\n\nadmin, moderation, user control และ global settings จะกลับมาเมื่อ account roles, persistence และ audit trail ถูกเชื่อมกลับมาแบบครบวงจร\n\nINCLUDED IN THIS RELAUNCH QUEUE\n\n/ADMIN\n/ADMIN/CARDS\n/ADMIN/COMMENTS\n/ADMIN/SETTINGS\n/ADMIN/USERS\nNo legacy backdoor\n\nเราไม่ปล่อยให้ admin pages วิ่งบน runtime เก่าที่ยังผูกกับ account flow และ session logic ก่อน relaunch\n\nOperations on real data\n\nเมื่อ surface นี้กลับมา มันควรเชื่อมกับ Supabase target ใหม่, moderation rules, และ durable logs ไม่ใช่ data model กึ่งเก่า-กึ่งใหม่\n\nPrimary flow first\n\nในช่วงนี้ priority สูงสุดยังเป็น assessment, result และ dashboard ของผู้ใช้ทั่วไป ส่วน operations อยู่ใน queue ถัดไป"
+      },
+      "badResponses": [],
+      "console": [],
+      "pageErrors": []
+    }
+  ],
+  "issues": [],
+  "summary": {
+    "sampleCount": 66,
+    "issueCount": 0,
+    "routeCount": 30,
+    "fullRouteSampleCount": 60,
+    "primaryTabletSampleCount": 6,
+    "expectedSampleCount": 66
+  }
+}

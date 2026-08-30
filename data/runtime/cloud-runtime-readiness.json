@@ -1,0 +1,100 @@
+{
+  "version": 1,
+  "runtimeMode": "cloud",
+  "implemented": false,
+  "status": "blocked",
+  "blockers": [
+    {
+      "id": "supabase_target",
+      "label": "Fresh Supabase target",
+      "detail": "No verified MBTI Z Supabase project is available for preview or production persistence."
+    },
+    {
+      "id": "cloud_adapter_implementation",
+      "label": "Supabase-backed adapter",
+      "detail": "The browser runtime still falls back to guest-local because the cloud adapter has not been implemented and verified."
+    },
+    {
+      "id": "deploy_env_ready",
+      "label": "Deploy-ready environment",
+      "detail": "Preview and production env values must use real Vercel/Supabase/provider values, not placeholders or localhost."
+    }
+  ],
+  "requiredEnvKeys": [
+    "NEXT_PUBLIC_SITE_URL",
+    "NEXTAUTH_URL",
+    "NEXTAUTH_SECRET",
+    "DATABASE_URL",
+    "DIRECT_URL",
+    "NEXT_PUBLIC_MBTI_ASSESSMENT_RUNTIME"
+  ],
+  "requiredApiRoutes": [
+    {
+      "method": "GET",
+      "path": "/api/health/db",
+      "file": "pages/api/health/db.ts",
+      "auth": "public",
+      "rateLimit": false,
+      "userScopedPrisma": false,
+      "responseKeys": ["ok", "service", "environment", "timestamp"]
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/start",
+      "file": "pages/api/quiz/start.ts",
+      "auth": "authenticated-user",
+      "rateLimit": true,
+      "requestSchema": "QuizStartSchema",
+      "userScopedPrisma": true,
+      "responseKeys": ["sessionId", "locale", "progress", "answers", "questions"]
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/answer",
+      "file": "pages/api/quiz/answer.ts",
+      "auth": "authenticated-user",
+      "rateLimit": true,
+      "requestSchema": "QuizAnswerSchema",
+      "userScopedPrisma": true,
+      "responseKeys": ["ok", "answeredCount", "totalQuestions", "progress", "isComplete"]
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/submit",
+      "file": "pages/api/quiz/submit.ts",
+      "auth": "authenticated-user",
+      "rateLimit": true,
+      "requestSchema": "QuizSubmitSchema",
+      "userScopedPrisma": true,
+      "responseKeys": ["resultId", "mbtiType", "locale", "shareSlug", "premiumReportId", "redirectTo", "artifact"]
+    },
+    {
+      "method": "GET",
+      "path": "/api/me/results",
+      "file": "pages/api/me/results.ts",
+      "auth": "authenticated-user",
+      "rateLimit": true,
+      "userScopedPrisma": true,
+      "responseKeys": ["results"]
+    },
+    {
+      "method": "POST",
+      "path": "/api/me/reconnect-bundle/import",
+      "file": "pages/api/me/reconnect-bundle/import.ts",
+      "auth": "authenticated-user",
+      "rateLimit": true,
+      "requestSchema": "ReconnectBundleImportSchema",
+      "userScopedPrisma": true,
+      "responseKeys": ["ok", "status", "dryRun", "summary", "account"]
+    }
+  ],
+  "requiredDataModels": [
+    "AssessmentSession",
+    "AssessmentAnswer",
+    "QuizResult",
+    "PremiumReport",
+    "ShareCard",
+    "EventLog"
+  ],
+  "fallbackMode": "guest-local"
+}

@@ -1,0 +1,27 @@
+{
+  "ok": true,
+  "requestCount": 5,
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/health/db"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/start"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/answer"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/submit"
+    },
+    {
+      "method": "GET",
+      "path": "/api/me/results?locale=th"
+    }
+  ],
+  "errorHandling": "non_2xx_rejected_with_sanitized_error"
+}
