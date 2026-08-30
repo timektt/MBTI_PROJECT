@@ -3,7 +3,7 @@
 Updated: 2026-08-31
 Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Status: `ROUTE-SCOPED RATE LIMIT LOCAL VERIFIED - PREVIEW PENDING`
+Status: `ROUTE-SCOPED RATE LIMIT PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED`
 
 ## Bound Target
 
@@ -81,7 +81,16 @@ the latest Preview was not represented as a new CDN performance or visual run.
 
 ### Route-Scoped Rate-Limit Follow-Up
 
-The shared-IP residual is fixed locally. Rate-limit cache keys now combine the
+| Field | Accepted evidence |
+| --- | --- |
+| Runtime source SHA | `148eea2` |
+| Deployment id | `dpl_8coaFQnLKFpTGmw9RDv6V6d5rqwP` |
+| Generated URL | `https://mbti-project-8a5cutoal-superbears-projects-c668412a.vercel.app` |
+| GitHub CI | `verify` passed in 1m32s |
+| Focused contract | route isolation, query-bypass protection, forwarded-IP normalization and empty-array fallback passed |
+| Preview same-client burst | `/api/register` returned ten held `503` responses, then `429`; `/api/auth/verify-email` remained independently held at `503` |
+
+The shared-IP residual is fixed. Rate-limit cache keys now combine the
 normalized request pathname with the client IP, while query strings and trailing
 slashes resolve to the same route bucket. The focused contract proves route
 isolation and query-bypass protection. A local HTTP burst exhausted `/api/register`
@@ -89,7 +98,10 @@ at `429`, then `/api/auth/verify-email` returned its independent held-runtime
 `503` for the same IP. Full verification and the refreshed 130-sample browser
 matrix pass at source fingerprint
 `5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`.
-The new PR/Vercel Preview acceptance remains pending until this source is pushed.
+The same behavior passed on the accepted Preview. This in-memory implementation
+is still per serverless instance and is not represented as a global distributed
+rate limiter; a shared durable limiter remains a prerequisite before account
+runtime activation.
 
 ## Previous Visual Preview Baseline
 

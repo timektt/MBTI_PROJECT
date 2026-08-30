@@ -3,12 +3,12 @@
 Updated: 2026-08-31
 Runtime boundary: `guest-local`
 Current source fingerprint: `5a418fc348a10eb35fb34f0e66ab1b92d6164cd9f903bf4896593ee34917823c`
-Current completed slice: local route-scoped rate-limit remediation and full verification
-Next slice: protected PR checks and Vercel Preview revalidation
+Current completed slice: protected route-scoped rate-limit Preview acceptance
+Next slice: explicit Production approval, protected merge and first-release evidence
 
 ## Active Change Request
 
-`Fantasy Art And Motion V2` is now `RATE-LIMIT REMEDIATION LOCAL VERIFIED - PREVIEW PENDING` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
+`Fantasy Art And Motion V2` is now `ROUTE-SCOPED PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED` with 136 additional overlay tasks and 28 execution cards. These counts are intentionally not merged into the original 142-task V4 ledger.
 
 Local evidence now includes 21 accepted V2 assets, shared motion cleanup, all 16
 type routes, 130 browser samples with zero failures/asset fallbacks, full
@@ -20,12 +20,10 @@ The remediation branch now uses the bundled `next/og` renderer, Auth.js v5 beta,
 Next.js 16.3.3, React 19.2.8 and a native ESLint flat config. Unused production
 dependencies were removed or moved to development ownership. `npm audit --omit=dev`
 reports zero findings locally, account runtime contracts pass, and the 49-page
-Webpack production build passes. PR `#9`, GitHub CI and the dependency-remediated
-Vercel Preview pass from runtime SHA `4e50113`; merge and Production remain
-separate approval gates. The follow-up route-scoped rate-limit source now passes
-focused contracts, real local HTTP isolation, the refreshed 130-sample browser
-matrix and full verification; a new Preview is required before it replaces the
-accepted runtime SHA.
+Webpack production build passes. PR `#9`, GitHub CI and the route-scoped Vercel
+Preview pass from runtime SHA `148eea2`; merge and Production remain separate
+approval gates. Focused contracts, local and Preview same-client HTTP isolation,
+the refreshed 130-sample browser matrix and full verification all pass.
 
 Execution order before continuing route polish:
 
@@ -84,9 +82,9 @@ Source: `docs/mbti-z-fantasy-art-motion-v2-plan.md`
 
 ## Next Execution Order
 
-1. Commit and push the route-scoped rate-limit source plus current browser evidence.
-2. Require GitHub CI and a new Vercel Preview to pass from that runtime SHA.
-3. Review PR `#9` and the accepted Preview evidence.
-4. Obtain explicit approval before merging the protected branch or changing the Production alias.
-5. Confirm the protected `main` SHA equals the approved runtime revision after merge.
-6. Create the first healthy guest-local Production deployment and retain it as the next release's rollback predecessor.
+1. Review PR `#9` and the accepted Preview evidence.
+2. Obtain explicit approval before merging the protected branch or changing the Production alias.
+3. Confirm the protected `main` SHA equals the approved runtime revision after merge.
+4. Create the first healthy guest-local Production deployment.
+5. Retain it as the next release's rollback predecessor.
+6. Replace the per-instance limiter with shared durable state before activating account runtime.

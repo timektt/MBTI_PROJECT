@@ -34,7 +34,9 @@ Preview is READY and reproducible from the accepted SHA; browser/network/console
 
 The original visual baseline was accepted at `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`.
 Dependency remediation was revalidated at `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin`
-from runtime SHA `4e50113`. GitHub CI, direct Preview route/API smoke and result
+from runtime SHA `4e50113`. The route-scoped follow-up was accepted at
+`dpl_8coaFQnLKFpTGmw9RDv6V6d5rqwP` from runtime SHA `148eea2`; GitHub CI,
+same-client route isolation, direct Preview route/API smoke and result
 image PNG/SSRF contracts passed; the current-source local browser matrix passed
 31 route patterns, 16 concrete Type routes and 130 samples. The protected CDN
 browser limitation is recorded without being promoted to visual evidence.
