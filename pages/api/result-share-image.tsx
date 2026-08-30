@@ -4,9 +4,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import type { CSSProperties, ReactNode } from "react";
 
 import {
+  resolveResultShareAssetOrigin,
+  resolveResultShareRenderableAnimalPath,
   resultShareImageSchema,
   type ResultShareImagePayload,
 } from "@/lib/result-share-image";
+import { rateLimit } from "@/lib/rateLimit";
 
 export const config = {
   api: {
@@ -22,29 +25,14 @@ const cardSize = {
   height: 1350,
 } as const;
 
-function getRequestOrigin(request: NextApiRequest) {
-  const forwardedHost = request.headers["x-forwarded-host"];
-  const hostHeader = forwardedHost ?? request.headers.host;
-  const host = Array.isArray(hostHeader) ? hostHeader[0] : hostHeader;
-
-  if (host) {
-    const forwardedProto = request.headers["x-forwarded-proto"];
-    const protoHeader = Array.isArray(forwardedProto) ? forwardedProto[0] : forwardedProto;
-    const protocol =
-      protoHeader ?? (host.startsWith("localhost") || host.startsWith("127.") ? "http" : "https");
-
-    return `${protocol}://${host}`;
-  }
-
-  return process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
-}
-
 export default async function handler(request: NextApiRequest, response: NextApiResponse) {
   if (request.method !== "POST") {
     response.setHeader("Allow", "POST");
     response.status(405).send("Method Not Allowed");
     return;
   }
+
+  if (!rateLimit(request, response, { windowMs: 60_000, max: 12 })) return;
 
   let parsedBody: ResultShareImagePayload;
 
@@ -57,11 +45,32 @@ export default async function handler(request: NextApiRequest, response: NextApi
     return;
   }
 
+  const assetOrigin = resolveResultShareAssetOrigin({
+    configuredSiteUrl: process.env.NEXT_PUBLIC_SITE_URL,
+    nodeEnv: process.env.NODE_ENV,
+    requestHost: request.headers.host,
+    vercelUrl: process.env.VERCEL_URL,
+  });
+
+  if (!assetOrigin) {
+    response.status(503).send("Result asset origin unavailable");
+    return;
+  }
+
+  const renderableAnimalPath = resolveResultShareRenderableAnimalPath(
+    parsedBody.animal.imagePath
+  );
+
+  if (!renderableAnimalPath) {
+    response.status(400).send("Invalid animal asset path");
+    return;
+  }
+
   const locale = parsedBody.locale === "en" ? "en-US" : "th-TH";
   const createdAt = new Intl.DateTimeFormat(locale).format(
     new Date(parsedBody.createdAt)
   );
-  const animalUrl = new URL(parsedBody.animal.imagePath, getRequestOrigin(request)).toString();
+  const animalUrl = new URL(renderableAnimalPath, assetOrigin).toString();
   const summaryBody = parsedBody.summaryBody;
   const summaryBodyStyle = {
     ...bodyStyle,
@@ -368,6 +377,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
   response.setHeader("Content-Type", "image/png");
   response.setHeader("Cache-Control", "no-store");
+  response.setHeader("X-Content-Type-Options", "nosniff");
   response.status(200).send(buffer);
 }
 
