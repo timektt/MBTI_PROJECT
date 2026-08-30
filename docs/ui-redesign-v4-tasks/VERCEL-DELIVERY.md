@@ -3,7 +3,7 @@
 Updated: 2026-08-31
 Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Status: `LOCAL VERIFIED - PREVIEW REVALIDATION PENDING`
+Status: `DEPENDENCY PREVIEW ACCEPTED - PRODUCTION NOT PROMOTED`
 
 ## Bound Target
 
@@ -47,7 +47,7 @@ surfaces remain held and the full-cloud preflight remains blocked.
 | Full-cloud Preview preflight | BLOCKED AS DESIGNED |
 | Browser route sweep | 31 patterns, 16 concrete Type routes, 130 samples, 0 failures |
 | UI quality verifier | PASS |
-| `npm run verify` | PASS locally; GitHub rerun follows the evidence commit |
+| `npm run verify` | PASS locally and in GitHub CI for runtime SHA `4e50113` |
 | Production dependency audit | PASS LOCALLY: 0 findings |
 
 The guest-local profile requires the three active environment names and verifies
@@ -55,7 +55,36 @@ repository hygiene, assets, held auth surfaces, UI evidence, Vercel binding,
 cloud manifest guards and guest fallback behavior. It does not authorize any
 held service to become active.
 
-## Preview Evidence
+## Dependency Remediation Preview
+
+| Field | Accepted evidence |
+| --- | --- |
+| PR | `#9` - `fix: remediate production dependency chain` |
+| Deployment id | `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin` |
+| Runtime source SHA | `4e5011364515089608eeacc313b64a8df73803e3` |
+| Source branch | `codex/dependency-remediation` |
+| State | `READY` |
+| Generated URL | `https://mbti-project-8jwln0q2p-superbears-projects-c668412a.vercel.app` |
+| Branch alias | `https://mbti-project-git-codex-depe-526e90-superbears-projects-c668412a.vercel.app` |
+| GitHub CI | `verify` passed for the same runtime SHA |
+| Preview route smoke | Home, Quiz, Types, INTJ Detail, Dashboard and Login returned `200` |
+| Account API boundary | session/register/recovery routes remained held or fail-closed; `/api/me/results` returned `401` rather than loading Auth.js in guest-local |
+| Result image API | valid payload returned `200 image/png`, 602,954 bytes and a valid PNG signature |
+| Result image SSRF guard | absolute metadata URL payload returned `400` |
+| Current-source browser matrix | local production server passed 31 patterns, 16 Type routes and 130 samples with 0 failures |
+
+Vercel Deployment Protection prevented the isolated browser runner from entering
+the latest Preview without a bypass secret. Acceptance therefore combines the
+current-source local browser matrix with direct protected Preview route and API
+requests through the authenticated Vercel CLI. This limitation remains explicit;
+the latest Preview was not represented as a new CDN performance or visual run.
+
+Repeated account-endpoint probes consumed the existing process-wide IP rate-limit
+bucket, so the final verify-email probe returned fail-closed `429`. A clean-bucket
+local contract run returned the intended held `503`; route-scoped limiter keys are
+recorded as a follow-up and do not activate the held account runtime.
+
+## Previous Visual Preview Baseline
 
 | Field | Accepted evidence |
 | --- | --- |
@@ -90,6 +119,9 @@ no card, locale-control, image or content overlap in those target surfaces.
 | `dpl_SP2DeMs5RYjnn2RseeYnECtzPU74` | Vercel rejected vulnerable Next.js 15.3.1 | Next.js patched to 15.5.24 |
 | `dpl_BNDP32PyP9nZDXQETRAeYnXMiBXj` | `@vercel/og@1` failed at runtime on dynamic `fs` require | renderer reverted to compatible 0.11.1 |
 | `dpl_DanZk9i2P3CmX2bStGD52fayUHBt` | protected self-fetch returned HTML instead of the animal image | bounded same-origin fetch and data URL render added |
+| `dpl_BfpbfnhCmWJXAnoFQZ9sxbRPSyD9` | Vercel install completed without a generated Prisma client | `postinstall` now runs `prisma generate` |
+| `dpl_4uaEsLKinVZyEH33J5QQaZMo2WG4` | build was READY, but guest `/api/me/results` eagerly loaded Auth.js and returned `500` | server auth import moved behind the configured-runtime guard |
+| `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin` | build, route/API smoke and result-image contracts passed | accepted dependency-remediation Preview |
 
 ## Production And Rollback
 
@@ -103,7 +135,6 @@ Next.js 16.3.3 with React 19.2.8. Account APIs remain explicitly held.
 There is no previous healthy Production deployment for this new Vercel project,
 so a real rollback rehearsal has no valid target. Card 28 remains blocked until:
 
-- full verification passes from the committed remediation SHA;
-- GitHub review and a dependency-remediated Vercel Preview pass from that same SHA;
+- PR `#9` is reviewed and explicitly approved for merge/promotion;
 - protected `main` contains the accepted runtime SHA;
 - the first healthy Production deployment is recorded before a later rollback rehearsal can be truthful.

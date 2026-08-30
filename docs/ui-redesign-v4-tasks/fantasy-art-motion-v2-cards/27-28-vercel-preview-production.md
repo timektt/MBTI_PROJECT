@@ -32,10 +32,13 @@ Preview is READY and reproducible from the accepted SHA; browser/network/console
 
 ### Result
 
-Accepted at `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6` from runtime SHA `4895b2e`.
-HTTP smoke passed 46/46 routes, browser acceptance passed 31 route patterns,
-16 concrete Type routes and 130 samples, and the result image API passed valid
-PNG plus SSRF rejection checks. Evidence: `../VERCEL-DELIVERY.md`.
+The original visual baseline was accepted at `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`.
+Dependency remediation was revalidated at `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin`
+from runtime SHA `4e50113`. GitHub CI, direct Preview route/API smoke and result
+image PNG/SSRF contracts passed; the current-source local browser matrix passed
+31 route patterns, 16 concrete Type routes and 130 samples. The protected CDN
+browser limitation is recorded without being promoted to visual evidence.
+Evidence: `../VERCEL-DELIVERY.md`.
 
 ## Card 28 - Production Promotion And Rollback Proof
 
@@ -71,7 +74,8 @@ Production URL serves the accepted SHA, core guest product passes, rollback rest
 ### Blocker
 
 Production promotion and rollback were not executed. `npm audit --omit=dev`
-reports zero production-tree findings on the local dependency-remediation branch.
-The branch still needs protected GitHub checks and a new Vercel Preview acceptance
-from the same source SHA. This new project also has no previous healthy Production
-deployment that can serve as a valid rollback target.
+reports zero production-tree findings, and PR `#9`, GitHub CI and the accepted
+Preview now pass from the dependency-remediated runtime SHA. The remaining gates
+are explicit merge/Production approval and protected `main` alignment. This new
+project also has no previous healthy Production deployment that can serve as a
+valid rollback target.

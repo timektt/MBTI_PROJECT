@@ -1,9 +1,9 @@
 # Fantasy Art And Motion V2 Execution Evidence
 
 Date: 2026-08-31
-Branch: `codex/vercel-delivery`
+Branch: `codex/dependency-remediation`
 Runtime: `guest-local`
-Source fingerprint: `c6d7eee2790d45a2caf1028186e2d0003235895762818139286573b8cf5ce76a`
+Source fingerprint: `84a9199a1732dd68abe418c435fbba1e5e6fd680bbc3c89efa19719c451fa3aa`
 Status: `PREVIEW ACCEPTED - PRODUCTION BLOCKED`
 
 ## Implemented
@@ -41,12 +41,14 @@ Performance reports:
 
 ## Preview Acceptance
 
-- deployment: `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`
-- runtime SHA: `4895b2e9ea89b44bb13732661fd40a5069d96bca`
-- URL: `https://mbti-project-mogpbevy2-superbears-projects-c668412a.vercel.app`
-- direct route smoke: 46/46 returned `200`
-- protected browser matrix: 31 patterns, 16 Type routes, 130 samples, 0 failures
+- visual baseline deployment: `dpl_6PD1JaArssfsGLhQAXQEcbj7MNb6`
+- dependency-remediation deployment: `dpl_9GTnTGZ2yaNxbuzEVA2vjheYkFin`
+- runtime SHA: `4e5011364515089608eeacc313b64a8df73803e3`
+- URL: `https://mbti-project-8jwln0q2p-superbears-projects-c668412a.vercel.app`
+- direct route smoke: Home, Quiz, Types, INTJ Detail, Dashboard and Login returned `200`
+- current-source local browser matrix: 31 patterns, 16 Type routes, 130 samples, 0 failures
 - result image runtime: valid payload `200 image/png`; SSRF payload `400`
+- protected-browser residual: latest Preview required a bypass secret not available to the isolated browser runner; direct Preview checks used authenticated Vercel CLI access
 
 ## Motion Decision
 
@@ -64,8 +66,13 @@ future all-consumer migration, not justification for a speculative partial one.
   150ms. Preview must be tested over its real CDN before any p75 claim.
 - INP p75 requires field data; local TBT is only a lab responsiveness proxy.
 - Historical interaction, My Results and WebKit PNG reports remain local artifacts;
-  the protected Preview route/image/API matrix is current to runtime SHA `4895b2e`.
-- The local remediation branch has zero production audit findings; a new protected Preview and GitHub checks are still required before merge or Production.
+  the direct Preview route/image/API matrix is current to runtime SHA `4e50113`.
+- The remediation branch has zero production audit findings; PR `#9`, GitHub CI
+  and the dependency-remediated Preview pass. Merge and Production remain explicit
+  approval gates.
+- The existing in-memory rate limiter shares an IP bucket across account routes;
+  repeated held-route probes can produce fail-closed `429` before route-specific
+  `503`. Route-scoped keys remain a follow-up before account runtime activation.
 - No healthy Production predecessor exists, so rollback rehearsal cannot yet be truthful.
 
 ## Rollback Map
