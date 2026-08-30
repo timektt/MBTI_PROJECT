@@ -6,6 +6,7 @@
     "clean": "rimraf .next",
     "dev": "next dev",
     "build": "npm run clean && next build --webpack",
+    "postinstall": "prisma generate",
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
