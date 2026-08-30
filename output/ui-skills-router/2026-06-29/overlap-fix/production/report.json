@@ -1,0 +1,122 @@
+[
+  {
+    "route": "/",
+    "viewport": "mobile",
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "scrollHeight": 5633,
+      "typeCards": [],
+      "shareCards": [
+        {
+          "index": 0,
+          "width": 300,
+          "height": 673,
+          "scrollHeight": 671,
+          "clientHeight": 671,
+          "clipped": false
+        }
+      ]
+    }
+  },
+  {
+    "route": "/",
+    "viewport": "desktop",
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollHeight": 3448,
+      "typeCards": [],
+      "shareCards": [
+        {
+          "index": 0,
+          "width": 392,
+          "height": 670,
+          "scrollHeight": 668,
+          "clientHeight": 668,
+          "clipped": false
+        }
+      ]
+    }
+  },
+  {
+    "route": "/types",
+    "viewport": "mobile",
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "scrollHeight": 3266,
+      "typeCards": [
+        {
+          "index": 0,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 112,
+          "imageHeight": 112
+        },
+        {
+          "index": 1,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 112,
+          "imageHeight": 112
+        },
+        {
+          "index": 2,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 112,
+          "imageHeight": 112
+        },
+        {
+          "index": 3,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 112,
+          "imageHeight": 112
+        }
+      ],
+      "shareCards": []
+    }
+  },
+  {
+    "route": "/types",
+    "viewport": "desktop",
+    "status": 200,
+    "errors": [],
+    "metrics": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollHeight": 1721,
+      "typeCards": [
+        {
+          "index": 0,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 128,
+          "imageHeight": 128
+        },
+        {
+          "index": 1,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 128,
+          "imageHeight": 128
+        },
+        {
+          "index": 2,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 128,
+          "imageHeight": 128
+        },
+        {
+          "index": 3,
+          "imageTextOverlapArea": 0,
+          "imageWidth": 128,
+          "imageHeight": 128
+        }
+      ],
+      "shareCards": []
+    }
+  }
+]

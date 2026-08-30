@@ -1,0 +1,232 @@
+{
+  "ok": true,
+  "expected": {
+    "houseCount": 4,
+    "animalPosterCount": 16,
+    "houseSize": {
+      "width": 1600,
+      "height": 960
+    },
+    "animalPosterSize": {
+      "width": 1080,
+      "height": 1350
+    }
+  },
+  "summary": {
+    "houseCount": 4,
+    "animalPosterCount": 16,
+    "profileCount": 16,
+    "uniqueProfileCount": 16,
+    "uniqueAnimalKeyCount": 16,
+    "failureCount": 0
+  },
+  "houseAssets": [
+    {
+      "path": "public/mbti-z/houses/blue.png",
+      "ok": true,
+      "failure": null,
+      "width": 1600,
+      "height": 960
+    },
+    {
+      "path": "public/mbti-z/houses/green.png",
+      "ok": true,
+      "failure": null,
+      "width": 1600,
+      "height": 960
+    },
+    {
+      "path": "public/mbti-z/houses/purple.png",
+      "ok": true,
+      "failure": null,
+      "width": 1600,
+      "height": 960
+    },
+    {
+      "path": "public/mbti-z/houses/yellow.png",
+      "ok": true,
+      "failure": null,
+      "width": 1600,
+      "height": 960
+    }
+  ],
+  "animalAssets": [
+    {
+      "code": "ENFJ",
+      "animalKey": "solar-phoenix",
+      "animalNameTh": "ฟีนิกซ์สุริยะ",
+      "animalNameEn": "Solar Phoenix",
+      "path": "public/mbti-z/animals/enfj-solar-phoenix.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ENFP",
+      "animalKey": "aurora-rabbit",
+      "animalNameTh": "กระต่ายออโรรา",
+      "animalNameEn": "Aurora Rabbit",
+      "path": "public/mbti-z/animals/enfp-aurora-rabbit.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ENTJ",
+      "animalKey": "crowned-lion",
+      "animalNameTh": "สิงโตมงกุฎ",
+      "animalNameEn": "Crowned Lion",
+      "path": "public/mbti-z/animals/entj-crowned-lion.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ENTP",
+      "animalKey": "storm-fox",
+      "animalNameTh": "จิ้งจอกพายุ",
+      "animalNameEn": "Storm Fox",
+      "path": "public/mbti-z/animals/entp-storm-fox.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ESFJ",
+      "animalKey": "hearth-stag",
+      "animalNameTh": "กวางเขาแสง",
+      "animalNameEn": "Hearth Stag",
+      "path": "public/mbti-z/animals/esfj-hearth-stag.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ESFP",
+      "animalKey": "neon-peacock",
+      "animalNameTh": "นกยูงนีออน",
+      "animalNameEn": "Neon Peacock",
+      "path": "public/mbti-z/animals/esfp-neon-peacock.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ESTJ",
+      "animalKey": "golden-eagle",
+      "animalNameTh": "อินทรีทอง",
+      "animalNameEn": "Golden Eagle",
+      "path": "public/mbti-z/animals/estj-golden-eagle.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ESTP",
+      "animalKey": "thunder-tiger",
+      "animalNameTh": "เสือพายุ",
+      "animalNameEn": "Thunder Tiger",
+      "path": "public/mbti-z/animals/estp-thunder-tiger.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "INFJ",
+      "animalKey": "moon-deer",
+      "animalNameTh": "กวางจันทร์",
+      "animalNameEn": "Moon Deer",
+      "path": "public/mbti-z/animals/infj-moon-deer.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "INFP",
+      "animalKey": "dream-swan",
+      "animalNameTh": "หงส์ความฝัน",
+      "animalNameEn": "Dream Swan",
+      "path": "public/mbti-z/animals/infp-dream-swan.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "INTJ",
+      "animalKey": "obsidian-raven",
+      "animalNameTh": "อีกาออบซิเดียน",
+      "animalNameEn": "Obsidian Raven",
+      "path": "public/mbti-z/animals/intj-obsidian-raven.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "INTP",
+      "animalKey": "arcane-owl",
+      "animalNameTh": "นกฮูกอาร์เคน",
+      "animalNameEn": "Arcane Owl",
+      "path": "public/mbti-z/animals/intp-arcane-owl.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ISFJ",
+      "animalKey": "guardian-bear",
+      "animalNameTh": "หมีผู้พิทักษ์",
+      "animalNameEn": "Guardian Bear",
+      "path": "public/mbti-z/animals/isfj-guardian-bear.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ISFP",
+      "animalKey": "crystal-lynx",
+      "animalNameTh": "ลิงซ์คริสตัล",
+      "animalNameEn": "Crystal Lynx",
+      "path": "public/mbti-z/animals/isfp-crystal-lynx.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ISTJ",
+      "animalKey": "iron-wolf",
+      "animalNameTh": "หมาป่าเหล็ก",
+      "animalNameEn": "Iron Wolf",
+      "path": "public/mbti-z/animals/istj-iron-wolf.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    },
+    {
+      "code": "ISTP",
+      "animalKey": "steel-panther",
+      "animalNameTh": "เสือดำเหล็ก",
+      "animalNameEn": "Steel Panther",
+      "path": "public/mbti-z/animals/istp-steel-panther.png",
+      "ok": true,
+      "failure": null,
+      "width": 1080,
+      "height": 1350
+    }
+  ],
+  "failures": []
+}

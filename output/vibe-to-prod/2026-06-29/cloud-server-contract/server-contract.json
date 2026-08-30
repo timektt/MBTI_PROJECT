@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "routeCount": 6,
+  "failedRouteCount": 0,
+  "routes": [
+    {
+      "path": "/api/health/db",
+      "file": "pages/api/health/db.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "ok",
+          "service",
+          "environment",
+          "timestamp"
+        ]
+      ],
+      "shapeChecks": []
+    },
+    {
+      "path": "/api/quiz/start",
+      "file": "pages/api/quiz/start.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "sessionId",
+          "locale",
+          "progress",
+          "answers",
+          "questions"
+        ]
+      ],
+      "shapeChecks": [
+        {
+          "id": "quiz_start_localizes_mbti_z_question_metadata",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "localize_question_returns_ui_metadata",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/quiz/answer",
+      "file": "pages/api/quiz/answer.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "ok",
+          "answeredCount",
+          "totalQuestions",
+          "progress",
+          "isComplete"
+        ]
+      ],
+      "shapeChecks": []
+    },
+    {
+      "path": "/api/quiz/submit",
+      "file": "pages/api/quiz/submit.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "resultId",
+          "mbtiType",
+          "locale",
+          "shareSlug",
+          "premiumReportId",
+          "redirectTo",
+          "artifact"
+        ]
+      ],
+      "shapeChecks": [
+        {
+          "id": "quiz_submit_persists_and_returns_score_detail",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "result_artifact_supports_movie_profile",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/me/results",
+      "file": "pages/api/me/results.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "results"
+        ]
+      ],
+      "shapeChecks": [
+        {
+          "id": "results_replay_artifact_from_persisted_score_detail",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "result_artifact_relocalizes_movie_profile",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    },
+    {
+      "path": "/api/me/reconnect-bundle/import",
+      "file": "pages/api/me/reconnect-bundle/import.ts",
+      "ok": true,
+      "failures": [],
+      "successPayloads": [
+        [
+          "ok",
+          "status",
+          "dryRun",
+          "summary",
+          "account"
+        ],
+        [
+          "ok",
+          "status",
+          "dryRun",
+          "summary",
+          "account",
+          "imported"
+        ]
+      ],
+      "shapeChecks": [
+        {
+          "id": "reconnect_import_validates_guest_handoff_bundle",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "reconnect_import_persists_with_conflict_guard",
+          "ok": true,
+          "missingMarkers": []
+        },
+        {
+          "id": "reconnect_import_persists_guest_result_artifacts",
+          "ok": true,
+          "missingMarkers": []
+        }
+      ]
+    }
+  ]
+}

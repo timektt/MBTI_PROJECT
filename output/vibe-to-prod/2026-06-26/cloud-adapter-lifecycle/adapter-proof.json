@@ -1,0 +1,39 @@
+{
+  "ok": true,
+  "publicRuntimeAdapter": "disabled",
+  "blockedStatus": {
+    "configuredMode": "cloud",
+    "activeMode": "guest-local",
+    "cloudReady": false,
+    "fallbackReason": "supabase_target, cloud_adapter_implementation, deploy_env_ready"
+  },
+  "implementedStatus": {
+    "configuredMode": "cloud",
+    "activeMode": "cloud",
+    "cloudReady": true,
+    "fallbackReason": null
+  },
+  "requestCount": 5,
+  "routes": [
+    {
+      "path": "/api/health/db",
+      "method": "GET"
+    },
+    {
+      "path": "/api/quiz/start",
+      "method": "POST"
+    },
+    {
+      "path": "/api/quiz/answer",
+      "method": "POST"
+    },
+    {
+      "path": "/api/quiz/submit",
+      "method": "POST"
+    },
+    {
+      "path": "/api/me/results?locale=th",
+      "method": "GET"
+    }
+  ]
+}

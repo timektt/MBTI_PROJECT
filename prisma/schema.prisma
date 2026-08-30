@@ -1,0 +1,399 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                            String              @id @default(cuid())
+  name                          String?
+  email                         String              @unique
+  password                      String?
+  emailVerified                 DateTime?
+  emailVerificationToken        String?
+  emailVerificationTokenExpires DateTime?
+  image                         String?
+  bio                           String?
+  role                          String              @default("user")
+  preferredLocale               String              @default("th")
+  createdAt                     DateTime            @default(now())
+  updatedAt                     DateTime            @updatedAt
+  username                      String?             @unique
+  resetToken                    String?
+  resetTokenExpiry              DateTime?
+  hasProfile                    Boolean             @default(false)
+  hasMbtiCard                   Boolean             @default(false)
+  mbtiType                      String?
+  accounts                      Account[]
+  cards                         Card[]
+  cardLikes                     CardLike[]
+  comments                      Comment[]
+  commentLikes                  CommentLike[]
+  groupMemberships              GroupMember[]
+  notifications                 Notification[]
+  quizResults                   QuizResult[]
+  sessions                      Session[]
+  activities                    Activity[]
+  following                     Follow[]            @relation("follower")
+  followers                     Follow[]            @relation("following")
+  targetActivities              Activity[]          @relation("TargetUser")
+  assessmentSessions            AssessmentSession[]
+  assessmentAnswers             AssessmentAnswer[]
+  premiumReports                PremiumReport[]
+  shareCards                    ShareCard[]
+  eventLogs                     EventLog[]
+}
+
+model Card {
+  id           String      @id @default(cuid())
+  userId       String
+  title        String
+  description  String
+  imageUrl     String
+  visibility   String      @default("public")
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  quizResultId String?     @unique
+  quizResult   QuizResult? @relation(fields: [quizResultId], references: [id])
+  user         User        @relation(fields: [userId], references: [id])
+  likes        CardLike[]
+  comments     Comment[]
+  activities   Activity[]
+
+  @@index([userId])
+  @@unique([userId])
+}
+
+model QuizResult {
+  id                String              @id @default(cuid())
+  userId            String
+  mbtiType          String
+  typeCode          String?
+  locale            String              @default("th")
+  scoreDetail       Json
+  testVersion       String?
+  createdAt         DateTime            @default(now())
+  card              Card?
+  user              User                @relation(fields: [userId], references: [id])
+  personality       PersonalityProfile? @relation(fields: [typeCode], references: [code])
+  assessmentSession AssessmentSession?
+  premiumReport     PremiumReport?
+  shareCards        ShareCard[]
+  eventLogs         EventLog[]
+
+  @@index([userId])
+  @@index([typeCode])
+}
+
+model AssessmentQuestion {
+  id        String             @id @default(cuid())
+  key       String             @unique
+  kind      String             @default("mbti")
+  module    String             @default("core")
+  dimension String
+  promptTh  String
+  promptEn  String
+  sortOrder Int
+  poles     Json?
+  version   String             @default("v1")
+  isActive  Boolean            @default(true)
+  createdAt DateTime           @default(now())
+  updatedAt DateTime           @updatedAt
+  options   AssessmentOption[]
+  answers   AssessmentAnswer[]
+
+  @@index([dimension, sortOrder])
+  @@index([module, sortOrder])
+  @@index([kind, isActive])
+  @@index([version, isActive])
+}
+
+model AssessmentOption {
+  id          String             @id @default(cuid())
+  questionId  String
+  key         String
+  labelTh     String
+  labelEn     String
+  traitCode   String?
+  metaLabel   String?
+  weights     Json?
+  movieScores Json?
+  scoreValue  Int                @default(1)
+  createdAt   DateTime           @default(now())
+  updatedAt   DateTime           @updatedAt
+  question    AssessmentQuestion @relation(fields: [questionId], references: [id])
+  answers     AssessmentAnswer[]
+
+  @@unique([questionId, key])
+  @@index([traitCode])
+}
+
+model AssessmentSession {
+  id                   String             @id @default(cuid())
+  userId               String
+  status               String             @default("draft")
+  locale               String             @default("th")
+  version              String             @default("v1")
+  progress             Int                @default(0)
+  currentQuestionOrder Int                @default(0)
+  startedAt            DateTime           @default(now())
+  lastAnsweredAt       DateTime?
+  completedAt          DateTime?
+  quizResultId         String?            @unique
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  user                 User               @relation(fields: [userId], references: [id])
+  quizResult           QuizResult?        @relation(fields: [quizResultId], references: [id])
+  answers              AssessmentAnswer[]
+  events               EventLog[]
+
+  @@index([userId, status])
+  @@index([locale, version])
+}
+
+model AssessmentAnswer {
+  id         String             @id @default(cuid())
+  sessionId  String
+  questionId String
+  optionId   String
+  userId     String
+  locale     String             @default("th")
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @updatedAt
+  session    AssessmentSession  @relation(fields: [sessionId], references: [id])
+  question   AssessmentQuestion @relation(fields: [questionId], references: [id])
+  option     AssessmentOption   @relation(fields: [optionId], references: [id])
+  user       User               @relation(fields: [userId], references: [id])
+
+  @@unique([sessionId, questionId])
+  @@index([userId, createdAt])
+}
+
+model PersonalityProfile {
+  code            String             @id
+  slug            String             @unique
+  archetypeNameTh String
+  archetypeNameEn String
+  taglineTh       String?
+  taglineEn       String?
+  summaryTh       String
+  summaryEn       String
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  quizResults     QuizResult[]
+  contents        PersonalityContent[]
+  premiumReports  PremiumReport[]
+  shareCards      ShareCard[]
+}
+
+model PersonalityContent {
+  id              String             @id @default(cuid())
+  personalityCode String
+  locale          String
+  section         String
+  tier            String             @default("free")
+  title           String?
+  body            String
+  sortOrder       Int                @default(0)
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  personality     PersonalityProfile @relation(fields: [personalityCode], references: [code])
+
+  @@unique([personalityCode, locale, section, tier, sortOrder])
+  @@index([locale, section, tier])
+}
+
+model PremiumReport {
+  id              String             @id @default(cuid())
+  userId          String
+  quizResultId    String             @unique
+  personalityCode String?
+  locale          String             @default("th")
+  status          String             @default("locked")
+  teaserData      Json?
+  reportData      Json?
+  unlockedAt      DateTime?
+  generatedAt     DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  user            User               @relation(fields: [userId], references: [id])
+  quizResult      QuizResult         @relation(fields: [quizResultId], references: [id])
+  personality     PersonalityProfile? @relation(fields: [personalityCode], references: [code])
+
+  @@index([userId, status])
+  @@index([personalityCode])
+}
+
+model ShareCard {
+  id              String             @id @default(cuid())
+  userId          String
+  quizResultId    String
+  personalityCode String?
+  slug            String             @unique
+  locale          String             @default("th")
+  title           String?
+  subtitle        String?
+  imageUrl        String?
+  isPublic        Boolean            @default(true)
+  shareCount      Int                @default(0)
+  lastSharedAt    DateTime?
+  createdAt       DateTime           @default(now())
+  updatedAt       DateTime           @updatedAt
+  user            User               @relation(fields: [userId], references: [id])
+  quizResult      QuizResult         @relation(fields: [quizResultId], references: [id])
+  personality     PersonalityProfile? @relation(fields: [personalityCode], references: [code])
+
+  @@index([userId, createdAt])
+  @@index([quizResultId])
+}
+
+model EventLog {
+  id                  String             @id @default(cuid())
+  userId              String?
+  assessmentSessionId String?
+  quizResultId        String?
+  eventName           String
+  eventCategory       String
+  locale              String?
+  payload             Json?
+  createdAt           DateTime           @default(now())
+  user                User?              @relation(fields: [userId], references: [id])
+  assessmentSession   AssessmentSession? @relation(fields: [assessmentSessionId], references: [id])
+  quizResult          QuizResult?        @relation(fields: [quizResultId], references: [id])
+
+  @@index([eventName, createdAt])
+  @@index([userId, createdAt])
+}
+
+model Comment {
+  id        String        @id @default(cuid())
+  userId    String
+  cardId    String
+  content   String
+  parentId  String?
+  createdAt DateTime      @default(now())
+  card      Card          @relation(fields: [cardId], references: [id])
+  user      User          @relation(fields: [userId], references: [id])
+  likes     CommentLike[]
+
+  @@index([userId])
+  @@index([cardId])
+}
+
+model CommentLike {
+  id        String   @id @default(cuid())
+  userId    String
+  commentId String
+  createdAt DateTime @default(now())
+  comment   Comment  @relation(fields: [commentId], references: [id])
+  User      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, commentId])
+}
+
+model CardLike {
+  id        String   @id @default(cuid())
+  userId    String
+  cardId    String
+  source    String   @default("unknown")
+  createdAt DateTime @default(now())
+  card      Card     @relation(fields: [cardId], references: [id])
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@unique([userId, cardId])
+}
+
+model Notification {
+  id        String   @id @default(cuid())
+  userId    String
+  type      String
+  message   String
+  link      String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+}
+
+model Activity {
+  id           String   @id @default(cuid())
+  type         String
+  message      String
+  userId       String
+  cardId       String?
+  targetUserId String?
+  targetType   String?
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  card         Card?    @relation(fields: [cardId], references: [id])
+  targetUser   User?    @relation("TargetUser", fields: [targetUserId], references: [id])
+
+  @@index([userId])
+  @@index([cardId])
+}
+
+model Group {
+  id          String        @id @default(cuid())
+  name        String        @unique
+  description String?
+  imageUrl    String?
+  createdAt   DateTime      @default(now())
+  members     GroupMember[]
+}
+
+model GroupMember {
+  id       String   @id @default(cuid())
+  userId   String
+  groupId  String
+  joinedAt DateTime @default(now())
+  group    Group    @relation(fields: [groupId], references: [id])
+  user     User     @relation(fields: [userId], references: [id])
+}
+
+model Account {
+  id                String @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+model Follow {
+  id          String   @id @default(cuid())
+  follower    User     @relation("follower", fields: [followerId], references: [id])
+  following   User     @relation("following", fields: [followingId], references: [id])
+  followerId  String
+  followingId String
+  createdAt   DateTime @default(now())
+
+  @@unique([followerId, followingId])
+}

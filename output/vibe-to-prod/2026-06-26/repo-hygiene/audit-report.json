@@ -1,0 +1,179 @@
+{
+  "generatedAt": "2026-06-26T11:10:23.104Z",
+  "appRoot": "/Users/time/Desktop/Projects/MBTI_PROJECT",
+  "summary": {
+    "trackedCount": 289,
+    "untrackedCount": 427,
+    "deletedCount": 0,
+    "stagedDeletedCount": 1385,
+    "modifiedCount": 13,
+    "trackedOldRootCount": 0,
+    "trackedOldSourceCount": 0,
+    "trackedDbDataCount": 0,
+    "stagedDeletedOldRootCount": 1385,
+    "stagedDeletedOldSourceCount": 40,
+    "rootAppUntrackedCount": 0,
+    "blockerCount": 0,
+    "warningCount": 0
+  },
+  "checks": [
+    {
+      "id": "root_app_present",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "id": "root_app_tracked",
+      "ok": true,
+      "detail": []
+    },
+    {
+      "id": "old_root_deleted",
+      "ok": true,
+      "detail": "0 tracked mbti_test paths, 0 unstaged deleted mbti_test paths, 1385 staged deleted mbti_test paths"
+    },
+    {
+      "id": "tracked_db_data_removed",
+      "ok": true,
+      "detail": "0 tracked mbti_test/db_data paths"
+    },
+    {
+      "id": "db_data_ignored",
+      "ok": true,
+      "detail": "ignore rules should prevent new db_data directories from being added"
+    },
+    {
+      "id": "env_not_tracked",
+      "ok": true,
+      "detail": []
+    }
+  ],
+  "rootPathStatus": [
+    {
+      "path": "package.json",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "package-lock.json",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "next.config.ts",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "tsconfig.json",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "tailwind.config.js",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "pages",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "components",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "lib",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "data",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "prisma",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "public",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "styles",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "scripts",
+      "exists": true,
+      "tracked": true,
+      "untracked": true
+    },
+    {
+      "path": "docs",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "PRD.md",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "CONTEXT.md",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    },
+    {
+      "path": "AGENTS.md",
+      "exists": true,
+      "tracked": true,
+      "untracked": false
+    }
+  ],
+  "sourceMoveReview": {
+    "trackedOldSourceCount": 0,
+    "deletedOldSourceCount": 0,
+    "oldSourceWithRootCounterpartCount": 0,
+    "oldSourceWithoutRootCounterpartCount": 0,
+    "reviewedRetiredMissingRootCount": 0,
+    "unreviewedMissingRootCounterpartCount": 0,
+    "missingRootCounterpartSamples": [],
+    "reviewedRetiredMissingRootCounterparts": []
+  },
+  "warnings": [
+    {
+      "id": "old_root_source_counterparts",
+      "ok": true,
+      "detail": "all missing non-db_data old-root counterparts are reviewed retirements"
+    }
+  ],
+  "blockers": [],
+  "nextActions": [
+    "Review this report before staging the root move.",
+    "Remove tracked mbti_test/db_data paths from the index in a dedicated hygiene PR.",
+    "Stage the root app move deliberately after confirming no real source files are stranded under mbti_test/.",
+    "Keep .env files untracked and commit only .env.example placeholders."
+  ]
+}

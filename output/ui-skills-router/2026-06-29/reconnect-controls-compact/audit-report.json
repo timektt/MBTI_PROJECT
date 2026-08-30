@@ -1,0 +1,141 @@
+{
+  "ok": true,
+  "generatedAt": "2026-06-29T05:47:35.077Z",
+  "routeCount": 2,
+  "sampleCount": 4,
+  "issueCount": 0,
+  "results": [
+    {
+      "route": "/dashboard",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "openedCloudTab": true,
+      "ok": true,
+      "defaultState": {
+        "statusTextHasOpenRecovery": true,
+        "statusTextHasCloseRecovery": false,
+        "textareas": 0,
+        "recoveryButtonFound": true,
+        "recoveryButtonText": "เปิดคอนโซลกู้ข้อมูล",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 3311,
+        "clientHeight": 844
+      },
+      "recoveryOpenState": {
+        "textareas": 1,
+        "statusTextHasCloseRecovery": true,
+        "textareaVisible": true,
+        "textareaHeight": 128,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 3832,
+        "clientHeight": 844
+      },
+      "errors": []
+    },
+    {
+      "route": "/dashboard",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "openedCloudTab": true,
+      "ok": true,
+      "defaultState": {
+        "statusTextHasOpenRecovery": true,
+        "statusTextHasCloseRecovery": false,
+        "textareas": 0,
+        "recoveryButtonFound": true,
+        "recoveryButtonText": "เปิดคอนโซลกู้ข้อมูล",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1656,
+        "clientHeight": 1000
+      },
+      "recoveryOpenState": {
+        "textareas": 1,
+        "statusTextHasCloseRecovery": true,
+        "textareaVisible": true,
+        "textareaHeight": 128,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1958,
+        "clientHeight": 1000
+      },
+      "errors": []
+    },
+    {
+      "route": "/login",
+      "viewport": {
+        "name": "mobile",
+        "width": 390,
+        "height": 844
+      },
+      "status": 200,
+      "openedCloudTab": false,
+      "ok": true,
+      "defaultState": {
+        "statusTextHasOpenRecovery": true,
+        "statusTextHasCloseRecovery": false,
+        "textareas": 0,
+        "recoveryButtonFound": true,
+        "recoveryButtonText": "เปิดคอนโซลกู้ข้อมูล",
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 2042,
+        "clientHeight": 844
+      },
+      "recoveryOpenState": {
+        "textareas": 1,
+        "statusTextHasCloseRecovery": true,
+        "textareaVisible": true,
+        "textareaHeight": 128,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 2536,
+        "clientHeight": 844
+      },
+      "errors": []
+    },
+    {
+      "route": "/login",
+      "viewport": {
+        "name": "desktop",
+        "width": 1440,
+        "height": 1000
+      },
+      "status": 200,
+      "openedCloudTab": false,
+      "ok": true,
+      "defaultState": {
+        "statusTextHasOpenRecovery": true,
+        "statusTextHasCloseRecovery": false,
+        "textareas": 0,
+        "recoveryButtonFound": true,
+        "recoveryButtonText": "เปิดคอนโซลกู้ข้อมูล",
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1318,
+        "clientHeight": 1000
+      },
+      "recoveryOpenState": {
+        "textareas": 1,
+        "statusTextHasCloseRecovery": true,
+        "textareaVisible": true,
+        "textareaHeight": 128,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1340,
+        "clientHeight": 1000
+      },
+      "errors": []
+    }
+  ]
+}

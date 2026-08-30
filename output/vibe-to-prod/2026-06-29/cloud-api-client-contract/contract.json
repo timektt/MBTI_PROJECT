@@ -1,0 +1,35 @@
+{
+  "ok": true,
+  "requestCount": 7,
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/api/health/db"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/start"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/answer"
+    },
+    {
+      "method": "POST",
+      "path": "/api/quiz/submit"
+    },
+    {
+      "method": "GET",
+      "path": "/api/me/results?locale=th"
+    },
+    {
+      "method": "POST",
+      "path": "/api/me/reconnect-bundle/import"
+    },
+    {
+      "method": "POST",
+      "path": "/api/me/reconnect-bundle/import"
+    }
+  ],
+  "errorHandling": "non_2xx_rejected_with_sanitized_error"
+}

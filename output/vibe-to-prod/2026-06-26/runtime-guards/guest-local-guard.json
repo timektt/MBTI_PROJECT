@@ -1,0 +1,11 @@
+{
+  "configuredEnv": "guest-local",
+  "readinessImplemented": false,
+  "manifestStatus": "blocked",
+  "status": {
+    "configuredMode": "guest-local",
+    "activeMode": "guest-local",
+    "cloudReady": false,
+    "fallbackReason": null
+  }
+}
