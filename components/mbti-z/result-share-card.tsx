@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import type { GuestResult } from "@/lib/assessment-runtime";
 import { mbtiZResultShareCopy } from "@/lib/mbti-z-copy";
+import { getMbtiZAnimalFocalPosition } from "@/lib/mbti-z-visuals";
 import { cn } from "@/lib/utils";
 
 const EXPORT_WIDTH = 1080;
@@ -38,7 +39,7 @@ export function ResultShareCard({
           background: `linear-gradient(160deg, ${result.house.accentFrom}, #05070f 42%, ${result.house.accentTo})`,
         }}
       >
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.15),transparent_30%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_34%)]" />
+        <div className="absolute inset-0 bg-[linear-gradient(150deg,rgba(255,255,255,0.13),transparent_36%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_34%)]" />
         <div className="absolute inset-[5%] rounded-[inherit] border border-white/10 bg-[linear-gradient(180deg,rgba(6,10,21,0.72),rgba(8,12,24,0.9))]" />
 
         <div className="relative z-10">
@@ -59,17 +60,17 @@ export function ResultShareCard({
             </div>
           </div>
 
-          <div className="mt-4 rounded-[1.35rem] border border-white/10 bg-white/[0.04] p-3.5 sm:p-4">
+          <div className="cyber-surface-inset mt-4 p-3.5 sm:p-4">
             <div className="flex flex-wrap gap-2">
               <Chip label={`${copy.house} · ${result.house.title}`} />
               <Chip label={`${copy.animal} · ${result.animal.name}`} />
             </div>
-            <p className="mt-3 text-sm leading-6 text-white/72 line-clamp-2">
+            <p className="mt-3 text-sm leading-6 text-white/72">
               {result.tagline}
             </p>
           </div>
 
-          <div className="relative mt-4 aspect-[16/11] overflow-hidden rounded-[1.45rem] border border-white/10 bg-[#060a13]">
+          <div className="cyber-media-frame relative mt-4 aspect-[16/11]">
             <Image
               alt={`${result.mbtiType} ${result.animal.name}`}
               className="object-cover opacity-90"
@@ -77,7 +78,7 @@ export function ResultShareCard({
               priority
               sizes="(min-width: 1024px) 22rem, 100vw"
               src={result.animal.imagePath}
-              unoptimized
+              style={{ objectPosition: getMbtiZAnimalFocalPosition(result.mbtiType) }}
             />
             <div
               className="absolute inset-0"
@@ -96,15 +97,15 @@ export function ResultShareCard({
           </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-3.5">
+            <div className="cyber-metric-tile p-3.5">
               <p className="font-code text-[10px] uppercase tracking-[0.22em] text-white/44">
                 {copy.movieProfile}
               </p>
-              <p className="mt-2 text-sm leading-6 text-white/70 line-clamp-2">
+              <p className="mt-2 text-sm leading-6 text-white/70">
                 {result.movieProfile.title}
               </p>
             </div>
-            <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-3.5">
+            <div className="cyber-metric-tile p-3.5">
               <p className="font-code text-[10px] uppercase tracking-[0.22em] text-white/44">
                 {copy.dimensions}
               </p>
@@ -142,7 +143,7 @@ export function ResultShareCard({
         background: `linear-gradient(160deg, ${result.house.accentFrom}, #05070f 38%, ${result.house.accentTo})`,
       }}
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.16),transparent_28%),radial-gradient(circle_at_18%_18%,rgba(255,255,255,0.12),transparent_22%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_30%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(145deg,rgba(255,255,255,0.14),transparent_32%),linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0)_30%)]" />
       <div className="absolute inset-[6%] rounded-[inherit] border border-white/10 bg-[linear-gradient(180deg,rgba(6,10,21,0.78),rgba(8,12,24,0.92))]" />
 
       <div className="relative z-10 flex h-full flex-col">
@@ -187,18 +188,12 @@ export function ResultShareCard({
               priority
               sizes={exportMode ? "420px" : "(min-width: 1024px) 22rem, 100vw"}
               src={result.animal.imagePath}
-              unoptimized
+              style={{ objectPosition: getMbtiZAnimalFocalPosition(result.mbtiType) }}
             />
             <div
               className="absolute inset-0"
               style={{
                 background: `linear-gradient(180deg, ${result.house.accentFrom}18 0%, rgba(5,7,15,0.16) 38%, rgba(5,7,15,0.94) 100%)`,
-              }}
-            />
-            <div
-              className="absolute inset-x-[10%] top-[7%] h-[38%] rounded-full blur-3xl"
-              style={{
-                background: `radial-gradient(circle, ${result.house.accentTo}44 0%, transparent 72%)`,
               }}
             />
             <div className="absolute inset-x-5 bottom-5">

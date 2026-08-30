@@ -190,12 +190,12 @@ Use `.env.example` as the canonical key list when configuring Vercel environment
 
 ### Current blocker
 
-- The repo is not yet bound to a live Vercel project in this session.
+- The repo is not yet bound to a live Vercel project in this workspace.
 - `data/runtime/vercel-target-readiness.json` currently keeps preview/production project ids unset and status `blocked`.
 - `npm run vercel:target -- --target=preview` must pass before preview/prod deploy binding can be treated as isolated.
 - The same Vercel target gate now verifies the repo deploy contract before handoff so the dedicated project is not created against the wrong package manager, root, or build command.
-- `vercel` CLI is present on the machine, but it is not logged in.
-- Connector-authenticated project listing for `SuperBear's projects` does not contain an MBTI-specific project yet.
+- Vercel CLI `54.7.1` is present and authenticated as `timektt`.
+- CLI project listing for `SuperBear's projects` does not contain an MBTI-specific project yet.
 - The authenticated Vercel `/new` flow is reachable and shows a Git repository URL import field, but the project has not been created or bound yet.
 - Chrome-authenticated import flow now resolves the exact repo `timektt/MBTI_PROJECT` and proposes `mbti-project` as the project slug.
 - The remaining action at this point is the actual create/deploy step, which has been intentionally held back pending explicit production-deploy confirmation.

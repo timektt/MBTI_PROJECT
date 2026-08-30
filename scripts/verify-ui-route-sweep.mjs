@@ -2,17 +2,19 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import { createHash } from "node:crypto";
 import { pathToFileURL } from "node:url";
 
 const APP_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const DEFAULT_AUDIT_PATH =
-  "output/ui-skills-router/2026-06-29/current-route-sweep/audit-report.json";
+  "output/ui-redesign-v3/audit/browser-audit-report.json";
 const DEFAULT_ISSUES_PATH =
-  "output/ui-skills-router/2026-06-29/current-route-sweep/issues.json";
+  "output/ui-redesign-v3/audit/issues.json";
 const PRIMARY_ROUTE_PATHS = new Set([
   "/",
   "/quiz",
   "/types",
+  "/types/intj",
   "/login",
   "/dashboard",
   "/result/guest-mqtpomkf-estj",
@@ -33,9 +35,23 @@ const DYNAMIC_ROUTE_SAMPLES = new Map([
   ["/profile/[username]/followers", "/profile/demo/followers"],
   ["/profile/[username]/following", "/profile/demo/following"],
   ["/result/[id]", "/result/guest-mqtpomkf-estj"],
+  ["/types/[code]", "/types/intj"],
   ["/share/[slug]", "/share/demo"],
   ["/u/[username]", "/u/demo"],
 ]);
+const V3_PRIMARY_ROUTE_PATTERNS = new Set([
+  "/",
+  "/quiz",
+  "/result/[id]",
+  "/types",
+  "/types/[code]",
+  "/dashboard",
+  "/login",
+]);
+const V3_BASE_VIEWPORTS = new Set(["390x844", "1440x1000"]);
+const V3_PRIMARY_VIEWPORTS = new Set(["390x844", "768x1024", "1440x1000"]);
+const V3_SOURCE_PATHS = ["components", "data", "lib", "pages", "styles"];
+const REQUIRE_SCREENSHOT_ARTIFACTS = process.env.CI !== "true";
 
 function parseArgs(argv) {
   const parsed = {
@@ -77,6 +93,25 @@ function listFiles(dir) {
 
     return [fullPath];
   });
+}
+
+function v3SourceFingerprint() {
+  const hash = createHash("sha256");
+
+  for (const sourcePath of V3_SOURCE_PATHS) {
+    const resolvedPath = absolutePath(sourcePath);
+    if (!fs.existsSync(resolvedPath)) continue;
+
+    for (const filePath of listFiles(resolvedPath).sort()) {
+      const relativePath = path.relative(APP_ROOT, filePath).replaceAll(path.sep, "/");
+      hash.update(relativePath);
+      hash.update("\0");
+      hash.update(fs.readFileSync(filePath));
+      hash.update("\0");
+    }
+  }
+
+  return hash.digest("hex");
 }
 
 function routePatternForPageFile(filePath) {
@@ -226,10 +261,110 @@ function collectSampleFailures(routeResults) {
   return failures;
 }
 
+function collectV3RouteSweepStatus(audit, auditPath) {
+  const expected = collectExpectedRoutes();
+  const results = Array.isArray(audit.results) ? audit.results : [];
+  const expectedPatterns = expected.routePatterns;
+  const actualPatterns = unique(
+    results
+      .map((result) => result?.routePattern)
+      .filter((routePattern) => typeof routePattern === "string")
+  ).sort();
+  const failures = [
+    ...expected.missingSamples.map((routePattern) => `dynamic_sample_missing:${routePattern}`),
+    ...arrayDifference(expectedPatterns, actualPatterns).map(
+      (routePattern) => `route_missing:${routePattern}`
+    ),
+    ...arrayDifference(actualPatterns, expectedPatterns).map(
+      (routePattern) => `route_extra:${routePattern}`
+    ),
+  ];
+  const viewportMap = new Map();
+
+  for (const result of results) {
+    const routePattern = result?.routePattern;
+    const viewportName = result?.viewport?.name;
+    if (typeof routePattern !== "string" || typeof viewportName !== "string") continue;
+
+    const viewports = viewportMap.get(routePattern) ?? new Set();
+    viewports.add(viewportName);
+    viewportMap.set(routePattern, viewports);
+
+    const label = `${result.samplePath ?? routePattern} @ ${viewportName}`;
+    if (result.statusCode !== 200) failures.push(`${label}:status:${result.statusCode}`);
+    if (result.horizontalOverflow) failures.push(`${label}:horizontal_overflow`);
+    if ((result.clippedControls ?? []).length) failures.push(`${label}:clipped_controls`);
+    if ((result.brokenImages ?? []).length) failures.push(`${label}:broken_images`);
+    if ((result.consoleErrors ?? []).length) failures.push(`${label}:console_errors`);
+    if ((result.pageErrors ?? []).length) failures.push(`${label}:page_errors`);
+
+    const screenshotPath = absolutePath(result.screenshot ?? "");
+    if (!result.screenshot) {
+      failures.push(`${label}:screenshot_reference_missing`);
+    } else if (REQUIRE_SCREENSHOT_ARTIFACTS && !fs.existsSync(screenshotPath)) {
+      failures.push(`${label}:screenshot_missing`);
+    }
+  }
+
+  for (const routePattern of expectedPatterns) {
+    const requiredViewports = V3_PRIMARY_ROUTE_PATTERNS.has(routePattern)
+      ? V3_PRIMARY_VIEWPORTS
+      : V3_BASE_VIEWPORTS;
+    const actualViewports = viewportMap.get(routePattern) ?? new Set();
+    for (const viewport of requiredViewports) {
+      if (!actualViewports.has(viewport)) {
+        failures.push(`viewport_missing:${routePattern}:${viewport}`);
+      }
+    }
+  }
+
+  const generatedAt = Date.parse(audit.generatedAt);
+  const expectedSourceFingerprint = v3SourceFingerprint();
+  if (Number.isNaN(generatedAt)) {
+    failures.push("generated_at_invalid");
+  }
+  if (typeof audit.sourceFingerprint !== "string") {
+    failures.push("source_fingerprint_missing");
+  } else if (audit.sourceFingerprint !== expectedSourceFingerprint) {
+    failures.push(`report_stale:fingerprint:${audit.sourceFingerprint}:${expectedSourceFingerprint}`);
+  }
+  if (audit.passed !== true) failures.push("report_not_passed");
+  if (!Array.isArray(audit.failures)) failures.push("report_failures_invalid");
+  else if (audit.failures.length) failures.push(`report_failures:${audit.failures.length}`);
+  if (audit.routePatternCount !== expectedPatterns.length) {
+    failures.push(`route_pattern_count:${audit.routePatternCount}:${expectedPatterns.length}`);
+  }
+  if (audit.concreteTypePathCount !== 16) {
+    failures.push(`concrete_type_path_count:${audit.concreteTypePathCount}:16`);
+  }
+  if (audit.sampleCount !== results.length) {
+    failures.push(`sample_count:${audit.sampleCount}:${results.length}`);
+  }
+
+  return {
+    ok: failures.length === 0,
+    auditPath: path.relative(APP_ROOT, absolutePath(auditPath)),
+    issuePath: null,
+    schema: "v3-browser-audit",
+    expectedRouteCount: expectedPatterns.length,
+    auditedRouteCount: actualPatterns.length,
+    expectedSampleCount: null,
+    auditedSampleCount: results.length,
+    concreteTypePathCount: audit.concreteTypePathCount ?? null,
+    issueCount: Array.isArray(audit.failures) ? audit.failures.length : null,
+    failures,
+  };
+}
+
 export function collectUiRouteSweepStatus(options = {}) {
   const auditPath = options.audit ?? DEFAULT_AUDIT_PATH;
   const issuesPath = options.issues ?? DEFAULT_ISSUES_PATH;
   const audit = readJson(auditPath);
+
+  if (Array.isArray(audit.results)) {
+    return collectV3RouteSweepStatus(audit, auditPath);
+  }
+
   const issues = fs.existsSync(absolutePath(issuesPath)) ? readJson(issuesPath) : [];
   const routeResults = Array.isArray(audit.routeResults) ? audit.routeResults : [];
   const expected = collectExpectedRoutes();

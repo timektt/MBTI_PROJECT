@@ -1,5 +1,5 @@
 import { RelaunchState } from "@/components/cyber/relaunch-state";
 
 export default function LeaderboardPage() {
-  return <RelaunchState scenario="community" />;
+  return <RelaunchState intent="community-leaderboard" scenario="community" />;
 }

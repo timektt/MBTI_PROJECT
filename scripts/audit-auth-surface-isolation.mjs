@@ -2,35 +2,36 @@
 
 import fs from "node:fs";
 import path from "node:path";
+import ts from "typescript";
 
 const APP_ROOT = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 
 const HOLD_PAGE_RULES = [
-  { file: "pages/login.tsx", expected: "AccountHold" },
-  { file: "pages/register.tsx", expected: "AccountHold" },
-  { file: "pages/forgot-password.tsx", expected: "AccountHold" },
-  { file: "pages/profile.tsx", expected: 'RelaunchState scenario="profile"' },
-  { file: "pages/u/[username].tsx", expected: 'RelaunchState scenario="profile"' },
-  { file: "pages/profile/[username]/index.tsx", expected: 'RelaunchState scenario="profile"' },
-  { file: "pages/profile/[username]/followers.tsx", expected: 'RelaunchState scenario="profile"' },
-  { file: "pages/profile/[username]/following.tsx", expected: 'RelaunchState scenario="profile"' },
-  { file: "pages/profile/[username]/cards.tsx", expected: 'RelaunchState scenario="community"' },
-  { file: "pages/settings/index.tsx", expected: 'RelaunchState scenario="settings"' },
-  { file: "pages/settings/password.tsx", expected: 'RelaunchState scenario="settings"' },
-  { file: "pages/setup-profile.tsx", expected: 'RelaunchState scenario="settings"' },
-  { file: "pages/setup-username.tsx", expected: 'RelaunchState scenario="settings"' },
-  { file: "pages/reset-password.tsx", expected: 'RelaunchState scenario="verification"' },
-  { file: "pages/verify-email.tsx", expected: 'RelaunchState scenario="verification"' },
-  { file: "pages/explore.tsx", expected: 'RelaunchState scenario="community"' },
-  { file: "pages/leaderboard.tsx", expected: 'RelaunchState scenario="community"' },
-  { file: "pages/card/[id].tsx", expected: 'RelaunchState scenario="community"' },
-  { file: "pages/card/me.tsx", expected: 'RelaunchState scenario="community"' },
-  { file: "pages/share/[slug].tsx", expected: 'RelaunchState scenario="share"' },
-  { file: "pages/admin/index.tsx", expected: 'RelaunchState scenario="operations"' },
-  { file: "pages/admin/cards.tsx", expected: 'RelaunchState scenario="operations"' },
-  { file: "pages/admin/comments.tsx", expected: 'RelaunchState scenario="operations"' },
-  { file: "pages/admin/settings.tsx", expected: 'RelaunchState scenario="operations"' },
-  { file: "pages/admin/users.tsx", expected: 'RelaunchState scenario="operations"' },
+  { file: "pages/login.tsx", component: "AccountHold" },
+  { file: "pages/register.tsx", component: "AccountHold" },
+  { file: "pages/forgot-password.tsx", component: "AccountHold" },
+  { file: "pages/profile.tsx", component: "RelaunchState", scenario: "profile" },
+  { file: "pages/u/[username].tsx", component: "RelaunchState", scenario: "profile" },
+  { file: "pages/profile/[username]/index.tsx", component: "RelaunchState", scenario: "profile" },
+  { file: "pages/profile/[username]/followers.tsx", component: "RelaunchState", scenario: "profile" },
+  { file: "pages/profile/[username]/following.tsx", component: "RelaunchState", scenario: "profile" },
+  { file: "pages/profile/[username]/cards.tsx", component: "RelaunchState", scenario: "community" },
+  { file: "pages/settings/index.tsx", component: "RelaunchState", scenario: "settings" },
+  { file: "pages/settings/password.tsx", component: "RelaunchState", scenario: "settings" },
+  { file: "pages/setup-profile.tsx", component: "RelaunchState", scenario: "settings" },
+  { file: "pages/setup-username.tsx", component: "RelaunchState", scenario: "settings" },
+  { file: "pages/reset-password.tsx", component: "RelaunchState", scenario: "verification" },
+  { file: "pages/verify-email.tsx", component: "RelaunchState", scenario: "verification" },
+  { file: "pages/explore.tsx", component: "RelaunchState", scenario: "community" },
+  { file: "pages/leaderboard.tsx", component: "RelaunchState", scenario: "community" },
+  { file: "pages/card/[id].tsx", component: "RelaunchState", scenario: "community" },
+  { file: "pages/card/me.tsx", component: "RelaunchState", scenario: "community" },
+  { file: "pages/share/[slug].tsx", component: "RelaunchState", scenario: "share" },
+  { file: "pages/admin/index.tsx", component: "RelaunchState", scenario: "operations" },
+  { file: "pages/admin/cards.tsx", component: "RelaunchState", scenario: "operations" },
+  { file: "pages/admin/comments.tsx", component: "RelaunchState", scenario: "operations" },
+  { file: "pages/admin/settings.tsx", component: "RelaunchState", scenario: "operations" },
+  { file: "pages/admin/users.tsx", component: "RelaunchState", scenario: "operations" },
 ];
 
 const API_RULES = [
@@ -156,6 +157,47 @@ function methodGuardPresent(source, method) {
   return source.includes(`req.method !== "${method}"`);
 }
 
+function literalJsxAttribute(node, name) {
+  const attribute = node.attributes.properties.find(
+    (candidate) => ts.isJsxAttribute(candidate) && candidate.name.text === name
+  );
+  if (!attribute || !ts.isJsxAttribute(attribute) || !attribute.initializer) return null;
+  if (ts.isStringLiteral(attribute.initializer)) return attribute.initializer.text;
+  if (
+    ts.isJsxExpression(attribute.initializer) &&
+    attribute.initializer.expression &&
+    ts.isStringLiteral(attribute.initializer.expression)
+  ) {
+    return attribute.initializer.expression.text;
+  }
+  return null;
+}
+
+function collectJsxComponents(source, file, component) {
+  const sourceFile = ts.createSourceFile(
+    file,
+    source,
+    ts.ScriptTarget.Latest,
+    true,
+    ts.ScriptKind.TSX
+  );
+  const matches = [];
+
+  function visit(node) {
+    if (
+      (ts.isJsxSelfClosingElement(node) || ts.isJsxOpeningElement(node)) &&
+      ts.isIdentifier(node.tagName) &&
+      node.tagName.text === component
+    ) {
+      matches.push(node);
+    }
+    ts.forEachChild(node, visit);
+  }
+
+  visit(sourceFile);
+  return matches;
+}
+
 function collectHoldPageStatus() {
   return HOLD_PAGE_RULES.map((rule) => {
     if (!exists(rule.file)) {
@@ -168,9 +210,15 @@ function collectHoldPageStatus() {
 
     const source = read(rule.file);
     const failures = [];
+    const surfaces = collectJsxComponents(source, rule.file, rule.component);
 
-    if (!source.includes(rule.expected)) {
-      failures.push(`missing_expected_surface:${rule.expected}`);
+    if (surfaces.length !== 1) {
+      failures.push(`expected_surface_count:${rule.component}:${surfaces.length}`);
+    } else if (rule.scenario) {
+      const actualScenario = literalJsxAttribute(surfaces[0], "scenario");
+      if (actualScenario !== rule.scenario) {
+        failures.push(`scenario:${actualScenario ?? "missing"}:${rule.scenario}`);
+      }
     }
 
     return {

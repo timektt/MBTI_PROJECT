@@ -2,125 +2,262 @@
 
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Menu, Sparkles, X } from "lucide-react";
-import { useState } from "react";
+import { LogIn, Menu, X } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 import { useMbtiZLocale } from "@/components/cyber/mbti-z-locale-provider";
 import { mbtiZNavCopy } from "@/lib/mbti-z-copy";
 import { cn } from "@/lib/utils";
 
+const navigationFocusClasses =
+  "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--signal-accent-soft)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--signal-canvas)]";
+
 export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
-  const { locale } = useMbtiZLocale();
+  const menuButtonRef = useRef<HTMLButtonElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
+  const menuPanelRef = useRef<HTMLDivElement>(null);
+  const { locale, setLocale } = useMbtiZLocale();
   const copy = mbtiZNavCopy[locale];
 
-  const navItems = [
+  const primaryNavItems = [
     { href: "/", label: copy.home },
     { href: "/quiz", label: copy.quiz },
-    { href: "/dashboard", label: copy.dashboard },
-    { href: "/login", label: copy.account },
+    { href: "/types", label: copy.types },
   ];
 
+  function isActive(href: string) {
+    return href === "/" ? router.pathname === href : router.pathname.startsWith(href);
+  }
+
+  useEffect(() => {
+    const closeMenu = () => setMenuOpen(false);
+
+    router.events.on("routeChangeStart", closeMenu);
+
+    return () => {
+      router.events.off("routeChangeStart", closeMenu);
+    };
+  }, [router.events]);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    const focusableSelector =
+      'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])';
+    const focusableItems = () =>
+      Array.from(
+        menuPanelRef.current?.querySelectorAll<HTMLElement>(focusableSelector) ?? []
+      ).filter((element) => element.getClientRects().length > 0);
+
+    requestAnimationFrame(() => focusableItems()[0]?.focus());
+
+    const closeMenuOnEscape = (event: KeyboardEvent) => {
+      if (event.key === "Tab") {
+        const items = focusableItems();
+        const first = items[0];
+        const last = items[items.length - 1];
+        if (!first || !last) return;
+
+        if (event.shiftKey && document.activeElement === first) {
+          event.preventDefault();
+          last.focus();
+        } else if (!event.shiftKey && document.activeElement === last) {
+          event.preventDefault();
+          first.focus();
+        }
+        return;
+      }
+
+      if (event.key !== "Escape") return;
+
+      event.preventDefault();
+      setMenuOpen(false);
+      menuButtonRef.current?.focus();
+    };
+
+    const closeMenuOutside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !headerRef.current?.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("keydown", closeMenuOnEscape);
+    document.addEventListener("pointerdown", closeMenuOutside);
+
+    return () => {
+      document.removeEventListener("keydown", closeMenuOnEscape);
+      document.removeEventListener("pointerdown", closeMenuOutside);
+    };
+  }, [menuOpen]);
+
   return (
-    <header className="relative z-50 px-3 py-3 sm:px-5 md:sticky md:top-0">
-      <div className="mx-auto max-w-7xl rounded-[1.8rem] border border-white/10 bg-[linear-gradient(135deg,rgba(6,9,22,0.78),rgba(9,12,24,0.68))] px-4 py-3 shadow-[0_24px_80px_rgba(3,6,18,0.42)] backdrop-blur-2xl sm:px-6">
-        <div className="flex items-center justify-between gap-4">
-          <Link href="/" className="group flex min-w-0 items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-[1.1rem] border border-[#f5c76d]/20 bg-[linear-gradient(135deg,rgba(245,199,109,0.25),rgba(182,121,255,0.32))] shadow-[0_0_36px_rgba(182,121,255,0.18)]">
-              <Sparkles className="h-5 w-5 text-[#f9d88e]" />
-            </div>
-            <div className="min-w-0">
-              <p className="truncate font-luxury text-[1.05rem] tracking-[0.12em] text-white sm:text-[1.15rem]">
-                MBTI Z
-              </p>
-              <p className="truncate font-code text-[10px] uppercase tracking-[0.3em] text-white/42">
-                {copy.brandTag}
-              </p>
-            </div>
+    <header
+      ref={headerRef}
+      className="relative sticky top-0 z-50 border-b border-white/10 bg-[#0b0c0f]/94 backdrop-blur-xl"
+    >
+      <div className="signal-container flex min-h-[60px] items-center justify-between gap-2 sm:gap-5 lg:min-h-[72px]">
+        <Link
+          href="/"
+          className={cn("flex min-h-[44px] min-w-0 items-center gap-2 sm:gap-3", navigationFocusClasses)}
+          aria-label="MBTI Z"
+        >
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#e7b55b]/40 font-luxury text-sm font-semibold text-[#f6d59b]">
+            Z
+          </span>
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate font-luxury text-lg font-semibold text-[#f5f3ed]">MBTI Z</span>
+            <span className="hidden truncate text-[11px] text-[#777b85] sm:block">{copy.brandTag}</span>
+          </span>
+        </Link>
+
+        <nav
+          className="hidden items-center gap-1 lg:flex"
+          aria-label={copy.primaryNavigationLabel}
+        >
+          {primaryNavItems.map((item) => {
+            const active = isActive(item.href);
+
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                aria-current={active ? "page" : undefined}
+                className={cn(
+                  "inline-flex min-h-[44px] items-center rounded-md px-3.5 text-sm text-[#b9bbc3] transition-colors hover:bg-white/[0.06] hover:text-[#f5f3ed] motion-reduce:transition-none",
+                  navigationFocusClasses,
+                  active && "bg-white/[0.07] text-[#f5f3ed]"
+                )}
+              >
+                {item.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-2 sm:gap-3">
+          <Link
+            href="/login"
+            aria-label={copy.login}
+            title={copy.login}
+            aria-current={isActive("/login") ? "page" : undefined}
+            className={cn(
+              "inline-flex min-h-[44px] min-w-[44px] items-center justify-center gap-2 rounded-md border border-[#e7b55b]/35 px-3 text-sm font-medium text-[#f6d59b] transition-colors hover:border-[#f6d59b]/65 hover:bg-[#e7b55b]/10 motion-reduce:transition-none sm:px-4",
+              navigationFocusClasses,
+              isActive("/login") && "border-[#f6d59b]/70 bg-[#e7b55b]/12 text-[#fff1cf]"
+            )}
+          >
+            <LogIn className="h-4 w-4 shrink-0" aria-hidden="true" />
+            <span className="max-[359px]:sr-only">{copy.login}</span>
           </Link>
 
-          <nav className="hidden items-center gap-2 md:flex">
-            {navItems.map((item) => {
-              const active =
-                item.href === "/"
-                  ? router.pathname === item.href
-                  : router.pathname.startsWith(item.href);
-
-              return (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={cn(
-                    "inline-flex h-11 items-center rounded-full px-4 py-2 font-code text-[11px] uppercase tracking-[0.2em] text-white/64 transition",
-                    active
-                      ? "bg-white/10 text-white shadow-[0_0_0_1px_rgba(255,255,255,0.04)_inset]"
-                      : "hover:bg-white/6 hover:text-white"
-                  )}
-                >
-                  {item.label}
-                </Link>
-              );
-            })}
-          </nav>
-
-          <div className="hidden items-center gap-3 md:flex">
-            <div className="cyber-data-chip rounded-full px-4 py-2 font-code text-[10px] uppercase tracking-[0.28em] text-[#ffe8b2]">
-              {copy.guestMode}
-            </div>
-            <Link
-              href="/quiz"
-              className="inline-flex h-11 items-center rounded-full bg-[linear-gradient(135deg,#f5c76d,#c285ff)] px-5 py-2.5 font-code text-[11px] font-semibold uppercase tracking-[0.16em] text-[#050814] transition hover:brightness-110"
-            >
-              {copy.startQuiz}
-            </Link>
-          </div>
-
           <button
+            ref={menuButtonRef}
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
-            className="flex h-11 w-11 items-center justify-center rounded-full border border-white/10 bg-white/6 text-white md:hidden"
-            aria-label={copy.menuLabel}
+            className={cn(
+              "grid h-[44px] w-[44px] shrink-0 place-items-center rounded-md bg-white/[0.06] text-[#f5f3ed] transition-colors hover:bg-white/[0.1] motion-reduce:transition-none",
+              navigationFocusClasses
+            )}
+            aria-label={menuOpen ? copy.closeMenuLabel : copy.menuLabel}
+            aria-controls="site-navigation-menu"
+            aria-expanded={menuOpen}
+            aria-haspopup="menu"
           >
-            {menuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            {menuOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
           </button>
         </div>
+      </div>
 
-        {menuOpen && (
-          <div className="mt-4 border-t border-white/8 pt-4 md:hidden">
-            <nav className="flex flex-col gap-2">
-              {navItems.map((item) => {
-                const active =
-                  item.href === "/"
-                    ? router.pathname === item.href
-                    : router.pathname.startsWith(item.href);
+      {menuOpen ? (
+        <div
+          ref={menuPanelRef}
+          id="site-navigation-menu"
+          className="absolute inset-x-0 top-full max-h-[calc(100dvh-60px)] overflow-y-auto overscroll-contain border-y border-white/10 bg-[#0b0c0f] shadow-[0_22px_48px_rgba(0,0,0,0.42)]"
+        >
+          <div className="signal-container flex justify-end py-4">
+            <div className="w-full lg:max-w-sm">
+              <nav
+                className="grid gap-1 lg:hidden"
+                aria-label={copy.primaryNavigationLabel}
+              >
+                {primaryNavItems.map((item) => {
+                  const active = isActive(item.href);
 
-                return (
-                  <Link
-                    key={item.href}
-                    href={item.href}
-                    onClick={() => setMenuOpen(false)}
-                    className={cn(
-                      "rounded-2xl px-4 py-3 font-code text-[11px] uppercase tracking-[0.16em] text-white/68 transition",
-                      active
-                        ? "bg-white/10 text-white"
-                        : "bg-white/[0.03] hover:bg-white/6 hover:text-white"
-                    )}
-                  >
-                    {item.label}
-                  </Link>
-                );
-              })}
-            </nav>
-            <div className="mt-4 rounded-2xl border border-[#f5c76d]/12 bg-[#f5c76d]/8 p-4">
-              <p className="font-code text-[11px] uppercase tracking-[0.28em] text-[#ffd88b]">
-                {copy.guestMode}
-              </p>
-              <p className="mt-2 text-sm leading-7 text-white/68">{copy.runtimeHint}</p>
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMenuOpen(false)}
+                      aria-current={active ? "page" : undefined}
+                      className={cn(
+                        "flex min-h-[44px] items-center rounded-md px-3 text-sm text-[#b9bbc3]",
+                        navigationFocusClasses,
+                        active && "bg-white/[0.07] text-[#f5f3ed]"
+                      )}
+                    >
+                      {item.label}
+                    </Link>
+                  );
+                })}
+              </nav>
+
+              <nav
+                className="mt-2 border-t border-white/10 pt-2 lg:mt-0 lg:border-t-0 lg:pt-0"
+                aria-label={copy.secondaryNavigationLabel}
+              >
+                <Link
+                  href="/dashboard"
+                  onClick={() => setMenuOpen(false)}
+                  aria-current={isActive("/dashboard") ? "page" : undefined}
+                  className={cn(
+                    "flex min-h-[44px] items-center justify-between rounded-md px-3 text-sm text-[#f5f3ed] transition-colors hover:bg-white/[0.06] motion-reduce:transition-none",
+                    navigationFocusClasses,
+                    isActive("/dashboard") && "bg-white/[0.07]"
+                  )}
+                >
+                  <span>{copy.myResults}</span>
+                  <span className="text-xs text-[#777b85]">/dashboard</span>
+                </Link>
+              </nav>
+
+              <div className="mt-3 grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 border-t border-white/10 pt-3">
+                <div className="min-w-0">
+                  <p className="text-sm text-[#b9bbc3]">{copy.guestMode}</p>
+                  <p className="mt-1 text-xs leading-5 text-[#777b85]">{copy.runtimeHint}</p>
+                </div>
+                <div
+                  className="flex rounded-md border border-white/10 p-1"
+                  role="group"
+                  aria-label={copy.languageLabel}
+                >
+                  {(["th", "en"] as const).map((option) => (
+                    <button
+                      key={option}
+                      type="button"
+                      onClick={() => setLocale(option)}
+                      className={cn(
+                        "min-h-[44px] min-w-[44px] rounded-md text-xs uppercase text-[#777b85] transition-colors hover:text-[#f5f3ed] motion-reduce:transition-none",
+                        navigationFocusClasses,
+                        locale === option && "bg-white/[0.08] text-[#f5f3ed]"
+                      )}
+                      aria-pressed={locale === option}
+                      lang={option}
+                    >
+                      {option}
+                    </button>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
-        )}
-      </div>
+        </div>
+      ) : null}
     </header>
   );
 }

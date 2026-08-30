@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Loader2 } from "lucide-react";
+import { CheckCircle2, Download, Loader2 } from "lucide-react";
 import { useState } from "react";
 
 import { resultShareCardSize } from "@/components/mbti-z/result-share-card";
@@ -15,6 +15,7 @@ export function DownloadResultButton({
   payload,
   processingLabel = "Preparing PNG",
   errorLabel = "PNG export unavailable",
+  successLabel = "PNG downloaded",
 }: {
   targetId: string;
   fileName: string;
@@ -23,9 +24,9 @@ export function DownloadResultButton({
   payload?: ResultShareImagePayload;
   processingLabel?: string;
   errorLabel?: string;
+  successLabel?: string;
 }) {
-  const [downloading, setDownloading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   async function downloadBlob(blob: Blob) {
     const link = document.createElement("a");
@@ -63,17 +64,17 @@ export function DownloadResultButton({
   async function handleDownload() {
     const target = document.getElementById(targetId);
 
-    if (downloading) {
+    if (status === "loading") {
       return;
     }
 
-    setDownloading(true);
-    setError(null);
+    setStatus("loading");
 
     try {
       const exportedByServer = await attemptServerExport();
 
       if (exportedByServer) {
+        setStatus("success");
         return;
       }
 
@@ -152,6 +153,7 @@ export function DownloadResultButton({
 
       if (blob) {
         await downloadBlob(blob);
+        setStatus("success");
         return;
       }
 
@@ -159,11 +161,10 @@ export function DownloadResultButton({
       link.download = fileName;
       link.href = canvas.toDataURL("image/png");
       link.click();
+      setStatus("success");
     } catch (downloadError) {
       console.error("result-png-export-failed", downloadError);
-      setError("download-unavailable");
-    } finally {
-      setDownloading(false);
+      setStatus("error");
     }
   }
 
@@ -173,19 +174,25 @@ export function DownloadResultButton({
         type="button"
         onClick={() => void handleDownload()}
         className={cn(
-          "inline-flex h-11 items-center gap-2 rounded-full bg-[linear-gradient(135deg,#f5c76d,#ba7eff)] px-5 py-3 font-code text-[11px] font-semibold uppercase tracking-[0.16em] text-[#050814] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c76d]/40 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-70",
+          "inline-flex h-11 min-w-[10.5rem] items-center justify-center gap-2 rounded-full bg-[linear-gradient(135deg,#f5c76d,#ba7eff)] px-5 py-3 font-code text-[11px] font-semibold uppercase tracking-[0.16em] text-[#050814] transition hover:brightness-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#f5c76d]/40 focus-visible:ring-offset-0 disabled:cursor-not-allowed disabled:opacity-70",
           className
         )}
-        disabled={downloading}
+        disabled={status === "loading"}
       >
-        {downloading ? <Loader2 className="h-4 w-4 animate-spin" /> : <Download className="h-4 w-4" />}
-        {downloading ? processingLabel : label}
+        {status === "loading" ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
+        {status === "success" ? <CheckCircle2 className="h-4 w-4" /> : null}
+        {status === "idle" || status === "error" ? <Download className="h-4 w-4" /> : null}
+        {status === "loading" ? processingLabel : status === "success" ? successLabel : label}
       </button>
-      {error ? (
-        <p aria-live="polite" className="mt-3 text-xs uppercase tracking-[0.16em] text-[#ffb4a8]">
-          {errorLabel}
-        </p>
-      ) : null}
+      <p
+        aria-live="polite"
+        className={cn(
+          "mt-2 min-h-5 text-xs leading-5",
+          status === "error" ? "text-[#ffb4a8]" : "text-[var(--signal-text-soft)]"
+        )}
+      >
+        {status === "success" ? successLabel : status === "error" ? errorLabel : ""}
+      </p>
     </div>
   );
 }

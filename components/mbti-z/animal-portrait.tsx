@@ -1,4 +1,8 @@
+"use client";
+
 import Image from "next/image";
+import { ImageOff } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -20,6 +24,8 @@ export function AnimalPortrait({
   priority = false,
   className,
   titleClassName,
+  fallbackLabel = "Animal image unavailable",
+  focalPosition = "50% 50%",
 }: {
   imagePath: string;
   alt: string;
@@ -32,7 +38,19 @@ export function AnimalPortrait({
   priority?: boolean;
   className?: string;
   titleClassName?: string;
+  fallbackLabel?: string;
+  focalPosition?: string;
 }) {
+  const [loadedPath, setLoadedPath] = useState<string | null>(null);
+  const [failedPath, setFailedPath] = useState<string | null>(null);
+  const loaded = loadedPath === imagePath;
+  const failed = failedPath === imagePath;
+
+  useEffect(() => {
+    setLoadedPath(null);
+    setFailedPath(null);
+  }, [imagePath]);
+
   return (
     <div
       className={cn(
@@ -41,26 +59,38 @@ export function AnimalPortrait({
         className
       )}
     >
-      <Image
-        alt={alt}
-        className="object-cover opacity-82"
-        fill
-        priority={priority}
-        sizes={ratio === "wide" ? "(min-width: 1280px) 32vw, 100vw" : "(min-width: 1280px) 24vw, (min-width: 768px) 40vw, 100vw"}
-        src={imagePath}
-        unoptimized
-      />
+      {!failed ? (
+        <Image
+          alt={alt}
+          className={cn("object-cover opacity-82 transition-opacity duration-300", loaded ? "opacity-82" : "opacity-0")}
+          fill
+          onError={() => setFailedPath(imagePath)}
+          onLoad={() => setLoadedPath(imagePath)}
+          priority={priority}
+          sizes={ratio === "wide" ? "(min-width: 1280px) 32vw, 100vw" : "(min-width: 1280px) 24vw, (min-width: 768px) 40vw, 100vw"}
+          src={imagePath}
+          style={{ objectPosition: focalPosition }}
+        />
+      ) : (
+        <div
+          aria-label={fallbackLabel}
+          className="absolute inset-0 flex flex-col items-center justify-center gap-3 bg-[#080d18] px-6 text-center text-white/58"
+          data-ui-asset-fallback="animal"
+          role="img"
+        >
+          <ImageOff aria-hidden="true" className="h-9 w-9 text-white/42" />
+          <span className="text-sm leading-6">{fallbackLabel}</span>
+        </div>
+      )}
+
+      {!loaded && !failed ? (
+        <div aria-hidden="true" className="absolute inset-0 animate-pulse bg-white/[0.05]" />
+      ) : null}
 
       <div
         className="absolute inset-0"
         style={{
-          background: `linear-gradient(180deg, ${accentFrom}22 0%, rgba(5,9,18,0.14) 35%, rgba(5,9,18,0.88) 100%)`,
-        }}
-      />
-      <div
-        className="absolute inset-x-[8%] top-[8%] h-[44%] rounded-full blur-3xl"
-        style={{
-          background: `radial-gradient(circle, ${accentTo}3d 0%, transparent 74%)`,
+          background: `linear-gradient(180deg, ${accentFrom}22 0%, rgba(5,9,18,0.14) 35%, rgba(5,9,18,0.88) 88%, ${accentTo}1f 100%)`,
         }}
       />
 

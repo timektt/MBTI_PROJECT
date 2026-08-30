@@ -66,7 +66,9 @@ Current plugin artifacts:
 
 - Figma FigJam: [MBTI Z Redesign Delivery Map](https://www.figma.com/board/MvriLNNZ9JX4S1rGlnwL8o)
 - Figma FigJam diagram in the same board: `MBTI Z Route Task Packets`
+- Figma design file for the new global-reference polish sprint: [MBTI Z Global Reference Redesign Sprint 2026-06-30](https://www.figma.com/design/iwIxUicscMJ5kjjykNvKXD)
 - Creative Production: `MBTI Z Style Route`
+- Current global-reference polish plan: `docs/mbti-z-global-reference-redesign-plan.md`
 
 ### Official source registry for this redesign
 

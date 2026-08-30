@@ -961,7 +961,7 @@ const movieQuestions = [
 ];
 
 function createImagePath(code, animalKey) {
-  return `/mbti-z/animals/${code.toLowerCase()}-${animalKey}.png`;
+  return `/mbti-z/v4/fantasy-v2/animals/${code.toLowerCase()}-${animalKey}.webp`;
 }
 
 export const mbtiZProfiles = basePersonalityProfiles.map(

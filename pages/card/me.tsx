@@ -1,5 +1,5 @@
 import { RelaunchState } from "@/components/cyber/relaunch-state";
 
 export default function MyCardPage() {
-  return <RelaunchState scenario="community" />;
+  return <RelaunchState intent="personal-card" scenario="community" />;
 }

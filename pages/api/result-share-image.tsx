@@ -62,10 +62,12 @@ export default async function handler(request: NextApiRequest, response: NextApi
     new Date(parsedBody.createdAt)
   );
   const animalUrl = new URL(parsedBody.animal.imagePath, getRequestOrigin(request)).toString();
-  const summaryBody =
-    parsedBody.summaryBody.length > 260
-      ? `${parsedBody.summaryBody.slice(0, 257).trim()}...`
-      : parsedBody.summaryBody;
+  const summaryBody = parsedBody.summaryBody;
+  const summaryBodyStyle = {
+    ...bodyStyle,
+    fontSize: summaryBody.length > 220 ? 14 : summaryBody.length > 160 ? 15 : 17,
+    lineHeight: 1.5,
+  };
 
   const imageResponse = new ImageResponse(
     (
@@ -86,7 +88,7 @@ export default async function handler(request: NextApiRequest, response: NextApi
             position: "absolute",
             inset: 0,
             background:
-              "radial-gradient(circle at top right, rgba(255,255,255,0.18), transparent 28%), radial-gradient(circle at 20% 18%, rgba(255,255,255,0.12), transparent 22%)",
+              "linear-gradient(145deg, rgba(255,255,255,0.15), transparent 34%), linear-gradient(180deg, rgba(255,255,255,0.08), transparent 30%)",
           }}
         />
 
@@ -154,7 +156,9 @@ export default async function handler(request: NextApiRequest, response: NextApi
           >
             <div
               style={{
-                width: "44%",
+                width: "425px",
+                minWidth: 0,
+                flexShrink: 0,
                 display: "flex",
                 flexDirection: "column",
                 gap: "18px",
@@ -183,13 +187,15 @@ export default async function handler(request: NextApiRequest, response: NextApi
 
               <Panel>
                 <span style={labelStyle}>สรุปภาษาไทย</span>
-                <p style={bodyStyle}>{summaryBody}</p>
+                <p style={summaryBodyStyle}>{summaryBody}</p>
               </Panel>
             </div>
 
             <div
               style={{
-                width: "56%",
+                width: "541px",
+                minWidth: 0,
+                flexShrink: 0,
                 display: "flex",
                 flexDirection: "column",
                 gap: "18px",
@@ -369,8 +375,12 @@ function Panel({ children }: { children: ReactNode }) {
   return (
     <div
       style={{
+        width: "100%",
+        minWidth: 0,
+        boxSizing: "border-box",
         display: "flex",
         flexDirection: "column",
+        overflow: "hidden",
         borderRadius: "28px",
         border: "1px solid rgba(255,255,255,0.1)",
         background: "rgba(255,255,255,0.04)",
@@ -397,16 +407,24 @@ const labelStyle: CSSProperties = {
 };
 
 const sectionTitleStyle: CSSProperties = {
+  width: "100%",
+  minWidth: 0,
   marginTop: 16,
   fontSize: 28,
   lineHeight: 1.12,
+  overflowWrap: "anywhere",
+  wordBreak: "break-word",
   color: "white",
 };
 
 const bodyStyle: CSSProperties = {
+  width: "100%",
+  minWidth: 0,
   marginTop: 16,
-  fontSize: 18,
-  lineHeight: 1.65,
+  fontSize: 17,
+  lineHeight: 1.55,
+  overflowWrap: "anywhere",
+  wordBreak: "break-word",
   color: "rgba(255,255,255,0.72)",
 };
 

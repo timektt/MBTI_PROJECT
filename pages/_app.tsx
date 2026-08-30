@@ -67,7 +67,7 @@ export default function App({
     ((page: ReactElement) => (
       <>
         <Navbar key={session?.user?.image || "guest"} />
-        <main>{page}</main>
+        {page}
       </>
     ));
 

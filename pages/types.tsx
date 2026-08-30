@@ -1,13 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BookOpen, Clapperboard, Layers3 } from "lucide-react";
+import { useRouter } from "next/router";
+import { ArrowRight, Layers3 } from "lucide-react";
+import { useEffect, useState } from "react";
 
 import { AmbientStage } from "@/components/cyber/ambient-stage";
-import { LocaleToggle } from "@/components/cyber/locale-toggle";
 import { useMbtiZLocale } from "@/components/cyber/mbti-z-locale-provider";
 import { Reveal, Stagger, StaggerItem } from "@/components/cyber/motion";
-import { HouseBadge } from "@/components/mbti-z/house-badge";
 import { TypeCard } from "@/components/mbti-z/type-card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { mbtiZProfiles } from "@/data/mbti/mbti-z-data.mjs";
@@ -15,7 +15,10 @@ import {
   mbtiZTypesCopy,
   mbtiZTypesMovieLensCopy,
 } from "@/lib/mbti-z-copy";
-import { getMbtiZHouseScenePath } from "@/lib/mbti-z-visuals";
+import {
+  getMbtiZHouseScenePath,
+  getMbtiZTypePosterPath,
+} from "@/lib/mbti-z-visuals";
 
 type MbtiZProfile = {
   code: string;
@@ -31,7 +34,7 @@ type MbtiZProfile = {
   animalKey: string;
   animalNameTh: string;
   animalNameEn: string;
-  animalImagePath: string;
+  animalImagePath: string | null;
   summaryTh: string;
   summaryEn: string;
   fitTh: string;
@@ -39,16 +42,182 @@ type MbtiZProfile = {
 };
 
 const houseOrder = ["purple", "green", "yellow", "blue"] as const;
+type HouseKey = (typeof houseOrder)[number];
+
+type Locale = "th" | "en";
+type RawProfile = Record<string, unknown>;
+
+const houseFallbacks: Record<
+  HouseKey,
+  {
+    codes: readonly string[];
+    title: Record<Locale, string>;
+    accentFrom: string;
+    accentTo: string;
+  }
+> = {
+  purple: {
+    codes: ["INTJ", "INTP", "ENTJ", "ENTP"],
+    title: { th: "บ้านม่วง", en: "Purple House" },
+    accentFrom: "#6d3bf5",
+    accentTo: "#ba7eff",
+  },
+  green: {
+    codes: ["INFJ", "INFP", "ENFJ", "ENFP"],
+    title: { th: "บ้านเขียว", en: "Green House" },
+    accentFrom: "#0f9f6e",
+    accentTo: "#76e6b2",
+  },
+  yellow: {
+    codes: ["ISTJ", "ISFJ", "ESTJ", "ESFJ"],
+    title: { th: "บ้านเหลือง", en: "Yellow House" },
+    accentFrom: "#d8a623",
+    accentTo: "#ffe082",
+  },
+  blue: {
+    codes: ["ISTP", "ISFP", "ESTP", "ESFP"],
+    title: { th: "บ้านฟ้า", en: "Blue House" },
+    accentFrom: "#1f7cf0",
+    accentTo: "#7cd9ff",
+  },
+};
+
+const resilienceCopy: Record<
+  Locale,
+  {
+    profile: string;
+    summary: string;
+    fit: string;
+    animal: string;
+    houseDescription: string;
+    asset: string;
+  }
+> = {
+  th: {
+    profile: "ข้อมูลโปรไฟล์ยังไม่พร้อมใช้งาน",
+    summary: "ข้อมูลสรุปของประเภทนี้ยังไม่พร้อมใช้งาน",
+    fit: "ข้อมูลความเหมาะสมของประเภทนี้ยังไม่พร้อมใช้งาน",
+    animal: "ข้อมูลสัตว์ประจำประเภทยังไม่พร้อมใช้งาน",
+    houseDescription: "ข้อมูลภาพรวมของบ้านนี้ยังไม่พร้อมใช้งาน",
+    asset: "ไม่มีภาพสัตว์",
+  },
+  en: {
+    profile: "Profile content is not available",
+    summary: "The summary for this type is not available.",
+    fit: "The fit guidance for this type is not available.",
+    animal: "The animal profile is not available",
+    houseDescription: "The overview for this house is not available.",
+    asset: "No animal image",
+  },
+};
+
+function isRecord(value: unknown): value is RawProfile {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function readText(profile: RawProfile | undefined, key: string, fallback: string) {
+  const value = profile?.[key];
+  return typeof value === "string" && value.trim() ? value.trim() : fallback;
+}
+
+function readAccent(profile: RawProfile | undefined, key: string, fallback: string) {
+  const value = profile?.[key];
+  return typeof value === "string" && /^#[0-9a-f]{6}$/i.test(value.trim())
+    ? value.trim()
+    : fallback;
+}
+
+function readImagePath(
+  profile: RawProfile | undefined,
+  code: string,
+  animalKey: string
+) {
+  const value = profile?.animalImagePath;
+  const expectedPath = getMbtiZTypePosterPath(code, animalKey);
+
+  return typeof value === "string" && value.trim() === expectedPath
+    ? expectedPath
+    : null;
+}
+
+function findProfile(profiles: RawProfile[], code: string) {
+  return profiles.find(
+    (profile) =>
+      typeof profile.code === "string" && profile.code.trim().toUpperCase() === code
+  );
+}
+
+function normalizeProfile(
+  profile: RawProfile | undefined,
+  code: string,
+  houseKey: HouseKey
+): MbtiZProfile {
+  const houseFallback = houseFallbacks[houseKey];
+  const animalKey = readText(profile, "animalKey", "unavailable");
+
+  return {
+    code,
+    archetypeNameTh: readText(profile, "archetypeNameTh", resilienceCopy.th.profile),
+    archetypeNameEn: readText(profile, "archetypeNameEn", resilienceCopy.en.profile),
+    houseKey,
+    houseTitleTh: readText(profile, "houseTitleTh", houseFallback.title.th),
+    houseTitleEn: readText(profile, "houseTitleEn", houseFallback.title.en),
+    houseDescriptionTh: readText(
+      profile,
+      "houseDescriptionTh",
+      resilienceCopy.th.houseDescription
+    ),
+    houseDescriptionEn: readText(
+      profile,
+      "houseDescriptionEn",
+      resilienceCopy.en.houseDescription
+    ),
+    accentFrom: readAccent(profile, "accentFrom", houseFallback.accentFrom),
+    accentTo: readAccent(profile, "accentTo", houseFallback.accentTo),
+    animalKey,
+    animalNameTh: readText(profile, "animalNameTh", resilienceCopy.th.animal),
+    animalNameEn: readText(profile, "animalNameEn", resilienceCopy.en.animal),
+    animalImagePath: readImagePath(profile, code, animalKey),
+    summaryTh: readText(profile, "summaryTh", resilienceCopy.th.summary),
+    summaryEn: readText(profile, "summaryEn", resilienceCopy.en.summary),
+    fitTh: readText(profile, "fitTh", resilienceCopy.th.fit),
+    fitEn: readText(profile, "fitEn", resilienceCopy.en.fit),
+  };
+}
 
 export default function TypesPage() {
-  const { locale, setLocale } = useMbtiZLocale();
+  const router = useRouter();
+  const { locale } = useMbtiZLocale();
+  const [activeHouseKey, setActiveHouseKey] = useState<HouseKey>(houseOrder[0]);
   const activeCopy = mbtiZTypesCopy[locale];
-  const profiles = mbtiZProfiles as MbtiZProfile[];
+  const profiles = Array.isArray(mbtiZProfiles)
+    ? (mbtiZProfiles as unknown[]).filter(isRecord)
+    : [];
+  const activeResilienceCopy = resilienceCopy[locale];
   const headlineClass = locale === "th" ? "font-thai-editorial" : "font-luxury";
 
+  useEffect(() => {
+    if (!router.isReady) return;
+
+    const queryValue = Array.isArray(router.query.house)
+      ? router.query.house[0]
+      : router.query.house;
+    const nextHouse = houseOrder.includes(queryValue as HouseKey)
+      ? (queryValue as HouseKey)
+      : houseOrder[0];
+
+    setActiveHouseKey(nextHouse);
+  }, [router.isReady, router.query.house]);
+
   const groupedProfiles = houseOrder.map((houseKey) => {
-    const houseProfiles = profiles.filter((profile) => profile.houseKey === houseKey);
-    const house = houseProfiles[0];
+    const houseFallback = houseFallbacks[houseKey];
+    const houseProfiles = houseFallback.codes.map((code) =>
+      normalizeProfile(findProfile(profiles, code), code, houseKey)
+    );
+    const houseSource = houseFallback.codes
+      .map((code) => findProfile(profiles, code))
+      .find((profile) => profile !== undefined);
+    const house = normalizeProfile(houseSource, houseFallback.codes[0], houseKey);
 
     return {
       houseKey,
@@ -65,6 +234,18 @@ export default function TypesPage() {
     };
   });
 
+  function handleHouseChange(value: string) {
+    if (!houseOrder.includes(value as HouseKey)) return;
+
+    const nextHouse = value as HouseKey;
+    setActiveHouseKey(nextHouse);
+    void router.replace(
+      { pathname: "/types", query: { house: nextHouse } },
+      undefined,
+      { shallow: true, scroll: false }
+    );
+  }
+
   return (
     <>
       <Head>
@@ -73,183 +254,112 @@ export default function TypesPage() {
       </Head>
 
       <AmbientStage variant="dashboard">
-        <div className="mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <LocaleToggle locale={locale} onChange={setLocale} />
-            <div className="flex flex-wrap gap-3">
-              <Link
-                href="/"
-                className="inline-flex h-11 items-center rounded-full border border-white/10 px-4 py-2 font-code text-[11px] uppercase tracking-[0.16em] text-white/74 transition hover:bg-white/8 hover:text-white"
-              >
-                {activeCopy.home}
-              </Link>
-              <Link
-                href="/quiz"
-                className="inline-flex h-11 items-center rounded-full bg-[linear-gradient(135deg,#f5c76d,#ba7eff)] px-5 py-2 font-code text-[11px] font-semibold uppercase tracking-[0.16em] text-[#050814]"
-              >
-                {activeCopy.quiz}
-              </Link>
-            </div>
-          </div>
-
-          <Reveal className="mt-6 cyber-panel-strong rounded-[1.9rem] p-6 sm:p-7 lg:p-8" variant="hero">
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="inline-flex items-center gap-2 rounded-full border border-[#f5c76d]/15 bg-[#f5c76d]/10 px-4 py-2 font-code text-[11px] uppercase tracking-[0.28em] text-[#ffe3a1]">
-                <Layers3 className="h-3.5 w-3.5" />
-                {activeCopy.atlas}
-              </div>
-              <div className="cyber-data-chip rounded-full px-4 py-2 font-code text-[10px] uppercase tracking-[0.24em] text-white/60">
-                {activeCopy.houseLibrary}
-              </div>
+        <main className="mx-auto max-w-7xl px-4 pb-24 pt-6 sm:px-6 lg:px-8">
+          <Reveal className="cyber-panel-strong rounded-[1.5rem] p-4 sm:p-6 lg:p-7" variant="hero">
+            <div className="inline-flex items-center gap-2 font-code text-[10px] uppercase tracking-[0.18em] text-[#ffe3a1]">
+              <Layers3 className="h-3.5 w-3.5" />
+              {activeCopy.atlas}
             </div>
 
-            <div className="mt-6 grid gap-5 lg:grid-cols-[1.08fr_0.92fr] lg:items-end">
-              <div>
-                <h1 className={`max-w-4xl text-[2.25rem] leading-[0.95] text-white sm:text-[3.2rem] ${headlineClass}`}>
-                  {activeCopy.title}
-                </h1>
-                <p className="mt-4 max-w-2xl text-[15px] leading-7 text-white/72 sm:text-base">
-                  {activeCopy.subtitle}
-                </p>
-              </div>
-
-              <div className="rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 sm:p-5">
-                <div className="flex items-start gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#7cc8ff]/12 text-[#7cc8ff]">
-                    <BookOpen className="h-4 w-4" />
-                  </div>
-                  <div>
-                    <p className="cyber-kicker text-[11px]">{activeCopy.quickScanTitle}</p>
-                    <p className="mt-2 text-sm leading-6 text-white/66">{activeCopy.quickScanBody}</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            <h1 className={`mt-3 max-w-4xl text-[2rem] leading-[1.02] text-white sm:text-[2.75rem] ${headlineClass}`}>
+              {activeCopy.title}
+            </h1>
+            <p className="mt-3 max-w-3xl text-base leading-7 text-white/72">
+              {activeCopy.subtitle}
+            </p>
           </Reveal>
 
-          <Stagger
-            className="-mx-4 mt-6 flex snap-x snap-mandatory gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-2 md:overflow-visible md:px-0 md:pb-0 xl:grid-cols-4"
-            mode="mount"
+          <Tabs
+            className="mt-4 gap-3"
+            value={activeHouseKey}
+            onValueChange={handleHouseChange}
           >
-            {groupedProfiles.map((house) => (
-              <StaggerItem
-                key={`overview-${house.houseKey}`}
-                className="relative min-w-[248px] snap-start overflow-hidden rounded-[1.45rem] border border-white/10 bg-white/[0.04] p-4 md:min-w-0"
-              >
-                <Image
-                  alt={house.houseTitle}
-                  className="object-cover opacity-46"
-                  fill
-                  sizes="(min-width: 1280px) 20vw, (min-width: 768px) 40vw, 100vw"
-                  src={getMbtiZHouseScenePath(house.houseKey)}
-                  unoptimized
-                />
-                <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(6,10,18,0.2),rgba(6,10,18,0.88))]" />
-                <div className="relative">
-                  <HouseBadge
-                    accentFrom={house.accentFrom}
-                    accentTo={house.accentTo}
-                    label={house.houseTitle}
-                  />
-                  <p className="mt-4 text-sm leading-6 text-white/68 line-clamp-3">
-                    {house.houseDescription}
-                  </p>
-                  <div className="mt-3 flex items-center justify-between gap-4">
-                    <span className="font-code text-[10px] uppercase tracking-[0.22em] text-white/44">
-                      {activeCopy.typeCount} · {house.profiles.length}
-                    </span>
-                    <span className="line-clamp-1 max-w-[60%] text-right font-code text-[10px] uppercase tracking-[0.18em] text-white/36">
-                      {house.profiles.map((profile) => profile.code).join(" · ")}
-                    </span>
-                  </div>
-                </div>
-              </StaggerItem>
-            ))}
-          </Stagger>
-
-          <Tabs className="mt-8" defaultValue={groupedProfiles[0]?.houseKey}>
-            <TabsList className="-mx-4 w-auto flex-nowrap justify-start overflow-x-auto px-4 sm:mx-0 sm:w-full sm:flex-wrap sm:overflow-visible sm:px-0">
+            <TabsList
+              aria-label={activeCopy.houseLibrary}
+              className="grid w-full grid-cols-2 gap-2 bg-[#070b16]/96 p-2 sm:flex sm:flex-wrap sm:justify-start sm:bg-white/[0.04] md:px-2"
+            >
               {groupedProfiles.map((house) => (
-                <TabsTrigger key={house.houseKey} value={house.houseKey} className="shrink-0">
+                <TabsTrigger
+                  key={house.houseKey}
+                  value={house.houseKey}
+                  className="min-w-0 border border-transparent px-2 tracking-[0.08em] data-[state=active]:font-bold sm:shrink-0 sm:px-3"
+                  style={
+                    activeHouseKey === house.houseKey
+                      ? {
+                          borderColor: `${house.accentTo}99`,
+                          boxShadow: `inset 0 -2px 0 ${house.accentTo}`,
+                        }
+                      : undefined
+                  }
+                >
                   {house.houseTitle}
                 </TabsTrigger>
               ))}
             </TabsList>
 
             {groupedProfiles.map((house) => (
-              <TabsContent key={house.houseKey} value={house.houseKey}>
-                <section className="grid gap-5 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
-                  <Reveal className="relative overflow-hidden rounded-[1.75rem] border border-white/10 p-5 sm:p-6" variant="soft">
+              <TabsContent key={house.houseKey} value={house.houseKey} className="mt-0">
+                <section
+                  aria-labelledby={`house-${house.houseKey}-title`}
+                  className="grid gap-4"
+                >
+                  <div
+                    className="relative overflow-hidden rounded-[1.25rem] border p-4 sm:p-5 lg:p-6"
+                    style={{ borderColor: `${house.accentTo}42` }}
+                  >
                     <Image
-                      alt={house.houseTitle}
-                      className="object-cover opacity-56"
+                      alt=""
+                      aria-hidden="true"
+                      className="object-cover opacity-30"
                       fill
+                      fetchPriority={house.houseKey === "purple" ? "high" : "auto"}
                       priority={house.houseKey === "purple"}
-                      sizes="(min-width: 1024px) 32vw, 100vw"
+                      sizes="(min-width: 1024px) 70vw, 100vw"
                       src={getMbtiZHouseScenePath(house.houseKey)}
-                      unoptimized
                     />
-                    <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(8,12,24,0.14),rgba(8,12,24,0.9))]" />
-                    <div className="relative">
-                      <HouseBadge
-                        accentFrom={house.accentFrom}
-                        accentTo={house.accentTo}
-                        label={house.houseTitle}
-                      />
-                      <h2 className={`mt-5 text-[1.8rem] leading-none text-white sm:text-[2.05rem] ${headlineClass}`}>{house.houseTitle}</h2>
-                      <p className="mt-3 text-sm leading-6 text-white/72 sm:text-[15px] sm:leading-7">{house.houseDescription}</p>
-
-                      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-                        <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-4">
-                          <p className="font-code text-[10px] uppercase tracking-[0.22em] text-white/40">
-                            {activeCopy.typeCount}
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-white/66">
-                            {activeCopy.typeCount} · {house.profiles.length}
-                          </p>
-                        </div>
-                        <div className="rounded-[1.2rem] border border-white/10 bg-white/[0.04] p-4">
-                          <p className="flex items-center gap-2 font-code text-[10px] uppercase tracking-[0.22em] text-white/40">
-                            <Clapperboard className="h-3.5 w-3.5 text-[#f5c76d]" />
-                            {activeCopy.movieLens}
-                          </p>
-                          <p className="mt-2 text-sm leading-6 text-white/66">{house.movieLens}</p>
-                        </div>
-                      </div>
-
-                      <div className="mt-5 flex flex-wrap gap-2">
-                        {house.profiles.map((profile) => (
-                          <span
-                            key={`tag-${profile.code}`}
-                            className="rounded-full border border-white/10 bg-white/[0.04] px-2.5 py-1 font-code text-[10px] uppercase tracking-[0.16em] text-white/70"
-                          >
-                            {profile.code}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </Reveal>
-
-                  <div>
-                    <div className="flex flex-wrap items-center justify-between gap-3">
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(8,12,24,0.96),rgba(8,12,24,0.82),rgba(8,12,24,0.94))]" />
+                    <div className="relative grid gap-3 lg:grid-cols-[0.9fr_1.1fr] lg:items-end lg:gap-8">
                       <div>
-                        <p className="cyber-kicker text-[11px]">{activeCopy.archiveTitle}</p>
-                        <p className="mt-2 max-w-2xl text-sm leading-6 text-white/62">
-                          {activeCopy.archiveBody}
+                        <div
+                          aria-hidden="true"
+                          className="h-1 w-12 rounded-full"
+                          style={{ backgroundColor: house.accentTo }}
+                        />
+                        <h2
+                          id={`house-${house.houseKey}-title`}
+                          className={`mt-3 text-[1.65rem] leading-tight text-white sm:text-[1.9rem] ${headlineClass}`}
+                        >
+                          {house.houseTitle}
+                        </h2>
+                        <p className="mt-2 max-w-2xl text-base leading-7 text-white/72">
+                          {house.houseDescription}
                         </p>
                       </div>
-                      <div className="rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 font-code text-[10px] uppercase tracking-[0.2em] text-white/54">
-                        {activeCopy.typeCount} · {house.profiles.length}
-                      </div>
-                    </div>
 
-                    <Stagger className="mt-4 grid gap-3 md:grid-cols-2" mode="mount">
+                      <p className="border-t border-white/10 pt-3 text-sm leading-6 text-white/68 lg:border-l lg:border-t-0 lg:pl-6 lg:pt-0">
+                        <span className="font-code text-[10px] uppercase tracking-[0.12em] text-[#f5c76d]">
+                          {activeCopy.movieLens}
+                        </span>
+                        {" · "}
+                        {house.movieLens}
+                      </p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <p className="cyber-kicker text-[11px]">{activeCopy.archiveTitle}</p>
+
+                    <Stagger
+                      className="mt-3 grid items-start gap-3 md:grid-cols-2 xl:grid-cols-4"
+                      mode="mount"
+                    >
                       {house.profiles.map((profile) => (
                         <StaggerItem key={profile.code}>
                           <TypeCard
                             accentFrom={profile.accentFrom}
                             accentTo={profile.accentTo}
                             animalLabel={activeCopy.animal}
+                            assetFallbackLabel={activeResilienceCopy.asset}
                             animalName={
                               locale === "en" ? profile.animalNameEn : profile.animalNameTh
                             }
@@ -259,8 +369,6 @@ export default function TypesPage() {
                                 : profile.archetypeNameTh
                             }
                             code={profile.code}
-                            fit={locale === "en" ? profile.fitEn : profile.fitTh}
-                            fitLabel={activeCopy.fit}
                             houseTitle={
                               locale === "en"
                                 ? profile.houseTitleEn
@@ -271,7 +379,8 @@ export default function TypesPage() {
                             summary={
                               locale === "en" ? profile.summaryEn : profile.summaryTh
                             }
-                            summaryLabel={activeCopy.summaryLabel}
+                            href={`/types/${profile.code.toLowerCase()}?from=${house.houseKey}`}
+                            viewProfileLabel={activeCopy.viewProfile}
                           />
                         </StaggerItem>
                       ))}
@@ -291,7 +400,7 @@ export default function TypesPage() {
               <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
-        </div>
+        </main>
       </AmbientStage>
     </>
   );
