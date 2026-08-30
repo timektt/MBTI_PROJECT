@@ -14,6 +14,8 @@ const outputRoot = path.join(repoRoot, "output/ui-redesign-v3");
 const screenshotRoot = path.join(outputRoot, "screenshots");
 const reportPath = path.join(outputRoot, "audit/browser-audit-report.json");
 const baseUrl = process.env.BASE_URL || "http://127.0.0.1:3030";
+const baseOrigin = new URL(baseUrl).origin;
+const protectionBypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET?.trim();
 const chromeExecutable =
   process.env.CHROME_EXECUTABLE ||
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
@@ -103,7 +105,11 @@ async function scrollForLazyAssets(page) {
     }
     window.scrollTo(0, 0);
   });
-  await page.waitForTimeout(160);
+  await page
+    .waitForFunction(() => Array.from(document.images).every((image) => image.complete), null, {
+      timeout: 8_000,
+    })
+    .catch(() => undefined);
 }
 
 async function collectMetrics(page) {
@@ -239,7 +245,26 @@ async function main() {
     for (const sample of sampleGroups) {
       for (const viewportName of sample.viewportNames) {
         const viewport = viewports[viewportName];
-        const context = await browser.newContext({ viewport, reducedMotion: "reduce" });
+        const context = await browser.newContext({
+          viewport,
+          reducedMotion: "reduce",
+        });
+        if (protectionBypassSecret) {
+          await context.route("**/*", (route) => {
+            const request = route.request();
+            if (new URL(request.url()).origin !== baseOrigin) {
+              return route.continue();
+            }
+
+            return route.continue({
+              headers: {
+                ...request.headers(),
+                "x-vercel-protection-bypass": protectionBypassSecret,
+                "x-vercel-skip-toolbar": "1",
+              },
+            });
+          });
+        }
         if (sample.fixture) {
           await context.addInitScript({ path: fixturePath(sample.fixture) });
         }
@@ -273,6 +298,7 @@ async function main() {
           viewportNames: undefined,
           viewport: { name: viewportName, ...viewport },
           statusCode: response?.status() ?? null,
+          finalUrl: page.url(),
           title: await page.title(),
           screenshot: path.relative(repoRoot, screenshot),
           ...metrics,
@@ -290,6 +316,9 @@ async function main() {
     const label = `${result.samplePath}:${result.locale}:${result.viewport.name}`;
     const sampleFailures = [];
     if (result.statusCode !== 200) sampleFailures.push(`${label}:status:${result.statusCode}`);
+    if (!result.finalUrl || new URL(result.finalUrl).origin !== baseOrigin) {
+      sampleFailures.push(`${label}:unexpected_origin`);
+    }
     if (result.horizontalOverflow) sampleFailures.push(`${label}:horizontal_overflow`);
     if (result.mainCount !== 1) sampleFailures.push(`${label}:main_count:${result.mainCount}`);
     if (result.h1Count !== 1) sampleFailures.push(`${label}:h1_count:${result.h1Count}`);
